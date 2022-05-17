@@ -7,7 +7,7 @@ class Db{
     private $host = "localhost";
 	private $user = "root";
 	private $password = "";
-	private $dbName = "db_teacher";
+	private $dbName = "db_science";
 
 	protected $pdo;
 
