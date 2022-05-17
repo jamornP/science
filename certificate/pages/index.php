@@ -62,13 +62,18 @@
                                 foreach($persons as $person) {
                                     $n++;
                                     $name =$person['title'].$person['name']." ".$person['surname'];
+                                    if($person['address']!=""){
+                                        $download = "Download";
+                                    }else{
+                                        $download = "";
+                                    }
                                     echo "
                                         <tr>
                                             <td>{$n}</td>
                                             <td>{$name}</td>                                 
                                             
                                             <td class='text-right'>
-                                                 <a href='/science/upload/{$person['address']}'>{$person['address']}</a>                                           
+                                                 <a href='/science/upload/{$person['address']}'>{$download}</a>                                           
                                             </td>                                          
                                         </tr>
                                     ";

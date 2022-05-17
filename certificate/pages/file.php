@@ -15,7 +15,7 @@
         <!-- sweet alert  -->
         <link rel="stylesheet" href="../../theme/css/bootstrap-theme.css">
     </head>
-    <body>
+    <body class="font-mali">
     <nav class="navbar navbar-dark bg-warning text-white">
     <div class="container-fluid">
         <h3>Download เกียรติบัตรโครงการเรียนวิดยายังไงให้ปัง คณะวิทยาศาสตร์ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</h3>
@@ -72,13 +72,14 @@
                                 foreach($persons as $person) {
                                     $n++;
                                     $name =$person['title'].$person['name']." ".$person['surname'];
+                                    $download = end(explode("/",$person['address']));
                                     echo "
                                         <tr>
                                             <td>{$n}</td>
                                             <td>{$name}</td>                                 
                                             <td>{$person['email']}</td>
                                             <td class='text-right'>
-                                                 <a href='/science/upload/{$person['address']}'>{$person['address']}</a>                                           
+                                                 <a href='/science/upload/{$person['address']}'>{$download}</a>                                           
                                             </td>                                          
                                         </tr>
                                     ";
