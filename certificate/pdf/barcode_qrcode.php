@@ -1,5 +1,5 @@
-<?php require("{$_SERVER['DOCUMENT_ROOT']}/inc/db/db_webdev.php"); ?>
-<?php require("{$_SERVER['DOCUMENT_ROOT']}/lib/TCPDF-master/tcpdf.php");?>
+<?php //require("{$_SERVER['DOCUMENT_ROOT']}/inc/db/db_webdev.php"); ?>
+<?php require("{$_SERVER['DOCUMENT_ROOT']}/science/lib/TCPDF-master/tcpdf.php");?>
 <?php
 // create new PDF document
 $pdf = new TCPDF("P", "mm", "A4", true, 'UTF-8', false);

@@ -1,5 +1,5 @@
-<?php require("{$_SERVER['DOCUMENT_ROOT']}/inc/db/db_webdev.php"); ?>
-<?php require("{$_SERVER['DOCUMENT_ROOT']}/lib/TCPDF-master/tcpdf.php");?>
+<?php //require("{$_SERVER['DOCUMENT_ROOT']}/inc/db/db_webdev.php"); ?>
+<?php require("{$_SERVER['DOCUMENT_ROOT']}/science/lib/TCPDF-master/tcpdf.php");?>
 <?php
 // https://tcpdf.org/examples/
 // create new PDF document

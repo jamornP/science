@@ -1,5 +1,5 @@
-<?php require("{$_SERVER['DOCUMENT_ROOT']}/inc/db/db_webdev.php"); ?>
-<?php require("{$_SERVER['DOCUMENT_ROOT']}/lib/TCPDF-master/tcpdf.php");?>
+<?php //require("{$_SERVER['DOCUMENT_ROOT']}/inc/db/db_webdev.php"); ?>
+<?php require("{$_SERVER['DOCUMENT_ROOT']}/science/lib/TCPDF-master/tcpdf.php");?>
 <?php
 // https://tcpdf.org/examples/
 // create new PDF document
@@ -45,7 +45,7 @@ for($i = 1; $i <=30; $i++){
 
    // Image method signature:
    // Image($file, $x='', $y='', $w=0, $h=0, $type='', $link='', $align='', $resize=false, $dpi=300, $palign='', $ismask=false, $imgmask=false, $border=0, $fitbox=false, $hidden=false, $fitonpage=false)
-   $pdf->Image($_SERVER['DOCUMENT_ROOT'].'/img/person/sonjung.jpg', 10+($image_w + $margin_r)*$count_col, 10+($image_h + $margin_b)*$count_row, $image_w, 0);
+   $pdf->Image($_SERVER['DOCUMENT_ROOT'].'/science/certificate/background/ca/S_susu.png', 10+($image_w + $margin_r)*$count_col, 10+($image_h + $margin_b)*$count_row, $image_w, 0);
    $pdf->SetTextColor(0, 0, 0);
    $pdf->SetFontSize(20);
    // MultiCell($w, $h, $txt, $border=0, $align='J', $fill=0, $ln=1, $x='', $y='', $reseth=true, $stretch=0, $ishtml=false, $autopadding=true, $maxh=0)

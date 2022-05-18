@@ -19,6 +19,23 @@ class Certificate extends Db {
         $data = $stmt->fetchAll();
         return $data;
     }
+    public function getAllPersonProject($project) {
+        $sql ="
+            SELECT
+                ca.*,
+                pdf.address
+            FROM
+                tb_certificate_data AS ca
+                LEFT JOIN tb_certificate_pdf AS pdf ON ca.t_num = pdf.t_num AND ca.project = pdf.project
+            WHERE
+                ca.project ='{$project}'
+            ORDER BY
+                ca.t_num
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
     public function getAllCA() {
         $sql ="
             SELECT
