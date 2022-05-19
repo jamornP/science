@@ -13,6 +13,7 @@ use App\Database\Db;
             p_id,
             d_id,
             role,
+            program,
             password
         FROM
             tb_users
@@ -32,6 +33,7 @@ use App\Database\Db;
         $_SESSION['p_id'] = $userDB['p_id'];
         $_SESSION['d_id'] = $userDB['d_id'];
         $_SESSION['role'] = $userDB['role'];
+        $_SESSION['program'] = $userDB['program'];
         $_SESSION['login'] = true;
 
         return true;
