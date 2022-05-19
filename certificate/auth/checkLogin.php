@@ -12,6 +12,6 @@ if($result) {
     // }
     header("location: /science/certificate/backend/index.php");
 }else {
-    header("location: /science/certificate/backend/index.php?msg=error");
+    header("location: /science/certificate/auth/login.php?msg=error");
 }
 ?>

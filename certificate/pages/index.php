@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificate</title>
-    <link rel="stylesheet" href="../../theme/css/bootstrap-theme.css">
+    <?php require $_SERVER['DOCUMENT_ROOT']."/science/certificate/components/link.php";?>
 </head>
 <body class="font-kanit">
     <nav class="navbar navbar-dark bg-warning text-white">
@@ -29,7 +29,7 @@
                                 <label for="">ชื่อ *(เฉพาะชื่อเท่านั้น)</label>
                                 <input type="text" class="form-control" name="name" autofocus>
                             </div>
-                            <button type="submit" class="btn btn-success mt-2" name="submit">ค้นหา</button>
+                            <button type="submit" class="btn btn-success mt-2 text-white" name="submit">ค้นหา</button>
                         </form>
                     </div>
                 </div>

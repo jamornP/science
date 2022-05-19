@@ -34,6 +34,6 @@ if(isset($_POST['submit'])){
         // print_r($file_path);
         // echo "</pre>";
     }
-    header('Location: file.php');
+    header('Location: upload_file.php?project='.$project);
 }
 ?>

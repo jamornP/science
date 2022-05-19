@@ -4,4 +4,5 @@
         header("location: /science/certificate/auth/login.php");
         exit;
     }
+    
 ?>

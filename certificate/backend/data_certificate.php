@@ -1,3 +1,4 @@
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/certificate/auth/auth.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php"?>
 <?php 
  use App\Model\Certificate;
@@ -10,7 +11,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificate</title>
-    <link rel="stylesheet" href="../../theme/css/bootstrap-theme.css">
+    <?php require $_SERVER['DOCUMENT_ROOT']."/science/certificate/components/link.php";?>
+    
 </head>
 <body class="font-kanit">
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/certificate/components/navbar.php";?>
@@ -124,5 +126,6 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>
