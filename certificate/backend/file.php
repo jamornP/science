@@ -2,7 +2,7 @@
 <?php 
     use App\Model\Certificate;
 
-    $caObj = new Certificate();
+    $caObj = new Certificate;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +27,7 @@
                     <div class="card mb-3 h-100">
                         <div class="card-header bg-primary text-white">Upload File เกียรติบัตร</div>
                         <div class="card-body">
-                            <form action="save2.php" method="post" enctype="multipart/form-data">
+                            <form action="save.php" method="post" enctype="multipart/form-data">
                             <font color="red">*ชื่อโครงการ </font>
                                 <select class="form-select" aria-label="Default select example" name="project" required>
                                     <option selected>เลือก</option>
@@ -41,7 +41,7 @@
                                     ?>
                                     
                                 </select>
-                                <font color="red">*อัพโหลดได้เฉพาะ .pdf ได้ครั้งละ 50 ไฟล์ เท่านั้น </font>
+                                <font color="red">*อัพโหลดได้เฉพาะ .pdf ได้ครั้งละ 20 ไฟล์ เท่านั้น </font>
                                 <input type="file" name="file[]" required   class="form-control" accept="application/pdf"  multiple> <br>
                                 <button type="submit" class="btn btn-primary" name="submit">Upload</button>
                             </form>
@@ -67,7 +67,7 @@
                             <?php
                                 
                                 $personObj = new Certificate();
-                                $project = "โครงการอบรมครูแนะแนว";
+                                $project = "โครงการเรียนวิดยายังไงให้ปัง";
                                 $persons = $personObj->getAllPersonProject($project);
                                  $n=0;
                                 foreach($persons as $person) {

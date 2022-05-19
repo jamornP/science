@@ -7,6 +7,8 @@
     <title>คณวิทยาศาสตร์</title>
 </head>
 <body>
-<?php header('Location: /science/certificate/pages/index.php'); ?>
+<?php 
+phpinfo();
+//header('Location: /science/certificate/pages/index.php'); ?>
 </body>
 </html>

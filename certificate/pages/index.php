@@ -1,7 +1,7 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php"?>
 <?php 
  use App\Model\Certificate;
- $personObj = new Certificate();   
+ $personObj = new Certificate;   
 ?>
 <!DOCTYPE html>
 <html lang="en">

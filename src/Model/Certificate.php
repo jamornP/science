@@ -13,6 +13,7 @@ class Certificate extends Db {
                 tb_certificate_data AS ca
                 LEFT JOIN tb_certificate_pdf AS pdf ON ca.t_num = pdf.t_num AND ca.project = pdf.project
             ORDER BY
+                ca.project,    
                 ca.t_num
         ";
         $stmt = $this->pdo->query($sql);
@@ -30,6 +31,7 @@ class Certificate extends Db {
             WHERE
                 ca.project ='{$project}'
             ORDER BY
+                ca.project,    
                 ca.t_num
         ";
         $stmt = $this->pdo->query($sql);

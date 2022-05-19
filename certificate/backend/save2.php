@@ -2,7 +2,7 @@
 <?php 
 use App\Model\Certificate;
 
-$caObj = new Certificate();
+$caObj = new Certificate;
 // echo "<pre>"; 
 // print_r($_FILES);
 // echo "</pre>";
@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
         $ext = end(explode(".",$_FILES['file']['name'][$key]));
         if($ext=='pdf'){
             
-            $id = (explode(".",end(explode("-",$_FILES['file']['name'][$key]))))[0];
+            $id = explode(" ",$_FILES['file']['name'][$key])[0];
             $new_name = $id."-".$project.".".$ext;
             $file_path = "../../upload/".$project."/".$new_name;
             
@@ -30,10 +30,10 @@ if(isset($_POST['submit'])){
 
         }
         
-        // echo "<pre>"; 
-        // print_r($file_path);
-        // echo "</pre>";
+        echo "<pre>"; 
+        print_r($id);
+        echo "</pre>";
     }
-    header('Location: file.php');
+    header('Location: file2.php');
 }
 ?>

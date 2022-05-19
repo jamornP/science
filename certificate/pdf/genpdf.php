@@ -1,5 +1,5 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php"?>
-<?php require("{$_SERVER['DOCUMENT_ROOT']}/science/lib/TCPDF-master/tcpdf.php");?>
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/lib/TCPDF-master/tcpdf.php";?>
 <?php 
     use App\Model\Certificate;
     $personObj = new Certificate();
