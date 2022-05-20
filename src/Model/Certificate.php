@@ -15,6 +15,7 @@ class Certificate extends Db {
             ORDER BY
                 ca.project,    
                 ca.t_num
+            LIMIT 3
         ";
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();
