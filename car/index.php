@@ -1,0 +1,1 @@
+<?php header('Location: /science/car/pages/index.php'); ?>
