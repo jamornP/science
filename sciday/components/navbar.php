@@ -17,7 +17,7 @@
                     <i class='bx bx-edit-alt'></i> กิจกรรม
             </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="#"><i class='bx bx-chevron-right-circle' ></i> การประกวดสิ่งประดิษฐ์</a></li>
+                        <li><a class="dropdown-item" href="/science/sciday/pages/artifact.php"><i class='bx bx-chevron-right-circle' ></i> การประกวดสิ่งประดิษฐ์</a></li>
                         <li><a class="dropdown-item" href="#"><i class='bx bx-chevron-right-circle' ></i> การประกวดโครงงาน</a></li>
                         <li><a class="dropdown-item" href="#"><i class='bx bx-chevron-right-circle' ></i> การประกวดโครงงาน IoT</a></li>
                         <li><a class="dropdown-item" href="#"><i class='bx bx-chevron-right-circle' ></i> การแข่งขันตอบปัญหา</a></li>
