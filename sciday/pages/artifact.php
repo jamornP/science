@@ -14,11 +14,26 @@
     </div>
     
     <div class="container mt-3">
-        
-        
-        <span class="badge rounded-pill bg-success mt-5"><h3><b> การประกวดสิ่งประดิษฐ์ </b></h3></span>
-        <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3">
+        <div class="d-flex justify-content-between">
+            <span class="badge rounded-pill bg-warning mt-3 shadow">
+                <h2><b>&nbsp;&nbsp;&nbsp;การประกวดสิ่งประดิษฐ์&nbsp;&nbsp;&nbsp;</b></h2>
+            </span>
+            <span class="">
+            <a href="#" class="btn btn-xl btn-outline-danger my-bottom">สมัครแข่งขัน</a>
+            </span>
         </div>
+        
+        <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3">
+        <figure class="">
+            <blockquote class="blockquote">
+                <h4 class="mt-3"><b>กำหนดการ</b></h4>
+            </blockquote>
+            <figcaption class="blockquote-footer fs-18">
+                การประกวดสิ่งประดิษฐ์
+            </figcaption>
+        </figure>
+        </div>
+        
         
     </div>
 </body>
