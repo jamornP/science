@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php 
-phpinfo();
-//header('Location: /science/certificate/pages/index.php'); ?>
+//phpinfo();
+header('Location: /science/certificate/pages/index.php'); ?>
 </body>
 </html>

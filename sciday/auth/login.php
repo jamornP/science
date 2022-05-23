@@ -7,7 +7,7 @@
     <title>Sci-Day2022</title>
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/link.php";?>
 </head>
-<body class="font-prompt">
+<body class="font-mali">
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
 </body>
 </html>

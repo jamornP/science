@@ -1,0 +1,1 @@
+<?php header('Location: /science/sciday/artifact/form.php'); ?>
