@@ -17,7 +17,7 @@
     <div class="container mt-3">
         <div class="d-flex justify-content-between">
             <span class="badge rounded-pill bg-warning mt-3 shadow">
-                <h2><b>&nbsp;&nbsp;&nbsp;การประกวดสิ่งประดิษฐ์&nbsp;&nbsp;&nbsp;</b></h2>
+                <h2><b>&nbsp;&nbsp;&nbsp;<?php echo $_REQUEST['activity'];?>&nbsp;&nbsp;&nbsp;</b></h2>
             </span>
            
         </div>
@@ -39,6 +39,22 @@
                         <hr class="text-warning">
                         <form action="save.php" method="post" enctype="multipart/form-data">
                             <input type="text" class="form-control" name="activity" value="<?php echo $_REQUEST['activity'];?>">
+                            <div class="row mt-2">
+                                <div class="col-sm-12 col-md-10 col-lg-8">
+                                    <div class="form-group">
+                                        <label for="" class="text-primary"><b class="fs-18">1. ชื่อโครงงานวิทยาศาสตร์</b></label>
+                                        <input type="text" class="form-control" name="project" autofocus required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-sm-12 col-md-10 col-lg-8">
+                                    <div class="form-group">
+                                        <label for="" class="text-primary"><b class="fs-18">2. ระดับการศึกษาที่เข้าร่วมประกวดโครงงานวิทยาศาสตร์ ประจำปี 2563</b></label>
+                                        
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-sm-12 col-md-10 col-lg-8">
                                     <div class="form-group">

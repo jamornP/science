@@ -9,5 +9,6 @@
 </head>
 <body class="font-prompt">
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
+    <?php print_r($_SESSION);?>
 </body>
 </html>

@@ -1,7 +1,8 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php"?>
 <?php 
- use App\Model\Activity;
- $activityObj = new Activity;   
+ use App\Model\Sciday\Activity;
+ $activityObj = new Activity;  
+ session_start(); 
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-warning fs-24" style="height: 80px;">
     <div class="container-fluid" >
@@ -14,34 +15,42 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/science/sciday/pages/"><i class='bx bx-home-circle' ></i> หน้าหลัก</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li> -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class='bx bx-edit-alt'></i> กิจกรรม
-            </a>
+                        <i class='bx bx-edit-alt'></i> กิจกรรม
+                    </a>
                     <ul class="dropdown-menu bg-warning " aria-labelledby="navbarScrollingDropdown">
                         <?php 
                             $activitys = $activityObj->getActivityByYear('2022');
                             foreach($activitys as $activity){
                                 echo "
-                                    <li><a class='dropdown-item fs-18' href='{$activity['link']}'><i class='bx bx-chevron-right-circle' ></i> {$activity['name']}</a></li>
+                                    <li><a class='dropdown-item fs-18' href='{$activity['link']}?activity={$activity['name']}'><i class='bx bx-chevron-right-circle' ></i> {$activity['name']}</a></li>
                                 ";
                             }
                         ?>
-                        <!-- <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                        
                     </ul>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link disabled">Link</a>
-                </li> -->
             </ul>
             <div class="d-flex">
-
+                <?php if($_SESSION['login']){?>
+                    
+                        
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <?php echo $_SESSION['name']." ".$_SESSION['surname'] ?>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="">แก้ไขข้อมูลส่วนตัว</a>
+                                <hr class="dropdown-divider">
+                                <a class="dropdown-item" href="">ออกจากระบบ</a>
+                            </div>
+                       
+                   
+                <?php }else{?>
+                    <a class="nav-link text-white" href="/science/sciday/auth/register.php"><i class='bx bx-registered' ></i> ลงทะเบียน</a>
+                    <div class="vr"></div>
+                    <a class="nav-link text-white" href="/science/sciday/auth/login.php"><i class='bx bx-user-circle'></i> เข้าสู่ระบบ</a>
+                <?php }?>
             </div>
             <!-- <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
