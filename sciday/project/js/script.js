@@ -7,7 +7,8 @@ $(function() {
         li.appendTo(ol)
         li.find("input").val("")
         li.find(".btn-remove").show()
-        li.find("[name='name[]']").focus()
+        li.find("[name='title[]']").focus()
+        li.find("[name='ttitle[]']").focus()
     })
 
     $("body").on("click", ".btn-remove", function(e) {

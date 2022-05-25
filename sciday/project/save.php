@@ -1,3 +1,4 @@
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/claviska/simpleimage/src/claviska/SimpleImage.php"?>
 <?php
 echo "
     <h4>ข้อมูลทีมที่สมัคร</h4>
@@ -17,7 +18,7 @@ echo "<pre>";
 print_r($_REQUEST);
 echo "</pre>";
 echo "<pre>"; 
-print_r($_FILES['file']);
+print_r($_FILES['file_doc']);
 echo "</pre>";
 
 ?>
