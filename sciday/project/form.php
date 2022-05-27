@@ -1,3 +1,8 @@
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php"?>
+<?php 
+ use App\Model\Sciday\Level;
+ $levelObj = new Level;   
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,36 +45,35 @@
                             <div class="row mt-2">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="" class="text-primary"><b class="fs-18">1. ชื่อโครงงานวิทยาศาสตร์</b></label>
-                                        <input type="text" class="form-control w-75" name="project" autofocus required>
+                                        <label for="" class="text-primary"><b class="fs-18">1. ชื่อโครงงานวิทยาศาสตร์<font color="red">*</font></b></label>
+                                        <input type="text" class="form-control w-75" name="project_name" autofocus required>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="" class="text-primary"><b class="fs-18">2. ระดับการศึกษาที่เข้าร่วมประกวดโครงงานวิทยาศาสตร์ ประจำปี 2563</b></label>
+                                        <label for="" class="text-primary"><b class="fs-18">2. ระดับการศึกษาที่เข้าร่วมประกวดโครงงานวิทยาศาสตร์ ประจำปี 2563<font color="red">*</font></b></label>
                                     </div>
                                     <div class="form-group mt-2">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="level" id="inlineRadio1" value="option1" checked>
-                                            <label class="form-check-label" for="inlineRadio1">ระดับประฐมศึกษา</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="level" id="inlineRadio2" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">ระดับมัธยมศึกษาตอนต้น</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="level" id="inlineRadio3" value="option3" >
-                                            <label class="form-check-label" for="inlineRadio3">ระดับมัธยมศึกษาตอนปลาย</label>
-                                        </div>
+                                        <?php 
+                                            $levels =$levelObj->getLevelByActivity('2');
+                                            foreach($levels AS $level){
+                                                echo "
+                                                    <div class='form-check form-check-inline'>
+                                                        <input class='form-check-input' type='radio' name='level_id' id='inlineRadio{$levle['id']}' value='{$level['id']}' checked>
+                                                        <label class='form-check-label' for='inlineRadio{$levle['id']}'>{$level['name']}</label>
+                                                    </div>
+                                                ";
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="" class="text-primary"><b class="fs-18">3. ชื่อสถานศึกษา/โรงเรียน ตัวอย่างการกรอก 'โรงเรียน.......'<font color="red"> ห้ามใช้ ร.ร.</font></b></label>
+                                        <label for="" class="text-primary"><b class="fs-18">3. ชื่อสถานศึกษา/โรงเรียน <font color="red">*</font> ตัวอย่างการกรอก 'โรงเรียน.......'<font color="red"> ห้ามใช้ ร.ร.</font></b></label>
                                         <input type="text" class="form-control w-75" name="school" autofocus required>
                                     </div>
                                 </div>
@@ -77,12 +81,12 @@
                             <div class="row">
                                 <div class="col-md">
                                     <div class="form-group mt-2">
-                                        <label for="" class="text-primary"><b class="fs-18">รายชื่อผู้เข้าประกวดโครงงานวิทยาศาสตร์ <font color="red">(ไม่เกิน 3 คน)</font></b></label>
+                                        <label for="" class="text-primary"><b class="fs-18">รายชื่อผู้เข้าประกวดโครงงานวิทยาศาสตร์<font color="red">*</font> <font color="red">(ไม่เกิน 3 คน)</font></b></label>
                                         <ol>
                                             <li>
                                                 <div class="d-flex mb-2">
                                                     <div class="">
-                                                        <select class="form-select" aria-label="Default select example" name="title[]">
+                                                        <select class="form-select" aria-label="Default select example" name="stitle[]">
                                                             <option selected>คำนำหน้าชื่อ</option>
                                                             <option value="1">เด็กชาย</option>
                                                             <option value="2">เด็กหญิง</option>
@@ -92,10 +96,10 @@
                                                         </select>
                                                     </div>
                                                     <div class="">
-                                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="name[]">
+                                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="sname[]">
                                                     </div>
                                                     <div class="">
-                                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="surname[]">
+                                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="ssurname[]">
                                                     </div>
                                                     <button class="btn btn-success mx-2 btn-add text-white">+</button>
                                                     <button class="btn btn-danger btn-remove text-white">-</button>
@@ -140,8 +144,8 @@
                                 <div class="col-md">
                                     <div class="form-group mt-2">
                                         <div class="mb-3 w-75">
-                                            <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">Upload ไฟล์ใบสมัคร ความยาวไม่เกิน 5 หน้ากระดาษ A4</b></label>
-                                            <input class="form-control" type="file" id="formFileMultiple" name="file_doc[]" multiple required>
+                                            <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">Upload ไฟล์ใบสมัคร ความยาวไม่เกิน 5 หน้ากระดาษ A4<font color="red">*</font></b></label>
+                                            <input class="form-control" type="file" id="formFileMultiple" name="file_doc" required>
                                         </div>
                                     </div>
                                 </div>
@@ -150,11 +154,10 @@
                                 <div class="col-md">
                                     <div class="form-group mt-2">
                                         <div class="mb-3 w-75">
-                                            <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">Upload ไฟล์รูปภาพ</b></label>
+                                            <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">Upload ไฟล์รูปภาพ <font color="red">( .png หรือ .jpg )</font> เท่านั้น</b></label>
                                             <div class="container">
                                                 <div class="card">
                                                     <div class="card-body">
-                                                        
                                                         <div class="dropzone" id="drop"></div>
                                                     </div>
                                                 </div>

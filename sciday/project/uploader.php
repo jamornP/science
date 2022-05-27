@@ -4,7 +4,7 @@
 if($_FILES['file']['tmp_name']){
     $ext = end(explode(".",$_FILES['file']['name']));
     $filename = uniqid().".".$ext;
-    $img_path = "/science/upload/sciday/".$filename;
+    $img_path = "/science/upload/sciday/images/".$filename;
     // echo $img_path."<br>";
     try {
       // Create a new SimpleImage object

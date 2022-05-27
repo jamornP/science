@@ -14,7 +14,7 @@ echo "</pre>";
 // }
 $result = $userObj->createUser($_POST);
 if($result) {
-    header("location: /science/sciday/pages/index.php");
+    header("location: /science/sciday/auth/login.php");
 }else {
     header("location: /science/sciday/auth/register.php?msg=error");
 }

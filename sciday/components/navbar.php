@@ -36,13 +36,13 @@
                 <?php if($_SESSION['login']){?>
                     
                         
-                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle active text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <?php echo $_SESSION['name']." ".$_SESSION['surname'] ?>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="">แก้ไขข้อมูลส่วนตัว</a>
                                 <hr class="dropdown-divider">
-                                <a class="dropdown-item" href="">ออกจากระบบ</a>
+                                <a class="dropdown-item" href="/science/sciday/auth/logout.php">ออกจากระบบ</a>
                             </div>
                        
                    
