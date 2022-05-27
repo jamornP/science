@@ -1,5 +1,5 @@
-<?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php"?>
-<?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/claviska/simpleimage/src/claviska/SimpleImage.php"?>
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/claviska/simpleimage/src/claviska/SimpleImage.php";?>
 <?php 
  use App\Model\Sciday\Project;
  $projectObj = new Project;  
@@ -7,6 +7,8 @@
  $studentObj = new Student;   
  use App\Model\Sciday\Teacher;
  $teacherObj = new Teacher;   
+ use App\Model\Sciday\Imagespath;
+ $imagespathObj = new Imagespath;   
 ?>
 <?php
 $data['project_name']=$_REQUEST['project_name'];
@@ -26,7 +28,7 @@ if(isset($_FILES['file_doc']['tmp_name'])) {
     }
 }
 $project_id = $projectObj->InsertProject($data);
-echo $id;
+// echo $id;
 echo "<pre>"; 
 print_r($data);
 echo "</pre>";
@@ -34,50 +36,71 @@ echo "
     <p>ผู้เข้าประกวด </p>
     <ol>
 ";
+if(isset($_REQUEST['sname'])){
+    foreach ($_REQUEST['sname'] as $key => $sname) {
+        $student['student_id']=$data['student_id'];
+        $student['school']=$data['school'];
+        $student['project_id']=$project_id;
+        $student['stitle']=$_REQUEST['stitle'][$key];
+        $student['sname']=$sname;
+        $student['ssurname']=$_REQUEST['ssurname'][$key];
+        $student_id = $studentObj->InsertStudent($student);
 
-foreach ($_REQUEST['sname'] as $key => $name) {
-    $student['student_id']=$data['student_id'];
-    $student['school']=$data['school'];
-    $student['project_id']=$project_id;
-    $student['stitle']=$_REQUEST['stitle'][$key];
-    $student['sname']=$name;
-    $student['ssurname']=$_REQUEST['ssurname'][$key];
-    $student_id = $studentObj->InsertStudent($student);
-
-    $peple =$_REQUEST['stitle'][$key].$name." ".$_REQUEST['ssurname'][$key]." ID : ".$student_id;
-    echo "
-        <li>    
-            <p> {$peple}</p>
-        </li>
-    ";
-}
+        $peple =$_REQUEST['stitle'][$key].$sname." ".$_REQUEST['ssurname'][$key]." ID : ".$student_id;
+        echo "
+            <li>    
+                <p> {$peple}</p>
+            </li>
+        ";
+    }
 echo "</ol>";
 echo "
     <p>อาจารย์ที่ปรึหษา </p>
     <ol>
 ";
+}
+if(isset($_REQUEST['tname'])){
+    foreach ($_REQUEST['tname'] as $key => $tname) {
+        $teacher['teacher_id']=$data['teacher_id'];
+        $teacher['ttitle']=$_REQUEST['ttitle'][$key];
+        $teacher['tname']=$tname;
+        $teacher['tsurname']=$_REQUEST['tsurname'][$key];
+        $teacher['project_id']=$project_id;
+        $teacher['school']=$data['school'];
+        $teacher_id = $teacherObj->InsertTeacher($teacher);
 
-foreach ($_REQUEST['tname'] as $key => $tname) {
-    $teacher['teacher_id']=$data['teacher_id'];
-    $teacher['ttitle']=$_REQUEST['ttitle'][$key];
-    $teacher['tname']=$tname;
-    $teacher['tsurname']=$_REQUEST['tsurname'][$key];
-    $teacher['project_id']=$project_id;
-    $teacher['school']=$data['school'];
-    $teacher_id = $teacherObj->InsertTeacher($teacher);
-
-    $tpeple =$_REQUEST['ttitle'][$key].$tname." ".$_REQUEST['tsurname'][$key]." ID : ".$teacher_id;
-    echo "
-        <li>    
-            <p> {$tpeple}</p>
-        </li>
-    ";
+        $tpeple =$_REQUEST['ttitle'][$key].$tname." ".$_REQUEST['tsurname'][$key]." ID : ".$teacher_id;
+        echo "
+            <li>    
+                <p> {$tpeple}</p>
+            </li>
+        ";
+    }
 }
 echo "</ol>";
-echo "<pre>"; 
-print_r($_REQUEST);
-echo "</pre>";
-echo "<pre>"; 
-print_r($_FILES['file_doc']);
-echo "</pre>";
+echo "
+    <p>รูป </p>
+    <ol>
+";
+foreach ($_REQUEST['img_path'] as $key => $imgs) {
+    $img['images_id']=$data['images_id'];
+    $img['images_path']=$imgs;
+    $img['project_id']=$project_id;
+    $images_id = $imagespathObj->InsertImagespath($img);
+
+    $im = $images_id." ".$img['images_path'];
+    echo "
+    <li>    
+        <p> {$im}</p>
+    </li>
+";
+   
+}
+ echo "</ol>";
+// echo "<pre>"; 
+// print_r($_REQUEST);
+// echo "</pre>";
+// echo "<pre>"; 
+// print_r($_FILES['file_doc']);
+// echo "</pre>";
 ?>

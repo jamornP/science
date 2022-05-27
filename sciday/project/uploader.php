@@ -1,4 +1,4 @@
-<?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/claviska/simpleimage/src/claviska/SimpleImage.php"?>
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/claviska/simpleimage/src/claviska/SimpleImage.php";?>
 <?php 
 // print_r($_FILES);
 if($_FILES['file']['tmp_name']){

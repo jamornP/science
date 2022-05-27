@@ -6,6 +6,7 @@ $userObj = new Auth;
 print_r($_REQUEST);
  $result = $userObj->checkUser($_POST);
 if($result) {
+    
     // if($_SESSION['role']=='admin'){
     //     header("location: /car/pages/book/index.php");
     // }else{

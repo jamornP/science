@@ -1,4 +1,4 @@
-<?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php"?>
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
 <!DOCTYPE html>
 <html lang="en">
 

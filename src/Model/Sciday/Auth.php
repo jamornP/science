@@ -31,7 +31,7 @@ use App\Database\DbSciDay;
             $_SESSION['email'] = $userDB['email'];
             // $_SESSION['p_id'] = $userDB['p_id'];
             // $_SESSION['d_id'] = $userDB['d_id'];
-            // $_SESSION['role'] = $userDB['role'];
+             $_SESSION['role'] = $userDB['role'];
             // $_SESSION['program'] = $userDB['program'];
             $_SESSION['login'] = true;
 

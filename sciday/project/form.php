@@ -1,7 +1,9 @@
-<?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php"?>
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
 <?php 
  use App\Model\Sciday\Level;
  $levelObj = new Level;   
+ use App\Model\Sciday\Title;
+ $titleObj = new Title;   
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,11 +90,19 @@
                                                     <div class="">
                                                         <select class="form-select" aria-label="Default select example" name="stitle[]">
                                                             <option selected>คำนำหน้าชื่อ</option>
-                                                            <option value="1">เด็กชาย</option>
+                                                            <?php 
+                                                                $titles = $titleObj->getAllTitle();
+                                                                foreach($titles AS $title){
+                                                                    echo "
+                                                                        <option value='{$title['id']}'>{$title['name']}</option>
+                                                                    ";
+                                                                }
+                                                            ?>
+                                                            <!-- <option value="1">เด็กชาย</option>
                                                             <option value="2">เด็กหญิง</option>
                                                             <option value="3">นาย</option>
                                                             <option value="3">นางสาว</option>
-                                                            <option value="3">นาง</option>
+                                                            <option value="3">นาง</option> -->
                                                         </select>
                                                     </div>
                                                     <div class="">
@@ -119,11 +129,18 @@
                                                     <div class="">
                                                         <select class="form-select" aria-label="Default select example" name="ttitle[]">
                                                             <option selected>คำนำหน้าชื่อ</option>
-                                                            <option value="1">เด็กชาย</option>
+                                                            <?php 
+                                                                foreach($titles AS $title){
+                                                                    echo "
+                                                                        <option value='{$title['id']}'>{$title['name']}</option>
+                                                                    ";
+                                                                }
+                                                            ?>
+                                                            <!-- <option value="1">เด็กชาย</option>
                                                             <option value="2">เด็กหญิง</option>
                                                             <option value="3">นาย</option>
                                                             <option value="3">นางสาว</option>
-                                                            <option value="3">นาง</option>
+                                                            <option value="3">นาง</option> -->
                                                         </select>
                                                     </div>
                                                     <div class="">

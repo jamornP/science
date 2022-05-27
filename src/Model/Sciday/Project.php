@@ -33,7 +33,23 @@ class Project extends DbSciDay {
         return $this->pdo->lastInsertId();
 
     }
-
+    public function getStuIdByProject($project) {
+        $sql = "
+            SELECT 
+                project_name,
+                school,
+                student_id,
+                teacher_id,
+                images_id
+            FROM
+                tb_project
+            ORDER BY 
+                id
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
 
 
 }
