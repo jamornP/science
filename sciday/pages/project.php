@@ -1,3 +1,10 @@
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
+<?php 
+ use App\Model\Sciday\Project;
+ $projectObj = new Project;   
+ use App\Model\Sciday\Title;
+ $titleObj = new Title;   
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +43,29 @@
             </figure>
         </div>
         
+        <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3">
+            <!-- <div class="d-flex flex-row-reverse bd-highlight">
+                <a href="../project/form.php?activity=<?php echo $_REQUEST['activity'];?>" class="btn btn-lg btn-outline-success my-bottom"><span class="spinner-grow spinner-grow-sm text-warning" role="status" aria-hidden="true"></span> สมัครแข่งขัน</a>
+            </div> -->
+        
+            <figure class="">
+                <blockquote class="blockquote">
+                    <h4 class="mt-3"><b>โรงเรียนที่สมัครแข่งขันแล้ว</b></h4>
+                </blockquote>
+                <ol>
+                <?php 
+                    $projects = $projectObj->getAllProject();
+                    foreach($projects AS $project){
+                        echo "
+                            <li class='text-success fs-20 mt-2'>
+                                {$project['school']}
+                            </li>
+                        ";
+                    }
+                ?>
+                </ol>
+            </figure>
+        </div>
         
     </div>
 </body>

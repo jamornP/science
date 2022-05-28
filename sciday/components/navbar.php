@@ -25,12 +25,12 @@
                             foreach($activitys as $activity){
                                 if($_SESSION['role']==''){
                                     echo "
-                                    <li><a class='dropdown-item fs-18' href='{$activity['link']}?activity={$activity['name']}'><i class='bx bx-chevron-right-circle' ></i> {$activity['name']}</a></li>
+                                    <li><a class='dropdown-item fs-18' href='{$activity['link']}?activity={$activity['id']}'><i class='bx bx-chevron-right-circle' ></i> {$activity['name']}</a></li>
                                 ";
                                 }elseif($_SESSION['role']=='committee' OR $_SESSION['role']=='chairman'){
 
                                     echo "
-                                        <li><a class='dropdown-item fs-18' href='{$activity['backend']}?activity={$activity['name']}'><i class='bx bx-chevron-right-circle' ></i> {$activity['name']}</a></li>
+                                        <li><a class='dropdown-item fs-18' href='{$activity['backend']}?activity={$activity['id']}'><i class='bx bx-chevron-right-circle' ></i> {$activity['name']}</a></li>
                                     ";
                                 }
                             }
@@ -40,10 +40,10 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class='bx bx-edit-alt'></i> กิจกรรม Admin
+                        <i class='bx bx-edit-alt'></i> ทีมที่สมัคร
                     </a>
                     <ul class="dropdown-menu bg-warning " aria-labelledby="navbarScrollingDropdown">
-                        <li><a class='dropdown-item fs-18' href='/science/sciday/project/admin.php?activity=การประกวดสิ่งประดิษฐ์'><i class='bx bx-chevron-right-circle' ></i> การประกวดสิ่งประดิษฐ์</a></li>
+                        <li><a class='dropdown-item fs-18' href='/science/sciday/project/admin.php?activity=2'><i class='bx bx-chevron-right-circle' ></i> การประกวดสิ่งประดิษฐ์</a></li>
                     </ul>
                 </li>
             </ul>

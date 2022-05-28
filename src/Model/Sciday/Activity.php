@@ -19,6 +19,20 @@ class Activity extends DbSciDay {
         $data = $stmt->fetchAll();
         return $data;
     }
+    public function getActivityById($id) {
+        $sql = "
+            SELECT 
+                *
+            FROM 
+                tb_activity 
+            WHERE
+                id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        $data = $stmt->fetchAll();
+        return $data[0];
+    }
 
 
 }
