@@ -1,9 +1,14 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
 <?php 
+ use App\Model\Sciday\Activity;
+    $activityObj = new Activity; 
+    $activitys = $activityObj->getActivityById($_REQUEST['activity']);
+    $activity_name = $activitys['name'];
  use App\Model\Sciday\Level;
  $levelObj = new Level;   
  use App\Model\Sciday\Title;
- $titleObj = new Title;   
+ $titleObj = new Title; 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +29,7 @@
     <div class="container mt-3">
         <div class="d-flex justify-content-between">
             <span class="badge rounded-pill bg-warning mt-3 shadow">
-                <h2><b>&nbsp;&nbsp;&nbsp;<?php echo $_REQUEST['activity'];?>&nbsp;&nbsp;&nbsp;</b></h2>
+                <h2><b>&nbsp;&nbsp;&nbsp;<?php echo $activity_name ;?>&nbsp;&nbsp;&nbsp;</b></h2>
             </span>
            
         </div>
@@ -43,7 +48,7 @@
                         <h5 class="text-primary"><b>ส่วนที่ 1 ใช้ในการสมัคร</b></h5>
                         <hr class="text-warning">
                         <form action="save.php" method="post" enctype="multipart/form-data" id="">
-                            <input type="hidden" class="form-control" name="activity" value="<?php echo $_REQUEST['activity'];?>">
+                            <input type="hidden" class="form-control" name="activity" value="<?php echo $activity_name;?>">
                             <div class="row mt-2">
                                 <div class="col-md">
                                     <div class="form-group">

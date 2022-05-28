@@ -29,6 +29,26 @@ class Student extends DbSciDay {
         return $this->pdo->lastInsertId();
 
     }
+    public function getStuByProject($project) {
+        $sql = "
+            SELECT 
+                id,
+                project_name,
+                school,
+                student_id,
+                teacher_id,
+                images_id
+            FROM
+                tb_project
+            GROUP BY 
+                project_name
+            ORDER BY 
+                id
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
 
 
 
