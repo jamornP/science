@@ -18,6 +18,7 @@ $data['student_id']=uniqid();
 $data['teacher_id']=uniqid();
 // $data['file_register']=;
 $data['images_id']=uniqid();
+$data['user_id']=$_REQUEST['user_id'];
 if(isset($_FILES['file_doc']['tmp_name'])) {
     $ext = end(explode(".",$_FILES['file_doc']['name']));
     if($ext=='pdf' OR $ext=='docx' OR $ext=='doc'){
@@ -27,7 +28,7 @@ if(isset($_FILES['file_doc']['tmp_name'])) {
         $data['file_register']=$new_name;
     }
 }
-$project_id = $projectObj->InsertProject($data);
+ $project_id = $projectObj->InsertProject($data);
 // echo $id;
 echo "<pre>"; 
 print_r($data);

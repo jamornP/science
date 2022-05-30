@@ -19,6 +19,19 @@ class Level extends DbSciDay {
         $data = $stmt->fetchAll();
         return $data;
     }
+    public function getLevelById($id) {
+        $sql = "
+            SELECT * 
+            FROM
+                tb_level
+            WHERE
+                id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        $data = $stmt->fetchAll();
+        return $data[0];
+    }
 }
 
 ?>

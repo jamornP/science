@@ -49,6 +49,7 @@
                         <hr class="text-warning">
                         <form action="save.php" method="post" enctype="multipart/form-data" id="">
                             <input type="hidden" class="form-control" name="activity" value="<?php echo $activity_name;?>">
+                            <input type="text" class="form-control" name="user_id" value="<?php echo $_SESSION['id'];?>">
                             <div class="row mt-2">
                                 <div class="col-md">
                                     <div class="form-group">
@@ -176,7 +177,7 @@
                                 <div class="col-md">
                                     <div class="form-group mt-2">
                                         <div class="mb-3 w-75">
-                                            <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">Upload ไฟล์รูปภาพ <font color="red">( .png หรือ .jpg )</font> เท่านั้น</b></label>
+                                            <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">Upload ไฟล์รูปภาพ <font color="red">( *.png หรือ *.jpg )</font> เท่านั้น</b></label>
                                             <div class="container">
                                                 <div class="card">
                                                     <div class="card-body">

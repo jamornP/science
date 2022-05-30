@@ -13,6 +13,7 @@ use App\Database\DbSciDay;
             tel,
             role,
             ck,
+            activity_id,
             password
         FROM
             tb_users
@@ -32,7 +33,7 @@ use App\Database\DbSciDay;
             // $_SESSION['p_id'] = $userDB['p_id'];
             // $_SESSION['d_id'] = $userDB['d_id'];
              $_SESSION['role'] = $userDB['role'];
-            // $_SESSION['program'] = $userDB['program'];
+            $_SESSION['activity'] = $userDB['activity_id'];
             $_SESSION['login'] = true;
 
             return true;

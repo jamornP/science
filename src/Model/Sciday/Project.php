@@ -14,7 +14,8 @@ class Project extends DbSciDay {
                 student_id, 
                 teacher_id, 
                 file_register, 
-                images_id, 
+                images_id,
+                user_id, 
                 year
             )VALUES (
                 NULL,
@@ -25,6 +26,7 @@ class Project extends DbSciDay {
                 :teacher_id,
                 :file_register,
                 :images_id,
+                :user_id,
                 '2022'
             )
         ";
@@ -79,6 +81,29 @@ class Project extends DbSciDay {
         $stmt->execute([$level]);
         $data = $stmt->fetchAll();
         return $data;
+    }
+    public function getProjectById($id) {
+        $sql = "
+            SELECT 
+                p.id,
+                p.project_name,
+                l.name AS level,
+                p.school,
+                p.student_id,
+                p.teacher_id,
+                p.file_register,
+                p.images_id,
+                p.user_id
+            FROM
+                tb_project AS p
+                LEFT JOIN tb_level AS l ON p.level_id = l.id 
+            WHERE
+                p.id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        $data = $stmt->fetchAll();
+        return $data[0];
     }
 
 
