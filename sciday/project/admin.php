@@ -1,7 +1,9 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
 <?php 
  use App\Model\Sciday\Level;
- $levelObj = new Level;   
+ $levelObj = new Level;
+ $levels = $levelObj->getLevelById($_REQUEST['level']);   
+$level_name = $levels['name'];
  use App\Model\Sciday\Title;
  $titleObj = new Title;   
  use App\Model\Sciday\Activity;
@@ -33,46 +35,41 @@ use App\Model\Sciday\Project;
             </span>
         </div>
         <div class="row">
-            <?php 
-                $levels = $levelObj->getLevelByActivity($_REQUEST['activity']);
-                foreach($levels AS $level){ 
-                    ?>       
-                    <div class="col-lg-12">
-                        <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20">
-                            <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp;ทีมที่สมัคร <?php echo $level['name'];?></div>
-                            
-                            <table class="table table-striped table-hover mt-2 fs-18">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>ชื่อโครงงานวิทยาศาสตร์</th>
-                                        <th>โรงเรียน</th>
-                                        <th>เอกสาร</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php 
-                                        $pronames = $projectObj->getProjectByLevel($level['id']);
-                                        $i=0;
-                                        foreach($pronames AS $proname){
-                                            $i++;
-                                            echo "
-                                                <tr>
-                                                    <td width='8%'>{$i}.</td>
-                                                    <td>{$proname['project_name']}</td>
-                                                    <td width='30%'>{$proname['school']}</td>
-                                                    <td width='10%'><a href='/science/upload/sciday/file/{$proname['file_register']}' target='_blank'>Download</a></td>
-                                                </tr>
-                                            ";
-                                        }
-                                    ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <?php
-                }
-            ?>
+            <div class="col-lg-12">
+                <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20">
+                    <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp;ทีมที่สมัคร <?php echo $level_name;?></div>
+                    
+                    <table class="table table-striped table-hover mt-2 fs-18">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>ชื่อโครงงานวิทยาศาสตร์</th>
+                                <th>โรงเรียน</th>
+                                <th>เอกสาร</th>
+                                <th>รูป</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php 
+                                $pronames = $projectObj->getProjectByLevel($_REQUEST['level']);
+                                $i=0;
+                                foreach($pronames AS $proname){
+                                    $i++;
+                                    echo "
+                                        <tr>
+                                            <td width='8%'>{$i}.</td>
+                                            <td>{$proname['project_name']}</td>
+                                            <td width='30%'>{$proname['school']}</td>
+                                            <td width='10%'><a href='/science/upload/sciday/file/{$proname['file_register']}' target='_blank'>Download</a></td>
+                                            <td width='5%'><a href='/science/sciday/project/pic.php?activity={$activity_name}&p_id={$proname['id']}&image_id={$proname['images_id']}' target='_blank'>รูป</a></td>
+                                        </tr>
+                                    ";
+                                }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </body>
