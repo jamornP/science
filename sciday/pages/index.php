@@ -9,6 +9,17 @@
 </head>
 <body class="font-prompt">
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
-    <?php print_r($_SESSION);?>
+    <?php //print_r($_SESSION);?>
+    <div class="container">
+        <div class="mt-1">
+            <img src="/science/sciday/images/bg.png" class="img-fluid rounded" alt="...">
+        </div>
+        <br>
+        
+        <div class="text-center">
+        <h1>Science Day 2022</h1>
+        </div>
+        
+    </div>
 </body>
 </html>

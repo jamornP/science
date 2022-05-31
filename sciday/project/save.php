@@ -104,4 +104,5 @@ foreach ($_REQUEST['img_path'] as $key => $imgs) {
 // echo "<pre>"; 
 // print_r($_FILES['file_doc']);
 // echo "</pre>";
+header("location: /science/sciday/pages/project.php?activity=2");
 ?>

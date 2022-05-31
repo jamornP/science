@@ -49,7 +49,24 @@ class Student extends DbSciDay {
         $data = $stmt->fetchAll();
         return $data;
     }
-
+    public function getStuById($id) {
+        $sql = "
+        SELECT 
+            t.name AS stitle,
+            s.sname,
+            s.ssurname,
+            s.id 
+        FROM 
+            tb_student AS s 
+            LEFT JOIN tb_title AS t ON s.stitle = t.id
+        WHERE 
+            s.student_id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
 
 
 }

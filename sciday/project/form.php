@@ -1,4 +1,5 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/auth/auth.php";?>
 <?php 
  use App\Model\Sciday\Activity;
     $activityObj = new Activity; 
@@ -49,7 +50,7 @@
                         <hr class="text-warning">
                         <form action="save.php" method="post" enctype="multipart/form-data" id="">
                             <input type="hidden" class="form-control" name="activity" value="<?php echo $activity_name;?>">
-                            <input type="text" class="form-control" name="user_id" value="<?php echo $_SESSION['id'];?>">
+                            <input type="hidden" class="form-control" name="user_id" value="<?php echo $_SESSION['id'];?>">
                             <div class="row mt-2">
                                 <div class="col-md">
                                     <div class="form-group">
@@ -61,7 +62,7 @@
                             <div class="row mt-3">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="" class="text-primary"><b class="fs-18">2. ระดับการศึกษาที่เข้าร่วมประกวดโครงงานวิทยาศาสตร์ ประจำปี 2563<font color="red">*</font></b></label>
+                                        <label for="" class="text-primary"><b class="fs-18">2. ระดับการศึกษาที่เข้าร่วมประกวดโครงงานวิทยาศาสตร์ ประจำปี 2565<font color="red">*</font></b></label>
                                     </div>
                                     <div class="form-group mt-2">
                                         <?php 

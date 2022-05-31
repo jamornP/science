@@ -12,19 +12,133 @@ class Round extends DbSciDay {
                 activity_id, 
                 level_id, 
                 link_video, 
-                num
+                num,
+                score
             ) VALUES (
                 NULL, 
                 :project_id, 
                 :activity_id, 
                 :level_id, 
                 :link_video, 
-                :num
+                :num,
+                NULL
             )
         ";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($data);
         return $this->pdo->lastInsertId();
 
+    }
+    public function getRound2ByLevel($level) {
+        $sql = "
+        SELECT
+            p.id, 
+            p.project_name,
+            p.school,
+            p.student_id,
+            p.teacher_id,
+            p.file_register,
+            p.user_id,
+            l.name,
+            r.num,
+            r.link_video,
+            r.score 
+        FROM 
+            tb_round AS r
+            LEFT JOIN tb_project AS p ON r.project_id = p.id
+            LEFT JOIN tb_level AS l ON r.level_id = l.id
+        WHERE
+            r.level_id = ? AND r.num = 2
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$level]);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
+    public function getRound2ById($id) {
+        $sql = "
+        SELECT
+            p.id, 
+            p.project_name,
+            p.school,
+            p.student_id,
+            p.teacher_id,
+            p.file_register,
+            p.user_id,
+            l.name,
+            r.num,
+            r.link_video,
+            r.score 
+        FROM 
+            tb_round AS r
+            LEFT JOIN tb_project AS p ON r.project_id = p.id
+            LEFT JOIN tb_level AS l ON r.level_id = l.id
+        WHERE
+            r.project_id = ? AND r.num = 2
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        $data = $stmt->fetchColumn();
+        if($data>0){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+    public function getRound3ByLevel($level) {
+        $sql = "
+        SELECT
+            p.id, 
+            p.project_name,
+            p.school,
+            p.student_id,
+            p.teacher_id,
+            p.file_register,
+            p.user_id,
+            l.name,
+            r.num,
+            r.link_video 
+        FROM 
+            tb_round AS r
+            LEFT JOIN tb_project AS p ON r.project_id = p.id
+            LEFT JOIN tb_level AS l ON r.level_id = l.id
+        WHERE
+            r.level_id = ? AND r.num = 3
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$level]);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
+    public function getRound3ById($id) {
+        $sql = "
+        SELECT
+            p.id, 
+            p.project_name,
+            p.school,
+            p.student_id,
+            p.teacher_id,
+            p.file_register,
+            p.user_id,
+            l.name,
+            r.num,
+            r.link_video 
+        FROM 
+            tb_round AS r
+            LEFT JOIN tb_project AS p ON r.project_id = p.id
+            LEFT JOIN tb_level AS l ON r.level_id = l.id
+        WHERE
+            r.project_id = ? AND r.num = 3
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        $data = $stmt->fetchColumn();
+        if($data>0){
+            return true;
+        }else{
+            return false;
+        }
+        
     }
 }

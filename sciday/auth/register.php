@@ -32,7 +32,7 @@
                                 <div class="col-sm-12 col-md-6 col-lg-6 mt-2">
                                     <div class="form-group">
                                         <label for="email" class="form-label text-primary fs-18 fw-bold"><i class='bx bx-envelope' ></i> Email</label>
-                                        <input type="email" id="email" class="form-control" name="email"  required >
+                                        <input type="email" id="email" class="form-control" name="email" autofocus required >
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 col-lg-6 mt-2">
@@ -45,7 +45,7 @@
                                     
                                     <div class="form-group">
                                         <label for="name" class="form-label text-primary fs-18 fw-bold"><i class='bx bx-edit-alt' ></i> ชื่อ</label>
-                                        <input type="text" id="name" class="form-control" name="name" autofocus required >
+                                        <input type="text" id="name" class="form-control" name="name"  required >
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 col-lg-6 mt-2">

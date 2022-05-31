@@ -7,24 +7,25 @@
  session_start(); 
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-warning fs-24" style="height: 80px;">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark fs-24" style="height: 80px; background-color:rgb(2,29,75);">
     <div class="container-fluid" >
         <a class="navbar-brand fs-28" href="#"><i class='bx bx-planet'></i> Science Day&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse bg-warning" id="navbarScroll">
+        <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/science/sciday/pages/"><i class='bx bx-home-circle' ></i> หน้าหลัก</a>
                 </li>
-                <?php if($_SESSION['role']=='member'){ ?>
+                <!-- $_SESSION['role']=='member' OR $_SESSION['role']=='chairman' -->
+                <?php if($_SESSION['role']=='member' OR $_SESSION['role']=='chairman' OR 1==1){ ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" href="" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class='bx bx-edit-alt'></i> กิจกรรม
                         </a>
-                        <ul class="dropdown-menu bg-warning " aria-labelledby="navbarScrollingDropdown">
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown" style="background-color:rgb(233,152,20);">
                             <?php 
                                 $activitys = $activityObj->getActivityByYear('2022');
                                 foreach($activitys as $activity){
@@ -41,7 +42,7 @@
                     <a class="nav-link dropdown-toggle active" href="" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class='bx bx-edit-alt'></i> ทีมที่สมัคร <?php //echo $_SESSION['activity'];?>
                     </a>
-                    <ul class="dropdown-menu bg-warning " aria-labelledby="navbarScrollingDropdown">
+                    <ul class="dropdown-menu bg-warning " aria-labelledby="navbarScrollingDropdown" style="background-color:rgb(233,152,20);">
                         <?php
                         $levels = $levelObj->getLevelByActivity ($_SESSION['activity']);
                         foreach($levels AS $level){
@@ -59,7 +60,7 @@
                     <a class="nav-link dropdown-toggle active" href="" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class='bx bx-edit-alt'></i> สรุปผลการแข่งขัน
                     </a>
-                    <ul class="dropdown-menu bg-warning " aria-labelledby="navbarScrollingDropdown">
+                    <ul class="dropdown-menu bg-warning " aria-labelledby="navbarScrollingDropdown" style="background-color:rgb(233,152,20);">
                         <?php
                         $levels = $levelObj->getLevelByActivity ($_SESSION['activity']);
                         foreach($levels AS $level){
@@ -80,7 +81,7 @@
                             <a class="nav-link dropdown-toggle active text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <?php echo $_SESSION['name']." ".$_SESSION['surname']." (".$_SESSION['role'].")" ?>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color:rgb(96,168,197);">
                                 <a class="dropdown-item" href="">แก้ไขข้อมูลส่วนตัว</a>
                                 <hr class="dropdown-divider">
                                 <a class="dropdown-item" href="/science/sciday/auth/logout.php">ออกจากระบบ</a>

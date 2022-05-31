@@ -27,14 +27,15 @@
                     ?>
                     <div class="form-group mt-2">
                         <label for="email" class="text-primary fs-18">Email :</label>
-                        <input type="email" name="email"  id="email" class="form-control" required>
+                        <input type="email" name="email"  id="email" class="form-control" autofocus required>
                     </div>
                     <div class="form-group mt-2">
                         <label for="password" class="text-primary fs-18">Password :</label>
                         <input type="password" name="password" id="password" class="form-control" required>
                     </div>
                     <div class="text-end">
-                        <button type="submit" class="btn btn-primary mt-4">Login</button>
+                        <button type="submit" class="btn btn-success text-white mt-4">Login</button>
+                        <a href="register.php" class="btn btn-primary mt-4">ลงทะเบียน</a>
                     </div>
                 </form>
                 <!-- <a href="register.php">สมัครใช้งานใหม่</a> -->
