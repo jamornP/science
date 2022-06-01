@@ -105,11 +105,7 @@
                                                                     ";
                                                                 }
                                                             ?>
-                                                            <!-- <option value="1">เด็กชาย</option>
-                                                            <option value="2">เด็กหญิง</option>
-                                                            <option value="3">นาย</option>
-                                                            <option value="3">นางสาว</option>
-                                                            <option value="3">นาง</option> -->
+                                                            
                                                         </select>
                                                     </div>
                                                     <div class="">

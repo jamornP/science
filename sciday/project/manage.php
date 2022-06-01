@@ -64,17 +64,18 @@ use App\Model\Sciday\Teacher;
                                 <input type='hidden' class='form-control' name='link_video' value=''>
                                 <?php 
                                      
-                                    $pronames = $projectObj->getProjectByLevel($_REQUEST['level']);
+                                    $projects = $projectObj->getProjectByLevel($_REQUEST['level']);
                                     $i=0;
-                                    $st="";
-                                    $tea="";
-                                    foreach($pronames AS $proname){
-                                        $stus = $studentObj->getStuById($proname['student_id']);
-                                        $teachers = $teacherObj->getTeacherById($proname['teacher_id']);
+                                    
+                                    foreach($projects AS $project){
+                                        $stus = $studentObj->getStuById($project['student_id']);
+                                        $teachers = $teacherObj->getTeacherById($project['teacher_id']);
                                         $i++;
                                         $j=0;
                                         $k=0;
-                                        $ck = $roundObj->getRound2ById($proname['id']);
+                                        $st="";
+                                    $tea="";
+                                        $ck = $roundObj->getRound2ById($project['id']);
                                         if($ck){
                                             $checkbox ="checked";
                                         }else{
@@ -96,13 +97,13 @@ use App\Model\Sciday\Teacher;
                                         echo "
                                             <tr>
                                                 <td width=''>{$i}.</td>
-                                                <td>{$proname['project_name']}</td>
-                                                <td width=''>{$proname['school']}</td>
+                                                <td>{$project['project_name']}</td>
+                                                <td width=''>{$project['school']}</td>
                                                 <td width=''>{$st}</td>
                                                 <td width=''>{$tea}</td>
                                                 <td width='' align='center'>
                                                     <div class='form-check'>
-                                                        <input class='form-check-input' type='checkbox' value='{$proname['id']}' id='flexCheckDefault' name='p_id[]' {$checkbox}>
+                                                        <input class='form-check-input' type='checkbox' value='{$project['id']}' id='flexCheckDefault' name='p_id[]' {$checkbox}>
                                                     </div>
                                                     
                                                 </td>
@@ -146,58 +147,59 @@ use App\Model\Sciday\Teacher;
                                 </tr>
                             </thead>
                             <tbody class="fs-14">
-                                <input type='hidden' class='form-control' name='activity_id' value='<?php echo $_REQUEST['activity'];?>'>
-                                <input type='hidden' class='form-control' name='level_id' value='<?php echo $_REQUEST['level'];?>'>
+                                <input type='hidden' class='form-control' name='activity_id2' value='<?php echo $_REQUEST['activity'];?>'>
+                                <input type='hidden' class='form-control' name='level_id2' value='<?php echo $_REQUEST['level'];?>'>
                                 <!-- <input type='hidden' class='form-control' name='num' value='2'> -->
-                                <input type='hidden' class='form-control' name='link_video' value=''>
+                                <input type='hidden' class='form-control' name='link_video2' value=''>
                                 <?php 
-                                     
-                                    $rounds = $roundObj->getRound2ByLevel($_REQUEST['level']);
-                                    $i=0;
-                                    $st="";
-                                    $tea="";
-                                    foreach($rounds AS $round){
-                                        $stus = $studentObj->getStuById($proname['student_id']);
-                                        $teachers = $teacherObj->getTeacherById($proname['teacher_id']);
-                                        $i++;
-                                        $j=0;
-                                        $k=0;
-                                        $ck2 = $roundObj->getRound3ById($proname['id']);
+                                     $round2s = $roundObj->getRound2ByLevel($_REQUEST['level']);
+                                     foreach($round2s AS $round2){
+                                        //$project2 = $projectObj->getProjectById($round2['project_id']);
+                                        //echo $project2['student_id'];
+                                        $stus2 = $studentObj->getStuById($round2['student_id']);
+                                        $teachers2 = $teacherObj->getTeacherById($round2['teacher_id']);
+                                        $i2++;
+                                        $j2=0;
+                                        $k2=0;
+                                        $st2="";
+                                        $tea2="";
+
+                                        $ck2 = $roundObj->getRound3ById($round2['id']);
                                         if($ck2){
                                             $checkbox2 ="checked";
                                         }else{
                                             $checkbox2 ="";
                                         }
-                                        if($round['link_video']==""){
-                                            $show_link="";
+                                        if($round2['link_video']==""){
+                                            $show_link2="";
                                         }else{
-                                            $show_link="<a href='{$round['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
+                                            $show_link2="<a href='{$round2['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
                                         }
-                                        foreach($stus AS $stu){
-                                            $j++;
-                                            $st .=$j.". ".$stu['stitle'].$stu['sname']." ".$stu['ssurname']."<br>";
+                                        foreach($stus2 AS $stu2){
+                                            $j2++;
+                                            $st2 .=$j2.". ".$stu2['stitle'].$stu2['sname']." ".$stu2['ssurname']."<br>";
                                         }
-                                        foreach($teachers AS $teacher){
-                                            $k++;
-                                            $tea .=$k.". ".$teacher['ttitle'].$teacher['tname']." ".$teacher['tsurname']."<br>";
+                                        foreach($teachers2 AS $teacher2){
+                                            $k2++;
+                                            $tea2 .=$k2.". ".$teacher2['ttitle'].$teacher2['tname']." ".$teacher2['tsurname']."<br>";
                                         }
                                         echo "
-                                            <tr>
-                                                <td width='8%'>{$i}.</td>
-                                                <td>{$round['project_name']}</td>
-                                                <td width='20%'>{$round['school']}</td>
-                                                <td width='18%'>{$st}</td>
-                                                <td width='18%'>{$tea}</td>
-                                                <td width='10%' align='center'>
-                                                    <div class='form-check'>
-                                                        <input class='form-check-input' type='checkbox' value='{$round['id']}' id='flexCheckDefault' name='p_id[]' {$checkbox2}>
-                                                    </div>
-                                                    
-                                                </td>
-                                                
-                                            </tr>
-                                        ";
-                                    }
+                                        <tr>
+                                        <td width=''>{$i2}.</td>
+                                        <td>{$round2['project_name']}</td>
+                                        <td width=''>{$round2['school']}</td>
+                                        <td width=''>{$st2}</td>
+                                        <td width=''>{$tea2}</td>
+                                        <td width='' align='center'>
+                                            <div class='form-check'>
+                                                <input class='form-check-input' type='checkbox' value='{$round2['id']}' id='flexCheckDefault' name='p_id2[]' {$checkbox2}>
+                                            </div>
+                                            
+                                        </td>
+                                        
+                                    </tr>
+                                         ";
+                                     }
                                 ?>
                             </tbody>
                         </table>
@@ -211,7 +213,7 @@ use App\Model\Sciday\Teacher;
         <!-- Round 3 -->
         <div class="d-flex justify-content-between">
             <span class="badge rounded-pill bg-warning mt-3 shadow">
-                <h2><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบมานำเสนอ Onsite&nbsp;&nbsp;&nbsp;</b></h2>
+                <h2><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 3 (Onsite ที่คณะวิทยาศาสตร์)&nbsp;&nbsp;&nbsp;</b></h2>
             </span>
         </div>
         <div class="row">
@@ -227,58 +229,57 @@ use App\Model\Sciday\Teacher;
                                     <th width='20%'>โรงเรียน</th>
                                     <th width='18%'>นักเรียน</th>
                                     <th width='18%'>อาจารย์ที่ปรึกษา</th>
-                                    <th width='10%'>มาแสดงที่คณะ</th>
+                                    <th width='10%'>ผ่านเข้ารอบ 3</th>
                                     <!-- <th>รูป</th> -->
                                 </tr>
                             </thead>
                             <tbody class="fs-14">
-                                <input type='hidden' class='form-control' name='activity_id' value='<?php echo $_REQUEST['activity'];?>'>
-                                <input type='hidden' class='form-control' name='level_id' value='<?php echo $_REQUEST['level'];?>'>
+                                <input type='hidden' class='form-control' name='activity_id2' value='<?php echo $_REQUEST['activity'];?>'>
+                                <input type='hidden' class='form-control' name='level_id2' value='<?php echo $_REQUEST['level'];?>'>
                                 <!-- <input type='hidden' class='form-control' name='num' value='2'> -->
-                                <input type='hidden' class='form-control' name='link_video' value=''>
+                                <input type='hidden' class='form-control' name='link_video2' value=''>
                                 <?php 
-                                     
-                                    $rounds = $roundObj->getRound3ByLevel($_REQUEST['level']);
-                                    $i=0;
-                                    $st="";
-                                    $tea="";
-                                    foreach($rounds AS $round){
-                                        $stus = $studentObj->getStuById($proname['student_id']);
-                                        $teachers = $teacherObj->getTeacherById($proname['teacher_id']);
-                                        $i++;
-                                        $j=0;
-                                        $k=0;
+                                     $round3s = $roundObj->getRound3ByLevel($_REQUEST['level']);
+                                     foreach($round3s AS $round3){
+                                        //$project3 = $projectObj->getProjectById($round3['project_id']);
+                                        //echo $project3['student_id'];
+                                        $stus3 = $studentObj->getStuById($round3['student_id']);
+                                        $teachers3 = $teacherObj->getTeacherById($round3['teacher_id']);
+                                        $i3++;
+                                        $j3=0;
+                                        $k3=0;
+                                        $st3="";
+                                        $tea3="";
 
-                                        if($round['link_video']==""){
-                                            $show_link="";
+                                        if($round3['link_video']==""){
+                                            $show_link3="";
                                         }else{
-                                            $show_link="<a href='{$round['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
+                                            $show_link3="<a href='{$round3['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
                                         }
-                                        foreach($stus AS $stu){
-                                            $j++;
-                                            $st .=$j.". ".$stu['stitle'].$stu['sname']." ".$stu['ssurname']."<br>";
+                                        foreach($stus3 AS $stu3){
+                                            $j3++;
+                                            $st3 .=$j3.". ".$stu3['stitle'].$stu3['sname']." ".$stu3['ssurname']."<br>";
                                         }
-                                        foreach($teachers AS $teacher){
-                                            $k++;
-                                            $tea .=$k.". ".$teacher['ttitle'].$teacher['tname']." ".$teacher['tsurname']."<br>";
+                                        foreach($teachers3 AS $teacher3){
+                                            $k3++;
+                                            $tea3 .=$k3.". ".$teacher3['ttitle'].$teacher3['tname']." ".$teacher3['tsurname']."<br>";
                                         }
                                         echo "
-                                            <tr>
-                                                <td width='8%'>{$i}.</td>
-                                                <td>{$round['project_name']}</td>
-                                                <td width='20%'>{$round['school']}</td>
-                                                <td width='18%'>{$st}</td>
-                                                <td width='18%'>{$tea}</td>
-                                                <td width='10%' align='center'>
-                                                    <div class='form-check'>
-                                                        <input class='form-check-input' type='checkbox' value='{$round['id']}' id='flexCheckDefault' name='p_id[]' >
-                                                    </div>
-                                                    
-                                                </td>
-                                                
-                                            </tr>
-                                        ";
-                                    }
+                                        <tr>
+                                        <td width=''>{$i3}.</td>
+                                        <td>{$round3['project_name']}</td>
+                                        <td width=''>{$round3['school']}</td>
+                                        <td width=''>{$st3}</td>
+                                        <td width=''>{$tea3}</td>
+                                        <td width='' align='center'>
+                                            <div class='spinner-grow text-success' role='status'>
+                                                <span class='visually-hidden'>Loading...</span>
+                                            </div>
+                                        </td>
+                                        
+                                    </tr>
+                                         ";
+                                     }
                                 ?>
                             </tbody>
                         </table>

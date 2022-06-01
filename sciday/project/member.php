@@ -40,10 +40,14 @@ use App\Model\Sciday\Teacher;
                 <h2><b>&nbsp;&nbsp;&nbsp;<?php echo $activity_name ;?>&nbsp;&nbsp;&nbsp;</b></h2>
             </span>
         </div>
+        <?php 
+            $projects = $projectObj->getProjectById($_REQUEST['project_id']);
+
+        ?>
         <div class="row">
             <div class="col-lg-12">
                 <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20">
-                    <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp;ทีมที่สมัคร <?php echo $level_name;?></div>
+                    <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $projects['level'];?></div>
                     
                     <table class="table table-striped table-hover mt-2 fs-18">
                         <thead>
@@ -59,43 +63,38 @@ use App\Model\Sciday\Teacher;
                         </thead>
                         <tbody class="fs-14">
                             <?php 
-                                $pronames = $projectObj->getProjectByLevel($_REQUEST['level']);
-                                $i=0;
+                                $stus = $studentObj->getStuById($projects['student_id']);
+                                $teachers = $teacherObj->getTeacherById($projects['teacher_id']);
+                                $i++;
+                                $j=0;
+                                $k=0;
+                                ?>
+                                    <tr>
+                                        <td width='8%'><?php echo $i; ?>.</td>
+                                        <td><?php echo $projects['project_name']; ?></td>
+                                        <td width='20%'><?php echo $projects['school']; ?></td>
+                                        <td width='20%'>
+                                            <?php 
+                                                foreach($stus AS $stu){
+                                                    $j++;
+                                                    echo $j.". ".$stu['stitle'].$stu['sname']." ".$stu['ssurname']."<br>";
+                                                }
+                                            ?>
+                                        </td>
+                                        <td width='15%'>
+                                            <?php 
+                                                foreach($teachers AS $teacher){
+                                                    $k++;
+                                                    echo $k.". ".$teacher['ttitle'].$teacher['tname']." ".$teacher['tsurname']."<br>";
+                                                }
+                                            ?>
+                                        </td>
+                                        <td width='10%'><a href='/science/upload/sciday/file/<?php echo $projects['file_register']; ?>' target='_blank'>Download</a></td>
+                                        <td width='5%'><a href='/science/sciday/project/pic.php?activity=<?php echo $activity_name; ?>&p_id=<?php echo $projects['id']; ?>&image_id=<?php echo $proname['images_id']; ?>' target='_blank' ><i class='bx bxs-image fs-24' ></i></a></td>
+                                    </tr>
                                 
-                                foreach($pronames AS $proname){
-                                    $stus = $studentObj->getStuById($proname['student_id']);
-                                    $teachers = $teacherObj->getTeacherById($proname['teacher_id']);
-                                    $i++;
-                                    $j=0;
-                                    $k=0;
-                                    ?>
-                                   
-                                        <tr>
-                                            <td width='8%'><?php echo $i; ?>.</td>
-                                            <td><?php echo $proname['project_name']; ?></td>
-                                            <td width='20%'><?php echo $proname['school']; ?></td>
-                                            <td width='20%'>
-                                                <?php 
-                                                    foreach($stus AS $stu){
-                                                        $j++;
-                                                        echo $j.". ".$stu['stitle'].$stu['sname']." ".$stu['ssurname']."<br>";
-                                                    }
-                                                ?>
-                                            </td>
-                                            <td width='15%'>
-                                                <?php 
-                                                    foreach($teachers AS $teacher){
-                                                        $k++;
-                                                        echo $k.". ".$teacher['ttitle'].$teacher['tname']." ".$teacher['tsurname']."<br>";
-                                                    }
-                                                ?>
-                                            </td>
-                                            <td width='10%'><a href='/science/upload/sciday/file/<?php echo $proname['file_register']; ?>' target='_blank'>Download</a></td>
-                                            <td width='5%'><a href='/science/sciday/project/pic.php?activity=<?php echo $activity_name; ?>&p_id=<?php echo $proname['id']; ?>&image_id=<?php echo $proname['images_id']; ?>' target='_blank' ><i class='bx bxs-image fs-24' ></i></a></td>
-                                        </tr>
-                                    
-                                    <?php
-                                }
+                                <?php
+                                
                             ?>
                         </tbody>
                     </table>
@@ -131,7 +130,7 @@ use App\Model\Sciday\Teacher;
                                 <input type='hidden' class='form-control' name='num' value='2'>
                                 <input type='hidden' class='form-control' name='link_video' value=''>
                                 <?php 
-                                    $pronames = $projectObj->getProjectByLevel($_REQUEST['level']);
+                                     
                                     $rounds = $roundObj->getRound2ByLevel($_REQUEST['level']);
                                     $i=0;
                                     $st="";

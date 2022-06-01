@@ -4,6 +4,8 @@
  $activityObj = new Activity;  
  use App\Model\Sciday\Level;
  $levelObj = new Level;  
+ use App\Model\Sciday\Project;
+ $projectObj = new Project;  
  session_start(); 
 ?>
 
@@ -81,8 +83,18 @@
                             <a class="nav-link dropdown-toggle active text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <?php echo $_SESSION['name']." ".$_SESSION['surname']." (".$_SESSION['role'].")" ?>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color:rgb(96,168,197);">
-                                <a class="dropdown-item" href="">แก้ไขข้อมูลส่วนตัว</a>
+                            <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown" style="background-color:rgb(96,168,197);"  >
+                            <a class="dropdown-item" href="">ข้อมูลที่สมัครกิจกรรม</a>
+                            <hr class="dropdown-divider">
+                                <?php  
+                                    $pros = $projectObj->getProjectByUser($_SESSION['id']);
+                                    foreach($pros AS $pro){
+                                        echo "
+                                            <a class='dropdown-item' href='/science/sciday/project/member.php?activity=2&project_id={$pro['id']}'><i class='bx bx-right-arrow-alt' ></i> {$pro['project_name']}</a>
+                                        ";
+                                    }
+                                ?>
+                                <a class="dropdown-item" href="/science/sciday/project/member.php">แก้ไขข้อมูลส่วนตัว</a>
                                 <hr class="dropdown-divider">
                                 <a class="dropdown-item" href="/science/sciday/auth/logout.php">ออกจากระบบ</a>
                             </div>

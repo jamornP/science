@@ -141,4 +141,34 @@ class Round extends DbSciDay {
         }
         
     }
+    public function getRoundById($id,$num) {
+        $sql = "
+        SELECT
+            p.id, 
+            p.project_name,
+            p.school,
+            p.student_id,
+            p.teacher_id,
+            p.file_register,
+            p.user_id,
+            l.name,
+            r.num,
+            r.link_video 
+        FROM 
+            tb_round AS r
+            LEFT JOIN tb_project AS p ON r.project_id = p.id
+            LEFT JOIN tb_level AS l ON r.level_id = l.id
+        WHERE
+            r.project_id = ? AND r.num = '".$num."' 
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        $data = $stmt->fetchColumn();
+        if($data>0){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
 }

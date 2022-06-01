@@ -105,6 +105,29 @@ class Project extends DbSciDay {
         $data = $stmt->fetchAll();
         return $data[0];
     }
+    public function getProjectByUser($user) {
+        $sql = "
+            SELECT 
+                p.id,
+                p.project_name,
+                l.name AS level,
+                p.school,
+                p.student_id,
+                p.teacher_id,
+                p.file_register,
+                p.images_id,
+                p.user_id
+            FROM
+                tb_project AS p
+                LEFT JOIN tb_level AS l ON p.level_id = l.id 
+            WHERE
+                p.user_id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$user]);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
 
 
 }
