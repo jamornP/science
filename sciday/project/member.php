@@ -233,7 +233,7 @@ use App\Model\Sciday\Teacher;
                             <div class="col-md">
                                 <div class="form-group">
                                     <label for="" class="text-primary"><b class="fs-18">1. ชื่อโครงงานวิทยาศาสตร์<font color="red">*</font></b></label>
-                                    <input class="form-control" type="text"  name="project_id" value="<?php echo $projects['id'];?>">
+                                    <input class="form-control" type="hidden"  name="project_id" value="<?php echo $projects['id'];?>">
                                     <input type="text" class="form-control w-75" name="project_name" required value="<?php echo $projects['project_name']; ?>">
                                 </div>
                             </div>
@@ -272,7 +272,7 @@ use App\Model\Sciday\Teacher;
                             <div class="col-md">
                                 <div class="form-group mt-2">
                                     <label for="" class="text-primary"><b class="fs-18">รายชื่อผู้เข้าประกวดโครงงานวิทยาศาสตร์<font color="red">*</font> <font color="red">(ไม่เกิน 3 คน)</font></b></label>
-                                    <input class="form-control" type="text" id="formFileMultiple" name="student_id" value="<?php echo $projects['student_id'];?>">
+                                    <input class="form-control" type="hidden" id="formFileMultiple" name="student_id" value="<?php echo $projects['student_id'];?>">
                                     <ol>
                                         <?php
                                             foreach($stus AS $stu){
@@ -302,7 +302,7 @@ use App\Model\Sciday\Teacher;
                                                                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="ssurname[]" value="<?php echo $stu['ssurname'];?>">
                                                             </div>
                                                             <div class="">
-                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="id" name="sid[]" value="<?php echo $stu['sid'];?>">
+                                                                <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="id" name="sid[]" value="<?php echo $stu['sid'];?>">
                                                             </div>
                                                             <!-- <button class="btn btn-success mx-2 btn-add text-white">+</button>
                                                             <button class="btn btn-danger btn-remove text-white">-</button> -->
@@ -319,7 +319,7 @@ use App\Model\Sciday\Teacher;
                             <div class="col-md">
                                 <div class="form-group mt-2">
                                     <label for="" class="text-primary"><b class="fs-18">อาจารย์ที่ปรึกษาโครงงานวิทยาศาสตร์ <font color="red">(ไม่เกิน 2 คน)</font></b></label>
-                                    <input class="form-control" type="text" id="formFileMultiple" name="teacher_id" value="<?php echo $projects['teacher_id'];?>">
+                                    <input class="form-control" type="hidden" id="formFileMultiple" name="teacher_id" value="<?php echo $projects['teacher_id'];?>">
                                     <ol>
                                         <?php 
                                             foreach($teachers AS $teacher){
@@ -347,7 +347,7 @@ use App\Model\Sciday\Teacher;
                                                                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="tsurname[]" value="<?php echo $teacher['tsurname'];?>">
                                                             </div>
                                                             <div class="">
-                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="id" name="tid[]" value="<?php echo $teacher['tid'];?>">
+                                                                <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="id" name="tid[]" value="<?php echo $teacher['tid'];?>">
                                                             </div>
                                                             <!-- <button class="btn btn-success mx-2 btn-add text-white">+</button>
                                                             <button class="btn btn-danger btn-remove text-white">-</button> -->
@@ -366,7 +366,7 @@ use App\Model\Sciday\Teacher;
                                     <div class="mb-3 w-75">
                                         <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">Upload ไฟล์ใบสมัคร ความยาวไม่เกิน 5 หน้ากระดาษ A4<font color="red">*</font></b></label>
                                         <input class="form-control" type="file" id="formFileMultiple" name="file_doc" >
-                                        <input class="form-control" type="text"  name="file_register" value="<?php echo $projects['file_register'];?>">
+                                        <input class="form-control" type="hidden"  name="file_register" value="<?php echo $projects['file_register'];?>">
                                     </div>
                                 </div>
                             </div>
@@ -380,7 +380,7 @@ use App\Model\Sciday\Teacher;
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="dropzone" id="drop"></div>
-                                                    <input class="form-control" type="text" id="formFileMultiple" name="images_id" value="<?php echo $projects['images_id'];?>">
+                                                    <input class="form-control" type="hidden" id="formFileMultiple" name="images_id" value="<?php echo $projects['images_id'];?>">
                                                 </div>
                                             </div>
                                         </div>

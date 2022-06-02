@@ -102,14 +102,15 @@ use App\Model\Sciday\Teacher;
                                         
                                             $projects = $projectObj->getProjectByLevel($level['id']);
                                             $i=0;
-                                            $st="";
-                                            $tea="";
+                                            
                                             foreach($projects AS $project){
                                                 $stus = $studentObj->getStuById($project['student_id']);
                                                 $teachers = $teacherObj->getTeacherById($project['teacher_id']);
                                                 $i++;
                                                 $j=0;
                                                 $k=0;
+                                                $st="";
+                                                $tea="";
 
                                                 if($round['link_video']==""){
                                                     $show_link="";
