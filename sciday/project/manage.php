@@ -75,7 +75,7 @@ use App\Model\Sciday\Teacher;
                                         $k=0;
                                         $st="";
                                     $tea="";
-                                        $ck = $roundObj->getRound2ById($project['id']);
+                                        $ck = $roundObj->checkRound2ById($project['id']);
                                         if($ck){
                                             $checkbox ="checked";
                                         }else{
@@ -164,7 +164,7 @@ use App\Model\Sciday\Teacher;
                                         $st2="";
                                         $tea2="";
 
-                                        $ck2 = $roundObj->getRound3ById($round2['id']);
+                                        $ck2 = $roundObj->checkRound3ById($round2['id']);
                                         if($ck2){
                                             $checkbox2 ="checked";
                                         }else{
@@ -229,7 +229,7 @@ use App\Model\Sciday\Teacher;
                                     <th width='20%'>โรงเรียน</th>
                                     <th width='18%'>นักเรียน</th>
                                     <th width='18%'>อาจารย์ที่ปรึกษา</th>
-                                    <th width='10%'>ผ่านเข้ารอบ 3</th>
+                                    <th width='10%'>Onsite</th>
                                     <!-- <th>รูป</th> -->
                                 </tr>
                             </thead>
@@ -272,9 +272,7 @@ use App\Model\Sciday\Teacher;
                                         <td width=''>{$st3}</td>
                                         <td width=''>{$tea3}</td>
                                         <td width='' align='center'>
-                                            <div class='spinner-grow text-success' role='status'>
-                                                <span class='visually-hidden'>Loading...</span>
-                                            </div>
+                                            <button type='button' class='btn btn-success text-white'>Success</button>
                                         </td>
                                         
                                     </tr>
@@ -291,6 +289,8 @@ use App\Model\Sciday\Teacher;
             </div>
         </div>
     </div>
+
+    
 </body>
 
 </html>

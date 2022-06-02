@@ -94,7 +94,7 @@
                                         ";
                                     }
                                 ?>
-                                <a class="dropdown-item" href="/science/sciday/project/member.php">แก้ไขข้อมูลส่วนตัว</a>
+                                <!-- <a class="dropdown-item" href="/science/sciday/project/member.php">แก้ไขข้อมูลส่วนตัว</a> -->
                                 <hr class="dropdown-divider">
                                 <a class="dropdown-item" href="/science/sciday/auth/logout.php">ออกจากระบบ</a>
                             </div>

@@ -27,6 +27,8 @@ if(isset($_FILES['file_doc']['tmp_name'])) {
         move_uploaded_file($_FILES['file_doc']['tmp_name'],$file_path);
         $data['file_register']=$new_name;
     }
+}else{
+    echo "No file";
 }
  $project_id = $projectObj->InsertProject($data);
 // echo $id;
@@ -102,7 +104,7 @@ foreach ($_REQUEST['img_path'] as $key => $imgs) {
 // print_r($_REQUEST);
 // echo "</pre>";
 // echo "<pre>"; 
-// print_r($_FILES['file_doc']);
+//  print_r($_FILES['file_doc']);
 // echo "</pre>";
-header("location: /science/sciday/pages/project.php?activity=2");
+// header("location: /science/sciday/pages/project.php?activity=2");
 ?>

@@ -48,13 +48,13 @@ use App\Model\Sciday\Teacher;
                     <table class="table table-striped table-hover mt-2 fs-18">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>ชื่อโครงงานวิทยาศาสตร์</th>
-                                <th>โรงเรียน</th>
-                                <th>นักเรียน</th>
-                                <th>อาจารย์ที่ปรึกษา</th>
-                                <th>เอกสาร</th>
-                                <th>รูป</th>
+                                <th width='8%'>#</th>
+                                <th >ชื่อโครงงานวิทยาศาสตร์</th>
+                                <th width='20%'>โรงเรียน</th>
+                                <th width='20%'>นักเรียน</th>
+                                <th width='15%'>อาจารย์ที่ปรึกษา</th>
+                                <th width='10%'>เอกสาร</th>
+                                <th width='5%'>รูป</th>
                             </tr>
                         </thead>
                         <tbody class="fs-14">
@@ -116,12 +116,12 @@ use App\Model\Sciday\Teacher;
                         <table class="table table-striped table-hover mt-2 fs-18">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th width='8%'>#</th>
                                     <th>ชื่อโครงงานวิทยาศาสตร์</th>
-                                    <th>โรงเรียน</th>
-                                    <th>นักเรียน</th>
-                                    <th>อาจารย์ที่ปรึกษา</th>
-                                    <th>วีดีโอ</th>
+                                    <th width='20%'>โรงเรียน</th>
+                                    <th width='20%'>นักเรียน</th>
+                                    <th width='15%'>อาจารย์ที่ปรึกษา</th>
+                                    <th width='25%'>วีดีโอ</th>
                                     <!-- <th>รูป</th> -->
                                 </tr>
                             </thead>
@@ -131,33 +131,32 @@ use App\Model\Sciday\Teacher;
                                 <input type='hidden' class='form-control' name='num' value='2'>
                                 <input type='hidden' class='form-control' name='link_video' value=''>
                                 <?php 
-                                    $pronames = $projectObj->getProjectByLevel($_REQUEST['level']);
                                     $rounds = $roundObj->getRound2ByLevel($_REQUEST['level']);
                                     $i=0;
-                                    $st="";
-                                    $tea="";
+                                    
                                     foreach($rounds AS $round){
-                                        $stus = $studentObj->getStuById($proname['student_id']);
-                                        $teachers = $teacherObj->getTeacherById($proname['teacher_id']);
+                                        $stus = $studentObj->getStuById($round['student_id']);
+                                        $teachers = $teacherObj->getTeacherById($round['teacher_id']);
                                         $i++;
                                         $j=0;
                                         $k=0;
-
+                                        $st="";
+                                        $tea="";
                                         if($round['link_video']==""){
                                             $show_link="";
                                         }else{
                                             $show_link="<a href='{$round['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
                                         }
+                                        // ค้นหานักเรียน
                                         foreach($stus AS $stu){
                                             $j++;
                                             $st .=$j.". ".$stu['stitle'].$stu['sname']." ".$stu['ssurname']."<br>";
                                         }
+                                        // ค้นหาชื่ออาจารย์ที่ปรึกษา
                                         foreach($teachers AS $teacher){
                                             $k++;
                                             $tea .=$k.". ".$teacher['ttitle'].$teacher['tname']." ".$teacher['tsurname']."<br>";
                                         }
-                                                
-                                           
                                         echo "
                                             <tr>
                                                 <td width='8%'>{$i}.</td>

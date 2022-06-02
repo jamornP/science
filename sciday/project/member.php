@@ -28,7 +28,7 @@ use App\Model\Sciday\Teacher;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Sciday</title>
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/link.php";?>
-  
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -42,7 +42,7 @@ use App\Model\Sciday\Teacher;
         </div>
         <?php 
             $projects = $projectObj->getProjectById($_REQUEST['project_id']);
-
+            
         ?>
         <div class="row">
             <div class="col-lg-12">
@@ -52,13 +52,13 @@ use App\Model\Sciday\Teacher;
                     <table class="table table-striped table-hover mt-2 fs-18">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>ชื่อโครงงานวิทยาศาสตร์</th>
-                                <th>โรงเรียน</th>
-                                <th>นักเรียน</th>
-                                <th>อาจารย์ที่ปรึกษา</th>
-                                <th>เอกสาร</th>
-                                <th>รูป</th>
+                                <th width='8%'>#</th>
+                                <th >ชื่อโครงงานวิทยาศาสตร์</th>
+                                <th width='20%'>โรงเรียน</th>
+                                <th width='20%'>นักเรียน</th>
+                                <th width='15%'>อาจารย์ที่ปรึกษา</th>
+                                <th width='10%'>เอกสาร</th>
+                                <th width='5%'>รูป</th>
                             </tr>
                         </thead>
                         <tbody class="fs-14">
@@ -98,84 +98,322 @@ use App\Model\Sciday\Teacher;
                             ?>
                         </tbody>
                     </table>
+                    <div class="d-flex flex-row-reverse bd-highlight mt-3">
+                        <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#edit'>
+                        <i class='bx bx-edit' ></i> แก้ไขข้อมูล
+                        </button>
+                    </div>
+                   
                 </div>
             </div>
         </div>
         <!-- Round 2 -->
-        <div class="d-flex justify-content-between">
-            <span class="badge rounded-pill bg-success mt-3 shadow">
-                <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 2&nbsp;&nbsp;&nbsp;</b></h3>
-            </span>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20">
-                    <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $level_name;?></div>
-                    <form action="saver1.php" method="post">
-                        <table class="table table-striped table-hover mt-2 fs-18">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>ชื่อโครงงานวิทยาศาสตร์</th>
-                                    <th>โรงเรียน</th>
-                                    <th>นักเรียน</th>
-                                    <th>อาจารย์ที่ปรึกษา</th>
-                                    <th>วีดีโอ</th>
-                                    <!-- <th>รูป</th> -->
-                                </tr>
-                            </thead>
-                            <tbody class="fs-14">
-                                <input type='hidden' class='form-control' name='activity_id' value='<?php echo $_REQUEST['activity'];?>'>
-                                <input type='hidden' class='form-control' name='level_id' value='<?php echo $_REQUEST['level'];?>'>
-                                <input type='hidden' class='form-control' name='num' value='2'>
-                                <input type='hidden' class='form-control' name='link_video' value=''>
-                                <?php 
-                                     
-                                    $rounds = $roundObj->getRound2ByLevel($_REQUEST['level']);
-                                    $i=0;
-                                    $st="";
-                                    $tea="";
-                                    foreach($rounds AS $round){
-                                        $stus = $studentObj->getStuById($proname['student_id']);
-                                        $teachers = $teacherObj->getTeacherById($proname['teacher_id']);
-                                        $i++;
-                                        $j=0;
-                                        $k=0;
+        <?php 
+            $round2s = $roundObj->checkRound2ById($_REQUEST['project_id']);
+            if($round2s){
+                $project2s = $projectObj->getProjectById($_REQUEST['project_id']);
+                // print_r($project2s);
+                $round2s = $roundObj->getRound2ById($project2s['id']);
+                // echo "<br>";
+                // echo "<br>";
+                // print_r($round2s);
+            ?>
+                <div class="d-flex justify-content-between">
+                    <span class="badge rounded-pill bg-success mt-3 shadow">
+                        <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 2&nbsp;&nbsp;&nbsp;</b></h3>
+                    </span>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20">
+                            <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $round2s['name'];?></div>
+                            <table class="table table-striped table-hover mt-2 fs-18">
+                                <thead>
+                                    <tr>
+                                        <th width='8%'>#</th>
+                                        <th >ชื่อโครงงานวิทยาศาสตร์</th>
+                                        <th width='20%'>โรงเรียน</th>
+                                        <th width='20%'>นักเรียน</th>
+                                        <th width='15%'>อาจารย์ที่ปรึกษา</th>
+                                        <th width='15%'>วีดีโอ</th>
+                                        <!-- <th>รูป</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody class="fs-14">
+                                    <input type='hidden' class='form-control' name='link_video' value='<?php echo $round2s["link_video"];?>'>
+                                    <?php 
+                                        $stus2 = $studentObj->getStuById($project2s['student_id']);
+                                        $teachers2 = $teacherObj->getTeacherById($project2s['teacher_id']);
+                                        $i2++;
+                                        $j2=0;
+                                        $k2=0;
+                                        $st2="";
+                                        $tea2="";
 
-                                        if($round['link_video']==""){
-                                            $show_link="";
+                                        $ck2 = $roundObj->checkRound2ById($project2s['id']);
+                                        
+                                        if($round2s['link_video']==""){
+                                            $show_link2="
+                                                <button type='button' class='btn btn-sm btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'>
+                                                    <i class='bx bxs-video-plus'></i> อัพลิงค์วีดีโอ
+                                                </button>
+                                            ";
                                         }else{
-                                            $show_link="<a href='{$round['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
+                                            $show_link2="<a href='{$round2s['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
                                         }
-                                        foreach($stus AS $stu){
-                                            $j++;
-                                            $st .=$j.". ".$stu['stitle'].$stu['sname']." ".$stu['ssurname']."<br>";
+                                        foreach($stus2 AS $stu2){
+                                            $j2++;
+                                            $st2 .=$j2.". ".$stu2['stitle'].$stu2['sname']." ".$stu2['ssurname']."<br>";
                                         }
-                                        foreach($teachers AS $teacher){
-                                            $k++;
-                                            $tea .=$k.". ".$teacher['ttitle'].$teacher['tname']." ".$teacher['tsurname']."<br>";
+                                        foreach($teachers2 AS $teacher2){
+                                            $k2++;
+                                            $tea2 .=$k2.". ".$teacher2['ttitle'].$teacher2['tname']." ".$teacher2['tsurname']."<br>";
                                         }
-                                                
-                                           
                                         echo "
                                             <tr>
                                                 <td width='8%'>{$i}.</td>
-                                                <td>{$round['project_name']}</td>
-                                                <td width='20%'>{$round['school']}</td>
-                                                <td width='20%'>{$st}</td>
-                                                <td width='15%'>{$tea}</td>
-                                                <td width='10%'>{$show_link}</td>
+                                                <td>{$project2s['project_name']}</td>
+                                                <td width='20%'>{$project2s['school']}</td>
+                                                <td width='20%'>{$st2}</td>
+                                                <td width='15%'>{$tea2}</td>
+                                                <td width='10%'>{$show_link2}</td>
                                             </tr>
                                         ";
-                                    }
-                                ?>
-                            </tbody>
-                        </table>
-                    </form>
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
+            <?php
+            }
+        ?>
+    </div>
+    <!-- Modal Up Link Video -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="video.php" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">อัพลิงค์ Video Youtube</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Link Video Yuotube" value="<?php echo $project2s['id'];?>" name="project_id">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Link Video Yuotube</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ใส่ลิงค์ Video Youtube ที่นี้..." name="link_video">
+                         
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger text-white" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+    <!-- Modal Edit -->
+    <div class=" modal fade " id="edit" tabindex="-1" aria-labelledby="exampleModalLabeledit" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <form action="edit.php" method="post" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <!-- <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อมูล</h5> -->
+                        <div class="d-flex justify-content-between">
+                            <span class="badge rounded-pill bg-warning">
+                                <h2><b>&nbsp;&nbsp;&nbsp;แก้ไขข้อมูล&nbsp;&nbsp;&nbsp;</b></h2>
+                            </span>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row mt-2">
+                            <div class="col-md">
+                                <div class="form-group">
+                                    <label for="" class="text-primary"><b class="fs-18">1. ชื่อโครงงานวิทยาศาสตร์<font color="red">*</font></b></label>
+                                    <input class="form-control" type="text"  name="project_id" value="<?php echo $projects['id'];?>">
+                                    <input type="text" class="form-control w-75" name="project_name" required value="<?php echo $projects['project_name']; ?>">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md">
+                                <div class="form-group">
+                                    <label for="" class="text-primary"><b class="fs-18">2. ระดับการศึกษาที่เข้าร่วมประกวดโครงงานวิทยาศาสตร์ ประจำปี 2565<font color="red">*</font></b></label>
+                                </div>
+                                <div class="form-group mt-2">
+                                    <?php 
+                                        $levels =$levelObj->getLevelByActivity('2');
+                                        foreach($levels AS $level){
+                                            $selected =($level['id']==$projects['level_id']) ?
+                                            "checked" : "";
+                                            echo "
+                                                <div class='form-check form-check-inline'>
+                                                    <input class='form-check-input' type='radio' name='level_id' id='inlineRadio{$levle['id']}' value='{$level['id']}' {$selected}>
+                                                    <label class='form-check-label' for='inlineRadio{$levle['id']}'>{$level['name']}</label>
+                                                </div>
+                                            ";
+                                        }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md">
+                                <div class="form-group">
+                                    <label for="" class="text-primary"><b class="fs-18">3. ชื่อสถานศึกษา/โรงเรียน <font color="red">*</font> ตัวอย่างการกรอก 'โรงเรียน.......'<font color="red"> ห้ามใช้ ร.ร.</font></b></label>
+                                    <input type="text" class="form-control w-75" name="school"  required value="<?php echo $projects['school']; ?>">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="form-group mt-2">
+                                    <label for="" class="text-primary"><b class="fs-18">รายชื่อผู้เข้าประกวดโครงงานวิทยาศาสตร์<font color="red">*</font> <font color="red">(ไม่เกิน 3 คน)</font></b></label>
+                                    <input class="form-control" type="text" id="formFileMultiple" name="student_id" value="<?php echo $projects['student_id'];?>">
+                                    <ol>
+                                        <?php
+                                            foreach($stus AS $stu){
+                                                ?>
+                                                    <li>
+                                                        <div class="d-flex mb-2">
+                                                            <div class="">
+                                                                    <select class="form-select" aria-label="Default select example" name="stitle[]">
+                                                                        <option selected>คำนำหน้าชื่อ</option>
+                                                                        <?php 
+                                                                            $titles = $titleObj->getAllTitle();
+                                                                            foreach($titles AS $title){
+                                                                            $selected =($title['id']==$stu['stitle_id']) ?
+                                                                            "selected" : "";
+                                                                                
+                                                                                echo "
+                                                                                    <option value='{$title['id']}' {$selected}>{$title['name']}</option>
+                                                                                ";
+                                                                            }
+                                                                        ?>
+                                                                    </select>
+                                                            </div>
+                                                            <div class="">
+                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="sname[]" value="<?php echo $stu['sname'];?>">
+                                                            </div>
+                                                            <div class="">
+                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="ssurname[]" value="<?php echo $stu['ssurname'];?>">
+                                                            </div>
+                                                            <div class="">
+                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="id" name="sid[]" value="<?php echo $stu['sid'];?>">
+                                                            </div>
+                                                            <!-- <button class="btn btn-success mx-2 btn-add text-white">+</button>
+                                                            <button class="btn btn-danger btn-remove text-white">-</button> -->
+                                                        </div>
+                                                    </li>
+                                                <?php 
+                                            }
+                                        ?>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="form-group mt-2">
+                                    <label for="" class="text-primary"><b class="fs-18">อาจารย์ที่ปรึกษาโครงงานวิทยาศาสตร์ <font color="red">(ไม่เกิน 2 คน)</font></b></label>
+                                    <input class="form-control" type="text" id="formFileMultiple" name="teacher_id" value="<?php echo $projects['teacher_id'];?>">
+                                    <ol>
+                                        <?php 
+                                            foreach($teachers AS $teacher){
+                                                ?>
+                                                    <li>
+                                                        <div class="d-flex mb-2">
+                                                            <div class="">
+                                                                <select class="form-select" aria-label="Default select example" name="ttitle[]">
+                                                                    <option selected>คำนำหน้าชื่อ</option>
+                                                                    <?php 
+                                                                        foreach($titles AS $title){
+                                                                            $selected =($title['id']==$teacher['ttitle_id']) ?
+                                                                            "selected" : "";
+                                                                            echo "
+                                                                                <option value='{$title['id']}' {$selected}>{$title['name']}</option>
+                                                                            ";
+                                                                        }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                            <div class="">
+                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="tname[]" value="<?php echo $teacher['tname'];?>">
+                                                            </div>
+                                                            <div class="">
+                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="tsurname[]" value="<?php echo $teacher['tsurname'];?>">
+                                                            </div>
+                                                            <div class="">
+                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="id" name="tid[]" value="<?php echo $teacher['tid'];?>">
+                                                            </div>
+                                                            <!-- <button class="btn btn-success mx-2 btn-add text-white">+</button>
+                                                            <button class="btn btn-danger btn-remove text-white">-</button> -->
+                                                        </div>
+                                                    </li>
+                                                <?php
+                                            }
+                                        ?>            
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="form-group mt-2">
+                                    <div class="mb-3 w-75">
+                                        <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">Upload ไฟล์ใบสมัคร ความยาวไม่เกิน 5 หน้ากระดาษ A4<font color="red">*</font></b></label>
+                                        <input class="form-control" type="file" id="formFileMultiple" name="file_doc" >
+                                        <input class="form-control" type="text"  name="file_register" value="<?php echo $projects['file_register'];?>">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="form-group mt-2">
+                                    <div class="mb-3 w-75">
+                                        <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">Upload ไฟล์รูปภาพ <font color="red">( *.png หรือ *.jpg )</font> เท่านั้น</b></label>
+                                        <div class="container">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="dropzone" id="drop"></div>
+                                                    <input class="form-control" type="text" id="formFileMultiple" name="images_id" value="<?php echo $projects['images_id'];?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="text-warning">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger text-white" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+    <script src="js/drop.js"></script>
+    <script>
+    function readURL(input) {
+        if (input.files[1]) {
+            let reader = new FileReader();
+            document.querySelector('#imgControl').classList.replace("d-none", "d-block");
+            reader.onload = function(e) {
+                let element = document.querySelector('#imgUpload');
+                element.setAttribute("src", e.target.result);
+            }
+            reader.readAsDataURL(input.files[1]);
+           
+        }
+    }
+    </script>
 </body>
 
 </html>

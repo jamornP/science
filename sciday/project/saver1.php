@@ -41,7 +41,7 @@ use App\Model\Sciday\Round;
       }
 
    }
-   
+   header("location: /science/sciday/project/manage.php?activity=2&level={$_REQUEST['level_id']}");
  }
    
  

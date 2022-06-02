@@ -88,6 +88,7 @@ class Project extends DbSciDay {
                 p.id,
                 p.project_name,
                 l.name AS level,
+                p.level_id,
                 p.school,
                 p.student_id,
                 p.teacher_id,
@@ -128,7 +129,27 @@ class Project extends DbSciDay {
         $data = $stmt->fetchAll();
         return $data;
     }
+    public function UpdateProject($project) {
+        $sql = "
+            UPDATE 
+                tb_project 
+            SET 
+                project_name = :project_name,
+                level_id = :level_id,
+                school = :school,
+                student_id = :student_id,
+                teacher_id = :teacher_id,
+                file_register = :file_register,
+                images_id = :images_id
+                
+            WHERE 
+                id= :project_id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($project);
+        return true;
 
+    }
 
 }
 

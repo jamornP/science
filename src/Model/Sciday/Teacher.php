@@ -32,10 +32,11 @@ class Teacher extends DbSciDay {
     public function getTeacherById($id) {
         $sql = "
         SELECT 
-            t.name AS stitle,
+            t.name AS ttitle,
+            t.id AS ttitle_id,
             s.tname,
             s.tsurname,
-            s.id 
+            s.id AS tid 
         FROM 
             tb_teacher AS s 
             LEFT JOIN tb_title AS t ON s.ttitle = t.id
@@ -47,7 +48,22 @@ class Teacher extends DbSciDay {
         $data = $stmt->fetchAll();
         return $data;
     }
+    public function UpdateTeacher($teacher) {
+        $sql = "
+        UPDATE 
+            tb_teacher 
+        SET 
+            ttitle= :ttitle,
+            tname= :tname,
+            tsurname= :tsurname 
+        WHERE 
+            id= :id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($teacher);
+        return true;
 
+    }
 
 
 
