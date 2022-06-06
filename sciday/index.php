@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <p>Index</p>
+<?php header('Location: /science/sciday/pages/'); ?>
 </body>
 
 </html>

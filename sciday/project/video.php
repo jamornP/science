@@ -1,4 +1,5 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/auth/auth.php";?>
 <?php 
 // print_r($_REQUEST);
 use App\Model\Sciday\Round;
@@ -6,7 +7,8 @@ use App\Model\Sciday\Round;
 
  $ck = $roundObj->UpdateVideo($_REQUEST);
  if($ck){
-     header("location: /science/sciday/project/member.php?activity=2&project_id={$_REQUEST['project_id']}");
+     $project_id = base64_encode($_REQUEST['project_id']);
+     header("location: /science/sciday/project/member.php?activity=2&project_id={$project_id}");
  }
 
  ?>

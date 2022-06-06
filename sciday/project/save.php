@@ -1,5 +1,6 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/claviska/simpleimage/src/claviska/SimpleImage.php";?>
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/auth/auth.php";?>
 <?php 
  use App\Model\Sciday\Project;
  $projectObj = new Project;  
@@ -106,5 +107,5 @@ foreach ($_REQUEST['img_path'] as $key => $imgs) {
 // echo "<pre>"; 
 //  print_r($_FILES['file_doc']);
 // echo "</pre>";
-// header("location: /science/sciday/pages/project.php?activity=2");
+ header("location: /science/sciday/pages/project.php?activity=2");
 ?>

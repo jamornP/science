@@ -31,8 +31,9 @@
                             <?php 
                                 $activitys = $activityObj->getActivityByYear('2022');
                                 foreach($activitys as $activity){
+                                    $activitty = base64_encode($activity['id']);
                                     echo "
-                                        <li><a class='dropdown-item fs-18' href='{$activity['link']}?activity={$activity['id']}'><i class='bx bx-chevron-right-circle' ></i> {$activity['name']}</a></li>
+                                        <li><a class='dropdown-item fs-18' href='{$activity['link']}?activity={$activitty}'><i class='bx bx-chevron-right-circle' ></i> {$activity['name']}</a></li>
                                     ";
                                 }
                             ?>
@@ -89,8 +90,9 @@
                                 <?php  
                                     $pros = $projectObj->getProjectByUser($_SESSION['id']);
                                     foreach($pros AS $pro){
+                                        $pro_id = base64_encode($pro['id']);
                                         echo "
-                                            <a class='dropdown-item' href='/science/sciday/project/member.php?activity=2&project_id={$pro['id']}'><i class='bx bx-right-arrow-alt' ></i> {$pro['project_name']}</a>
+                                            <a class='dropdown-item' href='/science/sciday/project/member.php?activity=2&project_id={$pro_id}'><i class='bx bx-right-arrow-alt' ></i> {$pro['project_name']}</a>
                                         ";
                                     }
                                 ?>
