@@ -1,1 +1,1 @@
-<?php header('Location: /science/sciday/artifact/form.php'); ?>
+<?php header('Location: /science/sciday/pages/'); ?>

@@ -48,7 +48,7 @@ use App\Model\Sciday\Teacher;
             <figure class="">
                 
                 <div class="mt-1">
-                    <img src="/science/sciday/images/bg.png" class="img-fluid rounded" alt="...">
+                    <img src="/science/sciday/images/poster-project.png" class="img-fluid rounded " alt="...">
                 </div>
                 <blockquote class="blockquote">
                     <h4 class="mt-3"><b>กำหนดการ</b></h4>
