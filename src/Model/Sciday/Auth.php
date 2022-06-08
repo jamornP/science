@@ -26,7 +26,7 @@ use App\Database\DbSciDay;
         $userDB = $data[0];
         if(password_verify($user['password'],$userDB['password'])) {
             session_start();
-            $_SESSION['id'] = $userDB['id'];
+            $_SESSION['user_id'] = $userDB['id'];
             $_SESSION['name'] = $userDB['name'];
             $_SESSION['surname'] = $userDB['surname'];
             $_SESSION['email'] = $userDB['email'];
@@ -35,10 +35,11 @@ use App\Database\DbSciDay;
              $_SESSION['role'] = $userDB['role'];
             $_SESSION['activity'] = $userDB['activity_id'];
             $_SESSION['login'] = true;
+            // $_SESSION['user_id'] = ;
 
             return true;
         } else {
-        return false;
+            return false;
         }
     }
     public function createUser($user) {

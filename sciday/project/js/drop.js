@@ -1,6 +1,10 @@
 Dropzone.autoDiscover = false;
 var myDropzone = new Dropzone("#drop", {
-    url: "/science/sciday/project/uploader.php"
+    url: "/science/sciday/project/uploader.php",
+    addRemoveLinks: true,
+    // autoProcessQueue: false,
+    dictDefaultMessage: "วางไฟล์ที่นี้"
+
 });
 
 myDropzone.on("success", function(file) {

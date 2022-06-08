@@ -128,9 +128,10 @@ echo "</pre>" ;
 
 // $data Update tb_project
 $pck = $projectObj->UpdateProject($data);
+$project_id = base64_encode($_REQUEST['project_id']);
 if($pck){
-     header("location: /science/sciday/project/member.php?activity=2&project_id={$_REQUEST['project_id']}");
+     header("location: /science/sciday/project/member.php?activity=2&project_id={$project_id}");
 }else{
-    header("location: /science/sciday/project/member.php?activity=2&project_id={$_REQUEST['project_id']}&err='แก้ไขไม่สำเร็จ'");
+    header("location: /science/sciday/project/member.php?activity=2&project_id={$project_id}&err='แก้ไขไม่สำเร็จ'");
 }
 ?>

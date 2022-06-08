@@ -6,7 +6,10 @@
  $levelObj = new Level;  
  use App\Model\Sciday\Project;
  $projectObj = new Project;  
+ use App\Model\Sciday\Answer;
+ $answerObj = new Answer;  
  session_start(); 
+ 
 ?>
 
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark fs-24" style="height: 80px; background-color:rgb(2,29,75);">
@@ -47,10 +50,12 @@
                     </a>
                     <ul class="dropdown-menu bg-warning " aria-labelledby="navbarScrollingDropdown" style="background-color:rgb(233,152,20);">
                         <?php
+                        $activityByLink = $activityObj->getActivityById($_SESSION['activity']);
                         $levels = $levelObj->getLevelByActivity ($_SESSION['activity']);
                         foreach($levels AS $level){
+                            $level_id= base64_encode($level['id']);
                             echo "
-                                <li><a class='dropdown-item fs-18' href='/science/sciday/project/admin.php?activity={$_SESSION['activity']}&level={$level['id']}'><i class='bx bx-chevron-right-circle' ></i> {$level['name']}</a></li
+                                <li><a class='dropdown-item fs-18' href='{$activityByLink['committee']}?level={$level_id}'><i class='bx bx-chevron-right-circle' ></i> {$level['name']}</a></li
                             ";
                         }
                         ?>
@@ -65,10 +70,12 @@
                     </a>
                     <ul class="dropdown-menu bg-warning " aria-labelledby="navbarScrollingDropdown" style="background-color:rgb(233,152,20);">
                         <?php
+                        $activityByLink = $activityObj->getActivityById($_SESSION['activity']);
                         $levels = $levelObj->getLevelByActivity ($_SESSION['activity']);
                         foreach($levels AS $level){
+                            $level_id= base64_encode($level['id']);
                             echo "
-                                <li><a class='dropdown-item fs-18' href='/science/sciday/project/manage.php?activity={$_SESSION['activity']}&level={$level['id']}'><i class='bx bx-chevron-right-circle' ></i> {$level['name']}</a></li
+                                <li><a class='dropdown-item fs-18' href='{$activityByLink['admin']}?level={$level_id}'><i class='bx bx-chevron-right-circle' ></i> {$level['name']}</a></li
                             ";
                         }
                         ?>
@@ -88,11 +95,18 @@
                             <a class="dropdown-item" href="">ข้อมูลที่สมัครกิจกรรม</a>
                             <hr class="dropdown-divider">
                                 <?php  
-                                    $pros = $projectObj->getProjectByUser($_SESSION['id']);
+                                    $pros = $projectObj->getProjectByUser($_SESSION['user_id']);
                                     foreach($pros AS $pro){
                                         $pro_id = base64_encode($pro['id']);
                                         echo "
                                             <a class='dropdown-item' href='/science/sciday/project/member.php?activity=2&project_id={$pro_id}'><i class='bx bx-right-arrow-alt' ></i> {$pro['project_name']}</a>
+                                        ";
+                                    }
+                                    $answers = $answerObj->getAnswerByUser($_SESSION['user_id']);
+                                    foreach($answers AS $answer){
+                                        $answer_id = base64_encode($answer['id']);
+                                        echo "
+                                            <a class='dropdown-item' href='/science/sciday/answer/member.php?activity=4&answer_id={$answer_id}'><i class='bx bx-right-arrow-alt' ></i> {$pro['project_name']}</a>
                                         ";
                                     }
                                 ?>

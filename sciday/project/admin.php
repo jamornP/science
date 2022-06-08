@@ -3,13 +3,13 @@
 <?php 
  use App\Model\Sciday\Level;
  $levelObj = new Level;
- $levels = $levelObj->getLevelById($_REQUEST['level']);   
+ $levels = $levelObj->getLevelById(base64_decode($_REQUEST['level']));   
 $level_name = $levels['name'];
  use App\Model\Sciday\Title;
  $titleObj = new Title;   
  use App\Model\Sciday\Activity;
     $activityObj = new Activity; 
-    $activitys = $activityObj->getActivityById($_REQUEST['activity']);
+    $activitys = $activityObj->getActivityById($_SESSION['activity']);
     $activity_name = $activitys['name'];
 use App\Model\Sciday\Project;
  $projectObj = new Project;  
@@ -60,7 +60,7 @@ use App\Model\Sciday\Teacher;
                         </thead>
                         <tbody class="fs-14">
                             <?php 
-                                $pronames = $projectObj->getProjectByLevel($_REQUEST['level']);
+                                $pronames = $projectObj->getProjectByLevel(base64_decode($_REQUEST['level']));
                                 $i=0;
                                 
                                 foreach($pronames AS $proname){
@@ -127,8 +127,8 @@ use App\Model\Sciday\Teacher;
                                 </tr>
                             </thead>
                             <tbody class="fs-14">
-                                <input type='hidden' class='form-control' name='activity_id' value='<?php echo $_REQUEST['activity'];?>'>
-                                <input type='hidden' class='form-control' name='level_id' value='<?php echo $_REQUEST['level'];?>'>
+                                <input type='hidden' class='form-control' name='activity_id' value='<?php echo $_SESSION['activity'];?>'>
+                                <input type='hidden' class='form-control' name='level_id' value='<?php echo base64_decode($_REQUEST['level']);?>'>
                                 <input type='hidden' class='form-control' name='num' value='2'>
                                 <input type='hidden' class='form-control' name='link_video' value=''>
                                 <?php 

@@ -3,13 +3,13 @@
 <?php 
  use App\Model\Sciday\Level;
  $levelObj = new Level;
- $levels = $levelObj->getLevelById($_REQUEST['level']);   
+ $levels = $levelObj->getLevelById(base64_decode($_REQUEST['level']));   
 $level_name = $levels['name'];
  use App\Model\Sciday\Title;
  $titleObj = new Title;   
  use App\Model\Sciday\Activity;
     $activityObj = new Activity; 
-    $activitys = $activityObj->getActivityById($_REQUEST['activity']);
+    $activitys = $activityObj->getActivityById($_SESSION['activity']);
     $activity_name = $activitys['name'];
 use App\Model\Sciday\Project;
  $projectObj = new Project;  
@@ -59,13 +59,13 @@ use App\Model\Sciday\Teacher;
                                 </tr>
                             </thead>
                             <tbody class="fs-14">
-                                <input type='hidden' class='form-control' name='activity_id' value='<?php echo $_REQUEST['activity'];?>'>
-                                <input type='hidden' class='form-control' name='level_id' value='<?php echo $_REQUEST['level'];?>'>
+                                <input type='hidden' class='form-control' name='activity_id' value='<?php echo $_SESSION['activity'];?>'>
+                                <input type='hidden' class='form-control' name='level_id' value='<?php echo base64_decode($_REQUEST['level']);?>'>
                                 <!-- <input type='hidden' class='form-control' name='num' value='2'> -->
                                 <input type='hidden' class='form-control' name='link_video' value=''>
                                 <?php 
                                      
-                                    $projects = $projectObj->getProjectByLevel($_REQUEST['level']);
+                                    $projects = $projectObj->getProjectByLevel(base64_decode($_REQUEST['level']));
                                     $i=0;
                                     
                                     foreach($projects AS $project){
@@ -148,12 +148,12 @@ use App\Model\Sciday\Teacher;
                                 </tr>
                             </thead>
                             <tbody class="fs-14">
-                                <input type='hidden' class='form-control' name='activity_id2' value='<?php echo $_REQUEST['activity'];?>'>
-                                <input type='hidden' class='form-control' name='level_id2' value='<?php echo $_REQUEST['level'];?>'>
+                                <input type='hidden' class='form-control' name='activity_id2' value='<?php echo $_SESSION['activity'];?>'>
+                                <input type='hidden' class='form-control' name='level_id2' value='<?php echo base64_decode($_REQUEST['level']);?>'>
                                 <!-- <input type='hidden' class='form-control' name='num' value='2'> -->
                                 <input type='hidden' class='form-control' name='link_video2' value=''>
                                 <?php 
-                                     $round2s = $roundObj->getRound2ByLevel($_REQUEST['level']);
+                                     $round2s = $roundObj->getRound2ByLevel(base64_decode($_REQUEST['level']));
                                      foreach($round2s AS $round2){
                                         //$project2 = $projectObj->getProjectById($round2['project_id']);
                                         //echo $project2['student_id'];
@@ -235,12 +235,12 @@ use App\Model\Sciday\Teacher;
                                 </tr>
                             </thead>
                             <tbody class="fs-14">
-                                <input type='hidden' class='form-control' name='activity_id2' value='<?php echo $_REQUEST['activity'];?>'>
-                                <input type='hidden' class='form-control' name='level_id2' value='<?php echo $_REQUEST['level'];?>'>
+                                <input type='hidden' class='form-control' name='activity_id2' value='<?php echo $_SESSION['activity'];?>'>
+                                <input type='hidden' class='form-control' name='level_id2' value='<?php echo base64_decode($_REQUEST['level']);?>'>
                                 <!-- <input type='hidden' class='form-control' name='num' value='2'> -->
                                 <input type='hidden' class='form-control' name='link_video2' value=''>
                                 <?php 
-                                     $round3s = $roundObj->getRound3ByLevel($_REQUEST['level']);
+                                     $round3s = $roundObj->getRound3ByLevel(base64_decode($_REQUEST['level']));
                                      foreach($round3s AS $round3){
                                         //$project3 = $projectObj->getProjectById($round3['project_id']);
                                         //echo $project3['student_id'];

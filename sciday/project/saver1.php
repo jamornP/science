@@ -22,7 +22,8 @@ use App\Model\Sciday\Round;
       }
       
     }
-    header("location: /science/sciday/project/manage.php?activity=2&level={$_REQUEST['level_id']}");
+    $level_id=base64_encode($_REQUEST['level_id']);
+    header("location: /science/sciday/project/manage.php?level={$level_id}");
  }
  if(isset($_REQUEST['round2'])){
    print_r($_REQUEST);
@@ -42,11 +43,13 @@ use App\Model\Sciday\Round;
       }
 
    }
-   header("location: /science/sciday/project/manage.php?activity=2&level={$_REQUEST['level_id']}");
+   $level_id=base64_encode($_REQUEST['level_id2']);
+   header("location: /science/sciday/project/manage.php?level={$level_id}");
  }
    
  
 //  $id = $roundObj->InsertRound($_REQUEST);
- echo "<br>".$id2; 
+ echo "<br>base64 : ".$level_id; 
+ echo "<br> request : ".$_REQUEST['level_id']; 
    
 ?>
