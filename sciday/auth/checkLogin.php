@@ -12,6 +12,7 @@ if($result) {
     // }else{
     //     header("location: /car/pages/member/index.php");
     // }
+    
     header("location: /science/sciday/pages/index.php");
 }else {
     header("location: /science/sciday/auth/login.php?msg=error");
