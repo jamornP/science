@@ -50,12 +50,12 @@
                         <hr class="text-warning">
                         <form action="save.php" method="post" enctype="multipart/form-data" id="">
                             <input type="hidden" class="form-control" name="activity" value="<?php echo $activity_name;?>">
-                            <input type="hidden" class="form-control" name="user_id" value="<?php echo $_SESSION['id'];?>">
+                            <input type="hidden" class="form-control" name="user_id" value="<?php echo $_SESSION['user_id'];?>">
                             <div class="row mt-2">
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="" class="text-primary"><b class="fs-18">1. ชื่อโครงงานวิทยาศาสตร์<font color="red">*</font></b></label>
-                                        <input type="text" class="form-control w-75" name="project_name" autofocus required>
+                                        <input type="text" class="form-control w-75" name="artifact_name" autofocus required>
                                     </div>
                                 </div>
                             </div>

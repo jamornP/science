@@ -46,7 +46,15 @@
                             <div class="row mt-3">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="" class="text-primary"><b class="fs-18">1. ประเภทแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ ประจำปี 2565<font color="red">*</font></b></label>
+                                        <label for="" class="text-primary"><b class="fs-18">1. ชื่อสถานศึกษา/โรงเรียน <font color="red">*</font> ตัวอย่างการกรอก 'โรงเรียน.......'<font color="red"> ห้ามใช้ ร.ร.</font></b></label>
+                                        <input type="text" class="form-control w-75" name="school" autofocus required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="" class="text-primary"><b class="fs-18">2. ประเภทแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ ประจำปี 2565<font color="red">*</font></b></label>
                                     </div>
                                     <div class="form-group mt-2">
                                         <?php 
@@ -63,14 +71,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-md">
-                                    <div class="form-group">
-                                        <label for="" class="text-primary"><b class="fs-18">2. ชื่อสถานศึกษา/โรงเรียน <font color="red">*</font> ตัวอย่างการกรอก 'โรงเรียน.......'<font color="red"> ห้ามใช้ ร.ร.</font></b></label>
-                                        <input type="text" class="form-control w-75" name="school" autofocus required>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <div class="row">
                                 <div class="col-md">
                                     <div class="form-group mt-2">

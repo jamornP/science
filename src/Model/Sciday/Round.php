@@ -236,5 +236,54 @@ public function getRound3ById($id) {
         return true;
 
     }
+    // check ทีมที่เข้ารอบ ว่ามีใน Database หรือไม่
+    public function getRoundByAll($id,$num,$activity,$level) {
+        $sql ="
+            SELECT 
+                *
+            FROM
+                tb_round
+            WHERE
+                project_id = ? AND
+                activity_id = ".$activity." AND
+                level_id = ".$level." AND
+                num = ".$num."
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        $data = $stmt->fetchColumn();
+        if($data>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+// answer
+    public function getAnswerRound2ByLevel($level) {
+        $sql = "
+        SELECT
+            p.id, 
+            p.school,
+            p.student_id,
+            p.teacher_id,
+            p.file_register,
+            p.user_id,
+            p.tel,
+            l.name,
+            r.num,
+            r.link_video,
+            r.score 
+        FROM 
+            tb_round AS r
+            LEFT JOIN tb_answer AS p ON r.project_id = p.id
+            LEFT JOIN tb_level AS l ON r.level_id = l.id
+        WHERE
+            r.level_id = ? AND r.num = 2
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$level]);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
 
 }

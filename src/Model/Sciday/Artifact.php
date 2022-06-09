@@ -1,0 +1,63 @@
+<?php
+namespace App\Model\Sciday;
+
+use App\Database\DbSciDay;
+
+class Artifact extends DbSciDay {
+    public function InsertArtifact($artifact) {
+        $sql = "
+            INSERT INTO tb_artifact (
+                id, 
+                artifact_name, 
+                level_id, 
+                school, 
+                student_id, 
+                teacher_id, 
+                file_register, 
+                images_id, 
+                user_id,
+                year
+            ) VALUES (
+                NULL, 
+                :artifact_name, 
+                :level_id, 
+                :school, 
+                :student_id, 
+                :teacher_id, 
+                :file_register, 
+                :images_id, 
+                :user_id,
+                '2022'
+            )
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($artifact);
+        return $this->pdo->lastInsertId();
+
+    }
+    public function getArtifactByLevel($level) {
+        $sql = "
+            SELECT 
+                p.id,
+                p.artifact_name,
+                l.name AS level,
+                p.school,
+                p.student_id,
+                p.teacher_id,
+                p.file_register,
+                p.images_id,
+                p.user_id
+            FROM
+                tb_artifact AS p
+                LEFT JOIN tb_level AS l ON p.level_id = l.id 
+            WHERE
+                p.level_id = ?
+            ORDER BY 
+                date_at
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$level]);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
+}

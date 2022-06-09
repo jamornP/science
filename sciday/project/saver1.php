@@ -35,7 +35,7 @@ use App\Model\Sciday\Round;
       $data2['project_id'] = $_REQUEST['p_id2'][$key];
       echo "<br>";
       print_r($data2);
-      $ckRound2 = $roundObj->getRoundById($data2['project_id'],$data2['num']);
+      $ckRound = $roundObj->getRoundByAll($data['project_id'],$data['num'],$data['activity_id'],$data['level_id']);
       if($ckRound2){
 
       }else{

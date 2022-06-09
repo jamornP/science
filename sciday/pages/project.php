@@ -26,7 +26,7 @@ use App\Model\Sciday\Teacher;
     <title>Sci-Day2022</title>
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/link.php";?>
 </head>
-<body class="font-prompt">
+<body class="font-prompt wave-bg">
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
     <div class="container">
         <h1 class="mt-3"><b>กิจกรรมงานวันวิทยาศาสตร์ 2022</span></b></h1>
