@@ -8,6 +8,8 @@
  $projectObj = new Project;  
  use App\Model\Sciday\Answer;
  $answerObj = new Answer;  
+ use App\Model\Sciday\Artifact;
+ $artifactObj = new Artifact;  
  session_start(); 
  
 ?>
@@ -92,9 +94,16 @@
                                 <?php echo $_SESSION['name']." ".$_SESSION['surname']." (".$_SESSION['role'].")" ?>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown" style="background-color:rgb(96,168,197);"  >
-                            <a class="dropdown-item" href="">ข้อมูลที่สมัครกิจกรรม</a>
-                            <hr class="dropdown-divider">
+                                <a class="dropdown-item" href="">ข้อมูลที่สมัครกิจกรรม</a>
+                                <hr class="dropdown-divider">
                                 <?php  
+                                    $artifacts = $artifactObj->getArtifactByUser($_SESSION['user_id']);
+                                    foreach($artifacts AS $artifact){
+                                        $artifact_id = base64_encode($artifact['id']);
+                                        echo "
+                                            <a class='dropdown-item' href='/science/sciday/artifact/member.php?activity=1&artifact_id={$artifact_id}'><i class='bx bx-right-arrow-alt' ></i> {$artifact['artifact_name']}</a>
+                                        ";
+                                    }
                                     $pros = $projectObj->getProjectByUser($_SESSION['user_id']);
                                     foreach($pros AS $pro){
                                         $pro_id = base64_encode($pro['id']);
@@ -106,9 +115,10 @@
                                     foreach($answers AS $answer){
                                         $answer_id = base64_encode($answer['id']);
                                         echo "
-                                            <a class='dropdown-item' href='/science/sciday/answer/member.php?activity=4&answer_id={$answer_id}'><i class='bx bx-right-arrow-alt' ></i> {$pro['project_name']}</a>
+                                            <a class='dropdown-item' href='/science/sciday/answer/member.php?activity=4&answer_id={$answer_id}'><i class='bx bx-right-arrow-alt' ></i> {$amswer['school']}</a>
                                         ";
                                     }
+                                   
                                 ?>
                                 <hr class="dropdown-divider">
                                 <a class="dropdown-item" href="/science/sciday/auth/logout.php">ออกจากระบบ</a>

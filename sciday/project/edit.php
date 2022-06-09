@@ -39,7 +39,6 @@ if(isset($_FILES['file_doc']['tmp_name'])) {
      echo "No file";
     $data['file_register']=$_REQUEST['file_register'];
 }
-echo "<ol>"; 
 
 if(isset($_REQUEST['sname'])){
     foreach ($_REQUEST['sname'] as $key => $sname) {
@@ -48,19 +47,7 @@ if(isset($_REQUEST['sname'])){
         $student['ssurname']=$_REQUEST['ssurname'][$key];
         $student['id']=$_REQUEST['sid'][$key];
         $sck = $studentObj->UpdateStudent($student);
-
-        $peple =$_REQUEST['stitle'][$key].$sname." ".$_REQUEST['ssurname'][$key]." ID : ".$student['id'];
-        echo "
-            <li>    
-                <p> {$peple}</p>
-            </li>
-        ";
     }
-echo "</ol>";
-echo "
-    <p>อาจารย์ที่ปรึหษา </p>
-    <ol>
-";
 }
 
 if(isset($_REQUEST['tname'])){
@@ -70,20 +57,8 @@ if(isset($_REQUEST['tname'])){
         $teacher['tsurname']=$_REQUEST['tsurname'][$key];
         $teacher['id']=$_REQUEST['tid'][$key];
         $tck = $teacherObj->UpdateTeacher($teacher);
-
-        $tpeple =$_REQUEST['ttitle'][$key].$tname." ".$_REQUEST['tsurname'][$key]." ID : ".$teacher['id'];
-        echo "
-            <li>    
-                <p> {$tpeple}</p>
-            </li>
-        ";
     }
 }
-echo "</ol>";
-echo "
-    <p>รูป </p>
-    <ol>
-";
 
 if($_REQUEST['img_path']){
     $data['images_id']=uniqid();
@@ -92,16 +67,9 @@ if($_REQUEST['img_path']){
         $img['images_path']=$imgs;
         $img['project_id']=$_REQUEST['project_id'];
         $images_id = $imagespathObj->InsertImagespath($img);
-
-        $im = $images_id." ".$img['images_path'];
-        echo "
-        <li>    
-            <p> {$im}</p>
-        </li>
-    ";
     }
     
-    echo "</ol>";
+    
     echo "มี Pic";
     
 }else{
