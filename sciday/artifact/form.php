@@ -50,7 +50,7 @@
                         <hr class="text-warning">
                         <form action="save.php" method="post" enctype="multipart/form-data" id="">
                             <input type="hidden" class="form-control" name="activity" value="<?php echo $activity_name;?>">
-                            <input type="text" class="form-control" name="user_id" value="<?php echo $_SESSION['user_id'];?>">
+                            <input type="hidden" class="form-control" name="user_id" value="<?php echo $_SESSION['user_id'];?>">
                             <div class="row mt-2">
                                 <div class="col-md">
                                     <div class="form-group">

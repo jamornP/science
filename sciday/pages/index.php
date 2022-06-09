@@ -12,7 +12,7 @@
     <?php //print_r($_SESSION);?>
     <div class="container">
         <div class="mt-1">
-            <img src="/science/sciday/images/bg.png" class="img-fluid rounded" alt="...">
+            <img src="/science/sciday/images/into.png" class="img-fluid rounded" alt="...">
         </div>
         <br>
         

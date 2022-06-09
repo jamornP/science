@@ -242,11 +242,7 @@ use App\Model\Sciday\Teacher;
                                                 $st="";
                                                 $tea="";
 
-                                                if($round['link_video']==""){
-                                                    $show_link="";
-                                                }else{
-                                                    $show_link="<a href='{$round['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
-                                                }
+                                                
                                                 foreach($stus AS $stu){
                                                     $j++;
                                                     $st .=$j.". ".$stu['stitle'].$stu['sname']." ".$stu['ssurname']."<br>";
@@ -277,7 +273,7 @@ use App\Model\Sciday\Teacher;
                 ?>
             <!-- </div> -->
             <!-- <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> -->
-            <?php if(1){?>
+            <?php if(0){?>
                 <div class="d-flex justify-content-between">
                     <span class="badge rounded-pill bg-success mt-3 shadow">
                         <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 2&nbsp;&nbsp;&nbsp;</b></h3>
@@ -352,7 +348,7 @@ use App\Model\Sciday\Teacher;
             <?php } ?>
             <!-- </div> -->
             <!-- <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div> -->
-            <?php if(1){?>
+            <?php if(0){?>
                 <div class="d-flex justify-content-between">
                     <span class="badge rounded-pill bg-success mt-3 shadow">
                         <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 3&nbsp;&nbsp;&nbsp;</b></h3>

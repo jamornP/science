@@ -60,4 +60,74 @@ class Artifact extends DbSciDay {
         $data = $stmt->fetchAll();
         return $data;
     }
+    public function getArtifactById($id) {
+        $sql = "
+            SELECT 
+                p.id,
+                p.artifact_name,
+                l.name AS level,
+                p.level_id,
+                p.school,
+                p.student_id,
+                p.teacher_id,
+                p.file_register,
+                p.images_id,
+                p.user_id
+            FROM
+                tb_artifact AS p
+                LEFT JOIN tb_level AS l ON p.level_id = l.id 
+            WHERE
+                p.id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        $data = $stmt->fetchAll();
+        return $data[0];
+    }
+
+    public function getArtifactByUser($user) {
+        $sql = "
+            SELECT 
+                p.id,
+                p.artifact_name,
+                l.name AS level,
+                p.school,
+                p.student_id,
+                p.teacher_id,
+                p.file_register,
+                p.images_id,
+                p.user_id
+            FROM
+                tb_artifact AS p
+                LEFT JOIN tb_level AS l ON p.level_id = l.id 
+            WHERE
+                p.user_id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$user]);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
+
+    public function UpdateArtifact($artifact) {
+        $sql = "
+            UPDATE 
+                tb_artifact 
+            SET 
+                artifact_name = :artifact_name,
+                level_id = :level_id,
+                school = :school,
+                student_id = :student_id,
+                teacher_id = :teacher_id,
+                file_register = :file_register,
+                images_id = :images_id
+                
+            WHERE 
+                id = :artifact_id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($artifact);
+        return true;
+
+    }
 }

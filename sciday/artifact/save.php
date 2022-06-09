@@ -97,7 +97,7 @@ foreach ($_REQUEST['img_path'] as $key => $imgs) {
     $images_id = $imagespathObj->InsertImagespath($img);
  
 }
-$activity_id = base64_encode(4);
+$activity_id = base64_encode(1);
  header("location: /science/sciday/pages/artifact.php?activity={$activity_id}");
 echo "<pre>"; 
 print_r($data);
