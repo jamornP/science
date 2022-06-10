@@ -1,14 +1,10 @@
-<?php 
-    // echo "<pre>"; 
-    // print_r($_REQUEST);
-    // echo "</pre><br>";
-?>
+<?php print_r($_REQUEST);?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/claviska/simpleimage/src/claviska/SimpleImage.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/auth/auth.php";?>
 <?php 
- use App\Model\Sciday\Answer;
- $answerObj = new Answer;  
+ use App\Model\Sciday\Iot;
+ $iotObj = new Iot;  
  use App\Model\Sciday\Student;
  $studentObj = new Student;   
  use App\Model\Sciday\Teacher;
@@ -17,56 +13,53 @@
  $imagespathObj = new Imagespath;   
 ?>
 <?php
-$data['answer_id']=$_REQUEST['answer_id'];
-$data['level_id']=$_REQUEST['level_id'];
+$data['iot_name']=$_REQUEST['iot_name'];
 $data['school']=$_REQUEST['school'];
-$data['student_id']=$_REQUEST['student_id'];
-$data['teacher_id']=$_REQUEST['teacher_id'];
+$data['student_id']=uniqid();
+$data['teacher_id']=uniqid();
 $data['tel']=$_REQUEST['tel'];
-
+$data['user_id']=$_SESSION['user_id'];
 if(isset($_FILES['file_doc']['tmp_name'])) {
     $ext = end(explode(".",$_FILES['file_doc']['name']));
-    echo $ext;
     if($ext=='pdf' OR $ext=='docx' OR $ext=='doc'){
-        $new_name = $_REQUEST['school']."-".uniqid().".".$ext;
+        $new_name = $_REQUEST['iot_name']."-".uniqid().".".$ext;
         $file_path = $_SERVER['DOCUMENT_ROOT']."/science/upload/sciday/file/".$new_name;
         move_uploaded_file($_FILES['file_doc']['tmp_name'],$file_path);
         $data['file_register']=$new_name;
-        echo "$new_name";
-    }else{
-        $data['file_register']=$_REQUEST['file_register'];
     }
 }else{
-     echo "No file";
-    $data['file_register']=$_REQUEST['file_register'];
+    echo "No file";
 }
+// echo "<pre>"; 
+// print_r($data);
+// echo "</pre>";
+$iot_id = $iotObj->InsertIot($data);
 if(isset($_REQUEST['sname'])){
     foreach ($_REQUEST['sname'] as $key => $sname) {
+        $student['student_id']=$data['student_id'];
+        $student['school']=$data['school'];
+        $student['project_id']=$iot_id;
         $student['stitle']=$_REQUEST['stitle'][$key];
-        $student['sname']=$_REQUEST['sname'][$key];;
+        $student['sname']=$sname;
         $student['ssurname']=$_REQUEST['ssurname'][$key];
-        $student['id']=$_REQUEST['sid'][$key];
-        $sck = $studentObj->UpdateStudent($student);
+         $student_id = $studentObj->InsertStudent($student);
+        // echo "<pre>"; 
+        // print_r($student);
+        // echo "</pre>";
     }
 }
 if(isset($_REQUEST['tname'])){
     foreach ($_REQUEST['tname'] as $key => $tname) {
+        $teacher['teacher_id']=$data['teacher_id'];
         $teacher['ttitle']=$_REQUEST['ttitle'][$key];
-        $teacher['tname']=$_REQUEST['tname'][$key];
+        $teacher['tname']=$tname;
         $teacher['tsurname']=$_REQUEST['tsurname'][$key];
-        $teacher['id']=$_REQUEST['tid'][$key];
-        $tck = $teacherObj->UpdateTeacher($teacher);
+        $teacher['project_id']=$iot_id;
+        $teacher['school']=$data['school'];
+        $teacher_id = $teacherObj->InsertTeacher($teacher);
+
     }
 }
-echo "<pre>"; 
-print_r($data);
-echo "</pre><br>";
-$ack = $answerObj->UpdateAnswer($data);
-$answer_id = base64_encode($_REQUEST['answer_id']);
-if($pck){
-    header("location: /science/sciday/answer/member.php?answer_id={$answer_id}");
-}else{
-    header("location: /science/sciday/answer/member.php?answer_id={$answer_id}&err='แก้ไขไม่สำเร็จ'");
-}
-
-?>
+$iot_id = base64_encode($iot_id);
+ header("location: /science/sciday/iot/member.php?iot_id={$iot_id}");
+ ?>

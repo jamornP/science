@@ -1,24 +1,22 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/auth/auth.php";?>
 <?php 
-    use App\Model\Sciday\Level;
-    $levelObj = new Level;
-    $levels = $levelObj->getLevelById($_REQUEST['level']);   
-    $level_name = $levels['name'];
-    use App\Model\Sciday\Title;
-    $titleObj = new Title;   
-    use App\Model\Sciday\Activity;
-        $activityObj = new Activity; 
-        $activitys = $activityObj->getActivityById('2');
-        $activity_name = $activitys['name'];
-    use App\Model\Sciday\Project;
-    $projectObj = new Project;  
-    use App\Model\Sciday\Round;
-    $roundObj = new Round;  
-    use App\Model\Sciday\Student;
-    $studentObj = new Student;  
-    use App\Model\Sciday\Teacher;
-    $teacherObj = new Teacher;  
+
+
+ use App\Model\Sciday\Title;
+ $titleObj = new Title;   
+ use App\Model\Sciday\Activity;
+    $activityObj = new Activity; 
+    $activitys = $activityObj->getActivityById('3');
+    $activity_name = $activitys['name'];
+use App\Model\Sciday\Iot;
+ $iotObj = new Iot;  
+use App\Model\Sciday\Round;
+ $roundObj = new Round;  
+use App\Model\Sciday\Student;
+ $studentObj = new Student;  
+use App\Model\Sciday\Teacher;
+ $teacherObj = new Teacher;  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,24 +40,23 @@
             </span>
         </div>
         <?php 
-            $projects = $projectObj->getProjectById(base64_decode($_REQUEST['project_id']));
+            $projects = $iotObj->getIotById(base64_decode($_REQUEST['project_id']));
             
         ?>
         <div class="row">
             <div class="col-lg-12">
                 <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20">
-                    <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $projects['level'];?></div>
+                    <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; ข้อมูล</div>
                     
                     <table class="table table-striped table-hover mt-2 fs-18">
                         <thead>
                             <tr>
                                 <th width='8%'>#</th>
-                                <th >ชื่อโครงงานวิทยาศาสตร์</th>
+                                <th >ชื่อโครงงาน IoT</th>
                                 <th width='20%'>โรงเรียน</th>
                                 <th width='20%'>นักเรียน</th>
                                 <th width='15%'>อาจารย์ที่ปรึกษา</th>
                                 <th width='10%'>เอกสาร</th>
-                                <th width='5%'>รูป</th>
                             </tr>
                         </thead>
                         <tbody class="fs-14">
@@ -72,7 +69,7 @@
                                 ?>
                                     <tr>
                                         <td width='8%'><?php echo $i; ?>.</td>
-                                        <td><?php echo $projects['project_name']; ?></td>
+                                        <td><?php echo $projects['iot_name']; ?></td>
                                         <td width='20%'><?php echo $projects['school']; ?></td>
                                         <td width='20%'>
                                             <?php 
@@ -91,7 +88,7 @@
                                             ?>
                                         </td>
                                         <td width='10%'><a href='/science/upload/sciday/file/<?php echo $projects['file_register']; ?>' target='_blank'>Download</a></td>
-                                        <td width='5%'><a href='/science/sciday/project/pic.php?activity=<?php echo $activity_name; ?>&p_id=<?php echo $projects['id']; ?>&image_id=<?php echo $proname['images_id']; ?>' target='_blank' ><i class='bx bxs-image fs-24' ></i></a></td>
+                                        
                                     </tr>
                                 
                                 <?php
@@ -108,10 +105,13 @@
                 </div>
             </div>
         </div>
+        <?php
+
+        ?>
         <!-- Round 2 -->
         <?php 
             $round2s = $roundObj->checkRound2ById(base64_decode($_REQUEST['project_id']));
-            if($round2s){
+            if(0){
                 $project2s = $projectObj->getProjectById(base64_decode($_REQUEST['project_id']));
                 // print_r($project2s);
                 $round2s = $roundObj->getRound2ById($project2s['id']);
@@ -196,86 +196,86 @@
         ?>
         <!-- Round 3 -->
         <?php 
-        if($show3){
-            $round3s = $roundObj->checkRound3ById(base64_decode($_REQUEST['project_id']));
-            if($round3s){
-                $project3s = $projectObj->getProjectById(($_REQUEST['project_id']));
-                // print_r($project3s);
-                $round3s = $roundObj->getRound3ById($project3s['id']);
-                // echo "<br>";
-                // echo "<br>";
-                // print_r($round3s);
-            ?>
-                <div class="d-flex justify-content-between">
-                    <span class="badge rounded-pill bg-success mt-3 shadow">
-                        <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 3&nbsp;&nbsp;&nbsp;</b></h3>
-                    </span>
-                </div>
-                <div class="row"> 
-                    <div class="col-lg-12">
-                        <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20">
-                            <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $round3s['name'];?></div>
-                            <table class="table table-striped table-hover mt-2 fs-18">
-                                <thead>
-                                    <tr>
-                                        <th width='8%'>#</th>
-                                        <th >ชื่อโครงงานวิทยาศาสตร์</th>
-                                        <th width='20%'>โรงเรียน</th>
-                                        <th width='20%'>นักเรียน</th>
-                                        <th width='15%'>อาจารย์ที่ปรึกษา</th>
-                                        <th width='15%'>Onsite</th>
-                                        <!-- <th>รูป</th> -->
-                                    </tr>
-                                </thead>
-                                <tbody class="fs-14">
-                                    <input type='hidden' class='form-control' name='link_video' value='<?php echo $round3s["link_video"];?>'>
-                                    <?php 
-                                        $stus3 = $studentObj->getStuById($project3s['student_id']);
-                                        $teachers3 = $teacherObj->getTeacherById($project3s['teacher_id']);
-                                        $i3++;
-                                        $j3=0;
-                                        $k3=0;
-                                        $st3="";
-                                        $tea3="";
+            if(0){
+                $round3s = $roundObj->checkRound3ById(base64_decode($_REQUEST['project_id']));
+                if($round3s){
+                    $project3s = $projectObj->getProjectById(($_REQUEST['project_id']));
+                    // print_r($project3s);
+                    $round3s = $roundObj->getRound3ById($project3s['id']);
+                    // echo "<br>";
+                    // echo "<br>";
+                    // print_r($round3s);
+                ?>
+                    <div class="d-flex justify-content-between">
+                        <span class="badge rounded-pill bg-success mt-3 shadow">
+                            <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 3&nbsp;&nbsp;&nbsp;</b></h3>
+                        </span>
+                    </div>
+                    <div class="row"> 
+                        <div class="col-lg-12">
+                            <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20">
+                                <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $round3s['name'];?></div>
+                                <table class="table table-striped table-hover mt-2 fs-18">
+                                    <thead>
+                                        <tr>
+                                            <th width='8%'>#</th>
+                                            <th >ชื่อโครงงานวิทยาศาสตร์</th>
+                                            <th width='20%'>โรงเรียน</th>
+                                            <th width='20%'>นักเรียน</th>
+                                            <th width='15%'>อาจารย์ที่ปรึกษา</th>
+                                            <th width='15%'>Onsite</th>
+                                            <!-- <th>รูป</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody class="fs-14">
+                                        <input type='hidden' class='form-control' name='link_video' value='<?php echo $round3s["link_video"];?>'>
+                                        <?php 
+                                            $stus3 = $studentObj->getStuById($project3s['student_id']);
+                                            $teachers3 = $teacherObj->getTeacherById($project3s['teacher_id']);
+                                            $i3++;
+                                            $j3=0;
+                                            $k3=0;
+                                            $st3="";
+                                            $tea3="";
 
-                                        $ck3 = $roundObj->checkRound3ById($project3s['id']);
-                                        
-                                        if($round3s['link_video']==""){
-                                            $show_link3="
-                                                <button type='button' class='btn btn-sm btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'>
-                                                    <i class='bx bxs-video-plus'></i> อัพลิงค์วีดีโอ
-                                                </button>
+                                            $ck3 = $roundObj->checkRound3ById($project3s['id']);
+                                            
+                                            if($round3s['link_video']==""){
+                                                $show_link3="
+                                                    <button type='button' class='btn btn-sm btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'>
+                                                        <i class='bx bxs-video-plus'></i> อัพลิงค์วีดีโอ
+                                                    </button>
+                                                ";
+                                            }else{
+                                                $show_link3="<a href='{$round3s['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
+                                            }
+                                            foreach($stus3 AS $stu3){
+                                                $j3++;
+                                                $st3 .=$j3.". ".$stu3['stitle'].$stu3['sname']." ".$stu3['ssurname']."<br>";
+                                            }
+                                            foreach($teachers3 AS $teacher3){
+                                                $k3++;
+                                                $tea3 .=$k3.". ".$teacher3['ttitle'].$teacher3['tname']." ".$teacher3['tsurname']."<br>";
+                                            }
+                                            echo "
+                                                <tr>
+                                                    <td width='8%'>{$i3}.</td>
+                                                    <td>{$project3s['project_name']}</td>
+                                                    <td width='20%'>{$project3s['school']}</td>
+                                                    <td width='20%'>{$st3}</td>
+                                                    <td width='15%'>{$tea3}</td>
+                                                    <td width='10%'><button type='button' class='btn btn-success text-white'>Success</button></td>
+                                                </tr>
                                             ";
-                                        }else{
-                                            $show_link3="<a href='{$round3s['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
-                                        }
-                                        foreach($stus3 AS $stu3){
-                                            $j3++;
-                                            $st3 .=$j3.". ".$stu3['stitle'].$stu3['sname']." ".$stu3['ssurname']."<br>";
-                                        }
-                                        foreach($teachers3 AS $teacher3){
-                                            $k3++;
-                                            $tea3 .=$k3.". ".$teacher3['ttitle'].$teacher3['tname']." ".$teacher3['tsurname']."<br>";
-                                        }
-                                        echo "
-                                            <tr>
-                                                <td width='8%'>{$i3}.</td>
-                                                <td>{$project3s['project_name']}</td>
-                                                <td width='20%'>{$project3s['school']}</td>
-                                                <td width='20%'>{$st3}</td>
-                                                <td width='15%'>{$tea3}</td>
-                                                <td width='10%'><button type='button' class='btn btn-success text-white'>Success</button></td>
-                                            </tr>
-                                        ";
-                                    ?>
-                                </tbody>
-                            </table>
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php
+                <?php
+                }
             }
-        }
         ?>
     </div>
     <!-- Modal Up Link Video -->
@@ -288,7 +288,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                    <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="Link Video Yuotube" value="<?php echo $project2s['id'];?>" name="project_id">
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Link Video Yuotube" value="<?php echo $project2s['id'];?>" name="project_id">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">เพิ่มข้อมูลวีดีโอ</label>
                             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ใส่ลิงค์ Video Youtube ที่นี้..." name="link_video">
@@ -317,50 +317,29 @@
                         </div>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <input type="hidden" class="form-control w-75" name="iot_id"  value="<?php echo $projects['id'];?>" required>
                     <div class="modal-body">
-                        <div class="row mt-2">
+                        <div class="row mt-3">
                             <div class="col-md">
                                 <div class="form-group">
-                                    <label for="" class="text-primary"><b class="fs-18">1. ชื่อโครงงานวิทยาศาสตร์<font color="red">*</font></b></label>
-                                    <input class="form-control" type="hidden"  name="project_id" value="<?php echo $projects['id'];?>">
-                                    <input type="text" class="form-control w-75" name="project_name" required value="<?php echo $projects['project_name']; ?>">
+                                    <label for="" class="text-primary"><b class="fs-18">1. ชื่อโครงงาน <font color="red">*</font></b></label>
+                                    <input type="text" class="form-control w-75" name="iot_name"  value="<?php echo $projects['iot_name'];?>" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md">
                                 <div class="form-group">
-                                    <label for="" class="text-primary"><b class="fs-18">2. ระดับการศึกษาที่เข้าร่วมประกวดโครงงานวิทยาศาสตร์ ประจำปี 2565<font color="red">*</font></b></label>
-                                </div>
-                                <div class="form-group mt-2">
-                                    <?php 
-                                        $levels =$levelObj->getLevelByActivity('2');
-                                        foreach($levels AS $level){
-                                            $selected =($level['id']==$projects['level_id']) ?
-                                            "checked" : "";
-                                            echo "
-                                                <div class='form-check form-check-inline'>
-                                                    <input class='form-check-input' type='radio' name='level_id' id='inlineRadio{$levle['id']}' value='{$level['id']}' {$selected}>
-                                                    <label class='form-check-label' for='inlineRadio{$levle['id']}'>{$level['name']}</label>
-                                                </div>
-                                            ";
-                                        }
-                                    ?>
+                                    <label for="" class="text-primary"><b class="fs-18">2. ชื่อสถานศึกษา/โรงเรียน <font color="red">*</font> ตัวอย่างการกรอก 'โรงเรียน.......'<font color="red"> ห้ามใช้ ร.ร.</font></b></label>
+                                    <input type="text" class="form-control w-75" name="school" value="<?php echo $projects['school'];?>" required>
                                 </div>
                             </div>
                         </div>
-                        <div class="row mt-3">
-                            <div class="col-md">
-                                <div class="form-group">
-                                    <label for="" class="text-primary"><b class="fs-18">3. ชื่อสถานศึกษา/โรงเรียน <font color="red">*</font> ตัวอย่างการกรอก 'โรงเรียน.......'<font color="red"> ห้ามใช้ ร.ร.</font></b></label>
-                                    <input type="text" class="form-control w-75" name="school"  required value="<?php echo $projects['school']; ?>">
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="row">
                             <div class="col-md">
                                 <div class="form-group mt-2">
-                                    <label for="" class="text-primary"><b class="fs-18">รายชื่อผู้เข้าประกวดโครงงานวิทยาศาสตร์<font color="red">*</font> <font color="red">(ไม่เกิน 3 คน)</font></b></label>
+                                    <label for="" class="text-primary"><b class="fs-18">รายชื่อผู้เข้าประกวดโครงงาน<font color="red">*</font> <font color="red">(ไม่เกิน 3 คน)</font></b></label>
                                     <input class="form-control" type="hidden" id="formFileMultiple" name="student_id" value="<?php echo $projects['student_id'];?>">
                                     <ol>
                                         <?php
@@ -407,7 +386,7 @@
                         <div class="row">
                             <div class="col-md">
                                 <div class="form-group mt-2">
-                                    <label for="" class="text-primary"><b class="fs-18">อาจารย์ที่ปรึกษาโครงงานวิทยาศาสตร์ <font color="red">(ไม่เกิน 2 คน)</font></b></label>
+                                    <label for="" class="text-primary"><b class="fs-18">อาจารย์ที่ปรึกษาโครงงาน <font color="red">(ไม่เกิน 2 คน)</font></b></label>
                                     <input class="form-control" type="hidden" id="formFileMultiple" name="teacher_id" value="<?php echo $projects['teacher_id'];?>">
                                     <ol>
                                         <?php 
@@ -450,17 +429,27 @@
                             </div>
                         </div>
                         <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group mt-2">
+                                        <div class="mb-3 w-75">
+                                            <label for="tel" class="form-label text-primary "><b class="fs-18">5. เบอร์โทรศัพท์ติดต่อ <font color="red">*</font></b></label>
+                                            <input class="form-control" type="text" id="tel" name="tel" value="<?php echo $projects['tel'];?>" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="row">
                             <div class="col-md">
                                 <div class="form-group mt-2">
                                     <div class="mb-3 w-75">
-                                        <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">Upload ไฟล์ใบสมัคร ความยาวไม่เกิน 5 หน้ากระดาษ A4<font color="red">*</font></b></label>
+                                        <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">Upload ไฟล์ใบสมัคร <font color="red">*</font></b></label>
                                         <input class="form-control" type="file" id="formFileMultiple" name="file_doc" >
                                         <input class="form-control" type="hidden"  name="file_register" value="<?php echo $projects['file_register'];?>">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md">
                                 <div class="form-group mt-2">
                                     <div class="mb-3 w-75">
@@ -476,7 +465,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <hr class="text-warning">
                     </div>
                     <div class="modal-footer">

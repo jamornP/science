@@ -1,14 +1,14 @@
 <?php 
-    // echo "<pre>"; 
-    // print_r($_REQUEST);
-    // echo "</pre><br>";
+    echo "<pre>"; 
+    print_r($_REQUEST);
+    echo "</pre><br>";
 ?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/claviska/simpleimage/src/claviska/SimpleImage.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/auth/auth.php";?>
 <?php 
- use App\Model\Sciday\Answer;
- $answerObj = new Answer;  
+ use App\Model\Sciday\Iot;
+ $iotObj = new Iot;  
  use App\Model\Sciday\Student;
  $studentObj = new Student;   
  use App\Model\Sciday\Teacher;
@@ -17,13 +17,12 @@
  $imagespathObj = new Imagespath;   
 ?>
 <?php
-$data['answer_id']=$_REQUEST['answer_id'];
-$data['level_id']=$_REQUEST['level_id'];
+$data['iot_id']=$_REQUEST['iot_id'];
+$data['iot_name']=$_REQUEST['iot_name'];
 $data['school']=$_REQUEST['school'];
 $data['student_id']=$_REQUEST['student_id'];
 $data['teacher_id']=$_REQUEST['teacher_id'];
 $data['tel']=$_REQUEST['tel'];
-
 if(isset($_FILES['file_doc']['tmp_name'])) {
     $ext = end(explode(".",$_FILES['file_doc']['name']));
     echo $ext;
@@ -61,12 +60,11 @@ if(isset($_REQUEST['tname'])){
 echo "<pre>"; 
 print_r($data);
 echo "</pre><br>";
-$ack = $answerObj->UpdateAnswer($data);
-$answer_id = base64_encode($_REQUEST['answer_id']);
-if($pck){
-    header("location: /science/sciday/answer/member.php?answer_id={$answer_id}");
+$ick = $iotObj->UpdateIot($data);
+$project_id = base64_encode($_REQUEST['iot_id']);
+if($ick){
+     header("location: /science/sciday/iot/member.php?project_id={$project_id}");
 }else{
-    header("location: /science/sciday/answer/member.php?answer_id={$answer_id}&err='แก้ไขไม่สำเร็จ'");
+    header("location: /science/sciday/iot/member.php?project_id={$project_id}&err='แก้ไขไม่สำเร็จ'");
 }
-
 ?>

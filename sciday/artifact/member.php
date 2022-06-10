@@ -3,14 +3,13 @@
 <?php 
  use App\Model\Sciday\Level;
  $levelObj = new Level;
- $levels = $levelObj->getLevelById($_REQUEST['level']);   
-$level_name = $levels['name'];
+ 
  use App\Model\Sciday\Title;
  $titleObj = new Title;   
  use App\Model\Sciday\Activity;
-    $activityObj = new Activity; 
-    $activitys = $activityObj->getActivityById($_REQUEST['activity']);
-    $activity_name = $activitys['name'];
+$activityObj = new Activity; 
+$activitys = $activityObj->getActivityById('1');
+$activity_name = $activitys['name'];
 use App\Model\Sciday\Artifact;
  $artifactObj = new Artifact;  
 use App\Model\Sciday\Round;
@@ -36,15 +35,17 @@ use App\Model\Sciday\Teacher;
 <body class="font-prompt fs-18">
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
     <div class="container mt-3">
+        <?php 
+            $projects = $artifactObj->getArtifactById(base64_decode($_REQUEST['artifact_id']));
+            // $levels = $levelObj->getLevelById($projects['level_id']);   
+            // $level_name = $levels['name'];
+        ?>
         <div class="d-flex justify-content-between">
             <span class="badge rounded-pill bg-warning mt-3 shadow">
                 <h2><b>&nbsp;&nbsp;&nbsp;<?php echo $activity_name ;?>&nbsp;&nbsp;&nbsp;</b></h2>
             </span>
         </div>
-        <?php 
-            $projects = $artifactObj->getArtifactById(base64_decode($_REQUEST['artifact_id']));
-            
-        ?>
+        
         <div class="row">
             <div class="col-lg-12">
                 <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20">
@@ -334,7 +335,7 @@ use App\Model\Sciday\Teacher;
                                 </div>
                                 <div class="form-group mt-2">
                                     <?php 
-                                        $levels =$levelObj->getLevelByActivity(($_REQUEST['activity']));
+                                        $levels =$levelObj->getLevelByActivity('1');
                                         foreach($levels AS $level){
                                             $selected =($level['id']==$projects['level_id']) ?
                                             "checked" : "";

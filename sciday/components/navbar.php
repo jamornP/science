@@ -10,6 +10,8 @@
  $answerObj = new Answer;  
  use App\Model\Sciday\Artifact;
  $artifactObj = new Artifact;  
+ use App\Model\Sciday\Iot;
+ $iotObj = new Iot;  
  session_start(); 
  
 ?>
@@ -88,36 +90,117 @@
             </ul>
             <div class="d-flex">
                 <?php if($_SESSION['login']){?>
-                    
-                        
                             <a class="nav-link dropdown-toggle active text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <?php echo $_SESSION['name']." ".$_SESSION['surname']." (".$_SESSION['role'].")" ?>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown" style="background-color:rgb(96,168,197);"  >
-                                <a class="dropdown-item" href="">ข้อมูลที่สมัครกิจกรรม</a>
+                                <span class='badge rounded-pill bg-warning fs-18'> แก้ไขข้อมูล </span>
                                 <hr class="dropdown-divider">
+                                <?php 
+                                    $activitys = $activityObj->getActivityByYear('2022');
+                                    foreach($activitys AS $activity){
+                                        
+                                        switch ($activity['id']) {
+                                            case 1:
+                                                $artifacts = $artifactObj->getArtifactByUser($_SESSION['user_id']);
+                                                if(count($artifacts)>0){
+                                                    echo "
+                                                    <span class='badge rounded-pill bg-primary fs-16'> {$activity['name']}</span>
+                                                    ";
+                                                    
+                                                    foreach($artifacts AS $artifact){
+                                                        $artifact_id = base64_encode($artifact['id']);
+                                                        $activity_id = base64_encode(1);
+                                                        echo "
+                                                            <a class='dropdown-item' href='/science/sciday/artifact/member.php?artifact_id={$artifact_id}'><i class='bx bx-right-arrow-alt' ></i> {$artifact['artifact_name']}</a>
+                                                        ";
+                                                    }
+                                                }
+                                              break;
+                                            case 2:
+                                                $pros = $projectObj->getProjectByUser($_SESSION['user_id']);
+                                                if(count($pros)>0){
+                                                    echo "
+                                                    <span class='badge rounded-pill bg-primary fs-16'> {$activity['name']}</span>
+                                                    ";
+                                                    foreach($pros AS $pro){
+                                                        $pro_id = base64_encode($pro['id']);
+                                                        $activity_id = base64_encode(2);
+                                                        echo "
+                                                            <a class='dropdown-item' href='/science/sciday/project/member.php?project_id={$pro_id}'><i class='bx bx-right-arrow-alt' ></i> {$pro['project_name']}</a>
+                                                        ";
+                                                    }
+                                                }
+                                              break;
+                                            case 3:
+                                                $iots = $iotObj->getIotByUser($_SESSION['user_id']);
+                                                if(count($iots)>0){
+                                                    echo "
+                                                        <span class='badge rounded-pill bg-primary fs-16'> {$activity['name']}</span>
+                                                    ";
+                                                    foreach($iots AS $iot){
+                                                        $pro_id = base64_encode($iot['id']);
+                                                        $activity_id = base64_encode(3);
+                                                        echo "
+                                                            <a class='dropdown-item' href='/science/sciday/iot/member.php?project_id={$pro_id}'><i class='bx bx-right-arrow-alt' ></i> {$iot['iot_name']}</a>
+                                                        ";
+                                                    }
+                                                }
+                                              break;
+                                            case 4:
+                                                $answers = $answerObj->getAnswerByUser($_SESSION['user_id']);
+                                                if(count($answers)>0){
+                                                    echo "
+                                                    <span class='badge rounded-pill bg-primary fs-16'> {$activity['name']}</span>
+                                                    ";
+                                                    foreach($answers AS $answer){
+                                                        $answer_id = base64_encode($answer['id']);
+                                                        $activity_id = base64_encode(4);
+                                                        echo "
+                                                            <a class='dropdown-item' href='/science/sciday/answer/member.php?answer_id={$answer_id}'><i class='bx bx-right-arrow-alt' ></i> {$answer['level']}</a>
+                                                        ";
+                                                    }
+                                                }
+                                              break;
+
+                                            case 5:
+                                                
+                                              break;
+                                            case 6:
+                                                
+                                              break;
+                                            default:
+                                        }
+                                    }
+                                ?>
+                                <!-- </ul> -->
                                 <?php  
-                                    $artifacts = $artifactObj->getArtifactByUser($_SESSION['user_id']);
-                                    foreach($artifacts AS $artifact){
-                                        $artifact_id = base64_encode($artifact['id']);
-                                        echo "
-                                            <a class='dropdown-item' href='/science/sciday/artifact/member.php?activity=1&artifact_id={$artifact_id}'><i class='bx bx-right-arrow-alt' ></i> {$artifact['artifact_name']}</a>
-                                        ";
-                                    }
-                                    $pros = $projectObj->getProjectByUser($_SESSION['user_id']);
-                                    foreach($pros AS $pro){
-                                        $pro_id = base64_encode($pro['id']);
-                                        echo "
-                                            <a class='dropdown-item' href='/science/sciday/project/member.php?activity=2&project_id={$pro_id}'><i class='bx bx-right-arrow-alt' ></i> {$pro['project_name']}</a>
-                                        ";
-                                    }
-                                    $answers = $answerObj->getAnswerByUser($_SESSION['user_id']);
-                                    foreach($answers AS $answer){
-                                        $answer_id = base64_encode($answer['id']);
-                                        echo "
-                                            <a class='dropdown-item' href='/science/sciday/answer/member.php?activity=4&answer_id={$answer_id}'><i class='bx bx-right-arrow-alt' ></i> {$amswer['school']}</a>
-                                        ";
-                                    }
+
+                                    // $artifacts = $artifactObj->getArtifactByUser($_SESSION['user_id']);
+                                    // foreach($artifacts AS $artifact){
+                                    //     $artifact_id = base64_encode($artifact['id']);
+                                    //     $activity_id = base64_encode(1);
+
+                                    //     echo "
+                                    //         <a class='dropdown-item' href='/science/sciday/artifact/member.php?artifact_id={$artifact_id}'><i class='bx bx-right-arrow-alt' ></i> {$artifact['artifact_name']}</a>
+                                    //     ";
+                                    // }
+                                    // $pros = $projectObj->getProjectByUser($_SESSION['user_id']);
+                                    // foreach($pros AS $pro){
+                                    //     $pro_id = base64_encode($pro['id']);
+                                    //     $activity_id = base64_encode(2);
+                                    //     echo "
+                                    //         <a class='dropdown-item' href='/science/sciday/project/member.php?project_id={$pro_id}'><i class='bx bx-right-arrow-alt' ></i> {$pro['project_name']}</a>
+                                    //     ";
+                                    // }
+                                    // $answers = $answerObj->getAnswerByUser($_SESSION['user_id']);
+                                    // foreach($answers AS $answer){
+                                    //     $answer_id = base64_encode($answer['id']);
+                                    //     $activity_id = base64_encode(4);
+                                    //     echo "
+                                    //         <a class='dropdown-item' href='/science/sciday/answer/member.php?answer_id={$answer_id}'><i class='bx bx-right-arrow-alt' ></i> {$amswer['school']}</a>
+                                    //     ";
+                                    // }
                                    
                                 ?>
                                 <hr class="dropdown-divider">

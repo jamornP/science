@@ -42,7 +42,7 @@ use App\Model\Sciday\Teacher;
         
         <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3">
             <div class="d-flex flex-row-reverse bd-highlight">
-                <a href="../artifact/form.php?activity=<?php echo $_REQUEST['activity'];?>" class="btn btn-lg btn-outline-success my-bottom"><span class="spinner-grow spinner-grow-sm text-warning" role="status" aria-hidden="true"></span> สมัครแข่งขัน</a>
+                <a href="../iot/form.php?activity=<?php echo $_REQUEST['activity'];?>" class="btn btn-lg btn-outline-success my-bottom"><span class="spinner-grow spinner-grow-sm text-warning" role="status" aria-hidden="true"></span> สมัครแข่งขัน</a>
             </div>
         
             <figure class="">

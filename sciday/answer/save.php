@@ -61,4 +61,6 @@ session_start();
             $teacher_id = $teacherObj->InsertTeacher($teacher);
         }
     }
+    $answer_id = base64_encode($answer_id);
+ header("location: /science/sciday/answer/member.php?answer_id={$answer_id}");
 ?>

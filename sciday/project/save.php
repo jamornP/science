@@ -107,6 +107,6 @@ foreach ($_REQUEST['img_path'] as $key => $imgs) {
 // echo "<pre>"; 
 //  print_r($_FILES['file_doc']);
 // echo "</pre>";
-$activity_id = base64_encode(2);
- header("location: /science/sciday/pages/project.php?activity={$activity_id}");
+$project_id = base64_encode($project_id);
+ header("location: /science/sciday/project/member.php?project_id={$project_id}");
 ?>
