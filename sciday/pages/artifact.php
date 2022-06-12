@@ -16,6 +16,8 @@
  $studentObj = new Student;  
 use App\Model\Sciday\Teacher;
  $teacherObj = new Teacher;    
+ use App\Model\Sciday\Showround;
+ $showroundObj = new Showround;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +31,7 @@ use App\Model\Sciday\Teacher;
 <body class="font-prompt wave-bg">
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
     <div class="container">
-        <h1 class="mt-3"><b>กิจกรรมงานวันวิทยาศาสตร์ 2022</span></b></h1>
+        <!-- <h1 class="mt-3"><b>กิจกรรมงานวันวิทยาศาสตร์ 2022</span></b></h1> -->
     </div>
     
     <div class="container mt-3">
@@ -42,165 +44,112 @@ use App\Model\Sciday\Teacher;
         
         <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3">
             <div class="d-flex flex-row-reverse bd-highlight">
-                <a href="../artifact/form.php?activity=<?php echo $_REQUEST['activity'];?>" class="btn btn-lg btn-outline-success my-bottom"><span class="spinner-grow spinner-grow-sm text-warning" role="status" aria-hidden="true"></span> สมัครแข่งขัน</a>
+                <a href="../artifact/form.php?activity=<?php echo $_REQUEST['activity'];?>" class="btn btn-lg btn-outline-success my-bottom">
+                <span class="spinner-grow spinner-grow-sm text-warning" role="status" aria-hidden="true"></span> ยื่นใบสมัครแข่งขัน</a>
             </div>
             
             <figure class="">
                 
-                <div class="mt-1">
-                    <!-- <img src="/science/sciday/images/poster-project.png" class="img-fluid rounded " alt="..."> -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mt-3 shadow">
+                            <!-- coming soon... -->
+                            <img src="/science/sciday/images/comingsoon.jpg" class="img-thumbnail rounded " alt="...">
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <blockquote class="blockquote">
+                            <h4 class="mt-3"><b>กำหนดการ</b></h4>
+                        </blockquote>
+                        <table class="table table-bordered shadow">
+                            <thead class="table-dark">
+                                <tr class="text-center">
+                                    <th width='70%'>รายละเอียด</th>
+                                    <th width='30%'>วันที่</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="badge rounded-pill bg-primary fs-20 shadow">เปิดระบบรับสมัคร</span> <br>
+                                        - เอกสารหลักเกณฑ์การประกวด <a href="/science/sciday/document/artifact/หลักเกณฑ์การประกวดสิ่งประดิษฐ์ 2565.pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'>Download </a><br>
+                                        - ใบสมัคร <a href="/science/sciday/document/artifact/แบบฟอร์มสมัครสิ่งประดิษฐ์2565.pdf" class="btn btn-sm btn-warning text-white p-1" target='_blank'><i class='bx bxs-file-pdf'></i> pdf</a>
+                                        &nbsp;<a href="/science/sciday/document/artifact/แบบฟอร์มสมัครสิ่งประดิษฐ์2565.docx" class=" btn btn-sm btn-warning text-white p-1" target='_blank'><i class='bx bxl-wordpress'></i> word</a>
+                                        <br>
+                                        กรอกใบสมัครแล้วยื่นสมัครทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a><br>
+                                    </td>
+                                    <td class="text-center">
+                                        วันที่ 15 มิ.ย. 2565
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge rounded-pill bg-danger fs-20 shadow">ปิดระบบรับสมัคร</span> <br>
+                                        - เวลา 23.59 น.
+                                    </td>
+                                    <td class="text-center">
+                                        วันที่ 12  ก.ค. 2565
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge rounded-pill bg-primary fs-20 shadow">ประกาศรายชื่อทีมที่ผ่านเข้ารอบการประกวดรอบที่ 2</span> <br>
+                                        - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a>
+                                    </td>
+                                    <td class="text-center">
+                                        วันที่ 19 ก.ค. 2565
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge rounded-pill bg-primary fs-20 shadow">เปิดระบบแนบ Link video</span> <br>
+                                        - สำหรับทีมที่ผ่านเข้ารอบที่ 2 ให้ผู้สมัครอัพคลิปลง Youtube แล้วส่งลิงค์เข้า ระบบของคณะ ที่ช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a>
+                                    </td>
+                                    <td class="text-center">
+                                        วันที่ 19 ก.ค. 2565
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge rounded-pill bg-danger fs-20 shadow">ปิดระบบแนบ Link video</span> <br>
+                                        - เวลา 23.59 น.
+                                    </td>
+                                    <td class="text-center">
+                                        วันที่ 27 ก.ค. 2565
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge rounded-pill bg-primary fs-20 shadow">ประกาศรายชื่อผู้ผ่านเข้ารอบตัดสิน</span> <br>
+                                        - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a>
+                                    </td>
+                                    <td class="text-center">
+                                        วันที่ 15 ส.ค. 2565
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge rounded-pill bg-primary fs-20 shadow">การประกวดรอบตัดสิน</span> <br>
+                                        - เวลา 9.30 น. จัดแสดงผลงานและเข้าร่วมพิธีเปิดงานที่หอประชุมจุฬาภรณวลัยลักษณ์ <br>
+                                        <!-- - เวลา 11.00 น. ผู้สมัครนำเสนอผลงานต่อกรรมการ <br>
+                                        - เวลา 13.00 น. กรรมการประชุมตัดสินผู้ได้รับรางวัล <br> -->
+                                        - เวลา 15.30 น. ประกาศผลและรับรางวัล <br>
+                                    </td>
+                                    <td class="text-center">
+                                        วันที่ 23 ส.ค. 2565
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </div>
                 </div>
-                <blockquote class="blockquote">
-                    <h4 class="mt-3"><b>กำหนดการ</b></h4>
-                </blockquote>
-                <!-- <div class=" fs-18 border">
-                    <div class="row mt-3 p-3 border-bottom fs-20 fw-bolder">
-                        <div class="col-lg-3 ">
-                        วันที่
-                        </div>
-                        <div class="col-lg-2">
-                        เวลา
-                        </div>
-                        <div class="col-lg-7">
-                        รายละเอียด
-                        </div>
-                    </div>
-                    <div class="row mt-3 p-3 border-bottom ">
-                        <div class="col-lg-3">
-                        วันพุธที่ 15 มิ.ย. 65
-                        </div>
-                        <div class="col-lg-2">
-                        เวลา 12.00 น.
-                        </div>
-                        <div class="col-lg-7">
-                        การประกวดรอบที่ 1 <span class="badge rounded-pill bg-success"> เปิดระบบรับสมัคร </span> ส่งใบสมัคร 1 ชุดต่อ 1 โครงงาน ความยาวไม่เกิน 5 หน้ากระดาษ A4  <br>
-                        <a href="/science/sciday/document/project/เอกสารแนบ2ใบสมัครการประกวดโครงงานวิทยาศ.pdf" class="btn btn-md btn-success text-white" target='_blank'>Download ใบสมัคร</a> กรอกใบสมัครแล้วยื่นสมัครทาง <a href="" class=""> http://sciday.kmitl.ac.th</a><br>
-                        <a href="/science/sciday/document/project/เอกสารแนบ1หลักเกณฑ์การประกวดโครงงานวิทย.pdf" class="btn btn-md btn-warning text-white mt-1" target='_blank'>Download </a> เอกสารหลักเกณฑ์การประกวดโครงงานวิทยาศาสตร์
-                        </div>
-                    </div>
-                    <div class="row mt-3 p-3 border-bottom ">
-                        <div class="col-lg-3">
-                        วันพฤหัสบดีที่ 30 มิ.ย. 65
-                        </div>
-                        <div class="col-lg-2">
-                        เวลา 24.00 น.
-                        </div>
-                        <div class="col-lg-7">
-                        ปิดระบบสมัคร
-                        </div>
-                    </div>
-                    <div class="row mt-3 p-3 border-bottom">
-                        <div class="col-lg-3">
-                        วันจันทร์ที่ 11 ก.ค. 65
-                        </div>
-                        <div class="col-lg-2">
-                        เวลา 15.00 น.
-
-                        </div>
-                        <div class="col-lg-7">
-                        ประกาศรายชื่อผู้ผ่านการประกวดรอบที่ 1  
-                        <a href="" class="">http://sciday.kmitl.ac.th</a>
-
-                        </div>
-                    </div>
-                    <div class="row mt-3 p-3 border-bottom">
-                        <div class="col-lg-3">
-                        วันอังคารที่ 12 ก.ค. 65
-                        </div>
-                        <div class="col-lg-2">
-                        เวลา 12.00 น.
-
-                        </div>
-                        <div class="col-lg-7">
-                        การประกวดรอบที่ 2 เปิดระบบให้ผู้ผ่านการคัดเลือก
-                        รอบที่ 1 โดยให้ผู้สมัครอัพคลิปลง Youtube แล้วส่งลิงค์เข้า
-                        ระบบของคณะ <a href="" class="">http://sciday.kmitl.ac.th</a>
-
-                        </div>
-                    </div>
-                    <div class="row mt-3 p-3 border-bottom">
-                        <div class="col-lg-3">
-                        วันพุธที่ 27 ก.ค. 65 
-                        </div>
-                        <div class="col-lg-2">
-                        เวลา 24.00 น.
-
-                        </div>
-                        <div class="col-lg-7">
-                        ปิดระบบการส่งไฟล์วิดีทัศน์ 
-
-                        </div>
-                    </div>
-                    <div class="row mt-3 p-3 border-bottom">
-                        <div class="col-lg-3">
-                        วันจันทร์ที่ 15 ส.ค.65 
-                        </div>
-                        <div class="col-lg-2">
-                        เวลา 15.00 น.
-
-                        </div>
-                        <div class="col-lg-7">
-                        ประกาศรายชื่อผู้ผ่านเข้ารอบตัดสิน 
-                        <a href="" class="">http://sciday.kmitl.ac.th</a> 
-
-                        </div>
-                    </div>
-                    <div class="row mt-3 p-3 ">
-                        <div class="col-lg-3">
-                        วันอังคารที่ 23 ส.ค. 65 
-                        </div>
-                        <div class="col-lg-2">
-                        เวลา 9.30 น.
-
-                        </div>
-                        <div class="col-lg-7">
-                        การประกวดรอบตัดสิน ผู้ผ่านการประกวดรอบที่ 2 จัดแสดงผลงานและเข้าร่วมพิธีเปิดงานที่หอประชุมจุฬาภรณวลัยลักษณ์
-
-                        </div>
-                    </div>
-                    <div class="row mt-3 p-3">
-                        <div class="col-lg-3">
-                         
-                        </div>
-                        <div class="col-lg-2">
-                        เวลา 11.00 น.
-                        </div>
-                        <div class="col-lg-7">
-                        ผู้สมัครนำเสนอผลงานต่อกรรมการ
-
-                        </div>
-                    </div>
-                    <div class="row mt-3 p-3">
-                        <div class="col-lg-3">
-                         
-                        </div>
-                        <div class="col-lg-2">
-                        เวลา 13.00 น.
-                        </div>
-                        <div class="col-lg-7">
-                        กรรมการประชุมตัดสินผู้ได้รับรางวัล
-
-                        </div>
-                    </div>
-                    <div class="row mt-3 p-3">
-                        <div class="col-lg-3">
-                         
-                        </div>
-                        <div class="col-lg-2">
-                        เวลา 15.30 น.
-                        </div>
-                        <div class="col-lg-7">
-                        ประกาศผลและรับรางวัล 
-
-                        </div>
-                    </div>
-                </div> -->
             </figure>
         </div>
         
    
         <div class="tab-content  p-2 mb-5" id="myTabContent">
-            <!-- <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"> -->
+            
                 <div class="d-flex justify-content-between">
                     <span class="badge rounded-pill bg-warning mt-3 shadow">
                         <h3><b>&nbsp;&nbsp;&nbsp;โรงเรียนที่สมัครแข่งขันแล้ว&nbsp;&nbsp;&nbsp;</b></h3>
@@ -271,9 +220,10 @@ use App\Model\Sciday\Teacher;
                     <?php                
                         }
                 ?>
-            <!-- </div> -->
-            <!-- <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> -->
-            <?php if(0){?>
+            
+            <?php 
+                $shows = $showroundObj->ShowByActivity(1,2); 
+                if($shows['showround']=='yes'){?>
                 <div class="d-flex justify-content-between">
                     <span class="badge rounded-pill bg-success mt-3 shadow">
                         <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 2&nbsp;&nbsp;&nbsp;</b></h3>
@@ -346,9 +296,9 @@ use App\Model\Sciday\Teacher;
                         }
                 ?>
             <?php } ?>
-            <!-- </div> -->
-            <!-- <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div> -->
-            <?php if(0){?>
+            
+            <?php $shows = $showroundObj->ShowByActivity(1,3); 
+                if($shows['showround']=='yes'){?>
                 <div class="d-flex justify-content-between">
                     <span class="badge rounded-pill bg-success mt-3 shadow">
                         <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 3&nbsp;&nbsp;&nbsp;</b></h3>

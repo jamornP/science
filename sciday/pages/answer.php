@@ -29,7 +29,7 @@ use App\Model\Sciday\Teacher;
 <body class="font-prompt">
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
     <div class="container">
-        <h1 class="mt-3"><b>กิจกรรมงานวันวิทยาศาสตร์ 2022</span></b></h1>
+        <!-- <h1 class="mt-3"><b>กิจกรรมงานวันวิทยาศาสตร์ 2022</span></b></h1> -->
     </div>
     
     <div class="container mt-3">
@@ -42,16 +42,99 @@ use App\Model\Sciday\Teacher;
         
         <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3">
             <div class="d-flex flex-row-reverse bd-highlight">
-                <a href="../answer/form.php?activity=<?php echo $_REQUEST['activity'];?>" class="btn btn-lg btn-outline-success my-bottom"><span class="spinner-grow spinner-grow-sm text-warning" role="status" aria-hidden="true"></span> สมัครแข่งขัน</a>
+                <a href="../answer/form.php?activity=<?php echo $_REQUEST['activity'];?>" class="btn btn-lg btn-outline-success my-bottom">
+                <span class="spinner-grow spinner-grow-sm text-warning" role="status" aria-hidden="true"></span> ยื่นใบสมัครแข่งขัน</a>
             </div>
         
             <figure class="">
-                <blockquote class="blockquote">
-                    <h4 class="mt-3"><b>กำหนดการ</b></h4>
-                </blockquote>
-                <figcaption class="blockquote-footer fs-18">
-                <?php echo $_REQUEST['activity'];?>
-                </figcaption>
+            <div class="row">
+                    <div class="col-md-6">
+                        <div class="mt-3 shadow">
+                            <!-- coming soon... -->
+                            <img src="/science/sciday/images/comingsoon.jpg" class="img-thumbnail rounded " alt="...">
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <blockquote class="blockquote">
+                            <h4 class="mt-3"><b>กำหนดการ</b></h4>
+                        </blockquote>
+                        <table class="table table-bordered shadow">
+                            <thead class="table-dark">
+                                <tr class="text-center">
+                                    <th width='70%'>รายละเอียด</th>
+                                    <th width='30%'>วันที่</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="badge rounded-pill bg-primary fs-20 shadow">เปิดระบบรับสมัคร</span> <br>
+                                        - เอกสารหลักเกณฑ์การประกวด <a href="/science/sciday/document/answer/รายละเอียด การแข่งขันตอบปัญหาฯภาษาไทย.pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'>ภาษาไทย </a>
+                                        <a href="/science/sciday/document/answer/รายละเอียด การแข่งขันตอบปัญหาฯ(ภาษาอังกฤษ).pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'>English </a><br>
+                                        - ใบสมัคร <br><a href="/science/sciday/document/answer/ใบสมัคร การแข่งขันตอบปัญหาฯภาษาไทย.pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'><i class='bx bxs-file-pdf'></i> pdf ภาษาไทย</a>
+                                        <a href="/science/sciday/document/answer/ใบสมัคร การแข่งขันตอบปัญหาฯภาษาไทย.docx" class=" btn btn-sm btn-warning text-white mt-1" target='_blank'><i class='bx bxl-wordpress'></i> word ภาษาไทย</a>
+                                        <br><a href="/science/sciday/document/answer/ใบสมัคร การแข่งขันตอบปัญหาฯ(ภาษาอังกฤษ).pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'><i class='bx bxs-file-pdf'></i> pdf English </a>
+                                        &nbsp;<a href="/science/sciday/document/answer/ใบสมัคร การแข่งขันตอบปัญหาฯ(ภาษาอังกฤษ).docx" class=" btn btn-sm btn-warning text-white mt-1" target='_blank'><i class='bx bxl-wordpress'></i> word English</a>
+                                        <br>
+                                        กรอกใบสมัครแล้วยื่นสมัครทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl" target='_blank'>https://www.facebook.com/SciKmitl</a><br>
+                                    </td>
+                                    <td class="text-center">
+                                        วันที่ 15 มิ.ย. 2565
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge rounded-pill bg-danger fs-20 shadow">ปิดระบบรับสมัคร</span> <br>
+                                        - เวลา 23.59 น.
+                                    </td>
+                                    <td class="text-center">
+                                        วันที่ 12  ก.ค. 2565
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge rounded-pill bg-primary fs-20 shadow">ประกาศรายชื่อผู้ผ่านการคัดเลือก</span> <br>
+                                        - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a>
+                                    </td>
+                                    <td class="text-center">
+                                        วันที่ 19 ก.ค. 2565
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge rounded-pill bg-primary fs-20 shadow">จัดการแข่งขันรอบคัดเลือกแบบออนไลน์</span> <br>
+                                        - แข่งขันแบบออนไลน์คำถามเป็นแบบปรนัย เริ่มแข่งขันเวลา 10.30 น.
+                                    </td>
+                                    <td class="text-center">
+                                        วันที่ 9 ส.ค. 2565
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge rounded-pill bg-primary fs-20 shadow">ประกาศรายชื่อผู้ผ่านเข้ารอบตัดสิน</span> <br>
+                                        - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a>
+                                    </td>
+                                    <td class="text-center">
+                                        วันที่ 11 ส.ค. 2565
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge rounded-pill bg-primary fs-20 shadow">การแข่งขันรอบตัดสิน</span> <br>
+                                        - เวลา 10.00 - 10.15 น. ลงทะเบียน ณ หอประชุมจุฬาภรณวลัยลักษณ์ ชั้น 2 <br>
+                                        - เวลา 10.30 น. เริ่มการแข่งขัน <br>
+                                        <!-- - เวลา 13.00 น กรรมการประชุมตัดสินผู้ได้รับรางวัล <br> -->
+                                        <!-- - เวลา 15.30 น ประกาศผลและรับรางวัล <br> -->
+                                    </td>
+                                    <td class="text-center">
+                                        วันที่ 24 ส.ค. 2565
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
             </figure>
         </div>
         
