@@ -24,12 +24,12 @@
 <body class="font-prompt fs-18">
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
     <div class="container">
-        <h1 class="mt-3"><b>กิจกรรมงานวันวิทยาศาสตร์ 2022</span></b></h1>
+        <!-- <h1 class="mt-3"><b>กิจกรรมงานวันวิทยาศาสตร์ 2022</span></b></h1> -->
     </div>
     
     <div class="container mt-3">
         <div class="d-flex justify-content-between">
-            <span class="badge rounded-pill bg-warning mt-3 shadow">
+            <span class="badge rounded-pill bg-warning mt-3 shadow text-truncate">
                 <h2><b>&nbsp;&nbsp;&nbsp;การแข่งขัน E-SPORTS&nbsp;&nbsp;&nbsp;</b></h2>
             </span>
         </div>
@@ -43,6 +43,7 @@
                         <h5 class="text-primary"><b>ส่วนที่ 1 ใช้ในการสมัคร</b></h5>
                         <hr class="text-warning">
                         <form action="save.php" method="post" enctype="multipart/form-data" id="">
+                        <input type="hidden" class="form-control w-75" name="user_id"  value="<?php echo $_SESSION['user_id'];?>">
                             <div class="row mt-3">
                                 <div class="col-md">
                                     <div class="form-group">
@@ -54,20 +55,8 @@
                             <div class="row mt-3">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="" class="text-primary"><b class="fs-18">2. ประเภทแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ ประจำปี 2565<font color="red">*</font></b></label>
-                                    </div>
-                                    <div class="form-group mt-2">
-                                        <?php 
-                                            $levels =$levelObj->getLevelByActivity('4');
-                                            foreach($levels AS $level){
-                                                echo "
-                                                    <div class='form-check form-check-inline'>
-                                                        <input class='form-check-input' type='radio' name='level_id' id='inlineRadio{$levle['id']}' value='{$level['id']}' checked>
-                                                        <label class='form-check-label' for='inlineRadio{$levle['id']}'>{$level['name']}</label>
-                                                    </div>
-                                                ";
-                                            }
-                                        ?>
+                                        <label for="" class="text-primary"><b class="fs-18">2. ชื่อทีม <font color="red">*</font> </b></label>
+                                        <input type="text" class="form-control w-75" name="team"  required>
                                     </div>
                                 </div>
                             </div>
@@ -99,34 +88,11 @@
                                                     <div class="">
                                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="ssurname[]">
                                                     </div>
-                                                    
+                                                    <button class="btn btn-success mx-2 sbtn-add text-white">เพิ่ม</button>
+                                                    <button class="btn btn-danger sbtn-remove text-white">ลบ</button>
                                                 </div>
                                             </li>
-                                            <li>
-                                                <div class="d-flex mb-2">
-                                                    <div class="">
-                                                        <select class="form-select" aria-label="Default select example" name="stitle[]">
-                                                            <option selected>คำนำหน้าชื่อ</option>
-                                                            <?php 
-                                                                $titles = $titleObj->getAllTitle();
-                                                                foreach($titles AS $title){
-                                                                    echo "
-                                                                        <option value='{$title['id']}'>{$title['name']}</option>
-                                                                    ";
-                                                                }
-                                                            ?>
-                                                            
-                                                        </select>
-                                                    </div>
-                                                    <div class="">
-                                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="sname[]">
-                                                    </div>
-                                                    <div class="">
-                                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="ssurname[]">
-                                                    </div>
-                                                    
-                                                </div>
-                                            </li>
+                                            
                                         </ol>
                                     </div>
                                 </div>
@@ -161,7 +127,8 @@
                                                     <div class="">
                                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="tsurname[]">
                                                     </div>
-                                                   
+                                                    <button class="btn btn-success mx-2 tbtn-add text-white">เพิ่ม</button>
+                                                    <button class="btn btn-danger tbtn-remove text-white">ลบ</button>
                                                 </div>
                                             </li>
                                         </ol>
@@ -205,5 +172,6 @@
             </div>
 
     </div>
+    <script src="js/script.js"></script>
 </body>
 </head>

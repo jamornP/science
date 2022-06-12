@@ -33,7 +33,7 @@
     <div class="container mt-3">
     <?php //print_r($projects);?>
         <div class="d-flex justify-content-between">
-            <span class="badge rounded-pill bg-warning mt-3 shadow">
+            <span class="badge rounded-pill bg-warning mt-3 shadow text-truncate">
                 <h2><b>&nbsp;&nbsp;&nbsp;<?php echo $_REQUEST['activity'] ;?>&nbsp;&nbsp;&nbsp;</b></h2>
             </span>
         </div>

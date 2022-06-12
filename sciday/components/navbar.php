@@ -12,6 +12,8 @@
  $artifactObj = new Artifact;  
  use App\Model\Sciday\Iot;
  $iotObj = new Iot;  
+ use App\Model\Sciday\Esports;
+ $esportsObj = new Esports;  
  session_start(); 
  
 ?>
@@ -19,12 +21,12 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark fs-24" style="height: 80px; background-color:rgb(2,29,75);">
     <div class="container-fluid" >
         <a class="navbar-brand fs-28" href="#"><i class='bx bx-planet'></i> Science Day&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation" style="--bs-scroll-height: 100px;">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <div class="collapse navbar-collapse"  id="navbarScroll" style="background-color:rgb(2,29,75);">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 400px;">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/science/sciday/pages/"><i class='bx bx-home-circle' ></i> หน้าหลัก</a>
                 </li>
@@ -164,6 +166,19 @@
                                               break;
 
                                             case 5:
+                                                $esportss = $esportsObj->getEsportsByUser($_SESSION['user_id']);
+                                                if(count($esportss)>0){
+                                                    echo "
+                                                    <span class='badge rounded-pill bg-primary fs-16'> {$activity['name']}</span>
+                                                    ";
+                                                    foreach($esportss AS $esports){
+                                                        $esports_id = base64_encode($esports['id']);
+                                                        $activity_id = base64_encode(4);
+                                                        echo "
+                                                            <a class='dropdown-item' href='/science/sciday/esports/member.php?esports_id={$esports_id}'><i class='bx bx-right-arrow-alt' ></i> {$esports['team']}</a>
+                                                        ";
+                                                    }
+                                                }
                                                 
                                               break;
                                             case 6:
@@ -176,31 +191,7 @@
                                 <!-- </ul> -->
                                 <?php  
 
-                                    // $artifacts = $artifactObj->getArtifactByUser($_SESSION['user_id']);
-                                    // foreach($artifacts AS $artifact){
-                                    //     $artifact_id = base64_encode($artifact['id']);
-                                    //     $activity_id = base64_encode(1);
-
-                                    //     echo "
-                                    //         <a class='dropdown-item' href='/science/sciday/artifact/member.php?artifact_id={$artifact_id}'><i class='bx bx-right-arrow-alt' ></i> {$artifact['artifact_name']}</a>
-                                    //     ";
-                                    // }
-                                    // $pros = $projectObj->getProjectByUser($_SESSION['user_id']);
-                                    // foreach($pros AS $pro){
-                                    //     $pro_id = base64_encode($pro['id']);
-                                    //     $activity_id = base64_encode(2);
-                                    //     echo "
-                                    //         <a class='dropdown-item' href='/science/sciday/project/member.php?project_id={$pro_id}'><i class='bx bx-right-arrow-alt' ></i> {$pro['project_name']}</a>
-                                    //     ";
-                                    // }
-                                    // $answers = $answerObj->getAnswerByUser($_SESSION['user_id']);
-                                    // foreach($answers AS $answer){
-                                    //     $answer_id = base64_encode($answer['id']);
-                                    //     $activity_id = base64_encode(4);
-                                    //     echo "
-                                    //         <a class='dropdown-item' href='/science/sciday/answer/member.php?answer_id={$answer_id}'><i class='bx bx-right-arrow-alt' ></i> {$amswer['school']}</a>
-                                    //     ";
-                                    // }
+                                    
                                    
                                 ?>
                                 <hr class="dropdown-divider">

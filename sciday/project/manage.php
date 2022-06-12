@@ -37,13 +37,13 @@ use App\Model\Sciday\Teacher;
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
     <div class="container mt-3">
         <div class="d-flex justify-content-between">
-            <span class="badge rounded-pill bg-warning mt-3 shadow">
+            <span class="badge rounded-pill bg-warning mt-3 shadow text-truncate">
                 <h2><b>&nbsp;&nbsp;&nbsp;<?php echo $activity_name ;?>&nbsp;&nbsp;&nbsp;</b></h2>
             </span>
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20">
+                <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
                     <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp;ทีมที่สมัคร <?php echo $level_name;?></div>
                     <form action="saver1.php" method="post">
                         <table class="table table-striped table-hover mt-2 fs-18">
@@ -126,13 +126,13 @@ use App\Model\Sciday\Teacher;
         </div>
         <!-- Round 2 -->
         <div class="d-flex justify-content-between">
-            <span class="badge rounded-pill bg-warning mt-3 shadow">
+            <span class="badge rounded-pill bg-warning mt-3 shadow text-truncate">
                 <h2><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 2&nbsp;&nbsp;&nbsp;</b></h2>
             </span>
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20">
+                <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
                     <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $level_name;?></div>
                     <form action="saver1.php" method="post">
                         <table class="table table-striped table-hover mt-2 fs-18">
@@ -213,13 +213,13 @@ use App\Model\Sciday\Teacher;
         </div>
         <!-- Round 3 -->
         <div class="d-flex justify-content-between">
-            <span class="badge rounded-pill bg-warning mt-3 shadow">
+            <span class="badge rounded-pill bg-warning mt-3 shadow text-truncate">
                 <h2><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 3 (Onsite ที่คณะวิทยาศาสตร์)&nbsp;&nbsp;&nbsp;</b></h2>
             </span>
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20">
+                <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
                     <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $level_name;?></div>
                     <form action="saver1.php" method="post">
                         <table class="table table-striped table-hover mt-2 fs-18">

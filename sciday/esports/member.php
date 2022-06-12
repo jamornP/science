@@ -8,10 +8,10 @@
  $titleObj = new Title;   
  use App\Model\Sciday\Activity;
 $activityObj = new Activity; 
-$activitys = $activityObj->getActivityById('1');
+$activitys = $activityObj->getActivityById('5');
 $activity_name = $activitys['name'];
-use App\Model\Sciday\Artifact;
- $artifactObj = new Artifact;  
+use App\Model\Sciday\Esports;
+ $esportsObj = new Esports;  
 use App\Model\Sciday\Round;
  $roundObj = new Round;  
 use App\Model\Sciday\Student;
@@ -36,7 +36,7 @@ use App\Model\Sciday\Teacher;
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
     <div class="container mt-3">
         <?php 
-            $projects = $artifactObj->getArtifactById(base64_decode($_REQUEST['artifact_id']));
+            $projects = $esportsObj->getEsportsById(base64_decode($_REQUEST['esports_id']));
             // $levels = $levelObj->getLevelById($projects['level_id']);   
             // $level_name = $levels['name'];
         ?>
@@ -49,18 +49,17 @@ use App\Model\Sciday\Teacher;
         <div class="row">
             <div class="col-lg-12">
                 <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
-                    <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $projects['level'];?></div>
+                    <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; ข้อมูลที่สมัคร</div>
                     
                     <table class="table table-striped table-hover mt-2 fs-18">
                         <thead>
                             <tr>
                                 <th width='8%'>#</th>
-                                <th >ชื่อโครงงานวิทยาศาสตร์</th>
+                                <th >ชื่อทีม</th>
                                 <th width='20%'>โรงเรียน</th>
                                 <th width='20%'>นักเรียน</th>
                                 <th width='15%'>อาจารย์ที่ปรึกษา</th>
                                 <th width='10%'>เอกสาร</th>
-                                <th width='5%'>รูป</th>
                             </tr>
                         </thead>
                         <tbody class="fs-14">
@@ -73,7 +72,7 @@ use App\Model\Sciday\Teacher;
                                 ?>
                                     <tr>
                                         <td width='8%'><?php echo $i; ?>.</td>
-                                        <td><?php echo $projects['artifact_name']; ?></td>
+                                        <td><?php echo $projects['team']; ?></td>
                                         <td width='20%'><?php echo $projects['school']; ?></td>
                                         <td width='20%'>
                                             <?php 
@@ -92,7 +91,7 @@ use App\Model\Sciday\Teacher;
                                             ?>
                                         </td>
                                         <td width='10%'><a href='/science/upload/sciday/file/<?php echo $projects['file_register']; ?>' target='_blank'>Download</a></td>
-                                        <td width='5%'><a href='/science/sciday/artifact/pic.php?activity=<?php echo $activity_name; ?>&p_id=<?php echo $projects['id']; ?>&image_id=<?php echo $proname['images_id']; ?>' target='_blank' ><i class='bx bxs-image fs-24' ></i></a></td>
+                                        
                                     </tr>
                                 
                                 <?php
@@ -197,86 +196,86 @@ use App\Model\Sciday\Teacher;
         ?>
         <!-- Round 3 -->
         <?php 
-        if($show3){
-            $round3s = $roundObj->checkRound3ById(base64_decode($_REQUEST['project_id']));
-            if($round3s){
-                $project3s = $projectObj->getProjectById(($_REQUEST['project_id']));
-                // print_r($project3s);
-                $round3s = $roundObj->getRound3ById($project3s['id']);
-                // echo "<br>";
-                // echo "<br>";
-                // print_r($round3s);
-            ?>
-                <div class="d-flex justify-content-between">
-                    <span class="badge rounded-pill bg-success mt-3 shadow">
-                        <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 3&nbsp;&nbsp;&nbsp;</b></h3>
-                    </span>
-                </div>
-                <div class="row"> 
-                    <div class="col-lg-12">
-                        <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
-                            <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $round3s['name'];?></div>
-                            <table class="table table-striped table-hover mt-2 fs-18">
-                                <thead>
-                                    <tr>
-                                        <th width='8%'>#</th>
-                                        <th >ชื่อโครงงานวิทยาศาสตร์</th>
-                                        <th width='20%'>โรงเรียน</th>
-                                        <th width='20%'>นักเรียน</th>
-                                        <th width='15%'>อาจารย์ที่ปรึกษา</th>
-                                        <th width='15%'>Onsite</th>
-                                        <!-- <th>รูป</th> -->
-                                    </tr>
-                                </thead>
-                                <tbody class="fs-14">
-                                    <input type='hidden' class='form-control' name='link_video' value='<?php echo $round3s["link_video"];?>'>
-                                    <?php 
-                                        $stus3 = $studentObj->getStuById($project3s['student_id']);
-                                        $teachers3 = $teacherObj->getTeacherById($project3s['teacher_id']);
-                                        $i3++;
-                                        $j3=0;
-                                        $k3=0;
-                                        $st3="";
-                                        $tea3="";
+            if($show3){
+                $round3s = $roundObj->checkRound3ById(base64_decode($_REQUEST['project_id']));
+                if($round3s){
+                    $project3s = $projectObj->getProjectById(($_REQUEST['project_id']));
+                    // print_r($project3s);
+                    $round3s = $roundObj->getRound3ById($project3s['id']);
+                    // echo "<br>";
+                    // echo "<br>";
+                    // print_r($round3s);
+                ?>
+                    <div class="d-flex justify-content-between">
+                        <span class="badge rounded-pill bg-success mt-3 shadow">
+                            <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 3&nbsp;&nbsp;&nbsp;</b></h3>
+                        </span>
+                    </div>
+                    <div class="row"> 
+                        <div class="col-lg-12">
+                            <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
+                                <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $round3s['name'];?></div>
+                                <table class="table table-striped table-hover mt-2 fs-18">
+                                    <thead>
+                                        <tr>
+                                            <th width='8%'>#</th>
+                                            <th >ชื่อโครงงานวิทยาศาสตร์</th>
+                                            <th width='20%'>โรงเรียน</th>
+                                            <th width='20%'>นักเรียน</th>
+                                            <th width='15%'>อาจารย์ที่ปรึกษา</th>
+                                            <th width='15%'>Onsite</th>
+                                            <!-- <th>รูป</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody class="fs-14">
+                                        <input type='hidden' class='form-control' name='link_video' value='<?php echo $round3s["link_video"];?>'>
+                                        <?php 
+                                            $stus3 = $studentObj->getStuById($project3s['student_id']);
+                                            $teachers3 = $teacherObj->getTeacherById($project3s['teacher_id']);
+                                            $i3++;
+                                            $j3=0;
+                                            $k3=0;
+                                            $st3="";
+                                            $tea3="";
 
-                                        $ck3 = $roundObj->checkRound3ById($project3s['id']);
-                                        
-                                        if($round3s['link_video']==""){
-                                            $show_link3="
-                                                <button type='button' class='btn btn-sm btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'>
-                                                    <i class='bx bxs-video-plus'></i> อัพลิงค์วีดีโอ
-                                                </button>
+                                            $ck3 = $roundObj->checkRound3ById($project3s['id']);
+                                            
+                                            if($round3s['link_video']==""){
+                                                $show_link3="
+                                                    <button type='button' class='btn btn-sm btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'>
+                                                        <i class='bx bxs-video-plus'></i> อัพลิงค์วีดีโอ
+                                                    </button>
+                                                ";
+                                            }else{
+                                                $show_link3="<a href='{$round3s['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
+                                            }
+                                            foreach($stus3 AS $stu3){
+                                                $j3++;
+                                                $st3 .=$j3.". ".$stu3['stitle'].$stu3['sname']." ".$stu3['ssurname']."<br>";
+                                            }
+                                            foreach($teachers3 AS $teacher3){
+                                                $k3++;
+                                                $tea3 .=$k3.". ".$teacher3['ttitle'].$teacher3['tname']." ".$teacher3['tsurname']."<br>";
+                                            }
+                                            echo "
+                                                <tr>
+                                                    <td width='8%'>{$i3}.</td>
+                                                    <td>{$project3s['project_name']}</td>
+                                                    <td width='20%'>{$project3s['school']}</td>
+                                                    <td width='20%'>{$st3}</td>
+                                                    <td width='15%'>{$tea3}</td>
+                                                    <td width='10%'><button type='button' class='btn btn-success text-white'>Success</button></td>
+                                                </tr>
                                             ";
-                                        }else{
-                                            $show_link3="<a href='{$round3s['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
-                                        }
-                                        foreach($stus3 AS $stu3){
-                                            $j3++;
-                                            $st3 .=$j3.". ".$stu3['stitle'].$stu3['sname']." ".$stu3['ssurname']."<br>";
-                                        }
-                                        foreach($teachers3 AS $teacher3){
-                                            $k3++;
-                                            $tea3 .=$k3.". ".$teacher3['ttitle'].$teacher3['tname']." ".$teacher3['tsurname']."<br>";
-                                        }
-                                        echo "
-                                            <tr>
-                                                <td width='8%'>{$i3}.</td>
-                                                <td>{$project3s['project_name']}</td>
-                                                <td width='20%'>{$project3s['school']}</td>
-                                                <td width='20%'>{$st3}</td>
-                                                <td width='15%'>{$tea3}</td>
-                                                <td width='10%'><button type='button' class='btn btn-success text-white'>Success</button></td>
-                                            </tr>
-                                        ";
-                                    ?>
-                                </tbody>
-                            </table>
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php
+                <?php
+                }
             }
-        }
         ?>
     </div>
     <!-- Modal Up Link Video -->
@@ -319,49 +318,27 @@ use App\Model\Sciday\Teacher;
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="row mt-2">
+                    <input type="text" class="form-control w-75" name="esports_id"  value="<?php echo $projects['id'];?>" required>
+                        <div class="row mt-3">
                             <div class="col-md">
                                 <div class="form-group">
-                                    <label for="" class="text-primary"><b class="fs-18">1. ชื่อผลงานสิ่งประดิษฐ์ทางวิทยาศาสตร <font color="red"> ภาษาไทย *</font></b></label>
-                                    <input class="form-control" type="hidden"  name="artifact_id" value="<?php echo $projects['id'];?>">
-                                    <input type="text" class="form-control w-75" name="artifact_name" value="<?php echo $projects['artifact_name'];?>">
+                                    <label for="" class="text-primary"><b class="fs-18">1. ชื่อสถานศึกษา/โรงเรียน <font color="red">*</font> ตัวอย่างการกรอก 'โรงเรียน.......'<font color="red"> ห้ามใช้ ร.ร.</font></b></label>
+                                    <input type="text" class="form-control w-75" name="school"  value="<?php echo $projects['school'];?>" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md">
                                 <div class="form-group">
-                                    <label for="" class="text-primary"><b class="fs-18">2. ระดับการศึกษาที่เข้าร่วมประกวดโครงงานวิทยาศาสตร์ ประจำปี 2565<font color="red"> *</font></b></label>
-                                </div>
-                                <div class="form-group mt-2">
-                                    <?php 
-                                        $levels =$levelObj->getLevelByActivity('1');
-                                        foreach($levels AS $level){
-                                            $selected =($level['id']==$projects['level_id']) ?
-                                            "checked" : "";
-                                            echo "
-                                                <div class='form-check form-check-inline'>
-                                                    <input class='form-check-input' type='radio' name='level_id' id='inlineRadio{$levle['id']}' value='{$level['id']}' {$selected}>
-                                                    <label class='form-check-label' for='inlineRadio{$levle['id']}'>{$level['name']}</label>
-                                                </div>
-                                            ";
-                                        }
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md">
-                                <div class="form-group">
-                                    <label for="" class="text-primary"><b class="fs-18">3. ชื่อสถานศึกษา/โรงเรียน <font color="red">*</font> ตัวอย่างการกรอก 'โรงเรียน.......'<font color="red"> ห้ามใช้ ร.ร.</font></b></label>
-                                    <input type="text" class="form-control w-75" name="school"  required value="<?php echo $projects['school']; ?>">
+                                    <label for="" class="text-primary"><b class="fs-18">2. ชื่อทีม <font color="red">*</font> </b></label>
+                                    <input type="text" class="form-control w-75" name="team" value="<?php echo $projects['team'];?>" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md">
                                 <div class="form-group mt-2">
-                                    <label for="" class="text-primary"><b class="fs-18">รายชื่อผู้เข้าประกวดโครงงานวิทยาศาสตร์<font color="red">*</font> <font color="red">(ไม่เกิน 3 คน)</font></b></label>
+                                    <label for="" class="text-primary"><b class="fs-18">3. รายชื่อผู้เข้าประกวดโครงงานวิทยาศาสตร์<font color="red">*</font> <font color="red">(ไม่เกิน 3 คน)</font></b></label>
                                     <input class="form-control" type="hidden" id="formFileMultiple" name="student_id" value="<?php echo $projects['student_id'];?>">
                                     <ol>
                                         <?php
@@ -408,7 +385,7 @@ use App\Model\Sciday\Teacher;
                         <div class="row">
                             <div class="col-md">
                                 <div class="form-group mt-2">
-                                    <label for="" class="text-primary"><b class="fs-18">อาจารย์ที่ปรึกษาโครงงานวิทยาศาสตร์ <font color="red">(ไม่เกิน 2 คน)</font></b></label>
+                                    <label for="" class="text-primary"><b class="fs-18">4. อาจารย์ที่ปรึกษาโครงงานวิทยาศาสตร์ <font color="red">(ไม่เกิน 2 คน)</font></b></label>
                                     <input class="form-control" type="hidden" id="formFileMultiple" name="teacher_id" value="<?php echo $projects['teacher_id'];?>">
                                     <ol>
                                         <?php 
@@ -451,6 +428,16 @@ use App\Model\Sciday\Teacher;
                             </div>
                         </div>
                         <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group mt-2">
+                                        <div class="mb-3 w-75">
+                                            <label for="tel" class="form-label text-primary "><b class="fs-18">5. เบอร์โทรศัพท์ติดต่อ <font color="red">*</font></b></label>
+                                            <input class="form-control" type="text" id="tel" name="tel" value="<?php echo $projects['tel'];?>" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="row">
                             <div class="col-md">
                                 <div class="form-group mt-2">
                                     <div class="mb-3 w-75">
@@ -461,23 +448,7 @@ use App\Model\Sciday\Teacher;
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md">
-                                <div class="form-group mt-2">
-                                    <div class="mb-3 w-75">
-                                        <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">Upload ไฟล์รูปภาพ <font color="red">( *.png หรือ *.jpg )</font> เท่านั้น</b></label>
-                                        <div class="container">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="dropzone" id="drop"></div>
-                                                    <input class="form-control" type="hidden" id="formFileMultiple" name="images_id" value="<?php echo $projects['images_id'];?>">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <hr class="text-warning">
                     </div>
                     <div class="modal-footer">

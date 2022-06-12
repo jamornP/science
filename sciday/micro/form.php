@@ -29,7 +29,7 @@
     
     <div class="container mt-3">
         <div class="d-flex justify-content-between">
-            <span class="badge rounded-pill bg-warning mt-3 shadow">
+            <span class="badge rounded-pill bg-warning mt-3 shadow text-truncate">
                 <h2><b>&nbsp;&nbsp;&nbsp;การแข่งขัน Micro:bit&nbsp;&nbsp;&nbsp;</b></h2>
             </span>
         </div>

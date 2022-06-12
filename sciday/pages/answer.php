@@ -33,8 +33,8 @@ use App\Model\Sciday\Teacher;
     </div>
     
     <div class="container mt-3">
-        <div class="d-flex justify-content-between">
-            <span class="badge rounded-pill bg-warning mt-3 shadow">
+        <div class="d-flex justify-content-between ">
+            <span class="badge rounded-pill bg-warning mt-3 shadow text-truncate">
                 <h2><b>&nbsp;&nbsp;&nbsp;<?php echo $activity_name;?>&nbsp;&nbsp;&nbsp;</b></h2>
             </span>
            
@@ -58,81 +58,82 @@ use App\Model\Sciday\Teacher;
                         <blockquote class="blockquote">
                             <h4 class="mt-3"><b>กำหนดการ</b></h4>
                         </blockquote>
-                        <table class="table table-bordered shadow">
-                            <thead class="table-dark">
-                                <tr class="text-center">
-                                    <th width='70%'>รายละเอียด</th>
-                                    <th width='30%'>วันที่</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <span class="badge rounded-pill bg-primary fs-20 shadow">เปิดระบบรับสมัคร</span> <br>
-                                        - เอกสารหลักเกณฑ์การประกวด <a href="/science/sciday/document/answer/รายละเอียด การแข่งขันตอบปัญหาฯภาษาไทย.pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'>ภาษาไทย </a>
-                                        <a href="/science/sciday/document/answer/รายละเอียด การแข่งขันตอบปัญหาฯ(ภาษาอังกฤษ).pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'>English </a><br>
-                                        - ใบสมัคร <br><a href="/science/sciday/document/answer/ใบสมัคร การแข่งขันตอบปัญหาฯภาษาไทย.pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'><i class='bx bxs-file-pdf'></i> pdf ภาษาไทย</a>
-                                        <a href="/science/sciday/document/answer/ใบสมัคร การแข่งขันตอบปัญหาฯภาษาไทย.docx" class=" btn btn-sm btn-warning text-white mt-1" target='_blank'><i class='bx bxl-wordpress'></i> word ภาษาไทย</a>
-                                        <br><a href="/science/sciday/document/answer/ใบสมัคร การแข่งขันตอบปัญหาฯ(ภาษาอังกฤษ).pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'><i class='bx bxs-file-pdf'></i> pdf English </a>
-                                        &nbsp;<a href="/science/sciday/document/answer/ใบสมัคร การแข่งขันตอบปัญหาฯ(ภาษาอังกฤษ).docx" class=" btn btn-sm btn-warning text-white mt-1" target='_blank'><i class='bx bxl-wordpress'></i> word English</a>
-                                        <br>
-                                        กรอกใบสมัครแล้วยื่นสมัครทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl" target='_blank'>https://www.facebook.com/SciKmitl</a><br>
-                                    </td>
-                                    <td class="text-center">
-                                        วันที่ 15 มิ.ย. 2565
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="badge rounded-pill bg-danger fs-20 shadow">ปิดระบบรับสมัคร</span> <br>
-                                        - เวลา 23.59 น.
-                                    </td>
-                                    <td class="text-center">
-                                        วันที่ 12  ก.ค. 2565
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="badge rounded-pill bg-primary fs-20 shadow">ประกาศรายชื่อผู้ผ่านการคัดเลือก</span> <br>
-                                        - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a>
-                                    </td>
-                                    <td class="text-center">
-                                        วันที่ 19 ก.ค. 2565
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="badge rounded-pill bg-primary fs-20 shadow">จัดการแข่งขันรอบคัดเลือกแบบออนไลน์</span> <br>
-                                        - แข่งขันแบบออนไลน์คำถามเป็นแบบปรนัย เริ่มแข่งขันเวลา 10.30 น.
-                                    </td>
-                                    <td class="text-center">
-                                        วันที่ 9 ส.ค. 2565
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="badge rounded-pill bg-primary fs-20 shadow">ประกาศรายชื่อผู้ผ่านเข้ารอบตัดสิน</span> <br>
-                                        - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a>
-                                    </td>
-                                    <td class="text-center">
-                                        วันที่ 11 ส.ค. 2565
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="badge rounded-pill bg-primary fs-20 shadow">การแข่งขันรอบตัดสิน</span> <br>
-                                        - เวลา 10.00 - 10.15 น. ลงทะเบียน ณ หอประชุมจุฬาภรณวลัยลักษณ์ ชั้น 2 <br>
-                                        - เวลา 10.30 น. เริ่มการแข่งขัน <br>
-                                        <!-- - เวลา 13.00 น กรรมการประชุมตัดสินผู้ได้รับรางวัล <br> -->
-                                        <!-- - เวลา 15.30 น ประกาศผลและรับรางวัล <br> -->
-                                    </td>
-                                    <td class="text-center">
-                                        วันที่ 24 ส.ค. 2565
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover table-success shadow">
+                                <thead class="table-dark">
+                                    <tr class="text-center">
+                                        <th width='70%'>รายละเอียด</th>
+                                        <th width='30%'>วันที่</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span class="badge rounded-pill bg-primary fs-20 shadow">เปิดระบบรับสมัคร</span> <br>
+                                            - เอกสารหลักเกณฑ์การประกวด <a href="/science/sciday/document/answer/รายละเอียด การแข่งขันตอบปัญหาฯภาษาไทย.pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'>ภาษาไทย </a>
+                                            <a href="/science/sciday/document/answer/รายละเอียด การแข่งขันตอบปัญหาฯ(ภาษาอังกฤษ).pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'>English </a><br>
+                                            - ใบสมัคร <br><a href="/science/sciday/document/answer/ใบสมัคร การแข่งขันตอบปัญหาฯภาษาไทย.pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'><i class='bx bxs-file-pdf'></i> pdf ภาษาไทย</a>
+                                            <a href="/science/sciday/document/answer/ใบสมัคร การแข่งขันตอบปัญหาฯภาษาไทย.docx" class=" btn btn-sm btn-warning text-white mt-1" target='_blank'><i class='bx bxl-wordpress'></i> word ภาษาไทย</a>
+                                            <br><a href="/science/sciday/document/answer/ใบสมัคร การแข่งขันตอบปัญหาฯ(ภาษาอังกฤษ).pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'><i class='bx bxs-file-pdf'></i> pdf English </a>
+                                            &nbsp;<a href="/science/sciday/document/answer/ใบสมัคร การแข่งขันตอบปัญหาฯ(ภาษาอังกฤษ).docx" class=" btn btn-sm btn-warning text-white mt-1" target='_blank'><i class='bx bxl-wordpress'></i> word English</a>
+                                            <br>
+                                            กรอกใบสมัครแล้วยื่นสมัครทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl" target='_blank'>https://www.facebook.com/SciKmitl</a><br>
+                                        </td>
+                                        <td class="text-center">
+                                            วันที่ 15 มิ.ย. 2565
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="badge rounded-pill bg-danger fs-20 shadow">ปิดระบบรับสมัคร</span> <br>
+                                            - เวลา 23.59 น.
+                                        </td>
+                                        <td class="text-center">
+                                            วันที่ 12  ก.ค. 2565
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="badge rounded-pill bg-primary fs-20 shadow">ประกาศรายชื่อผู้ผ่านการคัดเลือก</span> <br>
+                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a>
+                                        </td>
+                                        <td class="text-center">
+                                            วันที่ 19 ก.ค. 2565
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="badge rounded-pill bg-primary fs-20 shadow">จัดการแข่งขันรอบคัดเลือกแบบออนไลน์</span> <br>
+                                            - แข่งขันแบบออนไลน์คำถามเป็นแบบปรนัย เริ่มแข่งขันเวลา 10.30 น.
+                                        </td>
+                                        <td class="text-center">
+                                            วันที่ 9 ส.ค. 2565
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="badge rounded-pill bg-primary fs-20 shadow">ประกาศรายชื่อผู้ผ่านเข้ารอบตัดสิน</span> <br>
+                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a>
+                                        </td>
+                                        <td class="text-center">
+                                            วันที่ 11 ส.ค. 2565
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="badge rounded-pill bg-primary fs-20 shadow">การแข่งขันรอบตัดสิน</span> <br>
+                                            - เวลา 10.00 - 10.15 น. ลงทะเบียน ณ หอประชุมจุฬาภรณวลัยลักษณ์ ชั้น 2 <br>
+                                            - เวลา 10.30 น. เริ่มการแข่งขัน <br>
+                                            <!-- - เวลา 13.00 น กรรมการประชุมตัดสินผู้ได้รับรางวัล <br> -->
+                                            <!-- - เวลา 15.30 น ประกาศผลและรับรางวัล <br> -->
+                                        </td>
+                                        <td class="text-center">
+                                            วันที่ 24 ส.ค. 2565
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </figure>
