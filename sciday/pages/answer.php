@@ -15,7 +15,9 @@
  use App\Model\Sciday\Student;
  $studentObj = new Student;  
 use App\Model\Sciday\Teacher;
- $teacherObj = new Teacher;    
+ $teacherObj = new Teacher; 
+ use App\Model\Sciday\Showround;
+ $showroundObj = new Showround;   
 ?>
 <!DOCTYPE html>
 <html lang="en">
