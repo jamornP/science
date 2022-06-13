@@ -194,6 +194,7 @@ use App\Model\Sciday\Teacher;
                                         <td width='' align='center'>
                                             <div class='form-check'>
                                                 <input class='form-check-input' type='checkbox' value='{$round2['id']}' id='flexCheckDefault' name='p_id2[]' {$checkbox2}>
+                                                <a href='del.php?id={$round2['id']}'>ลบ</a>
                                             </div>
                                             
                                         </td>
