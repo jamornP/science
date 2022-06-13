@@ -53,7 +53,7 @@ use App\Model\Sciday\Teacher;
                     <div class="col-md-6">
                         <div class="mt-3 shadow">
                             <!-- coming soon... -->
-                            <img src="/science/sciday/images/comingsoon.jpg" class="img-thumbnail rounded " alt="...">
+                            <img src="/science/sciday/images/4.png" class="img-thumbnail rounded " alt="...">
                         </div>
                     </div>
                     <div class="col-md">

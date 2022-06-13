@@ -53,7 +53,7 @@ use App\Model\Sciday\Showround;
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mt-3 shadow">
-                            <img src="/science/sciday/images/poster-project.png" class="img-thumbnail rounded " alt="...">
+                            <img src="/science/sciday/images/2.png" class="img-thumbnail rounded " alt="...">
                         </div>
                     </div>
                     <div class="col-md ">
@@ -130,9 +130,10 @@ use App\Model\Sciday\Showround;
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">การประกวดรอบตัดสิน</span> <br>
-                                            - เวลา 9.30 น. จัดแสดงผลงานและเข้าร่วมพิธีเปิดงานที่หอประชุมจุฬาภรณวลัยลักษณ์ <br>
+                                            - เวลา 9.30 น. จัดแสดงผลงาน <br>
+                                            <!-- และเข้าร่วมพิธีเปิดงานที่หอประชุมจุฬาภรณวลัยลักษณ์ <br> -->
                                             - เวลา 11.00 น. ผู้สมัครนำเสนอผลงานต่อกรรมการ <br>
-                                            - เวลา 13.00 น. กรรมการประชุมตัดสินผู้ได้รับรางวัล <br>
+                                            <!-- - เวลา 13.00 น. กรรมการประชุมตัดสินผู้ได้รับรางวัล <br> -->
                                             - เวลา 15.30 น. ประกาศผลและรับรางวัล <br>
                                         </td>
                                         <td class="text-center">
