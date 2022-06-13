@@ -31,7 +31,7 @@ use App\Model\Sciday\Teacher;
 <body class="font-prompt">
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
     <div class="container">
-        <h1 class="mt-3"><b>กิจกรรมงานวันวิทยาศาสตร์ 2022</span></b></h1>
+        <!-- <h1 class="mt-3"><b>กิจกรรมงานวันวิทยาศาสตร์ 2022</span></b></h1> -->
     </div>
     
     <div class="container mt-3">
@@ -99,16 +99,16 @@ use App\Model\Sciday\Teacher;
                                             วันที่ 19 ก.ค. 2565
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">แข่งขันรอบแรก</span> <br>
-                                            <!-- - สำหรับทีมที่ผ่านเข้ารอบที่ 2 ให้ผู้สมัครอัพคลิปลง Youtube แล้วส่งลิงค์เข้า ระบบของคณะ ที่ช่องทาง  <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a> -->
+                                            - สำหรับทีมที่ผ่านเข้ารอบที่ 2 ให้ผู้สมัครอัพคลิปลง Youtube แล้วส่งลิงค์เข้า ระบบของคณะ ที่ช่องทาง  <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a>
                                         </td>
                                         <td class="text-center">
-                                            <!-- วันที่ 20 ก.ค. 2565 -->
+                                            วันที่ 20 ก.ค. 2565
                                         </td>
                                     </tr>
-                                    <!-- <tr>
+                                    <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-danger fs-20 shadow">ปิดระบบแนบ Link video</span> <br>
                                             - เวลา 23.59 น.
@@ -125,20 +125,20 @@ use App\Model\Sciday\Teacher;
                                         <td class="text-center">
                                             วันที่ 16 - 19 ส.ค. 2565 
                                         </td>
-                                    </tr> -->
+                                    </tr>
                                     
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">การแข่งขันรอบตัดสิน</span> <br>
-                                            <!-- - เวลา 9.30 น. เข้าร่วมพิธีเปิดงานที่หอประชุมจุฬาภรณวลัยลักษณ์ <br> -->
-                                            <!-- - เวลา 11.00 น. ผู้สมัครนำเสนอผลงานต่อกรรมการ <br> -->
-                                            <!-- - เวลา 13.00 น กรรมการประชุมตัดสินผู้ได้รับรางวัล <br> -->
-                                            <!-- - เวลา 15.30 น. ประกาศผลและรับรางวัล <br> -->
+                                            - เวลา 9.30 น. เข้าร่วมพิธีเปิดงานที่หอประชุมจุฬาภรณวลัยลักษณ์ <br>
+                                            - เวลา 11.00 น. ผู้สมัครนำเสนอผลงานต่อกรรมการ <br>
+                                            - เวลา 13.00 น กรรมการประชุมตัดสินผู้ได้รับรางวัล <br>
+                                            - เวลา 15.30 น. ประกาศผลและรับรางวัล <br>
                                         </td>
                                         <td class="text-center">
                                             วันที่ 23-24 ส.ค. 2565
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                             </table>
                         

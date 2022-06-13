@@ -17,7 +17,7 @@
         <br>
         
         <div class="text-center">
-        <h1>Science Day 2022</h1>
+        <!-- <h1>Science Day 2022</h1> -->
         </div>
         
     </div>

@@ -9,6 +9,6 @@
 <body>
 <?php 
 //phpinfo();
-header('Location: /science/certificate/pages/index.php'); ?>
+header('Location: /science/sciday/pages/'); ?>
 </body>
 </html>

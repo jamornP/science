@@ -49,6 +49,9 @@
                         </ul>
                     </li>
                 <?php } ?> 
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/science/sciday/document/ขั้นตอนการสมัครกิจกรรมวันวิทยาศาสตร์.pdf" target='_blank'><i class='bx bx-user-voice' ></i> คู่มือการสมัคร</a>
+                </li>
                 <?php if($_SESSION['role']=='committee' OR $_SESSION['role']=='chairman'){ ?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

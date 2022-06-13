@@ -132,7 +132,7 @@ use App\Model\Sciday\Teacher;
                                 <input type='hidden' class='form-control' name='num' value='2'>
                                 <input type='hidden' class='form-control' name='link_video' value=''>
                                 <?php 
-                                    $rounds = $roundObj->getRound2ByLevel($_REQUEST['level']);
+                                    $rounds = $roundObj->getRound2ByLevel(base64_decode($_REQUEST['level']));
                                     $i=0;
                                     
                                     foreach($rounds AS $round){

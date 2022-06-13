@@ -90,7 +90,7 @@
                             <div class="row">
                                 <div class="col-md">
                                     <div class="form-group mt-2">
-                                        <label for="" class="text-primary"><b class="fs-18">4. ชื่อผู้ประดิษฐ์<font color="red">(ระบุชื่อผู้ประดิษฐ์ทุกคน สูงสุดไม่เกิน ๓ คน/โครงการ)*</font> <font color="red"></font></b></label>
+                                        <label for="" class="text-primary"><b class="fs-18">4. ชื่อผู้ประดิษฐ์<font color="red">(ระบุชื่อผู้ประดิษฐ์ทุกคน สูงสุดไม่เกิน 3 คน/โครงการ)*</font> <font color="red"></font></b></label>
                                         <ol>
                                             <li>
                                                 <div class="d-flex mb-2">
