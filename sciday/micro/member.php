@@ -1,16 +1,17 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/auth/auth.php";?>
 <?php 
-
-
+ use App\Model\Sciday\Level;
+ $levelObj = new Level;
+ 
  use App\Model\Sciday\Title;
  $titleObj = new Title;   
  use App\Model\Sciday\Activity;
-    $activityObj = new Activity; 
-    $activitys = $activityObj->getActivityById('3');
-    $activity_name = $activitys['name'];
-use App\Model\Sciday\Iot;
- $iotObj = new Iot;  
+$activityObj = new Activity; 
+$activitys = $activityObj->getActivityById('6');
+$activity_name = $activitys['name'];
+use App\Model\Sciday\Micro;
+ $microObj = new Micro;  
 use App\Model\Sciday\Round;
  $roundObj = new Round;  
 use App\Model\Sciday\Student;
@@ -34,29 +35,32 @@ use App\Model\Sciday\Teacher;
 <body class="font-prompt fs-18">
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
     <div class="container mt-3">
+        <?php 
+            $projects = $microObj->getMicroById(base64_decode($_REQUEST['micro_id']));
+            // $levels = $levelObj->getLevelById($projects['level_id']);   
+            // $level_name = $levels['name'];
+        ?>
         <div class="d-flex justify-content-between">
             <span class="badge rounded-pill bg-warning mt-3 shadow text-truncate">
                 <h2><b>&nbsp;&nbsp;&nbsp;<?php echo $activity_name ;?>&nbsp;&nbsp;&nbsp;</b></h2>
             </span>
         </div>
-        <?php 
-            $projects = $iotObj->getIotById(base64_decode($_REQUEST['project_id']));
-            
-        ?>
+        
         <div class="row">
             <div class="col-lg-12">
                 <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
-                    <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; ข้อมูล</div>
+                    <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $projects['level'];?></div>
                     
                     <table class="table table-striped table-hover mt-2 fs-18">
                         <thead>
                             <tr>
                                 <th width='8%'>#</th>
-                                <th >ชื่อโครงงาน IoT</th>
+                                <th >ชื่อโครงงาน</th>
                                 <th width='20%'>โรงเรียน</th>
                                 <th width='20%'>นักเรียน</th>
                                 <th width='15%'>อาจารย์ที่ปรึกษา</th>
                                 <th width='10%'>เอกสาร</th>
+                                <th width='5%'>รูป</th>
                             </tr>
                         </thead>
                         <tbody class="fs-14">
@@ -69,7 +73,7 @@ use App\Model\Sciday\Teacher;
                                 ?>
                                     <tr>
                                         <td width='8%'><?php echo $i; ?>.</td>
-                                        <td><?php echo $projects['iot_name']; ?></td>
+                                        <td><?php echo $projects['micro_name']; ?></td>
                                         <td width='20%'><?php echo $projects['school']; ?></td>
                                         <td width='20%'>
                                             <?php 
@@ -88,7 +92,7 @@ use App\Model\Sciday\Teacher;
                                             ?>
                                         </td>
                                         <td width='10%'><a href='/science/upload/sciday/file/<?php echo $projects['file_register']; ?>' target='_blank'>Download</a></td>
-                                        
+                                        <td width='5%'><a href='/science/sciday/micro/pic.php?activity=<?php echo $activity_name; ?>&p_id=<?php echo $projects['id']; ?>&image_id=<?php echo $projects['images_id']; ?>' target='_blank' ><i class='bx bxs-image fs-24' ></i></a></td>
                                     </tr>
                                 
                                 <?php
@@ -105,13 +109,10 @@ use App\Model\Sciday\Teacher;
                 </div>
             </div>
         </div>
-        <?php
-
-        ?>
         <!-- Round 2 -->
         <?php 
             $round2s = $roundObj->checkRound2ById(base64_decode($_REQUEST['project_id']));
-            if(0){
+            if($round2s){
                 $project2s = $projectObj->getProjectById(base64_decode($_REQUEST['project_id']));
                 // print_r($project2s);
                 $round2s = $roundObj->getRound2ById($project2s['id']);
@@ -196,7 +197,7 @@ use App\Model\Sciday\Teacher;
         ?>
         <!-- Round 3 -->
         <?php 
-            if(0){
+            if($show3){
                 $round3s = $roundObj->checkRound3ById(base64_decode($_REQUEST['project_id']));
                 if($round3s){
                     $project3s = $projectObj->getProjectById(($_REQUEST['project_id']));
@@ -288,7 +289,7 @@ use App\Model\Sciday\Teacher;
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Link Video Yuotube" value="<?php echo $project2s['id'];?>" name="project_id">
+                    <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="Link Video Yuotube" value="<?php echo $project2s['id'];?>" name="project_id">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">เพิ่มข้อมูลวีดีโอ</label>
                             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ใส่ลิงค์ Video Youtube ที่นี้..." name="link_video">
@@ -317,155 +318,178 @@ use App\Model\Sciday\Teacher;
                         </div>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <input type="hidden" class="form-control w-75" name="iot_id"  value="<?php echo $projects['id'];?>" required>
                     <div class="modal-body">
-                        <div class="row mt-3">
-                            <div class="col-md">
-                                <div class="form-group">
-                                    <label for="" class="text-primary"><b class="fs-18">1. ชื่อโครงงาน <font color="red">*</font></b></label>
-                                    <input type="text" class="form-control w-75" name="iot_name"  value="<?php echo $projects['iot_name'];?>" required>
+                    <div class="row mt-3">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="" class="text-primary"><b class="fs-18">1. ชื่อผลงาน <font color="red">*</font> </b></label>
+                                        <input type="text" class="form-control w-75" name="micro_name"  value="<?php echo $projects['micro_name'];?>">
+                                        <input class="form-control" type="text"  name="micro_id" value="<?php echo $projects['id'];?>">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md">
-                                <div class="form-group">
-                                    <label for="" class="text-primary"><b class="fs-18">2. ชื่อสถานศึกษา/โรงเรียน <font color="red">*</font> ตัวอย่างการกรอก 'โรงเรียน.......'<font color="red"> ห้ามใช้ ร.ร.</font></b></label>
-                                    <input type="text" class="form-control w-75" name="school" value="<?php echo $projects['school'];?>" required>
+                            <div class="row mt-3">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="" class="text-primary"><b class="fs-18">2. ชื่อสถานศึกษา/โรงเรียน <font color="red">*</font> ตัวอย่างการกรอก 'โรงเรียน.......'<font color="red"> ห้ามใช้ ร.ร.</font></b></label>
+                                        <input type="text" class="form-control w-75" name="school"  value="<?php echo $projects['school'];?>">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md">
-                                <div class="form-group mt-2">
-                                    <label for="" class="text-primary"><b class="fs-18">รายชื่อผู้เข้าประกวดโครงงาน<font color="red">*</font> <font color="red">(ไม่เกิน 3 คน)</font></b></label>
-                                    <input class="form-control" type="hidden" id="formFileMultiple" name="student_id" value="<?php echo $projects['student_id'];?>">
-                                    <ol>
-                                        <?php
-                                            foreach($stus AS $stu){
-                                                ?>
-                                                    <li>
-                                                        <div class="d-flex mb-2">
-                                                            <div class="">
-                                                                    <select class="form-select" aria-label="Default select example" name="stitle[]">
+                            <div class="row mt-3">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="" class="text-primary"><b class="fs-18">3. ประเภทแข่งขัน micro:bit ประจำปี 2565<font color="red">*</font></b></label>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <?php 
+                                            $levels =$levelObj->getLevelByActivity('6');
+                                            foreach($levels AS $level){
+                                                echo "
+                                                    <div class='form-check form-check-inline'>
+                                                        <input class='form-check-input' type='radio' name='level_id' id='inlineRadio{$levle['id']}' value='{$level['id']}' checked>
+                                                        <label class='form-check-label' for='inlineRadio{$levle['id']}'>{$level['name']}</label>
+                                                    </div>
+                                                ";
+                                            }
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group mt-2">
+                                        <label for="" class="text-primary"><b class="fs-18">4. รายชื่อผู้เข้าแข่งขัน<font color="red">*</font> <font color="red">(ไม่เกิน 3 คน)</font></b></label>
+                                        <ol>
+                                            <?php
+                                                foreach($stus AS $stu){
+                                                    ?>
+                                                        <li>
+                                                            <div class="d-flex mb-2">
+                                                                <div class="">
+                                                                        <select class="form-select" aria-label="Default select example" name="stitle[]">
+                                                                            <option selected>คำนำหน้าชื่อ</option>
+                                                                            <?php 
+                                                                                $titles = $titleObj->getAllTitle();
+                                                                                foreach($titles AS $title){
+                                                                                $selected =($title['id']==$stu['stitle_id']) ?
+                                                                                "selected" : "";
+                                                                                    
+                                                                                    echo "
+                                                                                        <option value='{$title['id']}' {$selected}>{$title['name']}</option>
+                                                                                    ";
+                                                                                }
+                                                                            ?>
+                                                                        </select>
+                                                                </div>
+                                                                <div class="">
+                                                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="sname[]" value="<?php echo $stu['sname'];?>">
+                                                                </div>
+                                                                <div class="">
+                                                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="ssurname[]" value="<?php echo $stu['ssurname'];?>">
+                                                                </div>
+                                                                <div class="">
+                                                                    <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="id" name="sid[]" value="<?php echo $stu['sid'];?>">
+                                                                </div>
+                                                                <div class="">
+                                                                    <select class="form-select" aria-label="Default select example" name="sclass[]">
+
+                                                                        <option selected><?php echo $stu['sclass'];?></option>
+                                                                        <option value='ม.1'>ม.1</option>
+                                                                        <option value='ม.2'>ม.2</option>
+                                                                        <option value='ม.3'>ม.3</option>
+                                                                        <option value='ม.4'>ม.4</option>
+                                                                        <option value='ม.5'>ม.5</option>
+                                                                        <option value='ม.6'>ม.6</option>
+                                                                    </select>
+                                                                </div>
+                                                                <!-- <button class="btn btn-success mx-2 btn-add text-white">+</button>
+                                                                <button class="btn btn-danger btn-remove text-white">-</button> -->
+                                                            </div>
+                                                        </li>
+                                                    <?php 
+                                                }
+                                            ?>
+                                                                                        
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group mt-2">
+                                        <label for="" class="text-primary"><b class="fs-18">5. อาจารย์ <font color="red">*</font></b></label>
+                                        <ol>
+                                            <?php 
+                                                foreach($teachers AS $teacher){
+                                                    ?>
+                                                        <li>
+                                                            <div class="d-flex mb-2">
+                                                                <div class="">
+                                                                    <select class="form-select" aria-label="Default select example" name="ttitle[]">
                                                                         <option selected>คำนำหน้าชื่อ</option>
                                                                         <?php 
-                                                                            $titles = $titleObj->getAllTitle();
                                                                             foreach($titles AS $title){
-                                                                            $selected =($title['id']==$stu['stitle_id']) ?
-                                                                            "selected" : "";
-                                                                                
+                                                                                $selected =($title['id']==$teacher['ttitle_id']) ?
+                                                                                "selected" : "";
                                                                                 echo "
                                                                                     <option value='{$title['id']}' {$selected}>{$title['name']}</option>
                                                                                 ";
                                                                             }
                                                                         ?>
                                                                     </select>
+                                                                </div>
+                                                                <div class="">
+                                                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="tname[]" value="<?php echo $teacher['tname'];?>">
+                                                                </div>
+                                                                <div class="">
+                                                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="tsurname[]" value="<?php echo $teacher['tsurname'];?>">
+                                                                </div>
+                                                                <div class="">
+                                                                    <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="id" name="tid[]" value="<?php echo $teacher['tid'];?>">
+                                                                </div>
+                                                                <!-- <button class="btn btn-success mx-2 btn-add text-white">+</button>
+                                                                <button class="btn btn-danger btn-remove text-white">-</button> -->
                                                             </div>
-                                                            <div class="">
-                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="sname[]" value="<?php echo $stu['sname'];?>">
-                                                            </div>
-                                                            <div class="">
-                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="ssurname[]" value="<?php echo $stu['ssurname'];?>">
-                                                            </div>
-                                                            <div class="">
-                                                                <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="id" name="sid[]" value="<?php echo $stu['sid'];?>">
-                                                            </div>
-                                                            <!-- <button class="btn btn-success mx-2 btn-add text-white">+</button>
-                                                            <button class="btn btn-danger btn-remove text-white">-</button> -->
-                                                        </div>
-                                                    </li>
-                                                <?php 
-                                            }
-                                        ?>
-                                    </ol>
+                                                        </li>
+                                                    <?php
+                                                }
+                                            ?>            
+                                        </ol>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md">
-                                <div class="form-group mt-2">
-                                    <label for="" class="text-primary"><b class="fs-18">อาจารย์ที่ปรึกษาโครงงาน <font color="red">(ไม่เกิน 2 คน)</font></b></label>
-                                    <input class="form-control" type="hidden" id="formFileMultiple" name="teacher_id" value="<?php echo $projects['teacher_id'];?>">
-                                    <ol>
-                                        <?php 
-                                            foreach($teachers AS $teacher){
-                                                ?>
-                                                    <li>
-                                                        <div class="d-flex mb-2">
-                                                            <div class="">
-                                                                <select class="form-select" aria-label="Default select example" name="ttitle[]">
-                                                                    <option selected>คำนำหน้าชื่อ</option>
-                                                                    <?php 
-                                                                        foreach($titles AS $title){
-                                                                            $selected =($title['id']==$teacher['ttitle_id']) ?
-                                                                            "selected" : "";
-                                                                            echo "
-                                                                                <option value='{$title['id']}' {$selected}>{$title['name']}</option>
-                                                                            ";
-                                                                        }
-                                                                    ?>
-                                                                </select>
-                                                            </div>
-                                                            <div class="">
-                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="tname[]" value="<?php echo $teacher['tname'];?>">
-                                                            </div>
-                                                            <div class="">
-                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="tsurname[]" value="<?php echo $teacher['tsurname'];?>">
-                                                            </div>
-                                                            <div class="">
-                                                                <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="id" name="tid[]" value="<?php echo $teacher['tid'];?>">
-                                                            </div>
-                                                            <!-- <button class="btn btn-success mx-2 btn-add text-white">+</button>
-                                                            <button class="btn btn-danger btn-remove text-white">-</button> -->
-                                                        </div>
-                                                    </li>
-                                                <?php
-                                            }
-                                        ?>            
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
+
+                            
+                            <div class="row">
                                 <div class="col-md">
                                     <div class="form-group mt-2">
                                         <div class="mb-3 w-75">
-                                            <label for="tel" class="form-label text-primary "><b class="fs-18">5. เบอร์โทรศัพท์ติดต่อ <font color="red">*</font></b></label>
-                                            <input class="form-control" type="text" id="tel" name="tel" value="<?php echo $projects['tel'];?>" required>
+                                            <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">6. Upload ไฟล์ใบสมัคร <font color="red">*</font></b></label>
+                                            <input class="form-control" type="file" id="formFileMultiple" name="file_doc" >
+                                            <input class="form-control" type="text" id="formFileMultiple" name="file_register" value="<?php echo $projects['file_register'];?>">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        <div class="row">
-                            <div class="col-md">
-                                <div class="form-group mt-2">
-                                    <div class="mb-3 w-75">
-                                        <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">Upload ไฟล์ใบสมัคร <font color="red">*</font></b></label>
-                                        <input class="form-control" type="file" id="formFileMultiple" name="file_doc" >
-                                        <input class="form-control" type="hidden"  name="file_register" value="<?php echo $projects['file_register'];?>">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="row">
-                            <div class="col-md">
-                                <div class="form-group mt-2">
-                                    <div class="mb-3 w-75">
-                                        <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">Upload ไฟล์รูปภาพ <font color="red">( *.png หรือ *.jpg )</font> เท่านั้น</b></label>
-                                        <div class="container">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="dropzone" id="drop"></div>
-                                                    <input class="form-control" type="hidden" id="formFileMultiple" name="images_id" value="<?php echo $projects['images_id'];?>">
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group mt-2">
+                                        <div class="mb-3 w-75">
+                                            <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">7. Upload ไฟล์รูปภาพ <font color="red">( *.png หรือ *.jpg )</font> เท่านั้น</b></label>
+                                            <input class="form-control" type="text"  name="images_id" value="<?php echo $projects['images_id'];?>">
+                                            <div class="container">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="dropzone" id="drop"></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
                         <hr class="text-warning">
                     </div>
                     <div class="modal-footer">

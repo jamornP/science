@@ -1,9 +1,12 @@
+<?php 
+print_r($_REQUEST);
+?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/claviska/simpleimage/src/claviska/SimpleImage.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/auth/auth.php";?>
 <?php 
- use App\Model\Sciday\Project;
- $projectObj = new Project;  
+ use App\Model\Sciday\Micro;
+ $microObj = new Micro;  
  use App\Model\Sciday\Student;
  $studentObj = new Student;   
  use App\Model\Sciday\Teacher;
@@ -12,12 +15,8 @@
  $imagespathObj = new Imagespath;   
 ?>
 <?php
-// echo "<pre>";
-// print_r($_REQUEST);
-// echo "</pre>" ;
-
-$data['project_id']=$_REQUEST['project_id'];
-$data['project_name']=$_REQUEST['project_name'];
+$data['micro_id']=$_REQUEST['micro_id'];
+$data['micro_name']=$_REQUEST['micro_name'];
 $data['level_id']=$_REQUEST['level_id'];
 $data['school']=$_REQUEST['school'];
 $data['student_id']=$_REQUEST['student_id'];
@@ -27,7 +26,7 @@ if(isset($_FILES['file_doc']['tmp_name'])) {
     $ext = end(explode(".",$_FILES['file_doc']['name']));
     echo $ext;
     if($ext=='pdf' OR $ext=='docx' OR $ext=='doc'){
-        $new_name = $_REQUEST['project_name']."-".uniqid().".".$ext;
+        $new_name = $_REQUEST['micro_name']."-".uniqid().".".$ext;
         $file_path = $_SERVER['DOCUMENT_ROOT']."/science/upload/sciday/file/".$new_name;
         move_uploaded_file($_FILES['file_doc']['tmp_name'],$file_path);
         $data['file_register']=$new_name;
@@ -35,11 +34,11 @@ if(isset($_FILES['file_doc']['tmp_name'])) {
     }else{
         $data['file_register']=$_REQUEST['file_register'];
     }
+    echo "File";
 }else{
      echo "No file";
     $data['file_register']=$_REQUEST['file_register'];
 }
-
 if(isset($_REQUEST['sname'])){
     foreach ($_REQUEST['sname'] as $key => $sname) {
         $student['stitle']=$_REQUEST['stitle'][$key];
@@ -65,7 +64,7 @@ if($_REQUEST['img_path']){
     foreach ($_REQUEST['img_path'] as $imgs) {
         $img['images_id']=$data['images_id'];
         $img['images_path']=$imgs;
-        $img['project_id']=$_REQUEST['project_id'];
+        $img['project_id']=$_REQUEST['micro_id'];
         $images_id = $imagespathObj->InsertImagespath($img);
     }
     
@@ -76,30 +75,12 @@ if($_REQUEST['img_path']){
      echo "No Pic";
     $data['images_id']=$_REQUEST['images_id'];
 }
-echo "<pre>";
-print_r($data);
-echo "</pre>" ;
-echo "<pre>";
-print_r($student);
-echo "</pre>" ;
-echo "<pre>";
-print_r($teacher);
-echo "</pre>" ;
-echo "<pre>";
-print_r($img);
-echo "</pre>" ;
 
-// echo "<pre>";
-// print_r($_FILES['file_doc']);
-// echo "</pre>" ;
-
-
-// $data Update tb_project
-$pck = $projectObj->UpdateProject($data);
-$project_id = base64_encode($_REQUEST['project_id']);
+$pck = $microObj->Updatemicro($data);
+$micro_id = base64_encode($_REQUEST['micro_id']);
 if($pck){
-     header("location: /science/sciday/project/member.php?project_id={$project_id}");
+    header("location: /science/sciday/micro/member.php?activity=1&micro_id={$micro_id}");
 }else{
-    header("location: /science/sciday/project/member.php?project_id={$project_id}&err='แก้ไขไม่สำเร็จ'");
+    header("location: /science/sciday/micro/member.php?activity=1&micro_id={$micro_id}&err='แก้ไขไม่สำเร็จ'");
 }
 ?>

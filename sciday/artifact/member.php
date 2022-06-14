@@ -482,7 +482,7 @@ use App\Model\Sciday\Teacher;
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger text-white" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">แก้ไขข้อมูล</button>
                     </div>
                 </form>
             </div>

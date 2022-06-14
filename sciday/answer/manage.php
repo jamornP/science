@@ -75,7 +75,7 @@ use App\Model\Sciday\Teacher;
                                         $k=0;
                                         $st="";
                                     $tea="";
-                                        $ck = $roundObj->getRoundByAll($answer['answer_id'],2,$_SESSION['activity'],base64_decode($_REQUEST['level']));
+                                        $ck = $roundObj->checkRound($answer['answer_id'],2,$_SESSION['activity'],base64_decode($_REQUEST['level']));
                                         if($ck){
                                             $checkbox ="checked";
                                         }else{

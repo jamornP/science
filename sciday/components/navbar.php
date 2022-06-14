@@ -14,6 +14,8 @@
  $iotObj = new Iot;  
  use App\Model\Sciday\Esports;
  $esportsObj = new Esports;  
+ use App\Model\Sciday\Micro;
+ $microObj = new Micro;  
  session_start(); 
  
 ?>
@@ -55,7 +57,7 @@
                 <?php if($_SESSION['role']=='committee' OR $_SESSION['role']=='chairman'){ ?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class='bx bx-edit-alt'></i> ทีมที่สมัคร <?php //echo $_SESSION['activity'];?>
+                    <i class='bx bx-group' ></i> ทีมที่สมัคร <?php //echo $_SESSION['activity'];?>
                     </a>
                     <ul class="dropdown-menu bg-warning " aria-labelledby="navbarScrollingDropdown" style="background-color:rgb(233,152,20);">
                         <?php
@@ -75,7 +77,7 @@
                 <?php if($_SESSION['role']=='chairman'){ ?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class='bx bx-edit-alt'></i> สรุปผลการแข่งขัน
+                    <i class='bx bx-user-check' ></i> จัดการผลการแข่งขัน
                     </a>
                     <ul class="dropdown-menu bg-warning " aria-labelledby="navbarScrollingDropdown" style="background-color:rgb(233,152,20);">
                         <?php
@@ -176,7 +178,7 @@
                                                     ";
                                                     foreach($esportss AS $esports){
                                                         $esports_id = base64_encode($esports['id']);
-                                                        $activity_id = base64_encode(4);
+                                                        $activity_id = base64_encode(5);
                                                         echo "
                                                             <a class='dropdown-item' href='/science/sciday/esports/member.php?esports_id={$esports_id}'><i class='bx bx-right-arrow-alt' ></i> {$esports['team']}</a>
                                                         ";
@@ -185,7 +187,19 @@
                                                 
                                               break;
                                             case 6:
-                                                
+                                                $micros = $microObj->getMicroByUser($_SESSION['user_id']);
+                                                if(count($micros)>0){
+                                                    echo "
+                                                    <span class='badge rounded-pill bg-primary fs-16'> {$activity['name']}</span>
+                                                    ";
+                                                    foreach($micros AS $micro){
+                                                        $micro_id = base64_encode($micro['id']);
+                                                        $activity_id = base64_encode(6);
+                                                        echo "
+                                                            <a class='dropdown-item' href='/science/sciday/micro/member.php?micro_id={$micro_id}'><i class='bx bx-right-arrow-alt' ></i> {$micro['micro_name']}</a>
+                                                        ";
+                                                    }
+                                                }
                                               break;
                                             default:
                                         }

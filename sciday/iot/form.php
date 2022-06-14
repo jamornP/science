@@ -24,7 +24,7 @@
 <body class="font-prompt fs-18">
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
     <div class="container">
-        <h1 class="mt-3"><b>กิจกรรมงานวันวิทยาศาสตร์ 2022</span></b></h1>
+        <!-- <h1 class="mt-3"><b>กิจกรรมงานวันวิทยาศาสตร์ 2022</span></b></h1> -->
     </div>
     
     <div class="container mt-3">
@@ -59,46 +59,11 @@
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="row">
                                 <div class="col-md">
                                     <div class="form-group mt-2">
-                                        <label for="" class="text-primary"><b class="fs-18">3. รายชื่อผู้เข้าแข่งขัน<font color="red">*</font> <font color="red">(ไม่เกิน 3 คน)</font></b></label>
-                                        <ol>
-                                            <li>
-                                                <div class="d-flex mb-2">
-                                                    <div class="">
-                                                        <select class="form-select" aria-label="Default select example" name="stitle[]">
-                                                            <option selected>คำนำหน้าชื่อ</option>
-                                                            <?php 
-                                                                $titles = $titleObj->getAllTitle();
-                                                                foreach($titles AS $title){
-                                                                    echo "
-                                                                        <option value='{$title['id']}'>{$title['name']}</option>
-                                                                    ";
-                                                                }
-                                                            ?>
-                                                            
-                                                        </select>
-                                                    </div>
-                                                    <div class="">
-                                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="sname[]">
-                                                    </div>
-                                                    <div class="">
-                                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="ssurname[]">
-                                                    </div>
-                                                    <button class="btn btn-success mx-2 sbtn-add text-white">เพิ่ม</button>
-                                                    <button class="btn btn-danger sbtn-remove text-white">ลบ</button>
-                                                </div>
-                                            </li>
-                                            
-                                        </ol>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md">
-                                    <div class="form-group mt-2">
-                                        <label for="" class="text-primary"><b class="fs-18">4. อาจารย์ที่ปรึกษาโครงงาน <font color="red">* (ไม่เกิน 2 คน)</font></b></label>
+                                        <label for="" class="text-primary"><b class="fs-18">3. อาจารย์ <font color="red">* (ไม่เกิน 2 คน)</font></b></label>
                                         <ol>
                                             <li>
                                                 <div class="d-flex mb-2">
@@ -134,7 +99,42 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group mt-2">
+                                        <label for="" class="text-primary"><b class="fs-18">4. นักเรียน<font color="red">*</font> <font color="red">(ไม่เกิน 3 คน)</font></b></label>
+                                        <ol>
+                                            <li>
+                                                <div class="d-flex mb-2">
+                                                    <div class="">
+                                                        <select class="form-select" aria-label="Default select example" name="stitle[]">
+                                                            <option selected>คำนำหน้าชื่อ</option>
+                                                            <?php 
+                                                                $titles = $titleObj->getAllTitle();
+                                                                foreach($titles AS $title){
+                                                                    echo "
+                                                                        <option value='{$title['id']}'>{$title['name']}</option>
+                                                                    ";
+                                                                }
+                                                            ?>
+                                                            
+                                                        </select>
+                                                    </div>
+                                                    <div class="">
+                                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="sname[]">
+                                                    </div>
+                                                    <div class="">
+                                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="ssurname[]">
+                                                    </div>
+                                                    <button class="btn btn-success mx-2 sbtn-add text-white">เพิ่ม</button>
+                                                    <button class="btn btn-danger sbtn-remove text-white">ลบ</button>
+                                                </div>
+                                            </li>
+                                            
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-md">
                                     <div class="form-group mt-2">

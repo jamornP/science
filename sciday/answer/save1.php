@@ -13,7 +13,7 @@ if(isset($_REQUEST['round1'])){
       $data['project_id'] = $_REQUEST['p_id'][$key];
       echo "<br>";
       print_r($data);
-      $ckRound = $roundObj->getRoundByAll($data['project_id'],$data['num'],$data['activity_id'],$data['level_id']);
+      $ckRound = $roundObj->checkRound($data['project_id'],$data['num'],$data['activity_id'],$data['level_id']);
       if($ckRound){
         echo "มีแล้ว";
       }else{

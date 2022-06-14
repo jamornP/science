@@ -42,7 +42,10 @@ class Round extends DbSciDay {
             l.name,
             r.num,
             r.link_video,
-            r.score 
+            r.score,
+            r.level_id,
+            r. project_id,
+            r.activity_id
         FROM 
             tb_round AS r
             LEFT JOIN tb_project AS p ON r.project_id = p.id
@@ -68,7 +71,10 @@ class Round extends DbSciDay {
             l.name,
             r.num,
             r.link_video,
-            r.score 
+            r.score,
+            r.level_id,
+            r.project_id,
+            r.activity_id 
         FROM 
             tb_round AS r
             LEFT JOIN tb_project AS p ON r.project_id = p.id
@@ -99,7 +105,9 @@ class Round extends DbSciDay {
             l.name,
             r.num,
             r.link_video,
-            r.score 
+            r.score,r.level_id,
+            r.project_id,
+            r.activity_id 
         FROM 
             tb_round AS r
             LEFT JOIN tb_project AS p ON r.project_id = p.id
@@ -126,7 +134,10 @@ class Round extends DbSciDay {
             p.user_id,
             l.name,
             r.num,
-            r.link_video 
+            r.link_video,
+            r.level_id,
+            r.project_id,
+            r.activity_id 
         FROM 
             tb_round AS r
             LEFT JOIN tb_project AS p ON r.project_id = p.id
@@ -151,7 +162,10 @@ class Round extends DbSciDay {
             p.user_id,
             l.name,
             r.num,
-            r.link_video 
+            r.link_video,
+            r.level_id,
+            r.project_id,
+            r.activity_id 
         FROM 
             tb_round AS r
             LEFT JOIN tb_project AS p ON r.project_id = p.id
@@ -182,7 +196,10 @@ public function getRound3ById($id) {
             l.name,
             r.num,
             r.link_video,
-            r.score 
+            r.score,
+            r.level_id,
+            r.project_id,
+            r.activity_id 
         FROM 
             tb_round AS r
             LEFT JOIN tb_project AS p ON r.project_id = p.id
@@ -208,7 +225,10 @@ public function getRound3ById($id) {
             p.user_id,
             l.name,
             r.num,
-            r.link_video 
+            r.link_video,
+            r.level_id,
+            r.project_id,
+            r.activity_id 
         FROM 
             tb_round AS r
             LEFT JOIN tb_project AS p ON r.project_id = p.id
@@ -237,7 +257,7 @@ public function getRound3ById($id) {
 
     }
     // check ทีมที่เข้ารอบ ว่ามีใน Database หรือไม่
-    public function getRoundByAll($id,$num,$activity,$level) {
+    public function checkRound($id,$num,$activity,$level) {
         $sql ="
             SELECT 
                 *
@@ -272,7 +292,10 @@ public function getRound3ById($id) {
             l.name,
             r.num,
             r.link_video,
-            r.score 
+            r.score,
+            r.level_id,
+            r. project_id,
+            r.activity_id 
         FROM 
             tb_round AS r
             LEFT JOIN tb_answer AS p ON r.project_id = p.id
@@ -284,6 +307,40 @@ public function getRound3ById($id) {
         $stmt->execute([$level]);
         $data = $stmt->fetchAll();
         return $data;
+    }
+    public function getRound($id,$num,$activity,$level) {
+        $sql ="
+            SELECT 
+                *
+            FROM
+                tb_round
+            WHERE
+                project_id = ? AND
+                activity_id = ".$activity." AND
+                level_id = ".$level." AND
+                num = ".$num."
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        $data = $stmt->fetchAll();
+        return $data[0];
+        
+    }
+    public function delRound($id,$num,$activity,$level) {
+        $sql ="
+            DELETE
+            FROM
+                tb_round
+            WHERE
+                project_id = ? AND
+                activity_id = ".$activity." AND
+                level_id = ".$level." AND
+                num = ".$num."
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        return true;
+        
     }
 
 }

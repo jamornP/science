@@ -75,11 +75,11 @@ use App\Model\Sciday\Teacher;
                                             - เอกสารหลักเกณฑ์การประกวด <a href="/science/sciday/document/answer/รายละเอียด การแข่งขันตอบปัญหาฯภาษาไทย.pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'>ภาษาไทย </a>
                                             <a href="/science/sciday/document/answer/รายละเอียด การแข่งขันตอบปัญหาฯ(ภาษาอังกฤษ).pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'>English </a><br>
                                             - ใบสมัคร <br><a href="/science/sciday/document/answer/ใบสมัคร การแข่งขันตอบปัญหาฯภาษาไทย.pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'><i class='bx bxs-file-pdf'></i> pdf ภาษาไทย</a>
-                                            <a href="/science/sciday/document/answer/ใบสมัคร การแข่งขันตอบปัญหาฯภาษาไทย.docx" class=" btn btn-sm btn-warning text-white mt-1" target='_blank'><i class='bx bxl-wordpress'></i> word ภาษาไทย</a>
+                                            <a href="/science/sciday/document/answer/ใบสมัคร การแข่งขันตอบปัญหาฯภาษาไทย.docx" class=" btn btn-sm btn-warning text-white mt-1" target='_blank'><i class='bx bxs-file-doc'></i> word ภาษาไทย</a>
                                             <br><a href="/science/sciday/document/answer/ใบสมัคร การแข่งขันตอบปัญหาฯ(ภาษาอังกฤษ).pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'><i class='bx bxs-file-pdf'></i> pdf English </a>
-                                            &nbsp;<a href="/science/sciday/document/answer/ใบสมัคร การแข่งขันตอบปัญหาฯ(ภาษาอังกฤษ).docx" class=" btn btn-sm btn-warning text-white mt-1" target='_blank'><i class='bx bxl-wordpress'></i> word English</a>
+                                            &nbsp;<a href="/science/sciday/document/answer/ใบสมัคร การแข่งขันตอบปัญหาฯ(ภาษาอังกฤษ).docx" class=" btn btn-sm btn-warning text-white mt-1" target='_blank'><i class='bx bxs-file-doc'></i> word English</a>
                                             <br>
-                                            กรอกใบสมัครแล้วยื่นสมัครทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl" target='_blank'>https://www.facebook.com/SciKmitl</a><br>
+                                            กรอกใบสมัครแล้วยื่นสมัครทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="" target='_blank'></a><br>
                                         </td>
                                         <td class="text-center">
                                             วันที่ 15 มิ.ย. 2565
@@ -97,7 +97,7 @@ use App\Model\Sciday\Teacher;
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">ประกาศรายชื่อผู้ผ่านการคัดเลือก</span> <br>
-                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a>
+                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href=""></a>
                                         </td>
                                         <td class="text-center">
                                             วันที่ 19 ก.ค. 2565
@@ -115,7 +115,7 @@ use App\Model\Sciday\Teacher;
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">ประกาศรายชื่อผู้ผ่านเข้ารอบตัดสิน</span> <br>
-                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a>
+                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href=""></a>
                                         </td>
                                         <td class="text-center">
                                             วันที่ 11 ส.ค. 2565

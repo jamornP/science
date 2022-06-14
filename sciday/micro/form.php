@@ -24,13 +24,13 @@
 <body class="font-prompt fs-18">
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
     <div class="container">
-        <h1 class="mt-3"><b>กิจกรรมงานวันวิทยาศาสตร์ 2022</span></b></h1>
+        <!-- <h1 class="mt-3"><b>กิจกรรมงานวันวิทยาศาสตร์ 2022</span></b></h1> -->
     </div>
     
     <div class="container mt-3">
         <div class="d-flex justify-content-between">
             <span class="badge rounded-pill bg-warning mt-3 shadow text-truncate">
-                <h2><b>&nbsp;&nbsp;&nbsp;การแข่งขัน Micro:bit&nbsp;&nbsp;&nbsp;</b></h2>
+                <h2><b>&nbsp;&nbsp;&nbsp;การแข่งขัน micro:bit&nbsp;&nbsp;&nbsp;</b></h2>
             </span>
         </div>
         <div class="container mt-3 ">
@@ -43,22 +43,31 @@
                         <h5 class="text-primary"><b>ส่วนที่ 1 ใช้ในการสมัคร</b></h5>
                         <hr class="text-warning">
                         <form action="save.php" method="post" enctype="multipart/form-data" id="">
+                        <input type="text" class="form-control w-75" name="user_id" value="<?php echo $_SESSION['user_id'];?>">
                             <div class="row mt-3">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="" class="text-primary"><b class="fs-18">1. ชื่อสถานศึกษา/โรงเรียน <font color="red">*</font> ตัวอย่างการกรอก 'โรงเรียน.......'<font color="red"> ห้ามใช้ ร.ร.</font></b></label>
-                                        <input type="text" class="form-control w-75" name="school" autofocus required>
+                                        <label for="" class="text-primary"><b class="fs-18">1. ชื่อผลงาน <font color="red">*</font> </b></label>
+                                        <input type="text" class="form-control w-75" name="micro_name" autofocus required>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="" class="text-primary"><b class="fs-18">2. ประเภทแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ ประจำปี 2565<font color="red">*</font></b></label>
+                                        <label for="" class="text-primary"><b class="fs-18">2. ชื่อสถานศึกษา/โรงเรียน <font color="red">*</font> ตัวอย่างการกรอก 'โรงเรียน.......'<font color="red"> ห้ามใช้ ร.ร.</font></b></label>
+                                        <input type="text" class="form-control w-75" name="school"  required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="" class="text-primary"><b class="fs-18">3. ประเภทแข่งขัน micro:bit ประจำปี 2565<font color="red">*</font></b></label>
                                     </div>
                                     <div class="form-group mt-2">
                                         <?php 
-                                            $levels =$levelObj->getLevelByActivity('4');
+                                            $levels =$levelObj->getLevelByActivity('6');
                                             foreach($levels AS $level){
                                                 echo "
                                                     <div class='form-check form-check-inline'>
@@ -75,7 +84,7 @@
                             <div class="row">
                                 <div class="col-md">
                                     <div class="form-group mt-2">
-                                        <label for="" class="text-primary"><b class="fs-18">3. รายชื่อผู้เข้าแข่งขัน<font color="red">*</font> <font color="red">(ไม่เกิน 2 คน)</font></b></label>
+                                        <label for="" class="text-primary"><b class="fs-18">4. รายชื่อผู้เข้าแข่งขัน<font color="red">*</font> <font color="red">(ไม่เกิน 3 คน)</font></b></label>
                                         <ol>
                                             <li>
                                                 <div class="d-flex mb-2">
@@ -99,34 +108,22 @@
                                                     <div class="">
                                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="ssurname[]">
                                                     </div>
-                                                    
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-flex mb-2">
                                                     <div class="">
-                                                        <select class="form-select" aria-label="Default select example" name="stitle[]">
-                                                            <option selected>คำนำหน้าชื่อ</option>
-                                                            <?php 
-                                                                $titles = $titleObj->getAllTitle();
-                                                                foreach($titles AS $title){
-                                                                    echo "
-                                                                        <option value='{$title['id']}'>{$title['name']}</option>
-                                                                    ";
-                                                                }
-                                                            ?>
-                                                            
+                                                        <select class="form-select" aria-label="Default select example" name="sclass[]">
+                                                            <option selected>ชั้น</option>
+                                                            <option value='ม.1'>ม.1</option>
+                                                            <option value='ม.2'>ม.2</option>
+                                                            <option value='ม.3'>ม.3</option>
+                                                            <option value='ม.4'>ม.4</option>
+                                                            <option value='ม.5'>ม.5</option>
+                                                            <option value='ม.6'>ม.6</option>
                                                         </select>
                                                     </div>
-                                                    <div class="">
-                                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="sname[]">
-                                                    </div>
-                                                    <div class="">
-                                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="ssurname[]">
-                                                    </div>
-                                                    
+                                                    <button class="btn btn-success mx-2 sbtn-add text-white">เพิ่ม</button>
+                                                    <button class="btn btn-danger sbtn-remove text-white">ลบ</button>
                                                 </div>
                                             </li>
+                                            
                                         </ol>
                                     </div>
                                 </div>
@@ -134,7 +131,7 @@
                             <div class="row">
                                 <div class="col-md">
                                     <div class="form-group mt-2">
-                                        <label for="" class="text-primary"><b class="fs-18">4. อาจารย์ผู้ประสานงาน <font color="red">*</font></b></label>
+                                        <label for="" class="text-primary"><b class="fs-18">5. อาจารย์ <font color="red">*</font></b></label>
                                         <ol>
                                             <li>
                                                 <div class="d-flex mb-2">
@@ -161,7 +158,8 @@
                                                     <div class="">
                                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="tsurname[]">
                                                     </div>
-                                                   
+                                                    <button class="btn btn-success mx-2 tbtn-add text-white">เพิ่ม</button>
+                                                    <button class="btn btn-danger tbtn-remove text-white">ลบ</button>
                                                 </div>
                                             </li>
                                         </ol>
@@ -169,16 +167,7 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md">
-                                    <div class="form-group mt-2">
-                                        <div class="mb-3 w-75">
-                                            <label for="tel" class="form-label text-primary "><b class="fs-18">5. เบอร์โทรศัพท์ติดต่อ <font color="red">*</font></b></label>
-                                            <input class="form-control" type="text" id="tel" name="tel" required>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <div class="row">
                                 <div class="col-md">
                                     <div class="form-group mt-2">
@@ -189,7 +178,22 @@
                                     </div>
                                 </div>
                             </div>
-                            
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group mt-2">
+                                        <div class="mb-3 w-75">
+                                            <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">7. Upload ไฟล์รูปภาพ <font color="red">( *.png หรือ *.jpg )</font> เท่านั้น</b></label>
+                                            <div class="container">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="dropzone" id="drop"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <hr class="text-warning">
                            
                                             
@@ -205,5 +209,21 @@
             </div>
 
     </div>
+    <script src="js/script.js"></script>
+    <script src="js/drop.js"></script>
+    <script>
+    function readURL(input) {
+        if (input.files[1]) {
+            let reader = new FileReader();
+            document.querySelector('#imgControl').classList.replace("d-none", "d-block");
+            reader.onload = function(e) {
+                let element = document.querySelector('#imgUpload');
+                element.setAttribute("src", e.target.result);
+            }
+            reader.readAsDataURL(input.files[1]);
+           
+        }
+    }
+    </script>
 </body>
 </head>

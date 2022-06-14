@@ -194,7 +194,7 @@ use App\Model\Sciday\Teacher;
                                         <td width='' align='center'>
                                             <div class='form-check'>
                                                 <input class='form-check-input' type='checkbox' value='{$round2['id']}' id='flexCheckDefault' name='p_id2[]' {$checkbox2}>
-                                                <a href='del.php?id={$round2['id']}'>ลบ</a>
+                                                <a href='del.php?project_id={$round2['project_id']}&activity_id={$round2['activity_id']}&level_id={$round2['level_id']}&num={$round2['num']}'>ลบ</a>
                                             </div>
                                             
                                         </td>
@@ -275,6 +275,7 @@ use App\Model\Sciday\Teacher;
                                         <td width=''>{$tea3}</td>
                                         <td width='' align='center'>
                                             <button type='button' class='btn btn-success text-white'>Success</button>
+                                            <a href='del.php?project_id={$round2['project_id']}&activity_id={$round2['activity_id']}&level_id={$round2['level_id']}&num=3'>ลบ</a>
                                         </td>
                                         
                                     </tr>

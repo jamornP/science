@@ -71,11 +71,11 @@ use App\Model\Sciday\Teacher;
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">เปิดระบบรับสมัคร</span> <br>
-                                            - เอกสารหลักเกณฑ์การประกวด <a href="" class="btn btn-sm btn-warning text-white mt-1" target='_blank'>Download </a><br>
+                                            <!-- - เอกสารหลักเกณฑ์การประกวด <a href="" class="btn btn-sm btn-warning text-white mt-1" target='_blank'>Download </a><br>
                                             - ใบสมัคร <a href="" class="btn btn-sm btn-warning text-white p-1" target='_blank'><i class='bx bxs-file-pdf'></i> pdf</a>
-                                            &nbsp;<a href="" class=" btn btn-sm btn-warning text-white p-1" target='_blank'><i class='bx bxl-wordpress'></i> word</a>
-                                            <br>
-                                            กรอกใบสมัครแล้วยื่นสมัครทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl" target='_blank'>https://www.facebook.com/SciKmitl</a><br>
+                                            &nbsp;<a href="" class=" btn btn-sm btn-warning text-white p-1" target='_blank'><i class='bx bxs-file-doc'></i> word</a>
+                                            <br> -->
+                                            กรอกใบสมัครแล้วยื่นสมัครทาง --> <br>
                                         </td>
                                         <td class="text-center">
                                             วันที่ 15 มิ.ย. 2565
@@ -93,7 +93,7 @@ use App\Model\Sciday\Teacher;
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">ประกาศรายชื่อผู้มีสิทธิ์แข่งขัน</span> <br>
-                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a>
+                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href=""></a>
                                         </td>
                                         <td class="text-center">
                                             วันที่ 19 ก.ค. 2565
@@ -102,7 +102,7 @@ use App\Model\Sciday\Teacher;
                                     <!-- <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">แข่งขันรอบแรก</span> <br>
-                                            - สำหรับทีมที่ผ่านเข้ารอบที่ 2 ให้ผู้สมัครอัพคลิปลง Youtube แล้วส่งลิงค์เข้า ระบบของคณะ ที่ช่องทาง  <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a>
+                                            - สำหรับทีมที่ผ่านเข้ารอบที่ 2 ให้ผู้สมัครอัพคลิปลง Youtube แล้วส่งลิงค์เข้า ระบบของคณะ ที่ช่องทาง  <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href=""></a>
                                         </td>
                                         <td class="text-center">
                                             วันที่ 20 ก.ค. 2565

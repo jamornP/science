@@ -72,11 +72,11 @@ use App\Model\Sciday\Showround;
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">เปิดระบบรับสมัคร</span> <br>
-                                            - เอกสารหลักเกณฑ์การประกวด <a href="/science/sciday/document/artifact/หลักเกณฑ์การประกวดสิ่งประดิษฐ์ 2565.pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'>Download </a><br>
-                                            - ใบสมัคร <a href="/science/sciday/document/artifact/แบบฟอร์มสมัครสิ่งประดิษฐ์2565.pdf" class="btn btn-sm btn-warning text-white p-1" target='_blank'><i class='bx bxs-file-pdf'></i> pdf</a>
-                                            &nbsp;<a href="/science/sciday/document/artifact/แบบฟอร์มสมัครสิ่งประดิษฐ์2565.docx" class=" btn btn-sm btn-warning text-white p-1" target='_blank'><i class='bx bxl-wordpress'></i> word</a>
+                                            - เอกสารหลักเกณฑ์การประกวด <a href="/science/sciday/document/project/Final หลักเกณฑ์การประกวดโครงงานวิทยาศาสตร์.pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'>Download </a><br>
+                                            - ใบสมัคร <a href="/science/sciday/document/project/Final ใบสมัครการประกวดโครงงานวิทยาศาสตร์ 2565.pdf" class="btn btn-sm btn-warning text-white p-1" target='_blank'><i class='bx bxs-file-pdf'></i> pdf</a>
+                                            &nbsp;<a href="/science/sciday/document/project/Final ใบสมัครการประกวดโครงงานวิทยาศาสตร์ 2565.docx" class=" btn btn-sm btn-warning text-white p-1" target='_blank'><i class='bx bxs-file-doc'></i> word</a>
                                             <br>
-                                            กรอกใบสมัครแล้วยื่นสมัครทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a><br>
+                                            กรอกใบสมัครแล้วยื่นสมัครทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href=""></a><br>
                                         </td>
                                         <td class="text-center">
                                             วันที่ 15 มิ.ย. 2565
@@ -88,13 +88,13 @@ use App\Model\Sciday\Showround;
                                             - เวลา 23.59 น.
                                         </td>
                                         <td class="text-center">
-                                            วันที่ 30 มิ.ย. 2565
+                                            วันที่ 8 ก.ค. 2565
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">ประกาศรายชื่อทีมที่ผ่านเข้ารอบการประกวดรอบที่ 2</span> <br>
-                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a>
+                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href=""></a>
                                         </td>
                                         <td class="text-center">
                                             วันที่ 11 ก.ค. 2565
@@ -103,7 +103,7 @@ use App\Model\Sciday\Showround;
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">เปิดระบบแนบ Link video</span> <br>
-                                            - สำหรับทีมที่ผ่านเข้ารอบที่ 2 ให้ผู้สมัครอัพคลิปลง Youtube แล้วส่งลิงค์เข้า ระบบของคณะ ที่ช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a>
+                                            - สำหรับทีมที่ผ่านเข้ารอบที่ 2 ให้ผู้สมัครอัพคลิปลง Youtube แล้วส่งลิงค์เข้า ระบบของคณะ ที่ช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href=""></a>
                                         </td>
                                         <td class="text-center">
                                             วันที่ 12 ก.ค. 2565
@@ -121,7 +121,7 @@ use App\Model\Sciday\Showround;
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">ประกาศรายชื่อผู้ผ่านเข้ารอบตัดสิน</span> <br>
-                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="https://www.facebook.com/SciKmitl">https://www.facebook.com/SciKmitl</a>
+                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href=""></a>
                                         </td>
                                         <td class="text-center">
                                             วันที่ 15 ส.ค. 2565
@@ -153,7 +153,8 @@ use App\Model\Sciday\Showround;
    
         <div class="tab-content  p-2 mb-5" id="myTabContent">
             <?php
-                if(0){
+                $shows = $showroundObj->ShowByActivity(2,1); 
+                if(1){
                     ?>
                 
                 <div class="d-flex justify-content-between">

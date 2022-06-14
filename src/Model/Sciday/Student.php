@@ -29,6 +29,33 @@ class Student extends DbSciDay {
         return $this->pdo->lastInsertId();
 
     }
+    public function InsertStudentClass($student) {
+        $sql = "
+            INSERT INTO tb_student (
+                id,
+                student_id,
+                stitle, 
+                sname, 
+                ssurname, 
+                project_id, 
+                school,
+                sclass
+            ) VALUES (
+                NULL, 
+                :student_id, 
+                :stitle, 
+                :sname, 
+                :ssurname, 
+                :project_id, 
+                :school,
+                :sclass
+            )
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($student);
+        return $this->pdo->lastInsertId();
+
+    }
     public function getStuByProject($project) {
         $sql = "
             SELECT 
@@ -56,7 +83,8 @@ class Student extends DbSciDay {
             t.id AS stitle_id,
             s.sname,
             s.ssurname,
-            s.id AS sid
+            s.id AS sid,
+            s.sclass
         FROM 
             tb_student AS s 
             LEFT JOIN tb_title AS t ON s.stitle = t.id
