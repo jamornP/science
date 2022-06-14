@@ -324,6 +324,7 @@ use App\Model\Sciday\Teacher;
                                 <div class="form-group">
                                     <label for="" class="text-primary"><b class="fs-18">1. ชื่อสถานศึกษา/โรงเรียน <font color="red">*</font> ตัวอย่างการกรอก 'โรงเรียน.......'<font color="red"> ห้ามใช้ ร.ร.</font></b></label>
                                     <input type="text" class="form-control w-75" name="school"  value="<?php echo $projects['school'];?>" required>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -453,7 +454,7 @@ use App\Model\Sciday\Teacher;
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger text-white" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">แก้ไขข้อมูล</button>
                     </div>
                 </form>
             </div>
