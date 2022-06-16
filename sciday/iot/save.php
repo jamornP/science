@@ -28,7 +28,7 @@ if(isset($_FILES['file_doc']['tmp_name'])) {
         move_uploaded_file($_FILES['file_doc']['tmp_name'],$file_path);
         $data['file_register']=$new_name;
     }else{
-        header("location: /science/sciday/iot/member.php?iot_id={$iot_id}");
+        header("location: /science/sciday/iot/form.php?activity=Mw==&error=Upload File ไม่ถูกต้อง ต้องเป็นไฟล์ PDF เท่านั้น");
     }
 }else{
     echo "No file";

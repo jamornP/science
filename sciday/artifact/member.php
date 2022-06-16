@@ -342,7 +342,7 @@ use App\Model\Sciday\Showround;
                         <div class="row mt-3">
                             <div class="col-md">
                                 <div class="form-group">
-                                    <label for="" class="text-primary"><b class="fs-18">2. ระดับการศึกษาที่เข้าร่วมประกวดโครงงานวิทยาศาสตร์ ประจำปี 2565<font color="red"> *</font></b></label>
+                                    <label for="" class="text-primary"><b class="fs-18">2. ระดับการศึกษาที่เข้าร่วมประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์ ประจำปี 2565<font color="red"> *</font></b></label>
                                 </div>
                                 <div class="form-group mt-2">
                                     <?php 
@@ -372,7 +372,7 @@ use App\Model\Sciday\Showround;
                         <div class="row">
                             <div class="col-md">
                                 <div class="form-group mt-2">
-                                    <label for="" class="text-primary"><b class="fs-18">รายชื่อผู้เข้าประกวดโครงงานวิทยาศาสตร์<font color="red">*</font> <font color="red">(ไม่เกิน 3 คน)</font></b></label>
+                                    <label for="" class="text-primary"><b class="fs-18">4. ชื่อผู้ประดิษฐ์ <font color="red">(ระบุชื่อผู้ประดิษฐ์ทุกคน สูงสุดไม่เกิน 3 คน/โครงการ)*</font> <font color="red">(ไม่เกิน 3 คน)</font></b></label>
                                     <input class="form-control" type="hidden" id="formFileMultiple" name="student_id" value="<?php echo $projects['student_id'];?>">
                                     <ol>
                                         <?php
@@ -419,7 +419,7 @@ use App\Model\Sciday\Showround;
                         <div class="row">
                             <div class="col-md">
                                 <div class="form-group mt-2">
-                                    <label for="" class="text-primary"><b class="fs-18">อาจารย์ที่ปรึกษาโครงงานวิทยาศาสตร์ <font color="red">(ไม่เกิน 2 คน)</font></b></label>
+                                    <label for="" class="text-primary"><b class="fs-18">5. อาจารย์ที่ปรึกษา 1 คน อาจารย์ที่ปรึกษาร่วม 1 คน(ถ้ามี) <font color="red">*</font></b></label>
                                     <input class="form-control" type="hidden" id="formFileMultiple" name="teacher_id" value="<?php echo $projects['teacher_id'];?>">
                                     <ol>
                                         <?php 
@@ -465,7 +465,7 @@ use App\Model\Sciday\Showround;
                             <div class="col-md">
                                 <div class="form-group mt-2">
                                     <div class="mb-3 w-75">
-                                        <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">Upload ไฟล์ใบสมัคร ความยาวไม่เกิน 5 หน้ากระดาษ A4<font color="red">*</font></b></label>
+                                        <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">6. Upload ไฟล์ใบสมัคร ความยาวไม่เกิน 5 หน้ากระดาษ A4 เป็นไฟล์ PDF เท่านั้น<font color="red">*</font></b></label>
                                         <input class="form-control" type="file" id="formFileMultiple" name="file_doc" >
                                         <input class="form-control" type="hidden"  name="file_register" value="<?php echo $projects['file_register'];?>">
                                     </div>
@@ -476,7 +476,7 @@ use App\Model\Sciday\Showround;
                             <div class="col-md">
                                 <div class="form-group mt-2">
                                     <div class="mb-3 w-75">
-                                        <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">Upload ไฟล์รูปภาพ <font color="red">( *.png หรือ *.jpg )</font> เท่านั้น</b></label>
+                                        <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">7. Upload ไฟล์รูปภาพ <font color="red">( *.png หรือ *.jpg )</font> เท่านั้น</b></label>
                                         <div class="container">
                                             <div class="card">
                                                 <div class="card-body">

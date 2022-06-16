@@ -335,11 +335,55 @@ use App\Model\Sciday\Teacher;
                                 </div>
                             </div>
                         </div>
-                        
                         <div class="row">
                             <div class="col-md">
                                 <div class="form-group mt-2">
-                                    <label for="" class="text-primary"><b class="fs-18">รายชื่อผู้เข้าประกวดโครงงาน<font color="red">*</font> <font color="red">(ไม่เกิน 3 คน)</font></b></label>
+                                    <label for="" class="text-primary"><b class="fs-18">3. รายชื่อคุณครูผู้เข้าประกวดโครงงาน <font color="red">(ไม่เกิน 2 คน)</font></b></label>
+                                    <input class="form-control" type="hidden" id="formFileMultiple" name="teacher_id" value="<?php echo $projects['teacher_id'];?>">
+                                    <ol>
+                                        <?php 
+                                            foreach($teachers AS $teacher){
+                                                ?>
+                                                    <li>
+                                                        <div class="d-flex mb-2">
+                                                            <div class="">
+                                                                <select class="form-select" aria-label="Default select example" name="ttitle[]">
+                                                                    <option selected>คำนำหน้าชื่อ</option>
+                                                                    <?php 
+                                                                        foreach($titles AS $title){
+                                                                            $selected =($title['id']==$teacher['ttitle_id']) ?
+                                                                            "selected" : "";
+                                                                            echo "
+                                                                                <option value='{$title['id']}' {$selected}>{$title['name']}</option>
+                                                                            ";
+                                                                        }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                            <div class="">
+                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="tname[]" value="<?php echo $teacher['tname'];?>">
+                                                            </div>
+                                                            <div class="">
+                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="tsurname[]" value="<?php echo $teacher['tsurname'];?>">
+                                                            </div>
+                                                            <div class="">
+                                                                <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="id" name="tid[]" value="<?php echo $teacher['tid'];?>">
+                                                            </div>
+                                                            <!-- <button class="btn btn-success mx-2 btn-add text-white">+</button>
+                                                            <button class="btn btn-danger btn-remove text-white">-</button> -->
+                                                        </div>
+                                                    </li>
+                                                <?php
+                                            }
+                                        ?>            
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="form-group mt-2">
+                                    <label for="" class="text-primary"><b class="fs-18">4. รายชื่อนักเรียนผู้เข้าประกวดโครงงาน <font color="red">*</font> <font color="red">(ไม่เกิน 3 คน)</font></b></label>
                                     <input class="form-control" type="hidden" id="formFileMultiple" name="student_id" value="<?php echo $projects['student_id'];?>">
                                     <ol>
                                         <?php
@@ -383,51 +427,7 @@ use App\Model\Sciday\Teacher;
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md">
-                                <div class="form-group mt-2">
-                                    <label for="" class="text-primary"><b class="fs-18">อาจารย์ที่ปรึกษาโครงงาน <font color="red">(ไม่เกิน 2 คน)</font></b></label>
-                                    <input class="form-control" type="hidden" id="formFileMultiple" name="teacher_id" value="<?php echo $projects['teacher_id'];?>">
-                                    <ol>
-                                        <?php 
-                                            foreach($teachers AS $teacher){
-                                                ?>
-                                                    <li>
-                                                        <div class="d-flex mb-2">
-                                                            <div class="">
-                                                                <select class="form-select" aria-label="Default select example" name="ttitle[]">
-                                                                    <option selected>คำนำหน้าชื่อ</option>
-                                                                    <?php 
-                                                                        foreach($titles AS $title){
-                                                                            $selected =($title['id']==$teacher['ttitle_id']) ?
-                                                                            "selected" : "";
-                                                                            echo "
-                                                                                <option value='{$title['id']}' {$selected}>{$title['name']}</option>
-                                                                            ";
-                                                                        }
-                                                                    ?>
-                                                                </select>
-                                                            </div>
-                                                            <div class="">
-                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="tname[]" value="<?php echo $teacher['tname'];?>">
-                                                            </div>
-                                                            <div class="">
-                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="tsurname[]" value="<?php echo $teacher['tsurname'];?>">
-                                                            </div>
-                                                            <div class="">
-                                                                <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="id" name="tid[]" value="<?php echo $teacher['tid'];?>">
-                                                            </div>
-                                                            <!-- <button class="btn btn-success mx-2 btn-add text-white">+</button>
-                                                            <button class="btn btn-danger btn-remove text-white">-</button> -->
-                                                        </div>
-                                                    </li>
-                                                <?php
-                                            }
-                                        ?>            
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="row">
                                 <div class="col-md">
                                     <div class="form-group mt-2">
@@ -442,30 +442,14 @@ use App\Model\Sciday\Teacher;
                             <div class="col-md">
                                 <div class="form-group mt-2">
                                     <div class="mb-3 w-75">
-                                        <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">Upload ไฟล์ใบสมัคร <font color="red">*</font></b></label>
+                                        <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">6. Upload ไฟล์ใบสมัคร เป็นไฟล์ PDF เท่านั้น <font color="red">*</font></b></label>
                                         <input class="form-control" type="file" id="formFileMultiple" name="file_doc" >
                                         <input class="form-control" type="hidden"  name="file_register" value="<?php echo $projects['file_register'];?>">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="row">
-                            <div class="col-md">
-                                <div class="form-group mt-2">
-                                    <div class="mb-3 w-75">
-                                        <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">Upload ไฟล์รูปภาพ <font color="red">( *.png หรือ *.jpg )</font> เท่านั้น</b></label>
-                                        <div class="container">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="dropzone" id="drop"></div>
-                                                    <input class="form-control" type="hidden" id="formFileMultiple" name="images_id" value="<?php echo $projects['images_id'];?>">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
+                        
                         <hr class="text-warning">
                     </div>
                     <div class="modal-footer">

@@ -85,13 +85,12 @@ class Micro extends DbSciDay {
             UPDATE 
                 tb_micro 
             SET 
-                
                 micro_name = :micro_name,
                 level_id = :level_id,
                 school = :school,
                 student_id = :student_id,
                 teacher_id = :teacher_id,
-                file_register = :file_registe',
+                file_register = :file_register,
                 images_id = :images_id
             WHERE 
                 id = :micro_id

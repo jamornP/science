@@ -76,8 +76,9 @@ if($_REQUEST['img_path']){
      echo "No Pic";
     $data['images_id']=$_REQUEST['images_id'];
 }
+echo "<pre>";
 print_r($data);
-echo "<br>";
+echo "</pre>";
 print_r($student);
 $pck = $microObj->UpdateMicro($data);
 $micro_id = base64_encode($_REQUEST['micro_id']);

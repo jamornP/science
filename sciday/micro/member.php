@@ -322,7 +322,7 @@ use App\Model\Sciday\Teacher;
                     <div class="row mt-3">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="" class="text-primary"><b class="fs-18">1. ชื่อผลงาน <font color="red">*</font> </b></label>
+                                        <label for="" class="text-primary"><b class="fs-18">1. ชื่อโครงงาน micro:bitน <font color="red">*</font> </b></label>
                                         <input type="text" class="form-control w-75" name="micro_name"  value="<?php echo $projects['micro_name'];?>">
                                         <input class="form-control" type="hidden"  name="micro_id" value="<?php echo $projects['id'];?>">
                                     </div>
@@ -420,7 +420,7 @@ use App\Model\Sciday\Teacher;
                             <div class="row">
                                 <div class="col-md">
                                     <div class="form-group mt-2">
-                                        <label for="" class="text-primary"><b class="fs-18">5. อาจารย์ <font color="red">*</font></b></label>
+                                        <label for="" class="text-primary"><b class="fs-18">5. รายชื่ออาจารย์ที่ปรึกษา (ไม่เกิน 2 คน)  <font color="red">*</font></b></label>
                                         <input class="form-control" type="hidden"  name="teacher_id" value="<?php echo $projects['teacher_id'];?>">
                                         <ol>
                                             <?php 
@@ -468,9 +468,9 @@ use App\Model\Sciday\Teacher;
                                 <div class="col-md">
                                     <div class="form-group mt-2">
                                         <div class="mb-3 w-75">
-                                            <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">6. Upload ไฟล์ใบสมัคร <font color="red">*</font></b></label>
+                                            <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">6. Upload ไฟล์ใบสมัคร ความยาวไม่เกิน 5 หน้ากระดาษ A4 เป็นไฟล์ PDF เท่านั้น <font color="red">*</font></b></label>
                                             <input class="form-control" type="file" id="formFileMultiple" name="file_doc" >
-                                            <input class="form-control" type="text" id="formFileMultiple" name="file_register" value="<?php echo $projects['file_register'];?>">
+                                            <input class="form-control" type="hidden" id="formFileMultiple" name="file_register" value="<?php echo $projects['file_register'];?>">
                                         </div>
                                     </div>
                                 </div>
@@ -479,8 +479,8 @@ use App\Model\Sciday\Teacher;
                                 <div class="col-md">
                                     <div class="form-group mt-2">
                                         <div class="mb-3 w-75">
-                                            <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">7. Upload ไฟล์รูปภาพ <font color="red">( *.png หรือ *.jpg )</font> เท่านั้น</b></label>
-                                            <input class="form-control" type="text"  name="images_id" value="<?php echo $projects['images_id'];?>">
+                                            <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">7. Upload ไฟล์รูปภาพ (ถ้ามี) <font color="red">( *.png หรือ *.jpg )</font> เท่านั้น</b></label>
+                                            <input class="form-control" type="hidden"  name="images_id" value="<?php echo $projects['images_id'];?>">
                                             <div class="container">
                                                 <div class="card">
                                                     <div class="card-body">

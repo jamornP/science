@@ -97,7 +97,7 @@ use App\Model\Sciday\Teacher;
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">ประกาศรายชื่อผู้ผ่านการคัดเลือก</span> <br>
-                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href=""></a>
+                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> 
                                         </td>
                                         <td class="text-center">
                                             วันที่ 19 ก.ค. 2565
@@ -116,7 +116,7 @@ use App\Model\Sciday\Teacher;
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">ประกาศรายชื่อผู้ผ่านเข้ารอบตัดสิน</span> <br>
-                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href=""></a>
+                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> 
                                         </td>
                                         <td class="text-center">
                                             วันที่ 11 ส.ค. 2565

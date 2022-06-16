@@ -23,6 +23,17 @@
 </head>
 <body class="font-prompt fs-18">
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
+    <?php if($_REQUEST['error']){
+        echo "
+            <div class='alert alert-danger d-flex align-items-center' role='alert'>
+                <svg class='bi flex-shrink-0 me-2' width='24' height='24' role='img' aria-label='Danger:'><use xlink:href='#exclamation-triangle-fill'/></svg>
+                <div>
+                    {$_REQUEST['error']}
+                </div>
+            </div>
+        ";
+    }
+    ?>
     <div class="container">
         <!-- <h1 class="mt-3"><b>กิจกรรมงานวันวิทยาศาสตร์ 2022</span></b></h1> -->
     </div>

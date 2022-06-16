@@ -44,7 +44,7 @@ use App\Model\Sciday\Teacher;
         
         <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3">
             <div class="d-flex flex-row-reverse bd-highlight">
-                <a href="../esports/form.php?activity=<?php echo $_REQUEST['activity'];?>" class="btn btn-lg btn-outline-success my-bottom"><span class="spinner-grow spinner-grow-sm text-warning" role="status" aria-hidden="true"></span> สมัครแข่งขัน</a>
+                <a href="https://forms.gle/Xfras1qJG1p3U8B1A" class="btn btn-lg btn-outline-success my-bottom"><span class="spinner-grow spinner-grow-sm text-warning" role="status" aria-hidden="true"></span> สมัครแข่งขัน</a>
             </div>
         
             <figure class="">
@@ -59,8 +59,8 @@ use App\Model\Sciday\Teacher;
                         <blockquote class="blockquote">
                             <h4 class="mt-3"><b>กำหนดการ</b></h4>
                         </blockquote>
-                        <img src="/science/sciday/images/comingsoon.jpg" class="img-thumbnail rounded " alt="...">
-                        <!-- <div class="table-responsive">
+                        <!-- <img src="/science/sciday/images/comingsoon.jpg" class="img-thumbnail rounded " alt="..."> -->
+                        <div class="table-responsive">
                             <table class="table table-bordered table-striped table-hover table-success shadow">
                                 <thead class="table-dark">
                                     <tr class="text-center">
@@ -72,11 +72,10 @@ use App\Model\Sciday\Teacher;
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">เปิดระบบรับสมัคร</span> <br>
-                                          
-                                            กรอกใบสมัครแล้วยื่นสมัครทาง  <br>
+                                            - ผ่านช่องทาง  <a href="https://forms.gle/Xfras1qJG1p3U8B1A" class="">https://forms.gle/Xfras1qJG1p3U8B1A</a>
                                         </td>
                                         <td class="text-center">
-                                            วันที่ 15 มิ.ย. 2565
+                                            วันที่ 22 มิ.ย. 2565
                                         </td>
                                     </tr>
                                     <tr>
@@ -85,61 +84,37 @@ use App\Model\Sciday\Teacher;
                                             - เวลา 23.59 น.
                                         </td>
                                         <td class="text-center">
-                                            วันที่ 12  ก.ค. 2565
+                                            วันที่ 29  ก.ค. 2565
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">ประกาศรายชื่อผู้มีสิทธิ์แข่งขัน</span> <br>
-                                            - ผ่านช่องทาง  <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href=""></a>
+                                            - ผ่านช่องทาง  <a href="https://challonge.com/scikmitl_valorant_2022" class="">https://challonge.com/scikmitl_valorant_2022</a> 
                                         </td>
                                         <td class="text-center">
-                                            วันที่ 19 ก.ค. 2565
+                                            วันที่ 13 ส.ค. 2565
                                         </td>
                                     </tr>
                                      <tr>
                                         <td>
-                                            <span class="badge rounded-pill bg-primary fs-20 shadow">แข่งขันรอบแรก</span> <br>
-                                            
+                                            <span class="badge rounded-pill bg-primary fs-20 shadow">แข่งขัน</span> <br>
+                                            วันเสาร์ที่ 13 สิงหาคม 2565 เวลา 19.00 น.<br>
+                                            วันอาทิตย์ที่ 14 สิงหาคม 2565 เวลา 19.00 น.<br>
+                                            วันเสาร์ที่ 20 สิงหาคม 2565 เวลา 19.00 น.<br>
+                                            วันอาทิตย์ที่ 21 สิงหาคม 2565 เวลา 19.00 น.<br>
+                                            วันอังคารที่ 23 สิงหาคม <br>เวลา 10.00 น. การแข่งขันรอบ 8 ทีม <br> เวลา 13.00 น การแข่งขันรอบ 4 ทีม (BO3)<br>
+                                            วันพุธที่ 24 สิงหาคม <br>เวลา 10.00 น การแข่งขันชิงที่ 3 <br>และการแข่งขันรอบชิงชนะเลิศ (BO3)
+
                                         </td>
                                         <td class="text-center">
-                                            วันที่ 20 ก.ค. 2565
+                                            วันที่ 13 - 24 ส.ค. 2565
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="badge rounded-pill bg-danger fs-20 shadow">ปิดระบบแนบ Link video</span> <br>
-                                            - เวลา 23.59 น.
-                                        </td>
-                                        <td class="text-center">
-                                            วันที่ 27 ก.ค. 2565
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="badge rounded-pill bg-primary fs-20 shadow">ส่งไฟล์รูปแบบ PDF และ PPTX </span> <br>
-                                            - ที่ใช้ในการนำเสนอผลงานผ่านช่องทางงไปรษณีย์อิเล็กทรอนิกส์ <a href="mailto:nisachon.si@kmitl.ac.th" class="">nisachon.si@kmitl.ac.th </a> 
-                                        </td>
-                                        <td class="text-center">
-                                            วันที่ 16 - 19 ส.ค. 2565 
-                                        </td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>
-                                            <span class="badge rounded-pill bg-primary fs-20 shadow">การแข่งขันรอบตัดสิน</span> <br>
-                                            - เวลา 9.30 น. เข้าร่วมพิธีเปิดงานที่หอประชุมจุฬาภรณวลัยลักษณ์ <br>
-                                            - เวลา 11.00 น. ผู้สมัครนำเสนอผลงานต่อกรรมการ <br>
-                                            - เวลา 13.00 น กรรมการประชุมตัดสินผู้ได้รับรางวัล <br>
-                                            - เวลา 15.30 น. ประกาศผลและรับรางวัล <br>
-                                        </td>
-                                        <td class="text-center">
-                                            วันที่ 23-24 ส.ค. 2565
-                                        </td>
-                                    </tr> 
+                                   
                                 </tbody>
                             </table>
-                        </div> -->
+                        </div> 
                     </div>
                 </div>
             </figure>

@@ -34,6 +34,8 @@ if(isset($_FILES['file_doc']['tmp_name'])) {
         $file_path = $_SERVER['DOCUMENT_ROOT']."/science/upload/sciday/file/".$new_name;
         move_uploaded_file($_FILES['file_doc']['tmp_name'],$file_path);
         $data['file_register']=$new_name;
+    }else{
+        header("location: /science/sciday/micro/form.php?activity=Ng==&error=Upload File ไม่ถูกต้อง ต้องเป็นไฟล์ PDF เท่านั้น");
     }
 }else{
     echo "No file";

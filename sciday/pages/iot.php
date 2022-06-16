@@ -93,7 +93,7 @@ use App\Model\Sciday\Teacher;
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">ประกาศรายชื่อผู้มีสิทธิ์ส่งคลิปวีดีโอเข้าประกวด</span> <br>
-                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href=""></a>
+                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> 
                                         </td>
                                         <td class="text-center">
                                             วันที่ 19 ก.ค. 2565
@@ -102,7 +102,7 @@ use App\Model\Sciday\Teacher;
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">เปิดระบบแนบ Link video</span> <br>
-                                            - สำหรับทีมที่ผ่านเข้ารอบที่ 2 ให้ผู้สมัครอัพคลิปลง Youtube แล้วส่งลิงค์เข้า ระบบของคณะ ที่ช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href=""></a>
+                                            - สำหรับทีมที่ผ่านเข้ารอบที่ 2 ให้ผู้สมัครอัพคลิปลง Youtube แล้วส่งลิงค์เข้า ระบบของคณะ ที่ช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> 
                                         </td>
                                         <td class="text-center">
                                             วันที่ 20 ก.ค. 2565
@@ -115,6 +115,15 @@ use App\Model\Sciday\Teacher;
                                         </td>
                                         <td class="text-center">
                                             วันที่ 27 ก.ค. 2565
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="badge rounded-pill bg-primary fs-20 shadow">ประกาศรายชื่อผู้ที่ผ่านเข้ารอบตัดสิน</span> <br>
+                                            - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a>  
+                                        </td>
+                                        <td class="text-center">
+                                            วันที่ 15 ส.ค. 2565 
                                         </td>
                                     </tr>
                                     <tr>

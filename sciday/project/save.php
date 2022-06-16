@@ -27,19 +27,14 @@ if(isset($_FILES['file_doc']['tmp_name'])) {
         $file_path = $_SERVER['DOCUMENT_ROOT']."/science/upload/sciday/file/".$new_name;
         move_uploaded_file($_FILES['file_doc']['tmp_name'],$file_path);
         $data['file_register']=$new_name;
+    }else{
+        header("location: /science/sciday/project/form.php?activity=Mg==&error=Upload File ไม่ถูกต้อง ต้องเป็นไฟล์ PDF เท่านั้น");
     }
 }else{
-    echo "No file";
+   
 }
  $project_id = $projectObj->InsertProject($data);
-// echo $id;
-echo "<pre>"; 
-print_r($data);
-echo "</pre>";
-echo "
-    <p>ผู้เข้าประกวด </p>
-    <ol>
-";
+
 if(isset($_REQUEST['sname'])){
     foreach ($_REQUEST['sname'] as $key => $sname) {
         $student['student_id']=$data['student_id'];
@@ -50,18 +45,9 @@ if(isset($_REQUEST['sname'])){
         $student['ssurname']=$_REQUEST['ssurname'][$key];
         $student_id = $studentObj->InsertStudent($student);
 
-        $peple =$_REQUEST['stitle'][$key].$sname." ".$_REQUEST['ssurname'][$key]." ID : ".$student_id;
-        echo "
-            <li>    
-                <p> {$peple}</p>
-            </li>
-        ";
+        
     }
-echo "</ol>";
-echo "
-    <p>อาจารย์ที่ปรึหษา </p>
-    <ol>
-";
+
 }
 if(isset($_REQUEST['tname'])){
     foreach ($_REQUEST['tname'] as $key => $tname) {
@@ -73,40 +59,20 @@ if(isset($_REQUEST['tname'])){
         $teacher['school']=$data['school'];
         $teacher_id = $teacherObj->InsertTeacher($teacher);
 
-        $tpeple =$_REQUEST['ttitle'][$key].$tname." ".$_REQUEST['tsurname'][$key]." ID : ".$teacher_id;
-        echo "
-            <li>    
-                <p> {$tpeple}</p>
-            </li>
-        ";
+        
     }
 }
-echo "</ol>";
-echo "
-    <p>รูป </p>
-    <ol>
-";
+
 foreach ($_REQUEST['img_path'] as $key => $imgs) {
     $img['images_id']=$data['images_id'];
     $img['images_path']=$imgs;
     $img['project_id']=$project_id;
     $images_id = $imagespathObj->InsertImagespath($img);
 
-    $im = $images_id." ".$img['images_path'];
-    echo "
-    <li>    
-        <p> {$im}</p>
-    </li>
-";
+    
    
 }
- echo "</ol>";
-// echo "<pre>"; 
-// print_r($_REQUEST);
-// echo "</pre>";
-// echo "<pre>"; 
-//  print_r($_FILES['file_doc']);
-// echo "</pre>";
+ 
 $project_id = base64_encode($project_id);
  header("location: /science/sciday/project/member.php?project_id={$project_id}");
 ?>

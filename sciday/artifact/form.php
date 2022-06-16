@@ -23,6 +23,17 @@
 </head>
 <body class="font-prompt fs-18">
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
+    <?php if($_REQUEST['error']){
+        echo "
+            <div class='alert alert-danger d-flex align-items-center' role='alert'>
+                <svg class='bi flex-shrink-0 me-2' width='24' height='24' role='img' aria-label='Danger:'><use xlink:href='#exclamation-triangle-fill'/></svg>
+                <div>
+                    {$_REQUEST['error']}
+                </div>
+            </div>
+        ";
+    }
+    ?>
     <div class="container">
         <!-- <h1 class="mt-3"><b>กิจกรรมงานวันวิทยาศาสตร์ 2022</span></b></h1> -->
     </div>
@@ -54,7 +65,7 @@
                             <div class="row mt-2">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="" class="text-primary"><b class="fs-18">1. ชื่อผลงานสิ่งประดิษฐ์ทางวิทยาศาสตร <font color="red"> ภาษาไทย *</font></b></label>
+                                        <label for="" class="text-primary"><b class="fs-18">1. ชื่อผลงานสิ่งประดิษฐ์ทางวิทยาศาสตร์ <font color="red"> ภาษาไทย *</font></b></label>
                                         <input type="text" class="form-control w-75" name="artifact_name" autofocus required>
                                     </div>
                                 </div>
@@ -62,7 +73,7 @@
                             <div class="row mt-3">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="" class="text-primary"><b class="fs-18">2. ระดับการศึกษาที่เข้าร่วมประกวดโครงงานวิทยาศาสตร์ ประจำปี 2565<font color="red"> *</font></b></label>
+                                        <label for="" class="text-primary"><b class="fs-18">2. ระดับการศึกษาที่เข้าร่วมประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์ ประจำปี 2565<font color="red"> *</font></b></label>
                                     </div>
                                     <div class="form-group mt-2">
                                         <?php 
@@ -90,7 +101,7 @@
                             <div class="row">
                                 <div class="col-md">
                                     <div class="form-group mt-2">
-                                        <label for="" class="text-primary"><b class="fs-18">4. ชื่อผู้ประดิษฐ์<font color="red">(ระบุชื่อผู้ประดิษฐ์ทุกคน สูงสุดไม่เกิน 3 คน/โครงการ)*</font> <font color="red"></font></b></label>
+                                        <label for="" class="text-primary"><b class="fs-18">4. ชื่อผู้ประดิษฐ์ <font color="red">(ระบุชื่อผู้ประดิษฐ์ทุกคน สูงสุดไม่เกิน 3 คน/โครงการ)*</font> <font color="red"></font></b></label>
                                         <ol>
                                             <li>
                                                 <div class="d-flex mb-2">
@@ -125,7 +136,7 @@
                             <div class="row">
                                 <div class="col-md">
                                     <div class="form-group mt-2">
-                                        <label for="" class="text-primary"><b class="fs-18">5. อาจารย์ที่ปรึกษาโครงการ <font color="red">(ถ้ามี)</font></b></label>
+                                        <label for="" class="text-primary"><b class="fs-18">5. อาจารย์ที่ปรึกษา 1 คน อาจารย์ที่ปรึกษาร่วม 1 คน(ถ้ามี) <font color="red">*</font></b></label>
                                         <ol>
                                             <li>
                                                 <div class="d-flex mb-2">
@@ -164,7 +175,7 @@
                                 <div class="col-md">
                                     <div class="form-group mt-2">
                                         <div class="mb-3 w-75">
-                                            <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">6. Upload ไฟล์ใบสมัคร ความยาวไม่เกิน 5 หน้ากระดาษ A4<font color="red">*</font></b></label>
+                                            <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">6. Upload ไฟล์ใบสมัคร ความยาวไม่เกิน 5 หน้ากระดาษ A4 เป็นไฟล์ PDF เท่านั้น<font color="red">*</font></b></label>
                                             <input class="form-control" type="file" id="formFileMultiple" name="file_doc" required>
                                         </div>
                                     </div>
