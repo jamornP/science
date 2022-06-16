@@ -22,7 +22,7 @@
 
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark fs-24" style="height: 80px; background-color:rgb(2,29,75);">
     <div class="container-fluid" >
-        <a class="navbar-brand fs-28" href="#"><i class='bx bx-planet'></i> Science Day&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a>
+        <a class="navbar-brand fs-28" href="/science/sciday/pages/"><i class='bx bx-planet'></i> Science Day&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation" style="--bs-scroll-height: 100px;">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -149,7 +149,7 @@
                                                         $pro_id = base64_encode($iot['id']);
                                                         $activity_id = base64_encode(3);
                                                         echo "
-                                                            <a class='dropdown-item' href='/science/sciday/iot/member.php?project_id={$pro_id}'><i class='bx bx-right-arrow-alt' ></i> {$iot['iot_name']}</a>
+                                                            <a class='dropdown-item' href='/science/sciday/iot/member.php?iot_id={$pro_id}'><i class='bx bx-right-arrow-alt' ></i> {$iot['iot_name']}</a>
                                                         ";
                                                     }
                                                 }

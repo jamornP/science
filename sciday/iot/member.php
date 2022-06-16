@@ -40,7 +40,7 @@ use App\Model\Sciday\Teacher;
             </span>
         </div>
         <?php 
-            $projects = $iotObj->getIotById(base64_decode($_REQUEST['project_id']));
+            $projects = $iotObj->getIotById(base64_decode($_REQUEST['iot_id']));
             
         ?>
         <div class="row">
@@ -110,9 +110,9 @@ use App\Model\Sciday\Teacher;
         ?>
         <!-- Round 2 -->
         <?php 
-            $round2s = $roundObj->checkRound2ById(base64_decode($_REQUEST['project_id']));
-            if(0){
-                $project2s = $projectObj->getProjectById(base64_decode($_REQUEST['project_id']));
+            $round2s = $roundObj->checkRound2ById(base64_decode($_REQUEST['iot_id']));
+            if($round2s){
+                $project2s = $iotObj->getIotById(base64_decode($_REQUEST['iot_id']));
                 // print_r($project2s);
                 $round2s = $roundObj->getRound2ById($project2s['id']);
                 // echo "<br>";
@@ -178,7 +178,7 @@ use App\Model\Sciday\Teacher;
                                         echo "
                                             <tr>
                                                 <td width='8%'>{$i2}.</td>
-                                                <td>{$project2s['project_name']}</td>
+                                                <td>{$project2s['iot_name']}</td>
                                                 <td width='20%'>{$project2s['school']}</td>
                                                 <td width='20%'>{$st2}</td>
                                                 <td width='15%'>{$tea2}</td>

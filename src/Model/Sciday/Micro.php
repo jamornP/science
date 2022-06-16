@@ -80,4 +80,25 @@ class Micro extends DbSciDay {
         $data = $stmt->fetchAll();
         return $data[0];
     }
+    public function UpdateMicro($micro) {
+        $sql = "
+            UPDATE 
+                tb_micro 
+            SET 
+                
+                micro_name = :micro_name,
+                level_id = :level_id,
+                school = :school,
+                student_id = :student_id,
+                teacher_id = :teacher_id,
+                file_register = :file_registe',
+                images_id = :images_id
+            WHERE 
+                id = :micro_id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($micro);
+        return true;
+
+    }
 }

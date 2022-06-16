@@ -79,11 +79,11 @@ use App\Model\Sciday\Teacher;
                                             <?php 
                                                 foreach($stus AS $stu){
                                                     $j++;
-                                                    echo $j.". ".$stu['stitle'].$stu['sname']." ".$stu['ssurname']."<br>";
+                                                    echo $j.". ".$stu['stitle'].$stu['sname']." ".$stu['ssurname']." ".$stu['sclass']."<br>";
                                                 }
                                             ?>
                                         </td>
-                                        <td width='15%'>
+                                        <td width='20%'>
                                             <?php 
                                                 foreach($teachers AS $teacher){
                                                     $k++;
@@ -324,7 +324,7 @@ use App\Model\Sciday\Teacher;
                                     <div class="form-group">
                                         <label for="" class="text-primary"><b class="fs-18">1. ชื่อผลงาน <font color="red">*</font> </b></label>
                                         <input type="text" class="form-control w-75" name="micro_name"  value="<?php echo $projects['micro_name'];?>">
-                                        <input class="form-control" type="text"  name="micro_id" value="<?php echo $projects['id'];?>">
+                                        <input class="form-control" type="hidden"  name="micro_id" value="<?php echo $projects['id'];?>">
                                     </div>
                                 </div>
                             </div>
@@ -361,6 +361,7 @@ use App\Model\Sciday\Teacher;
                                 <div class="col-md">
                                     <div class="form-group mt-2">
                                         <label for="" class="text-primary"><b class="fs-18">4. รายชื่อผู้เข้าแข่งขัน<font color="red">*</font> <font color="red">(ไม่เกิน 3 คน)</font></b></label>
+                                        <input class="form-control" type="hidden"  name="student_id" value="<?php echo $projects['student_id'];?>">
                                         <ol>
                                             <?php
                                                 foreach($stus AS $stu){
@@ -420,6 +421,7 @@ use App\Model\Sciday\Teacher;
                                 <div class="col-md">
                                     <div class="form-group mt-2">
                                         <label for="" class="text-primary"><b class="fs-18">5. อาจารย์ <font color="red">*</font></b></label>
+                                        <input class="form-control" type="hidden"  name="teacher_id" value="<?php echo $projects['teacher_id'];?>">
                                         <ol>
                                             <?php 
                                                 foreach($teachers AS $teacher){

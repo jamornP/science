@@ -43,7 +43,7 @@
                         <h5 class="text-primary"><b>ส่วนที่ 1 ใช้ในการสมัคร</b></h5>
                         <hr class="text-warning">
                         <form action="save.php" method="post" enctype="multipart/form-data" id="">
-                        <input type="text" class="form-control w-75" name="user_id" value="<?php echo $_SESSION['user_id'];?>">
+                        <input type="hidden" class="form-control w-75" name="user_id" value="<?php echo $_SESSION['user_id'];?>">
                             <div class="row mt-3">
                                 <div class="col-md">
                                     <div class="form-group">

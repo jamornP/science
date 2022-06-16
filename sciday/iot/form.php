@@ -48,6 +48,7 @@
                                     <div class="form-group">
                                         <label for="" class="text-primary"><b class="fs-18">1. ชื่อโครงงาน <font color="red">*</font></b></label>
                                         <input type="text" class="form-control w-75" name="iot_name" autofocus required>
+                                        <input type="hidden" class="form-control w-75" name="level_id"  value="10">
                                     </div>
                                 </div>
                             </div>
@@ -149,7 +150,7 @@
                                 <div class="col-md">
                                     <div class="form-group mt-2">
                                         <div class="mb-3 w-75">
-                                            <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">6. Upload ไฟล์ใบสมัคร <font color="red">*</font></b></label>
+                                            <label for="formFileMultiple" class="form-label text-primary "><b class="fs-18">6. Upload ไฟล์ใบสมัคร <font color="red">* (.pdf เท่านั้น )</font></b></label>
                                             <input class="form-control" type="file" id="formFileMultiple" name="file_doc" required>
                                         </div>
                                     </div>

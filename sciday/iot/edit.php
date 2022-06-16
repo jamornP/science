@@ -63,8 +63,8 @@ echo "</pre><br>";
 $ick = $iotObj->UpdateIot($data);
 $project_id = base64_encode($_REQUEST['iot_id']);
 if($ick){
-     header("location: /science/sciday/iot/member.php?project_id={$project_id}");
+     header("location: /science/sciday/iot/member.php?iot_id={$project_id}");
 }else{
-    header("location: /science/sciday/iot/member.php?project_id={$project_id}&err='แก้ไขไม่สำเร็จ'");
+    header("location: /science/sciday/iot/member.php?iot_id={$project_id}&err='แก้ไขไม่สำเร็จ'");
 }
 ?>

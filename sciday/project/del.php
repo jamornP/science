@@ -26,5 +26,6 @@ if($_REQUEST['num']==3){
     $del = $roundObj->delRound($_REQUEST['project_id'],3,$_REQUEST['activity_id'],$_REQUEST['level_id']);
     $project_id = base64_encode($_REQUEST['level_id']);
     header("location: /science/sciday/project/manage.php?level={$project_id}");
+    
 }
 ?>

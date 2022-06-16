@@ -112,6 +112,23 @@ class Student extends DbSciDay {
         return true;
 
     }
+    public function UpdateStudentClass($student) {
+        $sql = "
+        UPDATE 
+            tb_student 
+        SET 
+            stitle= :stitle,
+            sname= :sname,
+            ssurname= :ssurname, 
+            sclass= :sclass 
+        WHERE 
+            id= :id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($student);
+        return true;
+
+    }
 
 }
 

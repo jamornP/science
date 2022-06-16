@@ -44,7 +44,7 @@ class Round extends DbSciDay {
             r.link_video,
             r.score,
             r.level_id,
-            r. project_id,
+            r.project_id,
             r.activity_id
         FROM 
             tb_round AS r
@@ -96,7 +96,7 @@ class Round extends DbSciDay {
         $sql = "
         SELECT
             p.id, 
-            p.project_name,
+            p.artifact_name,
             p.school,
             p.student_id,
             p.teacher_id,
@@ -110,7 +110,7 @@ class Round extends DbSciDay {
             r.activity_id 
         FROM 
             tb_round AS r
-            LEFT JOIN tb_project AS p ON r.project_id = p.id
+            LEFT JOIN tb_artifact AS p ON r.project_id = p.id
             LEFT JOIN tb_level AS l ON r.level_id = l.id
         WHERE
             r.project_id = ? AND r.num = 2
@@ -249,7 +249,9 @@ public function getRound3ById($id) {
         SET 
             link_video= :link_video
         WHERE     
-            project_id= :project_id 
+            project_id= :project_id AND
+            activity_id= :activity_id AND
+            level_id= :level_id
         ";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($data);
@@ -324,6 +326,37 @@ public function getRound3ById($id) {
         $stmt->execute([$id]);
         $data = $stmt->fetchAll();
         return $data[0];
+        
+    }
+    public function getRoundByLevel($level,$num,$activity) {
+        $sql ="
+            SELECT
+                p.id, 
+                p.artifact_name,
+                p.school,
+                p.student_id,
+                p.teacher_id,
+                p.file_register,
+                p.user_id,
+                l.name,
+                r.num,
+                r.link_video,
+                r.level_id,
+                r.activity_id 
+            FROM 
+                tb_round AS r
+                LEFT JOIN tb_artifact AS p ON r.project_id = p.id
+                LEFT JOIN tb_level AS l ON r.level_id = l.id
+            WHERE
+                r.level_id = ? AND
+                r.num = ".$num." AND
+                r.activity_id = ".$activity." 
+                
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$level]);
+        $data = $stmt->fetchAll();
+        return $data;
         
     }
     public function delRound($id,$num,$activity,$level) {

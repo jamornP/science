@@ -196,7 +196,7 @@ use App\Model\Sciday\Teacher;
                                                                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="ssurname[]" value="<?php echo $stu['ssurname'];?>">
                                                             </div>
                                                             <div class="">
-                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="id" name="sid[]" value="<?php echo $stu['sid'];?>">
+                                                                <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="id" name="sid[]" value="<?php echo $stu['sid'];?>">
                                                             </div>
                                                             
                                                            
@@ -241,7 +241,7 @@ use App\Model\Sciday\Teacher;
                                                                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="tsurname[]" value="<?php echo $teacher['tsurname'];?>">
                                                             </div>
                                                             <div class="">
-                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="id" name="tid[]" value="<?php echo $teacher['tid'];?>">
+                                                                <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="id" name="tid[]" value="<?php echo $teacher['tid'];?>">
                                                             </div>
                                                             <!-- <button class="btn btn-success mx-2 btn-add text-white">+</button>
                                                             <button class="btn btn-danger btn-remove text-white">-</button> -->

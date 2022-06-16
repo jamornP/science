@@ -3,7 +3,7 @@
 <?php 
  use App\Model\Sciday\Activity;
     $activityObj = new Activity; 
-    $activitys = $activityObj->getActivityById(base64_decode($_REQUEST['activity']));
+    $activitys = $activityObj->getActivityById(1);
     $activity_name = $activitys['name'];
  use App\Model\Sciday\Level;
  $levelObj = new Level;   

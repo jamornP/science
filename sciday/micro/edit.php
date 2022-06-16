@@ -1,5 +1,5 @@
 <?php 
-print_r($_REQUEST);
+// print_r($_REQUEST);
 ?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/claviska/simpleimage/src/claviska/SimpleImage.php";?>
@@ -44,8 +44,9 @@ if(isset($_REQUEST['sname'])){
         $student['stitle']=$_REQUEST['stitle'][$key];
         $student['sname']=$_REQUEST['sname'][$key];;
         $student['ssurname']=$_REQUEST['ssurname'][$key];
+        $student['sclass']=$_REQUEST['sclass'][$key];
         $student['id']=$_REQUEST['sid'][$key];
-        $sck = $studentObj->UpdateStudent($student);
+         $sck = $studentObj->UpdateStudentClass($student);
     }
 }
 
@@ -75,8 +76,10 @@ if($_REQUEST['img_path']){
      echo "No Pic";
     $data['images_id']=$_REQUEST['images_id'];
 }
-
-$pck = $microObj->Updatemicro($data);
+print_r($data);
+echo "<br>";
+print_r($student);
+$pck = $microObj->UpdateMicro($data);
 $micro_id = base64_encode($_REQUEST['micro_id']);
 if($pck){
     header("location: /science/sciday/micro/member.php?activity=1&micro_id={$micro_id}");

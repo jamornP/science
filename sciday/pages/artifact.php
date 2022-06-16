@@ -2,7 +2,7 @@
 <?php 
  use App\Model\Sciday\Activity;
  $activityObj = new Activity; 
- $activitys = $activityObj->getActivityById(base64_decode($_REQUEST['activity']));
+ $activitys = $activityObj->getActivityById(1);
  $activity_name = $activitys['name'];
  use App\Model\Sciday\Artifact;
  $artifactObj = new Artifact;   
@@ -131,13 +131,13 @@ use App\Model\Sciday\Teacher;
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">การประกวดรอบตัดสิน</span> <br>
-                                            - เวลา 9.30 น. จัดแสดงผลงานและเข้าร่วมพิธีเปิดงานที่หอประชุมจุฬาภรณวลัยลักษณ์ <br>
+                                            - เวลา 9.30 น. จัดแสดงผลงานและเข้าร่วมพิธีเปิดงานที่หอประชุมจุฬาภรณวลัยลักษณ์  ชั้น 1<br>
                                             <!-- - เวลา 11.00 น. ผู้สมัครนำเสนอผลงานต่อกรรมการ <br>
                                             - เวลา 13.00 น. กรรมการประชุมตัดสินผู้ได้รับรางวัล <br> -->
                                             - เวลา 15.30 น. ประกาศผลและรับรางวัล <br>
                                         </td>
                                         <td class="text-center">
-                                            วันที่ 23 ส.ค. 2565
+                                            วันที่ 24 ส.ค. 2565
                                         </td>
                                     </tr>
                                 </tbody>
@@ -153,7 +153,8 @@ use App\Model\Sciday\Teacher;
    
         <div class="tab-content  p-2 mb-5" id="myTabContent">
             <?php
-                if(0){
+                $show = $showroundObj->ShowByActivity(base64_decode($_REQUEST['activity']),1);
+                if($show['showround']=='yes'){
                 ?>
                 <div class="d-flex justify-content-between">
                     <span class="badge rounded-pill bg-warning mt-3 shadow text-truncate">
@@ -232,6 +233,11 @@ use App\Model\Sciday\Teacher;
                 <div class="d-flex justify-content-between">
                     <span class="badge rounded-pill bg-success mt-3 shadow">
                         <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 2&nbsp;&nbsp;&nbsp;</b></h3>
+                        <?php 
+                            // echo $level['id']."<br>";
+                            echo base64_decode($_REQUEST['activity'])."<br>";
+                            
+                        ?>
                     </span>
                 </div>
                 <?php 
@@ -243,7 +249,7 @@ use App\Model\Sciday\Teacher;
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="shadow-sm p-3 mb-2 bg-white rounded mt-3 fs-20">
-                                <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $level['name'];?></div>
+                                <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $level['name']." ".$level['id'];?></div>
                                 <table class="table table-striped table-hover fs-20">
                                     <thead>
                                         <tr>
@@ -256,7 +262,7 @@ use App\Model\Sciday\Teacher;
                                     <tbody class="fs-14">
                                         
                                         <?php 
-                                            $round2s = $roundObj->getRound2ByLevel($level['id']);
+                                            $round2s = $roundObj->getRoundByLevel($level['id'],2,base64_decode($_REQUEST['activity']));
                                             $i=0;
                                             foreach($round2s AS $round2){
                                                 $stu2s = $studentObj->getStuById($round2['student_id']);
@@ -332,7 +338,7 @@ use App\Model\Sciday\Teacher;
                                     <tbody class="fs-14">
                                         
                                         <?php 
-                                            $round3s = $roundObj->getRound3ByLevel($level['id']);
+                                            $round3s = $roundObj->getRoundByLevel($level['id'],3,base64_decode($_REQUEST['activity']));
                                             $i=0;
                                             foreach($round3s AS $round3){
                                                 $stu3s = $studentObj->getStuById($round3['student_id']);

@@ -15,6 +15,7 @@
 <?php
 $data['iot_name']=$_REQUEST['iot_name'];
 $data['school']=$_REQUEST['school'];
+$data['level_id']=$_REQUEST['level_id'];
 $data['student_id']=uniqid();
 $data['teacher_id']=uniqid();
 $data['tel']=$_REQUEST['tel'];
@@ -26,6 +27,8 @@ if(isset($_FILES['file_doc']['tmp_name'])) {
         $file_path = $_SERVER['DOCUMENT_ROOT']."/science/upload/sciday/file/".$new_name;
         move_uploaded_file($_FILES['file_doc']['tmp_name'],$file_path);
         $data['file_register']=$new_name;
+    }else{
+        header("location: /science/sciday/iot/member.php?iot_id={$iot_id}");
     }
 }else{
     echo "No file";

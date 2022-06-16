@@ -16,6 +16,7 @@ class Iot extends DbSciDay {
                 tel, 
                 file_register, 
                 user_id, 
+                level_id,
                 year
                 
             )VALUES (
@@ -27,6 +28,7 @@ class Iot extends DbSciDay {
                 :tel,
                 :file_register,
                 :user_id,
+                :level_id,
                 '2022'
             )
         ";

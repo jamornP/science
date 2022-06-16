@@ -73,7 +73,7 @@ use App\Model\Sciday\Teacher;
                                    
                                         <tr>
                                             <td width='8%'><?php echo $i; ?>.</td>
-                                            <td><?php echo $proname['project_name']; ?></td>
+                                            <td><?php echo $proname['artifact_name']; ?></td>
                                             <td width='20%'><?php echo $proname['school']; ?></td>
                                             <td width='20%'>
                                                 <?php 
@@ -161,7 +161,7 @@ use App\Model\Sciday\Teacher;
                                         echo "
                                             <tr>
                                                 <td width='8%'>{$i}.</td>
-                                                <td>{$round['project_name']}</td>
+                                                <td>{$round['artifact_name']}</td>
                                                 <td width='20%'>{$round['school']}</td>
                                                 <td width='20%'>{$st}</td>
                                                 <td width='15%'>{$tea}</td>
