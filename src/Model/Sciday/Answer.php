@@ -118,5 +118,18 @@ class Answer extends DbSciDay {
         $data = $stmt->fetchAll();
         return $data;
     }
+    public function delAnswerById($id) {
+        $sql ="
+            DELETE
+            FROM
+                tb_answer
+            WHERE
+                id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        return true;
+        
+    }
 
 }

@@ -144,6 +144,88 @@ use App\Model\Sciday\Teacher;
             </figure>
         </div>
         
+        <?php 
+            $shows = $showroundObj->ShowByActivity(4,2); 
+            if($shows['showround']=='yes'){?>
+            <div class="d-flex justify-content-between">
+                <span class="badge rounded-pill bg-success mt-3 shadow">
+                    <h3><b>&nbsp;&nbsp;&nbsp;ประกาศรายชื่อผู้ผ่านการคัดเลือก&nbsp;&nbsp;&nbsp;</b></h3>
+                    <?php 
+                        // echo $level['id']."<br>";
+                        // echo base64_decode($_REQUEST['activity'])."<br>";
+                        
+                    ?>
+                </span>
+            </div>
+            <?php 
+            
+                $levels = $levelObj->getLevelByActivity(base64_decode($_REQUEST['activity']));
+                foreach($levels AS $level){
+                    
+                ?>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="shadow-sm p-3 mb-2 bg-white rounded mt-3 fs-20">
+                            <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $level['name'];?></div>
+                            <table class="table table-striped table-hover fs-20">
+                                <thead>
+                                    <tr>
+                                        <th width='10%'>#</th>
+                                        <th width='40%'>โรงเรียน</th>
+                                        <th width='25%'>นักเรียน</th>
+                                        <th width='25%'>อาจารย์ที่ปรึกษา</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="fs-14">
+                                    
+                                    <?php 
+                                        $round2s = $roundObj->getRoundByLevelAnswer($level['id'],2,4);
+                                        $i=0;
+                                        foreach($round2s AS $round2){
+                                            $stu2s = $studentObj->getStuById($round2['student_id']);
+                                            $teacher2s = $teacherObj->getTeacherById($round2['teacher_id']);
+                                            $i2++;
+                                            $j2=0;
+                                            $k2=0;
+                                            $st2="";
+                                            $tea="";
+                                            if($round2['link_video']==""){
+                                                $show_link="";
+                                            }else{
+                                                $show_link="<a href='{$round2['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
+                                            }
+                                            // ค้นหานักเรียน
+                                            foreach($stu2s AS $stu2){
+                                                $j2++;
+                                                $st2 .=$j2.". ".$stu2['stitle'].$stu2['sname']." ".$stu2['ssurname']."<br>";
+                                            }
+                                            // ค้นหาชื่ออาจารย์ที่ปรึกษา
+                                            foreach($teacher2s AS $teacher2){
+                                                $k2++;
+                                                $tea2 .=$k2.". ".$teacher2['ttitle'].$teacher2['tname']." ".$teacher2['tsurname']."<br>";
+                                            }
+                                            echo "
+                                                <tr>
+                                                    <td width='8%'>{$i2}.</td>
+                                                    <td width='20%'>{$round2['school']}</td>
+                                                    <td width='20%'>{$st2}</td>
+                                                    <td width='15%'>{$tea2}</td>
+                                                </tr>
+                                            ";
+                                        }
+                                    ?>
+                                
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <?php                
+                    }
+            ?>
+        <?php } ?>
+           
+        
         
     </div>
 </body>

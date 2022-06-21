@@ -107,9 +107,11 @@ use App\Model\Sciday\Teacher;
                         </tbody>
                     </table>
                     <div class="d-flex flex-row-reverse bd-highlight mt-3">
+                        <a href="/science/sciday/answer/del.php?id=<?php echo $projects['id']; ?>&stu_id=<?php echo $projects['student_id']; ?>&tea_id=<?php echo $projects['teacher_id']; ?>" class='btn btn-danger text-white'>ลบข้อมูล</a>&nbsp;
                         <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#edit'>
                         <i class='bx bx-edit' ></i> แก้ไขข้อมูล
                         </button>
+                        
                     </div>
                    
                 </div>

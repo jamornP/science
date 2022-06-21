@@ -64,6 +64,19 @@ class Teacher extends DbSciDay {
         return true;
 
     }
+    public function delTeacherById($id) {
+        $sql ="
+            DELETE
+            FROM
+                tb_teacher
+            WHERE
+                teacher_id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        return true;
+        
+    }
 
 
 

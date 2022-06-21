@@ -54,7 +54,7 @@ use App\Model\Sciday\Teacher;
                                     <th width='20%'>นักเรียน</th>
                                     <th width='20%'>อาจารย์ที่ปรึกษา</th>
                                     <th width='10%'>เบอร์ติดต่อ</th>
-                                    <th width='10%'>เข้ารอบ 2</th>
+                                    <th width='10%'>แข่งคัดเลือก</th>
                                 </tr>
                             </thead>
                             <tbody class="fs-14">
@@ -126,14 +126,14 @@ use App\Model\Sciday\Teacher;
         <!-- Round 2 -->
         <div class="d-flex justify-content-between">
             <span class="badge rounded-pill bg-warning mt-3 shadow text-truncate">
-                <h2><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 2&nbsp;&nbsp;&nbsp;</b></h2>
+                <h2><b>&nbsp;&nbsp;&nbsp;รายชื่อผู้ผ่านการคัดเลือก&nbsp;&nbsp;&nbsp;</b></h2>
             </span>
         </div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
                     <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $level_name;?></div>
-                    <form action="saver1.php" method="post">
+                    <form action="save1.php" method="post">
                         <table class="table table-striped table-hover mt-2 fs-18">
                             <thead>
                                 <tr>
@@ -142,7 +142,7 @@ use App\Model\Sciday\Teacher;
                                     <th width='20%'>นักเรียน</th>
                                     <th width='20%'>อาจารย์ที่ปรึกษา</th>
                                     <th width='10%'>เบอร์ติดต่อ</th>
-                                    <th width='10%'>Onsite</th>
+                                    <th width='10%'>รอบตัดสิน</th>
                                     <!-- <th>รูป</th> -->
                                 </tr>
                             </thead>
@@ -152,7 +152,7 @@ use App\Model\Sciday\Teacher;
                                 <!-- <input type='hidden' class='form-control' name='num' value='2'> -->
                                 <input type='hidden' class='form-control' name='link_video2' value=''>
                                 <?php 
-                                     $round2s = $roundObj->getAnswerRound2ByLevel(base64_decode($_REQUEST['level']));
+                                     $round2s = $roundObj->getRoundByLevelAnswer(base64_decode($_REQUEST['level']),2,4);
                                      foreach($round2s AS $round2){
                                         //$project2 = $projectObj->getProjectById($round2['project_id']);
                                         //echo $project2['student_id'];
@@ -164,7 +164,7 @@ use App\Model\Sciday\Teacher;
                                         $st2="";
                                         $tea2="";
 
-                                        $ck2 = $roundObj->checkRound3ById($round2['id']);
+                                        $ck2 = $roundObj->checkRound($round2['id'],3,4,base64_decode($_REQUEST['level']));
                                         if($ck2){
                                             $checkbox2 ="checked";
                                         }else{
@@ -191,7 +191,91 @@ use App\Model\Sciday\Teacher;
                                         <td width=''>{$tea2}</td>
                                         <td width=''>{$round2['tel']}</td>
                                         <td width='' align='center'>
+                                            <div class='form-check'>
+                                                <input class='form-check-input' type='checkbox' value='{$round2['id']}' id='flexCheckDefault' name='p_id[]' {$checkbox2}>
+                                                <a href='del1.php?project_id={$round2['project_id']}&activity_id={$round2['activity_id']}&level_id={$round2['level_id']}&num=2'>ลบ</a>
+                                            </div>
+                                            
+                                        </td>
+                                        
+                                    </tr>
+                                         ";
+                                     }
+                                ?>
+                            </tbody>
+                        </table>
+                        <div class="d-flex flex-row-reverse bd-highlight mt-3">
+                            <button type="submit" class="btn btn-primary" name="round2">บันทึก</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Round Onsite -->
+        <div class="d-flex justify-content-between">
+            <span class="badge rounded-pill bg-warning mt-3 shadow text-truncate">
+                <h2><b>&nbsp;&nbsp;&nbsp;รายชื่อผู้ผ่านเข้ารอบตัดสิน&nbsp;&nbsp;&nbsp;</b></h2>
+            </span>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
+                    <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $level_name;?></div>
+                    <form action="save1.php" method="post">
+                        <table class="table table-striped table-hover mt-2 fs-18">
+                            <thead>
+                                <tr>
+                                    <th width='8%'>#</th>
+                                    <th width=''>โรงเรียน</th>
+                                    <th width='20%'>นักเรียน</th>
+                                    <th width='20%'>อาจารย์ที่ปรึกษา</th>
+                                    <th width='10%'>เบอร์ติดต่อ</th>
+                                    <th width='10%'>Onsite</th>
+                                    <!-- <th>รูป</th> -->
+                                </tr>
+                            </thead>
+                            <tbody class="fs-14">
+                                <input type='hidden' class='form-control' name='activity_id2' value='<?php echo $_SESSION['activity'];?>'>
+                                <input type='hidden' class='form-control' name='level_id2' value='<?php echo base64_decode($_REQUEST['level']);?>'>
+                                <!-- <input type='hidden' class='form-control' name='num' value='2'> -->
+                                <input type='hidden' class='form-control' name='link_video2' value=''>
+                                <?php 
+                                     $round3s = $roundObj->getRoundByLevelAnswer(base64_decode($_REQUEST['level']),3,4);
+                                     foreach($round3s AS $round3){
+                                        //$project2 = $projectObj->getProjectById($round3['project_id']);
+                                        //echo $project2['student_id'];
+                                        $stus3 = $studentObj->getStuById($round3['student_id']);
+                                        $teachers3 = $teacherObj->getTeacherById($round3['teacher_id']);
+                                        $i3++;
+                                        $j3=0;
+                                        $k3=0;
+                                        $st3="";
+                                        $tea3="";
+
+                                        
+                                        if($round3['link_video']==""){
+                                            $show_link3="";
+                                        }else{
+                                            $show_link3="<a href='{$round3['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
+                                        }
+                                        foreach($stus3 AS $stu3){
+                                            $j3++;
+                                            $st3 .=$j3.". ".$stu3['stitle'].$stu3['sname']." ".$stu3['ssurname']."<br>";
+                                        }
+                                        foreach($teachers3 AS $teacher3){
+                                            $k3++;
+                                            $tea3 .=$k3.". ".$teacher3['ttitle'].$teacher3['tname']." ".$teacher3['tsurname']."<br>";
+                                        }
+                                        echo "
+                                        <tr>
+                                        <td width=''>{$i3}.</td>
+                                        <td width=''>{$round3['school']}</td>
+                                        <td width=''>{$st3}</td>
+                                        <td width=''>{$tea3}</td>
+                                        <td width=''>{$round3['tel']}</td>
+                                        <td width='' align='center'>
                                             <button type='button' class='btn btn-success text-white'>Success</button>
+                                            <a href='del1.php?project_id={$round3['project_id']}&activity_id={$round3['activity_id']}&level_id={$round3['level_id']}&num=3'>ลบ</a>
                                         </td>
                                         
                                     </tr>
@@ -201,7 +285,7 @@ use App\Model\Sciday\Teacher;
                             </tbody>
                         </table>
                         <!-- <div class="d-flex flex-row-reverse bd-highlight mt-3">
-                            <button type="submit" class="btn btn-primary" name="round2">บันทึก</button>
+                            <button type="submit" class="btn btn-primary" name="round3">บันทึก</button>
                         </div> -->
                     </form>
                 </div>

@@ -375,5 +375,38 @@ public function getRound3ById($id) {
         return true;
         
     }
+    // Answer
+    public function getRoundByLevelAnswer($level,$num,$activity) {
+        $sql ="
+            SELECT
+                p.id, 
+                p.school,
+                p.student_id,
+                p.teacher_id,
+                p.file_register,
+                p.user_id,
+                p.tel,
+                l.name,
+                r.num,
+                r.link_video,
+                r.level_id,
+                r.activity_id, 
+                r.project_id
+            FROM 
+                tb_round AS r
+                LEFT JOIN tb_answer AS p ON r.project_id = p.id
+                LEFT JOIN tb_level AS l ON r.level_id = l.id
+            WHERE
+                r.level_id = ? AND
+                r.num = ".$num." AND
+                r.activity_id = ".$activity." 
+                
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$level]);
+        $data = $stmt->fetchAll();
+        return $data;
+        
+    }
 
 }

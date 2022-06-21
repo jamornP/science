@@ -129,6 +129,20 @@ class Student extends DbSciDay {
         return true;
 
     }
+    public function delStudentById($id) {
+        $sql ="
+            DELETE
+            FROM
+                tb_student
+            WHERE
+                student_id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        return true;
+        
+    }
+
 
 }
 

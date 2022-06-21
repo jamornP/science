@@ -24,6 +24,27 @@ if(isset($_REQUEST['round1'])){
     }
     $level_id=base64_encode($_REQUEST['level_id']);
     header("location: /science/sciday/answer/manage.php?level={$level_id}");
+}elseif(isset($_REQUEST['round2'])){
+    print_r($_REQUEST);
+    $data['activity_id'] = $_REQUEST['activity_id2'];
+    $data['level_id'] = $_REQUEST['level_id2'];
+    $data['num'] = 3;
+    $data['link_video'] = $_REQUEST['link_video2'];
+    foreach($_REQUEST['p_id'] AS $key => $pro_id ){
+      $data['project_id'] = $_REQUEST['p_id'][$key];
+      echo "<br>";
+       print_r($data);
+      $ckRound = $roundObj->checkRound($data['project_id'],$data['num'],$data['activity_id'],$data['level_id']);
+      if($ckRound){
+        echo "มีแล้ว";
+      }else{
+        echo "ยังไม่มี";
+         $id = $roundObj->InsertRound($data);
+      }
+      
+    }
+    $level_id=base64_encode($_REQUEST['level_id2']);
+    header("location: /science/sciday/answer/manage.php?level={$level_id}");
 }
 
 ?>

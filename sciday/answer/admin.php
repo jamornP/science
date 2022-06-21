@@ -1,24 +1,24 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/auth/auth.php";?>
 <?php 
- use App\Model\Sciday\Level;
- $levelObj = new Level;
- $levels = $levelObj->getLevelById(base64_decode($_REQUEST['level']));   
+use App\Model\Sciday\Level;
+$levelObj = new Level;
+$levels = $levelObj->getLevelById(base64_decode($_REQUEST['level']));   
 $level_name = $levels['name'];
- use App\Model\Sciday\Title;
- $titleObj = new Title;   
- use App\Model\Sciday\Activity;
-    $activityObj = new Activity; 
-    $activitys = $activityObj->getActivityById($_SESSION['activity']);
-    $activity_name = $activitys['name'];
-use App\Model\Sciday\answer;
- $answerObj = new answer;  
+use App\Model\Sciday\Title;
+$titleObj = new Title;   
+use App\Model\Sciday\Activity;
+$activityObj = new Activity; 
+$activitys = $activityObj->getActivityById($_SESSION['activity']);
+$activity_name = $activitys['name'];
+use App\Model\Sciday\Answer;
+$answerObj = new Answer;  
 use App\Model\Sciday\Round;
- $roundObj = new Round;  
+$roundObj = new Round;  
 use App\Model\Sciday\Student;
- $studentObj = new Student;  
+$studentObj = new Student;  
 use App\Model\Sciday\Teacher;
- $teacherObj = new Teacher;  
+$teacherObj = new Teacher;  
 ?>
 <!DOCTYPE html>
 <html lang="en">
