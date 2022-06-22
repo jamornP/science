@@ -132,7 +132,7 @@ use App\Model\Sciday\Teacher;
         <div class="row">
             <div class="col-lg-12">
                 <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
-                    <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $level_name;?></div>
+                    <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp;ทีมที่สมัครการแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ ( <?php echo $level_name;?> )</div>
                     <form action="save1.php" method="post">
                         <table class="table table-striped table-hover mt-2 fs-18">
                             <thead>
@@ -192,7 +192,7 @@ use App\Model\Sciday\Teacher;
                                         <td width=''>{$round2['tel']}</td>
                                         <td width='' align='center'>
                                             <div class='form-check'>
-                                                <input class='form-check-input' type='checkbox' value='{$round2['id']}' id='flexCheckDefault' name='p_id[]' {$checkbox2}>
+                                                <input class='form-check-input' type='checkbox' value='{$round2['id']}' id='flexCheckDefault' name='p_id2[]' {$checkbox2}>
                                                 <a href='del1.php?project_id={$round2['project_id']}&activity_id={$round2['activity_id']}&level_id={$round2['level_id']}&num=2'>ลบ</a>
                                             </div>
                                             
@@ -220,7 +220,7 @@ use App\Model\Sciday\Teacher;
         <div class="row">
             <div class="col-lg-12">
                 <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
-                    <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $level_name;?></div>
+                    <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp;ทีมที่สมัครการแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ ( <?php echo $level_name;?> )</div>
                     <form action="save1.php" method="post">
                         <table class="table table-striped table-hover mt-2 fs-18">
                             <thead>
@@ -267,18 +267,17 @@ use App\Model\Sciday\Teacher;
                                             $tea3 .=$k3.". ".$teacher3['ttitle'].$teacher3['tname']." ".$teacher3['tsurname']."<br>";
                                         }
                                         echo "
-                                        <tr>
-                                        <td width=''>{$i3}.</td>
-                                        <td width=''>{$round3['school']}</td>
-                                        <td width=''>{$st3}</td>
-                                        <td width=''>{$tea3}</td>
-                                        <td width=''>{$round3['tel']}</td>
-                                        <td width='' align='center'>
-                                            <button type='button' class='btn btn-success text-white'>Success</button>
-                                            <a href='del1.php?project_id={$round3['project_id']}&activity_id={$round3['activity_id']}&level_id={$round3['level_id']}&num=3'>ลบ</a>
-                                        </td>
-                                        
-                                    </tr>
+                                            <tr>
+                                                <td width=''>{$i3}.</td>
+                                                <td width=''>{$round3['school']}</td>
+                                                <td width=''>{$st3}</td>
+                                                <td width=''>{$tea3}</td>
+                                                <td width=''>{$round3['tel']}</td>
+                                                <td width='' align='center'>
+                                                    <button type='button' class='btn btn-success text-white'>Success</button>
+                                                    <a href='del1.php?project_id={$round3['project_id']}&activity_id={$round3['activity_id']}&level_id={$round3['level_id']}&num=3'>ลบ</a>
+                                                </td>
+                                            </tr>
                                          ";
                                      }
                                 ?>

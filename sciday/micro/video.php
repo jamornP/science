@@ -8,7 +8,7 @@ use App\Model\Sciday\Round;
  $ck = $roundObj->UpdateVideo($_REQUEST);
  if($ck){
      $project_id = base64_encode($_REQUEST['project_id']);
-     header("location: /science/sciday/project/member.php?project_id={$project_id}");
+     header("location: /science/sciday/micro/member.php?micro_id={$project_id}");
  }
 
  ?>

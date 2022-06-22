@@ -99,5 +99,45 @@ class Micro extends DbSciDay {
         $stmt->execute($micro);
         return true;
 
+
+    }
+    public function delMicroById($id) {
+        $sql ="
+            DELETE
+            FROM
+                tb_micro
+            WHERE
+                id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        return true;
+        
+    }
+    public function getMicroByLevel($level) {
+        $sql = "
+            SELECT 
+                p.id,
+                p.micro_name,
+                l.name AS level,
+                p.level_id,
+                p.school,
+                p.student_id,
+                p.teacher_id,
+                p.file_register,
+                p.images_id,
+                p.user_id
+            FROM
+                tb_micro AS p
+                LEFT JOIN tb_level AS l ON p.level_id = l.id 
+            WHERE
+                p.level_id = ?
+            ORDER BY 
+                date_at
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$level]);
+        $data = $stmt->fetchAll();
+        return $data;
     }
 }

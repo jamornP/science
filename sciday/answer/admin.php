@@ -103,6 +103,167 @@ $teacherObj = new Teacher;
                 </div>
             </div>
         </div>
+         <!-- Round 2 -->
+         <div class="d-flex justify-content-between">
+            <span class="badge rounded-pill bg-warning mt-3 shadow text-truncate">
+                <h2><b>&nbsp;&nbsp;&nbsp;รายชื่อผู้ผ่านการคัดเลือก&nbsp;&nbsp;&nbsp;</b></h2>
+            </span>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
+                    <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp;ทีมที่สมัครการแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์  ( <?php echo $level_name;?> )</div>
+                    <form action="save1.php" method="post">
+                        <table class="table table-striped table-hover mt-2 fs-18">
+                            <thead>
+                                <tr>
+                                    <th width='8%'>#</th>
+                                    <th width=''>โรงเรียน</th>
+                                    <th width='20%'>นักเรียน</th>
+                                    <th width='20%'>อาจารย์ที่ปรึกษา</th>
+                                    <th width='10%'>เบอร์ติดต่อ</th>
+                                    <th width='10%'></th>
+                                </tr>
+                            </thead>
+                            <tbody class="fs-14">
+                                <input type='hidden' class='form-control' name='activity_id2' value='<?php echo $_SESSION['activity'];?>'>
+                                <input type='hidden' class='form-control' name='level_id2' value='<?php echo base64_decode($_REQUEST['level']);?>'>
+                                <!-- <input type='hidden' class='form-control' name='num' value='2'> -->
+                                <input type='hidden' class='form-control' name='link_video2' value=''>
+                                <?php 
+                                     $round2s = $roundObj->getRoundByLevelAnswer(base64_decode($_REQUEST['level']),2,4);
+                                     foreach($round2s AS $round2){
+                                        //$project2 = $projectObj->getProjectById($round2['project_id']);
+                                        //echo $project2['student_id'];
+                                        $stus2 = $studentObj->getStuById($round2['student_id']);
+                                        $teachers2 = $teacherObj->getTeacherById($round2['teacher_id']);
+                                        $i2++;
+                                        $j2=0;
+                                        $k2=0;
+                                        $st2="";
+                                        $tea2="";
+
+                                        $ck2 = $roundObj->checkRound($round2['id'],3,4,base64_decode($_REQUEST['level']));
+                                        if($ck2){
+                                            $checkbox2 ="checked";
+                                        }else{
+                                            $checkbox2 ="";
+                                        }
+                                        if($round2['link_video']==""){
+                                            $show_link2="";
+                                        }else{
+                                            $show_link2="<a href='{$round2['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
+                                        }
+                                        foreach($stus2 AS $stu2){
+                                            $j2++;
+                                            $st2 .=$j2.". ".$stu2['stitle'].$stu2['sname']." ".$stu2['ssurname']."<br>";
+                                        }
+                                        foreach($teachers2 AS $teacher2){
+                                            $k2++;
+                                            $tea2 .=$k2.". ".$teacher2['ttitle'].$teacher2['tname']." ".$teacher2['tsurname']."<br>";
+                                        }
+                                        echo "
+                                        <tr>
+                                        <td width=''>{$i2}.</td>
+                                        <td width=''>{$round2['school']}</td>
+                                        <td width=''>{$st2}</td>
+                                        <td width=''>{$tea2}</td>
+                                        <td width=''>{$round2['tel']}</td>
+                                        <td width=''></td>
+                                        
+                                        
+                                    </tr>
+                                         ";
+                                     }
+                                ?>
+                            </tbody>
+                        </table>
+                        <!-- <div class="d-flex flex-row-reverse bd-highlight mt-3">
+                            <button type="submit" class="btn btn-primary" name="round2">บันทึก</button>
+                        </div> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Round Onsite -->
+        <div class="d-flex justify-content-between">
+            <span class="badge rounded-pill bg-warning mt-3 shadow text-truncate">
+                <h2><b>&nbsp;&nbsp;&nbsp;รายชื่อผู้ผ่านเข้ารอบตัดสิน&nbsp;&nbsp;&nbsp;</b></h2>
+            </span>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
+                    <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp;ทีมที่สมัครการแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ ( <?php echo $level_name;?> )</div>
+                    <form action="save1.php" method="post">
+                        <table class="table table-striped table-hover mt-2 fs-18">
+                            <thead>
+                                <tr>
+                                    <th width='8%'>#</th>
+                                    <th width=''>โรงเรียน</th>
+                                    <th width='20%'>นักเรียน</th>
+                                    <th width='20%'>อาจารย์ที่ปรึกษา</th>
+                                    <th width='10%'>เบอร์ติดต่อ</th>
+                                    <th width='10%'>Onsite</th>
+                                    <!-- <th>รูป</th> -->
+                                </tr>
+                            </thead>
+                            <tbody class="fs-14">
+                                <input type='hidden' class='form-control' name='activity_id2' value='<?php echo $_SESSION['activity'];?>'>
+                                <input type='hidden' class='form-control' name='level_id2' value='<?php echo base64_decode($_REQUEST['level']);?>'>
+                                <!-- <input type='hidden' class='form-control' name='num' value='2'> -->
+                                <input type='hidden' class='form-control' name='link_video2' value=''>
+                                <?php 
+                                     $round3s = $roundObj->getRoundByLevelAnswer(base64_decode($_REQUEST['level']),3,4);
+                                     foreach($round3s AS $round3){
+                                        //$project2 = $projectObj->getProjectById($round3['project_id']);
+                                        //echo $project2['student_id'];
+                                        $stus3 = $studentObj->getStuById($round3['student_id']);
+                                        $teachers3 = $teacherObj->getTeacherById($round3['teacher_id']);
+                                        $i3++;
+                                        $j3=0;
+                                        $k3=0;
+                                        $st3="";
+                                        $tea3="";
+
+                                        
+                                        if($round3['link_video']==""){
+                                            $show_link3="";
+                                        }else{
+                                            $show_link3="<a href='{$round3['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
+                                        }
+                                        foreach($stus3 AS $stu3){
+                                            $j3++;
+                                            $st3 .=$j3.". ".$stu3['stitle'].$stu3['sname']." ".$stu3['ssurname']."<br>";
+                                        }
+                                        foreach($teachers3 AS $teacher3){
+                                            $k3++;
+                                            $tea3 .=$k3.". ".$teacher3['ttitle'].$teacher3['tname']." ".$teacher3['tsurname']."<br>";
+                                        }
+                                        echo "
+                                        <tr>
+                                        <td width=''>{$i3}.</td>
+                                        <td width=''>{$round3['school']}</td>
+                                        <td width=''>{$st3}</td>
+                                        <td width=''>{$tea3}</td>
+                                        <td width=''>{$round3['tel']}</td>
+                                        <td width='' align='center'>
+                                            <button type='button' class='btn btn-success text-white'>Success</button>
+                                        </td>
+                                        
+                                    </tr>
+                                         ";
+                                     }
+                                ?>
+                            </tbody>
+                        </table>
+                        <!-- <div class="d-flex flex-row-reverse bd-highlight mt-3">
+                            <button type="submit" class="btn btn-primary" name="round3">บันทึก</button>
+                        </div> -->
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </head>

@@ -18,6 +18,8 @@ use App\Model\Sciday\Student;
  $studentObj = new Student;  
 use App\Model\Sciday\Teacher;
  $teacherObj = new Teacher;  
+use App\Model\Sciday\Showround;
+ $showroundObj = new Showround;  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,122 +102,146 @@ use App\Model\Sciday\Teacher;
                             ?>
                         </tbody>
                     </table>
-                    <div class="d-flex flex-row-reverse bd-highlight mt-3">
-                        <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#edit'>
-                        <i class='bx bx-edit' ></i> แก้ไขข้อมูล
-                        </button>
-                    </div>
+                    <?php 
+                        $show = $showroundObj->ShowByActivity(6,1);
+                        if($show['edit_data']=='yes'){
+                            ?>
+                        <div class="d-flex flex-row-reverse bd-highlight mt-3">
+                            <a href="/science/sciday/micro/del.php?id=<?php echo $projects['id']; ?>&stu_id=<?php echo $projects['student_id']; ?>&tea_id=<?php echo $projects['teacher_id']; ?>" class='btn btn-danger text-white'>ลบข้อมูล</a>&nbsp;
+                            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#edit'>
+                                <i class='bx bx-edit' ></i> แก้ไขข้อมูล
+                            </button>
+                        </div>
+                        <?php
+                        }
+                    ?>
                    
                 </div>
             </div>
         </div>
         <!-- Round 2 -->
         <?php 
-            $round2s = $roundObj->checkRound2ById(base64_decode($_REQUEST['project_id']));
-            if($round2s){
-                $project2s = $projectObj->getProjectById(base64_decode($_REQUEST['project_id']));
-                // print_r($project2s);
-                $round2s = $roundObj->getRound2ById($project2s['id']);
-                // echo "<br>";
-                // echo "<br>";
-                // print_r($round2s);
-            ?>
-                <div class="d-flex justify-content-between">
-                    <span class="badge rounded-pill bg-success mt-3 shadow">
-                        <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 2&nbsp;&nbsp;&nbsp;</b></h3>
-                    </span>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
-                            <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $round2s['name'];?></div>
-                            <table class="table table-striped table-hover mt-2 fs-18">
-                                <thead>
-                                    <tr>
-                                        <th width='8%'>#</th>
-                                        <th >ชื่อโครงงานวิทยาศาสตร์</th>
-                                        <th width='20%'>โรงเรียน</th>
-                                        <th width='20%'>นักเรียน</th>
-                                        <th width='15%'>อาจารย์ที่ปรึกษา</th>
-                                        <th width='15%'>วีดีโอ</th>
-                                        <!-- <th>รูป</th> -->
-                                    </tr>
-                                </thead>
-                                <tbody class="fs-14">
-                                    <input type='hidden' class='form-control' name='link_video' value='<?php echo $round2s["link_video"];?>'>
-                                    <?php 
-                                        $stus2 = $studentObj->getStuById($project2s['student_id']);
-                                        $teachers2 = $teacherObj->getTeacherById($project2s['teacher_id']);
-                                        $i2++;
-                                        $j2=0;
-                                        $k2=0;
-                                        $st2="";
-                                        $tea2="";
+            $show = $showroundObj->ShowByActivity(6,2);
+            if($show['showround']=='yes'){
+                // echo base64_decode($_REQUEST['micro_id']);
+                $project2s = $microObj->getMicroById(base64_decode($_REQUEST['micro_id']));
+                $round2 = $roundObj->checkRound(base64_decode($_REQUEST['micro_id']),2,6,$project2s['level_id']);
+                if($round2){
+                    
+                    // print_r($project2s);
+                    $round2s = $roundObj->getRound($project2s['id'],2,6,$project2s['level_id']);
+                    // echo "<br>";
+                    // echo "<br>";
+                    // print_r($round2s);
+                ?>
+                    <div class="d-flex justify-content-between">
+                        <span class="badge rounded-pill bg-success mt-3 shadow">
+                            <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 2&nbsp;&nbsp;&nbsp;</b></h3>
+                        </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
+                                <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $project2s['level'];?></div>
+                                <table class="table table-striped table-hover mt-2 fs-18">
+                                    <thead>
+                                        <tr>
+                                            <th width='8%'>#</th>
+                                            <th >ชื่อโครงงานวิทยาศาสตร์</th>
+                                            <th width='20%'>โรงเรียน</th>
+                                            <th width='20%'>นักเรียน</th>
+                                            <th width='15%'>อาจารย์ที่ปรึกษา</th>
+                                            <th width='15%'>วีดีโอ</th>
+                                            <!-- <th>รูป</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody class="fs-14">
+                                        <input type='hidden' class='form-control' name='link_video' value='<?php echo $round2s["link_video"];?>'>
+                                        <?php 
+                                            $stus2 = $studentObj->getStuById($project2s['student_id']);
+                                            $teachers2 = $teacherObj->getTeacherById($project2s['teacher_id']);
+                                            $i2++;
+                                            $j2=0;
+                                            $k2=0;
+                                            $st2="";
+                                            $tea2="";
 
-                                        $ck2 = $roundObj->checkRound2ById($project2s['id']);
-                                        
-                                        if($round2s['link_video']==""){
-                                            $show_link2="
-                                                <button type='button' class='btn btn-sm btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'>
-                                                    <i class='bx bxs-video-plus'></i> อัพลิงค์วีดีโอ
-                                                </button>
+                                            $ck2 = $roundObj->checkRound($project2s['id'],2,6,$project2s['level_id']);
+                                            
+                                            if($round2s['link_video']==""){
+                                                $show_link2="
+                                                    <button type='button' class='btn btn-sm btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'>
+                                                        <i class='bx bxs-video-plus'></i> อัพลิงค์วีดีโอ
+                                                    </button>
+                                                ";
+                                            }else{                    
+                                                $show = $showroundObj->ShowByActivity(6,1);
+                                                if($show['edit_video']=='yes'){
+                                                    $show_link2="
+                                                        <a href='{$round2s['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>
+                                                        <button type='button' class='btn btn-sm btn-warning text-white' data-bs-toggle='modal' data-bs-target='#exampleModal'>
+                                                            <i class='bx bxs-video-plus'></i> แก้ไข
+                                                        </button>
+                                                    ";
+                                                }else{
+                                                    $show_link2="
+                                                        <a href='{$round2s['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>
+                                                    ";
+                                                }
+                            
+                                                
+                                            }
+                                            foreach($stus2 AS $stu2){
+                                                $j2++;
+                                                $st2 .=$j2.". ".$stu2['stitle'].$stu2['sname']." ".$stu2['ssurname']."<br>";
+                                            }
+                                            foreach($teachers2 AS $teacher2){
+                                                $k2++;
+                                                $tea2 .=$k2.". ".$teacher2['ttitle'].$teacher2['tname']." ".$teacher2['tsurname']."<br>";
+                                            }
+                                            echo "
+                                                <tr>
+                                                    <td width='8%'>{$i2}.</td>
+                                                    <td>{$project2s['micro_name']}</td>
+                                                    <td width='20%'>{$project2s['school']}</td>
+                                                    <td width='20%'>{$st2}</td>
+                                                    <td width='15%'>{$tea2}</td>
+                                                    <td width='10%'>{$show_link2}</td>
+                                                </tr>
                                             ";
-                                        }else{
-                                            $show_link2="
-                                                <a href='{$round2s['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>
-                                                <button type='button' class='btn btn-sm btn-warning text-white' data-bs-toggle='modal' data-bs-target='#exampleModal'>
-                                                    <i class='bx bxs-video-plus'></i> แก้ไข
-                                                </button>
-                                            ";
-                                        }
-                                        foreach($stus2 AS $stu2){
-                                            $j2++;
-                                            $st2 .=$j2.". ".$stu2['stitle'].$stu2['sname']." ".$stu2['ssurname']."<br>";
-                                        }
-                                        foreach($teachers2 AS $teacher2){
-                                            $k2++;
-                                            $tea2 .=$k2.". ".$teacher2['ttitle'].$teacher2['tname']." ".$teacher2['tsurname']."<br>";
-                                        }
-                                        echo "
-                                            <tr>
-                                                <td width='8%'>{$i2}.</td>
-                                                <td>{$project2s['project_name']}</td>
-                                                <td width='20%'>{$project2s['school']}</td>
-                                                <td width='20%'>{$st2}</td>
-                                                <td width='15%'>{$tea2}</td>
-                                                <td width='10%'>{$show_link2}</td>
-                                            </tr>
-                                        ";
-                                    ?>
-                                </tbody>
-                            </table>
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php
+                <?php
+                }
             }
         ?>
         <!-- Round 3 -->
         <?php 
-            if($show3){
-                $round3s = $roundObj->checkRound3ById(base64_decode($_REQUEST['project_id']));
+            $show = $showroundObj->ShowByActivity(6,3);
+            if($show['showround']=='yes'){
+                $project3s = $microObj->getMicroById(base64_decode($_REQUEST['micro_id']));
+                $round3s = $roundObj->checkRound(base64_decode($_REQUEST['micro_id']),6,1,$project3s['level_id']);
                 if($round3s){
-                    $project3s = $projectObj->getProjectById(($_REQUEST['project_id']));
+                    
                     // print_r($project3s);
-                    $round3s = $roundObj->getRound3ById($project3s['id']);
+                    $round3s = $roundObj->getRound($project3s['id'],3,1,$project3s['level_id']);
                     // echo "<br>";
                     // echo "<br>";
                     // print_r($round3s);
                 ?>
                     <div class="d-flex justify-content-between">
                         <span class="badge rounded-pill bg-success mt-3 shadow">
-                            <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 3&nbsp;&nbsp;&nbsp;</b></h3>
+                            <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ Onsite&nbsp;&nbsp;&nbsp;</b></h3>
                         </span>
                     </div>
                     <div class="row"> 
                         <div class="col-lg-12">
                             <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
-                                <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $round3s['name'];?></div>
+                                <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $project3s['level'];?></div>
                                 <table class="table table-striped table-hover mt-2 fs-18">
                                     <thead>
                                         <tr>
@@ -261,7 +287,7 @@ use App\Model\Sciday\Teacher;
                                             echo "
                                                 <tr>
                                                     <td width='8%'>{$i3}.</td>
-                                                    <td>{$project3s['project_name']}</td>
+                                                    <td>{$project3s['micro_name']}</td>
                                                     <td width='20%'>{$project3s['school']}</td>
                                                     <td width='20%'>{$st3}</td>
                                                     <td width='15%'>{$tea3}</td>
@@ -289,7 +315,11 @@ use App\Model\Sciday\Teacher;
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                    <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="Link Video Yuotube" value="<?php echo $project2s['id'];?>" name="project_id">
+                    <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="" value="<?php echo $project2s['id'];?>" name="project_id">
+                    <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="" value="<?php echo $project2s['level_id'];?>" name="level_id">
+                    <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="" value="6" name="activity_id">
+                    
+                    <!-- <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="Link Video Yuotube" value="<?php echo $project2s['id'];?>" name="project_id"> -->
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">เพิ่มข้อมูลวีดีโอ</label>
                             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ใส่ลิงค์ Video Youtube ที่นี้..." name="link_video">
@@ -505,18 +535,18 @@ use App\Model\Sciday\Teacher;
     <script src="js/script.js"></script>
     <script src="js/drop.js"></script>
     <script>
-    function readURL(input) {
-        if (input.files[1]) {
-            let reader = new FileReader();
-            document.querySelector('#imgControl').classList.replace("d-none", "d-block");
-            reader.onload = function(e) {
-                let element = document.querySelector('#imgUpload');
-                element.setAttribute("src", e.target.result);
+        function readURL(input) {
+            if (input.files[1]) {
+                let reader = new FileReader();
+                document.querySelector('#imgControl').classList.replace("d-none", "d-block");
+                reader.onload = function(e) {
+                    let element = document.querySelector('#imgUpload');
+                    element.setAttribute("src", e.target.result);
+                }
+                reader.readAsDataURL(input.files[1]);
+            
             }
-            reader.readAsDataURL(input.files[1]);
-           
         }
-    }
     </script>
 </body>
 

@@ -408,5 +408,136 @@ public function getRound3ById($id) {
         return $data;
         
     }
-
+    // Artifact
+    public function getRoundByLevelArtifact($level,$num,$activity) {
+        $sql ="
+            SELECT
+                p.id, 
+                p.artifact_name,
+                p.school,
+                p.student_id,
+                p.teacher_id,
+                p.file_register,
+                p.user_id,
+                l.name,
+                r.num,
+                r.link_video,
+                r.level_id,
+                r.activity_id, 
+                r.project_id
+            FROM 
+                tb_round AS r
+                LEFT JOIN tb_artifact AS p ON r.project_id = p.id
+                LEFT JOIN tb_level AS l ON r.level_id = l.id
+            WHERE
+                r.level_id = ? AND
+                r.num = ".$num." AND
+                r.activity_id = ".$activity." 
+                
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$level]);
+        $data = $stmt->fetchAll();
+        return $data;
+        
+    }
+    // Project
+    public function getRoundByLevelProject($level,$num,$activity) {
+        $sql ="
+            SELECT
+                p.id, 
+                p.project_name,
+                p.school,
+                p.student_id,
+                p.teacher_id,
+                p.file_register,
+                p.user_id,
+                l.name,
+                r.num,
+                r.link_video,
+                r.level_id,
+                r.activity_id, 
+                r.project_id
+            FROM 
+                tb_round AS r
+                LEFT JOIN tb_project AS p ON r.project_id = p.id
+                LEFT JOIN tb_level AS l ON r.level_id = l.id
+            WHERE
+                r.level_id = ? AND
+                r.num = ".$num." AND
+                r.activity_id = ".$activity." 
+                
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$level]);
+        $data = $stmt->fetchAll();
+        return $data;
+        
+    }
+    // Iot
+    public function getRoundByLevelIot($level,$num,$activity) {
+        $sql ="
+            SELECT
+                p.id, 
+                p.iot_name,
+                p.school,
+                p.student_id,
+                p.teacher_id,
+                p.file_register,
+                p.user_id,
+                l.name,
+                r.num,
+                r.link_video,
+                r.level_id,
+                r.activity_id, 
+                r.project_id
+            FROM 
+                tb_round AS r
+                LEFT JOIN tb_iot AS p ON r.project_id = p.id
+                LEFT JOIN tb_level AS l ON r.level_id = l.id
+            WHERE
+                r.level_id = ? AND
+                r.num = ".$num." AND
+                r.activity_id = ".$activity." 
+                
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$level]);
+        $data = $stmt->fetchAll();
+        return $data;
+        
+    }
+    // micro
+    public function getRoundByLevelMicro($level,$num,$activity) {
+        $sql ="
+            SELECT
+                p.id, 
+                p.micro_name,
+                p.school,
+                p.student_id,
+                p.teacher_id,
+                p.file_register,
+                p.user_id,
+                l.name,
+                r.num,
+                r.link_video,
+                r.level_id,
+                r.activity_id, 
+                r.project_id
+            FROM 
+                tb_round AS r
+                LEFT JOIN tb_micro AS p ON r.project_id = p.id
+                LEFT JOIN tb_level AS l ON r.level_id = l.id
+            WHERE
+                r.level_id = ? AND
+                r.num = ".$num." AND
+                r.activity_id = ".$activity." 
+                
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$level]);
+        $data = $stmt->fetchAll();
+        return $data;
+        
+    }
 }

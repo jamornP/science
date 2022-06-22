@@ -11,8 +11,8 @@ $level_name = $levels['name'];
     $activityObj = new Activity; 
     $activitys = $activityObj->getActivityById($_SESSION['activity']);
     $activity_name = $activitys['name'];
-use App\Model\Sciday\Artifact;
- $artifactObj = new Artifact;  
+use App\Model\Sciday\Iot;
+ $iotObj = new Iot;  
 use App\Model\Sciday\Round;
  $roundObj = new Round;  
 use App\Model\Sciday\Student;
@@ -60,7 +60,7 @@ use App\Model\Sciday\Teacher;
                         </thead>
                         <tbody class="fs-14">
                             <?php 
-                                $pronames = $artifactObj->getArtifactByLevel(base64_decode($_REQUEST['level']));
+                                $pronames = $iotObj->getIotByLevel(base64_decode($_REQUEST['level']));
                                 $i=0;
                                 
                                 foreach($pronames AS $proname){
@@ -73,7 +73,7 @@ use App\Model\Sciday\Teacher;
                                    
                                         <tr>
                                             <td width='8%'><?php echo $i; ?>.</td>
-                                            <td><?php echo $proname['artifact_name']; ?></td>
+                                            <td><?php echo $proname['iot_name']; ?></td>
                                             <td width='20%'><?php echo $proname['school']; ?></td>
                                             <td width='20%'>
                                                 <?php 
@@ -92,7 +92,7 @@ use App\Model\Sciday\Teacher;
                                                 ?>
                                             </td>
                                             <td width='10%'><a href='/science/upload/sciday/file/<?php echo $proname['file_register']; ?>' target='_blank'>Download</a></td>
-                                            <td width='5%'><a href='/science/sciday/artifact/pic.php?activity=<?php echo $activity_name; ?>&p_id=<?php echo $proname['id']; ?>' target='_blank' ><i class='bx bxs-image fs-24' ></i></a></td>
+                                            <td width='5%'><a href='/science/sciday/iot/pic.php?activity=<?php echo $activity_name; ?>&p_id=<?php echo $proname['id']; ?>' target='_blank' ><i class='bx bxs-image fs-24' ></i></a></td>
                                         </tr>
                                     
                                     <?php
@@ -106,7 +106,7 @@ use App\Model\Sciday\Teacher;
         <!-- Round 2 -->
         <div class="d-flex justify-content-between">
             <span class="badge rounded-pill bg-success mt-3 shadow">
-                <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 2&nbsp;&nbsp;&nbsp;</b></h3>
+                <h3><b>&nbsp;&nbsp;&nbsp;รายชื่อผู้มีสิทธิ์ส่งคลิปวีดีโอเข้าประกวด&nbsp;&nbsp;&nbsp;</b></h3>
             </span>
         </div>
         <div class="row">
@@ -132,7 +132,7 @@ use App\Model\Sciday\Teacher;
                                 <input type='hidden' class='form-control' name='num' value='2'>
                                 <input type='hidden' class='form-control' name='link_video' value=''>
                                 <?php 
-                                    $rounds = $roundObj->getRoundByLevelArtifact(base64_decode($_REQUEST['level']),2,1);
+                                    $rounds = $roundObj->getRoundByLevelIot(base64_decode($_REQUEST['level']),2,3);
                                     $i=0;
                                     
                                     foreach($rounds AS $round){
@@ -161,7 +161,7 @@ use App\Model\Sciday\Teacher;
                                         echo "
                                             <tr>
                                                 <td width='8%'>{$i}.</td>
-                                                <td>{$round['artifact_name']}</td>
+                                                <td>{$round['iot_name']}</td>
                                                 <td width='20%'>{$round['school']}</td>
                                                 <td width='20%'>{$st}</td>
                                                 <td width='15%'>{$tea}</td>
@@ -205,13 +205,13 @@ use App\Model\Sciday\Teacher;
                                 <input type='hidden' class='form-control' name='num' value='2'>
                                 <input type='hidden' class='form-control' name='link_video' value=''>
                                 <?php 
-                                    $rounds = $roundObj->getRoundByLevelArtifact(base64_decode($_REQUEST['level']),3,1);
-                                    $i=0;
+                                    $rounds = $roundObj->getRoundByLevelIot(base64_decode($_REQUEST['level']),3,3);
+                                    $i3=0;
                                     
                                     foreach($rounds AS $round){
                                         $stus = $studentObj->getStuById($round['student_id']);
                                         $teachers = $teacherObj->getTeacherById($round['teacher_id']);
-                                        $i++;
+                                        $i3++;
                                         $j=0;
                                         $k=0;
                                         $st="";
@@ -233,8 +233,8 @@ use App\Model\Sciday\Teacher;
                                         }
                                         echo "
                                             <tr>
-                                                <td> {$i}.</td>
-                                                <td>{$round['artifact_name']}</td>
+                                                <td>{$i3}.</td>
+                                                <td>{$round['iot_name']}</td>
                                                 <td >{$round['school']}</td>
                                                 <td >{$st}</td>
                                                 <td >{$tea}</td>

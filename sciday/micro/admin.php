@@ -11,8 +11,8 @@ $level_name = $levels['name'];
     $activityObj = new Activity; 
     $activitys = $activityObj->getActivityById($_SESSION['activity']);
     $activity_name = $activitys['name'];
-use App\Model\Sciday\Artifact;
- $artifactObj = new Artifact;  
+use App\Model\Sciday\Micro;
+ $microObj = new Micro;  
 use App\Model\Sciday\Round;
  $roundObj = new Round;  
 use App\Model\Sciday\Student;
@@ -60,7 +60,7 @@ use App\Model\Sciday\Teacher;
                         </thead>
                         <tbody class="fs-14">
                             <?php 
-                                $pronames = $artifactObj->getArtifactByLevel(base64_decode($_REQUEST['level']));
+                                $pronames = $microObj->getMicroByLevel(base64_decode($_REQUEST['level']));
                                 $i=0;
                                 
                                 foreach($pronames AS $proname){
@@ -73,7 +73,7 @@ use App\Model\Sciday\Teacher;
                                    
                                         <tr>
                                             <td width='8%'><?php echo $i; ?>.</td>
-                                            <td><?php echo $proname['artifact_name']; ?></td>
+                                            <td><?php echo $proname['micro_name']; ?></td>
                                             <td width='20%'><?php echo $proname['school']; ?></td>
                                             <td width='20%'>
                                                 <?php 
@@ -92,7 +92,7 @@ use App\Model\Sciday\Teacher;
                                                 ?>
                                             </td>
                                             <td width='10%'><a href='/science/upload/sciday/file/<?php echo $proname['file_register']; ?>' target='_blank'>Download</a></td>
-                                            <td width='5%'><a href='/science/sciday/artifact/pic.php?activity=<?php echo $activity_name; ?>&p_id=<?php echo $proname['id']; ?>' target='_blank' ><i class='bx bxs-image fs-24' ></i></a></td>
+                                            <td width='5%'><a href='/science/sciday/micro/pic.php?activity=<?php echo $activity_name; ?>&p_id=<?php echo $proname['id']; ?>' target='_blank' ><i class='bx bxs-image fs-24' ></i></a></td>
                                         </tr>
                                     
                                     <?php
@@ -132,7 +132,7 @@ use App\Model\Sciday\Teacher;
                                 <input type='hidden' class='form-control' name='num' value='2'>
                                 <input type='hidden' class='form-control' name='link_video' value=''>
                                 <?php 
-                                    $rounds = $roundObj->getRoundByLevelArtifact(base64_decode($_REQUEST['level']),2,1);
+                                    $rounds = $roundObj->getRoundByLevelMicro(base64_decode($_REQUEST['level']),2,6);
                                     $i=0;
                                     
                                     foreach($rounds AS $round){
@@ -161,7 +161,7 @@ use App\Model\Sciday\Teacher;
                                         echo "
                                             <tr>
                                                 <td width='8%'>{$i}.</td>
-                                                <td>{$round['artifact_name']}</td>
+                                                <td>{$round['micro_name']}</td>
                                                 <td width='20%'>{$round['school']}</td>
                                                 <td width='20%'>{$st}</td>
                                                 <td width='15%'>{$tea}</td>
@@ -205,7 +205,7 @@ use App\Model\Sciday\Teacher;
                                 <input type='hidden' class='form-control' name='num' value='2'>
                                 <input type='hidden' class='form-control' name='link_video' value=''>
                                 <?php 
-                                    $rounds = $roundObj->getRoundByLevelArtifact(base64_decode($_REQUEST['level']),3,1);
+                                    $rounds = $roundObj->getRoundByLevelMicro(base64_decode($_REQUEST['level']),3,6);
                                     $i=0;
                                     
                                     foreach($rounds AS $round){
@@ -234,7 +234,7 @@ use App\Model\Sciday\Teacher;
                                         echo "
                                             <tr>
                                                 <td> {$i}.</td>
-                                                <td>{$round['artifact_name']}</td>
+                                                <td>{$round['micro_name']}</td>
                                                 <td >{$round['school']}</td>
                                                 <td >{$st}</td>
                                                 <td >{$tea}</td>

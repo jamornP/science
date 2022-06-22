@@ -237,7 +237,7 @@ use App\Model\Sciday\Showround;
                 if($shows['showround']=='yes'){
                 ?>
                 <div class="d-flex justify-content-between">
-                    <span class="badge rounded-pill bg-success mt-3 shadow">
+                    <span class="badge rounded-pill bg-primary mt-3 shadow">
                         <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 2&nbsp;&nbsp;&nbsp;</b></h3>
                     </span>
                 </div>
@@ -270,7 +270,7 @@ use App\Model\Sciday\Showround;
                                                 $j2=0;
                                                 $k2=0;
                                                 $st2="";
-                                                $tea="";
+                                                $tea2="";
                                                 if($round2['link_video']==""){
                                                     $show_link="";
                                                 }else{
@@ -313,7 +313,7 @@ use App\Model\Sciday\Showround;
                     ?>
                 <div class="d-flex justify-content-between">
                     <span class="badge rounded-pill bg-success mt-3 shadow">
-                        <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 3&nbsp;&nbsp;&nbsp;</b></h3>
+                        <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 3 (Onsite ที่คณะวิทยาศาสตร์) &nbsp;&nbsp;&nbsp;</b></h3>
                     </span>
                 </div>
                 <?php 
@@ -347,7 +347,7 @@ use App\Model\Sciday\Showround;
                                                 $j3=0;
                                                 $k3=0;
                                                 $st3="";
-                                                $tea="";
+                                                $tea3="";
                                                 if($round3['link_video']==""){
                                                     $show_link="";
                                                 }else{

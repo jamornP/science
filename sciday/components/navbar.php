@@ -207,7 +207,11 @@
                                 ?>
                                 <!-- </ul> -->
                                 <?php  
-
+                                    if($_SESSION['role']=='admin'){
+                                        echo "
+                                        <a class='dropdown-item' href='/science/sciday/pages/declaration.php'>ประกาศผล</a>
+                                        ";
+                                    }
                                     
                                    
                                 ?>

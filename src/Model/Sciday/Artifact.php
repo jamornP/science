@@ -41,6 +41,7 @@ class Artifact extends DbSciDay {
                 p.id,
                 p.artifact_name,
                 l.name AS level,
+                p.level_id,
                 p.school,
                 p.student_id,
                 p.teacher_id,
@@ -130,4 +131,18 @@ class Artifact extends DbSciDay {
         return true;
 
     }
+    public function delArtifactById($id) {
+        $sql ="
+            DELETE
+            FROM
+                tb_artifact
+            WHERE
+                id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        return true;
+        
+    }
+
 }

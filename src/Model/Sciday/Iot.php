@@ -68,6 +68,7 @@ class Iot extends DbSciDay {
                 p.student_id,
                 p.teacher_id,
                 p.tel,
+                p.level_id,
                 p.file_register,
                 p.user_id
             FROM
@@ -98,6 +99,42 @@ class Iot extends DbSciDay {
         $stmt->execute($iot);
         return true;
     }
+    public function delIotById($id) {
+        $sql ="
+            DELETE
+            FROM
+                tb_iot
+            WHERE
+                id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        return true;
+        
+    }
+    public function getIotByLevel($level) {
+        $sql = "
+            SELECT 
+                a.id,
+                a.school,
+                a.iot_name,
+                a.student_id,
+                a.teacher_id,
+                a.tel,
+                a.level_id,
+                a.file_register,
+                a.user_id
+            FROM
+                tb_iot AS a 
+            WHERE
+                level_id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$level]);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
+
 }
 
 ?>

@@ -72,6 +72,8 @@ use App\Model\Sciday\Teacher;
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">เปิดระบบรับสมัคร</span> <br>
+                                            - เอกสารหลักเกณฑ์การแข่งขัน <a href="/science/sciday/document/esports/หลักเกณฑ์และกติกาการแข่งขัน Science KMITL VALORANT Tournament 2022.docx" class="btn btn-sm btn-warning text-white mt-1" target='_blank'>Download</a>
+                                            <br>
                                             - ผ่านช่องทาง  <a href="https://forms.gle/Xfras1qJG1p3U8B1A" class="">https://forms.gle/Xfras1qJG1p3U8B1A</a>
                                         </td>
                                         <td class="text-center">

@@ -11,8 +11,8 @@ $level_name = $levels['name'];
     $activityObj = new Activity; 
     $activitys = $activityObj->getActivityById($_SESSION['activity']);
     $activity_name = $activitys['name'];
-use App\Model\Sciday\Project;
- $projectObj = new Project;  
+use App\Model\Sciday\Artifact;
+ $artifactObj = new Artifact;  
  use App\Model\Sciday\Round;
  $roundObj = new Round;
  use App\Model\Sciday\Student;
@@ -49,8 +49,8 @@ use App\Model\Sciday\Teacher;
                         <table class="table table-striped table-hover mt-2 fs-18">
                             <thead>
                                 <tr>
-                                    <th width='8%'>#</th>
-                                    <th width=''>ชื่อโครงงานวิทยาศาสตร์</th>
+                                <th width='8%'>#</th>
+                                    <th width=''>ชื่อสิ่งประดิษฐ์วิทยาศาสตร์</th>
                                     <th width='20%'>โรงเรียน</th>
                                     <th width='18%'>นักเรียน</th>
                                     <th width='18%'>อาจารย์ที่ปรึกษา</th>
@@ -61,11 +61,11 @@ use App\Model\Sciday\Teacher;
                             <tbody class="fs-14">
                                 <input type='hidden' class='form-control' name='activity_id' value='<?php echo $_SESSION['activity'];?>'>
                                 <input type='hidden' class='form-control' name='level_id' value='<?php echo base64_decode($_REQUEST['level']);?>'>
-                                <input type='hidden' class='form-control' name='num' value='2'>
+                                <!-- <input type='hidden' class='form-control' name='num' value='2'> -->
                                 <input type='hidden' class='form-control' name='link_video' value=''>
                                 <?php 
                                      
-                                    $projects = $projectObj->getProjectByLevel(base64_decode($_REQUEST['level']));
+                                    $projects = $artifactObj->getArtifactByLevel(base64_decode($_REQUEST['level']));
                                     $i=0;
                                     
                                     foreach($projects AS $project){
@@ -75,8 +75,8 @@ use App\Model\Sciday\Teacher;
                                         $j=0;
                                         $k=0;
                                         $st="";
-                                    $tea="";
-                                        $ck = $roundObj->checkRound($project['id'],2,2,base64_decode($_REQUEST['level']));
+                                        $tea="";
+                                        $ck = $roundObj->checkRound($project['id'],2,1,$project['level_id']);
                                         if($ck){
                                             $checkbox ="checked";
                                         }else{
@@ -98,7 +98,7 @@ use App\Model\Sciday\Teacher;
                                         echo "
                                             <tr>
                                                 <td width=''>{$i}.</td>
-                                                <td>{$project['project_name']}</td>
+                                                <td>{$project['artifact_name']}</td>
                                                 <td width=''>{$project['school']}</td>
                                                 <td width=''>{$st}</td>
                                                 <td width=''>{$tea}</td>
@@ -115,11 +115,11 @@ use App\Model\Sciday\Teacher;
                                 ?>
                             </tbody>
                         </table>
-                        
+                        <?php// if($_SESSION['round']==1){?>
                         <div class="d-flex flex-row-reverse bd-highlight mt-3">
                             <button type="submit" class="btn btn-primary" name="round1">บันทึก</button>
                         </div>
-                        
+                        <?php// }?>
                     </form>
                 </div>
             </div>
@@ -138,8 +138,8 @@ use App\Model\Sciday\Teacher;
                         <table class="table table-striped table-hover mt-2 fs-18">
                             <thead>
                                 <tr>
-                                <th width='8%'>#</th>
-                                    <th width=''>ชื่อโครงงานวิทยาศาสตร์</th>
+                                    <th width='8%'>#</th>
+                                    <th width=''>ชื่อสิ่งประดิษฐ์วิทยาศาสตร์</th>
                                     <th width='20%'>โรงเรียน</th>
                                     <th width='18%'>นักเรียน</th>
                                     <th width='18%'>อาจารย์ที่ปรึกษา</th>
@@ -153,7 +153,7 @@ use App\Model\Sciday\Teacher;
                                 <!-- <input type='hidden' class='form-control' name='num' value='2'> -->
                                 <input type='hidden' class='form-control' name='link_video2' value=''>
                                 <?php 
-                                     $round2s = $roundObj->getRoundByLevelProject(base64_decode($_REQUEST['level']),2,2);
+                                     $round2s = $roundObj->getRoundByLevelArtifact(base64_decode($_REQUEST['level']),2,1);
                                      foreach($round2s AS $round2){
                                         //$project2 = $projectObj->getProjectById($round2['project_id']);
                                         //echo $project2['student_id'];
@@ -165,7 +165,7 @@ use App\Model\Sciday\Teacher;
                                         $st2="";
                                         $tea2="";
 
-                                        $ck2 = $roundObj->checkRound($round2['id'],3,2,base64_decode($_REQUEST['level']));
+                                        $ck2 = $roundObj->checkRound($round2['id'],3,1,base64_decode($_REQUEST['level']));
                                         if($ck2){
                                             $checkbox2 ="checked";
                                         }else{
@@ -187,7 +187,7 @@ use App\Model\Sciday\Teacher;
                                         echo "
                                         <tr>
                                         <td width=''>{$i2}.</td>
-                                        <td>{$round2['Project_name']}</td>
+                                        <td>{$round2['artifact_name']}</td>
                                         <td width=''>{$round2['school']}</td>
                                         <td width=''>{$st2}</td>
                                         <td width=''>{$tea2}</td>
@@ -226,8 +226,8 @@ use App\Model\Sciday\Teacher;
                         <table class="table table-striped table-hover mt-2 fs-18">
                             <thead>
                                 <tr>
-                                <th width='8%'>#</th>
-                                    <th width=''>ชื่อโครงงานวิทยาศาสตร์</th>
+                                    <th width='8%'>#</th>
+                                    <th width=''>ชื่อสิ่งประดิษฐ์วิทยาศาสตร์</th>
                                     <th width='20%'>โรงเรียน</th>
                                     <th width='18%'>นักเรียน</th>
                                     <th width='18%'>อาจารย์ที่ปรึกษา</th>
@@ -241,7 +241,7 @@ use App\Model\Sciday\Teacher;
                                 <!-- <input type='hidden' class='form-control' name='num' value='2'> -->
                                 <input type='hidden' class='form-control' name='link_video2' value=''>
                                 <?php 
-                                     $round3s = $roundObj->getRoundByLevelProject(base64_decode($_REQUEST['level']),3,2);;
+                                     $round3s = $roundObj->getRoundByLevelArtifact(base64_decode($_REQUEST['level']),3,1);;
                                      foreach($round3s AS $round3){
                                         //$project3 = $projectObj->getProjectById($round3['project_id']);
                                         //echo $project3['student_id'];
@@ -269,7 +269,7 @@ use App\Model\Sciday\Teacher;
                                         echo "
                                             <tr>
                                                 <td width=''>{$i3}.</td>
-                                                <td>{$round3['Project_name']}</td>
+                                                <td>{$round3['artifact_name']}</td>
                                                 <td width=''>{$round3['school']}</td>
                                                 <td width=''>{$st3}</td>
                                                 <td width=''>{$tea3}</td>

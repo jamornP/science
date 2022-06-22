@@ -57,6 +57,32 @@ class Showround extends DbSciDay {
         $stmt->execute($data);
         return true;
     }
+    public function UpdateData($data) {
+        $sql ="
+            UPDATE 
+                tb_show 
+            SET 
+                edit_data = :edit_data 
+            WHERE 
+                id = :id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+        return true;
+    }
+    public function UpdateVideo($data) {
+        $sql ="
+            UPDATE 
+                tb_show 
+            SET 
+                edit_video = :edit_video 
+            WHERE 
+                id = :id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+        return true;
+    }
     public function ckShowroundById($id) {
         $sql ="
             SELECT * 

@@ -143,12 +143,12 @@ use App\Model\Sciday\Teacher;
                 </div>
             </figure>
         </div>
-        
+        <!-- Round 1 -->
         <?php 
             $shows = $showroundObj->ShowByActivity(4,2); 
             if($shows['showround']=='yes'){?>
             <div class="d-flex justify-content-between">
-                <span class="badge rounded-pill bg-success mt-3 shadow">
+                <span class="badge rounded-pill bg-primary mt-3 shadow">
                     <h3><b>&nbsp;&nbsp;&nbsp;ประกาศรายชื่อผู้ผ่านการคัดเลือก&nbsp;&nbsp;&nbsp;</b></h3>
                     <?php 
                         // echo $level['id']."<br>";
@@ -166,7 +166,7 @@ use App\Model\Sciday\Teacher;
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="shadow-sm p-3 mb-2 bg-white rounded mt-3 fs-20">
-                            <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $level['name'];?></div>
+                            <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp;การแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ ( <?php echo $level['name'];?> )</div>
                             <table class="table table-striped table-hover fs-20">
                                 <thead>
                                     <tr>
@@ -188,7 +188,7 @@ use App\Model\Sciday\Teacher;
                                             $j2=0;
                                             $k2=0;
                                             $st2="";
-                                            $tea="";
+                                            $tea2="";
                                             if($round2['link_video']==""){
                                                 $show_link="";
                                             }else{
@@ -224,7 +224,87 @@ use App\Model\Sciday\Teacher;
                     }
             ?>
         <?php } ?>
-           
+        <!-- Round 2 -->
+        <?php 
+            $shows = $showroundObj->ShowByActivity(4,3); 
+            if($shows['showround']=='yes'){?>
+            <div class="d-flex justify-content-between">
+                <span class="badge rounded-pill bg-success mt-3 shadow">
+                    <h3><b>&nbsp;&nbsp;&nbsp;ประกาศรายชื่อผู้ผ่านเข้ารอบตัดสิน&nbsp;&nbsp;&nbsp;</b></h3>
+                    <?php 
+                        // echo $level['id']."<br>";
+                        // echo base64_decode($_REQUEST['activity'])."<br>";
+                        
+                    ?>
+                </span>
+            </div>
+            <?php 
+            
+                $levels = $levelObj->getLevelByActivity(base64_decode($_REQUEST['activity']));
+                foreach($levels AS $level){
+                    
+                ?>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="shadow-sm p-3 mb-2 bg-white rounded mt-3 fs-20">
+                            <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp;การแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ ( <?php echo $level['name'];?> )</div>
+                            <table class="table table-striped table-hover fs-20">
+                                <thead>
+                                    <tr>
+                                        <th width='10%'>#</th>
+                                        <th width='40%'>โรงเรียน</th>
+                                        <th width='25%'>นักเรียน</th>
+                                        <th width='25%'>อาจารย์ที่ปรึกษา</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="fs-14">
+                                    
+                                    <?php 
+                                        $round3s = $roundObj->getRoundByLevelAnswer($level['id'],3,4);
+                                        $i=0;
+                                        foreach($round3s AS $round3){
+                                            $stu3s = $studentObj->getStuById($round3['student_id']);
+                                            $teacher3s = $teacherObj->getTeacherById($round3['teacher_id']);
+                                            $i3++;
+                                            $j3=0;
+                                            $k3=0;
+                                            $st3="";
+                                            $tea3="";
+                                            if($round3['link_video']==""){
+                                                $show_link="";
+                                            }else{
+                                                $show_link="<a href='{$round3['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
+                                            }
+                                            // ค้นหานักเรียน
+                                            foreach($stu3s AS $stu3){
+                                                $j3++;
+                                                $st3 .=$j3.". ".$stu3['stitle'].$stu3['sname']." ".$stu3['ssurname']."<br>";
+                                            }
+                                            // ค้นหาชื่ออาจารย์ที่ปรึกษา
+                                            foreach($teacher3s AS $teacher3){
+                                                $k3++;
+                                                $tea3 .=$k3.". ".$teacher3['ttitle'].$teacher3['tname']." ".$teacher3['tsurname']."<br>";
+                                            }
+                                            echo "
+                                                <tr>
+                                                    <td width=''>{$i3}.</td>
+                                                    <td width=''>{$round3['school']}</td>
+                                                    <td width=''>{$st3}</td>
+                                                    <td width=''>{$tea3}</td>
+                                                </tr>
+                                            ";
+                                        }
+                                    ?>
+                                
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <?php                
+                    }
+            ?>
+        <?php } ?>
         
         
     </div>

@@ -152,6 +152,7 @@ use App\Model\Sciday\Teacher;
         
    
         <div class="tab-content  p-2 mb-5" id="myTabContent">
+            <!-- round 1 -->
             <?php
                 $show = $showroundObj->ShowByActivity(base64_decode($_REQUEST['activity']),1);
                 if($show['showround']=='yes'){
@@ -235,7 +236,7 @@ use App\Model\Sciday\Teacher;
                         <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 2&nbsp;&nbsp;&nbsp;</b></h3>
                         <?php 
                             // echo $level['id']."<br>";
-                            echo base64_decode($_REQUEST['activity'])."<br>";
+                            // echo base64_decode($_REQUEST['activity'])."<br>";
                             
                         ?>
                     </span>
@@ -249,7 +250,7 @@ use App\Model\Sciday\Teacher;
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="shadow-sm p-3 mb-2 bg-white rounded mt-3 fs-20">
-                                <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $level['name']." ".$level['id'];?></div>
+                                <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $level['name'];?></div>
                                 <table class="table table-striped table-hover fs-20">
                                     <thead>
                                         <tr>
@@ -262,7 +263,7 @@ use App\Model\Sciday\Teacher;
                                     <tbody class="fs-14">
                                         
                                         <?php 
-                                            $round2s = $roundObj->getRoundByLevel($level['id'],2,base64_decode($_REQUEST['activity']));
+                                            $round2s = $roundObj->getRoundByLevelArtifact($level['id'],2,1);
                                             $i=0;
                                             foreach($round2s AS $round2){
                                                 $stu2s = $studentObj->getStuById($round2['student_id']);
@@ -271,7 +272,7 @@ use App\Model\Sciday\Teacher;
                                                 $j2=0;
                                                 $k2=0;
                                                 $st2="";
-                                                $tea="";
+                                                $tea2="";
                                                 if($round2['link_video']==""){
                                                     $show_link="";
                                                 }else{
@@ -313,7 +314,7 @@ use App\Model\Sciday\Teacher;
                 if($shows['showround']=='yes'){?>
                 <div class="d-flex justify-content-between">
                     <span class="badge rounded-pill bg-success mt-3 shadow">
-                        <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 3&nbsp;&nbsp;&nbsp;</b></h3>
+                        <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ Onsite&nbsp;&nbsp;&nbsp;</b></h3>
                     </span>
                 </div>
                 <?php 
@@ -338,7 +339,7 @@ use App\Model\Sciday\Teacher;
                                     <tbody class="fs-14">
                                         
                                         <?php 
-                                            $round3s = $roundObj->getRoundByLevel($level['id'],3,base64_decode($_REQUEST['activity']));
+                                            $round3s = $roundObj->getRoundByLevelArtifact($level['id'],3,1);
                                             $i=0;
                                             foreach($round3s AS $round3){
                                                 $stu3s = $studentObj->getStuById($round3['student_id']);
@@ -347,7 +348,7 @@ use App\Model\Sciday\Teacher;
                                                 $j3=0;
                                                 $k3=0;
                                                 $st3="";
-                                                $tea="";
+                                                $tea3="";
                                                 if($round3['link_video']==""){
                                                     $show_link="";
                                                 }else{

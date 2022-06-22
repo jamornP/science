@@ -1,3 +1,4 @@
+<?php  print_r($_REQUEST);?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/auth/auth.php";?>
 <?php
@@ -23,7 +24,7 @@ if(isset($_REQUEST['round1'])){
       
     }
     $level_id=base64_encode($_REQUEST['level_id']);
-    header("location: /science/sciday/answer/manage.php?level={$level_id}");
+    header("location: /science/sciday/iot/manage.php?level={$level_id}");
 }elseif(isset($_REQUEST['round2'])){
     print_r($_REQUEST);
     $data['activity_id'] = $_REQUEST['activity_id2'];
@@ -44,7 +45,7 @@ if(isset($_REQUEST['round1'])){
       
     }
     $level_id=base64_encode($_REQUEST['level_id2']);
-    header("location: /science/sciday/answer/manage.php?level={$level_id}");
+    header("location: /science/sciday/iot/manage.php?level={$level_id}");
 }
 
 ?>
