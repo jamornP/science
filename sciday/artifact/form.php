@@ -81,8 +81,8 @@
                                             foreach($levels AS $level){
                                                 echo "
                                                     <div class='form-check form-check-inline'>
-                                                        <input class='form-check-input' type='radio' name='level_id' id='inlineRadio{$levle['id']}' value='{$level['id']}' checked>
-                                                        <label class='form-check-label' for='inlineRadio{$levle['id']}'>{$level['name']}</label>
+                                                        <input class='form-check-input' type='radio' name='level_id' id='inlineRadio{$level['id']}' value='{$level['id']}' checked>
+                                                        <label class='form-check-label' for='inlineRadio{$level['id']}'>{$level['name']}</label>
                                                     </div>
                                                 ";
                                             }
