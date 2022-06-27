@@ -44,7 +44,7 @@ use App\Model\Sciday\Teacher;
         
         <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3">
             <div class="d-flex flex-row-reverse bd-highlight">
-                <a href="" class="btn btn-lg btn-outline-success my-bottom"><span class="spinner-grow spinner-grow-sm text-warning" role="status" aria-hidden="true"></span> สมัครแข่งขัน</a>
+                <a href="https://forms.gle/Xfras1qJG1p3U8B1A" class="btn btn-lg btn-outline-success my-bottom"><span class="spinner-grow spinner-grow-sm text-warning" role="status" aria-hidden="true"></span> สมัครแข่งขัน</a>
             </div>
         
             <figure class="">
@@ -74,7 +74,7 @@ use App\Model\Sciday\Teacher;
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">เปิดระบบรับสมัคร</span> <br>
                                             - เอกสารหลักเกณฑ์การแข่งขัน <a href="/science/sciday/document/esports/หลักเกณฑ์และกติกาการแข่งขัน Science KMITL VALORANT Tournament 2022.docx" class="btn btn-sm btn-warning text-white mt-1" target='_blank'>Download</a>
                                             <br>
-                                            - ผ่านช่องทาง  <a href="" class="">https://forms.gle/Xfras1qJG1p3U8B1A</a>
+                                            - ผ่านช่องทาง  <a href="https://forms.gle/Xfras1qJG1p3U8B1A" class="">https://forms.gle/Xfras1qJG1p3U8B1A</a>
                                         </td>
                                         <td class="text-center">
                                             วันที่ 22 มิ.ย. 2565
