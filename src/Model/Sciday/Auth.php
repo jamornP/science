@@ -81,4 +81,37 @@ use App\Database\DbSciDay;
 
         return true;
     }
+    public function checkEmail($email) {
+        $sql = "
+            SELECT *
+            FROM tb_users
+            WHERE email=:email AND tel=:tel
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($email);
+        $data = $stmt->fetchColumn();
+        if($data>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function ResetPassword($user) {
+        $user['password'] = password_hash($user['password'],PASSWORD_DEFAULT);
+
+        $sql = "
+            UPDATE 
+                tb_users 
+            SET
+                password=:password 
+            WHERE
+                email = :email AND
+                tel = :tel
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $ck = $stmt->execute($user);
+        return true;
+        
+        
+    }
 }

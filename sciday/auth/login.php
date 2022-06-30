@@ -9,7 +9,15 @@
 </head>
 <body class="font-prompt">
     <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
-
+    <?php
+        if($_GET['success']){
+            echo "
+                <div class='alert alert-success' role='alert'>
+                    เปลี่ยน Password เรียบร้อย
+                </div>
+          ";                    
+        }
+    ?>
     <div class="vh-100 d-flex justify-content-center align-items-center">
         <div class="card mb-3 shadow">
             <div class="card-header bg-primary text-white">
@@ -24,6 +32,7 @@
                         if($_GET['msg']) {
                             echo "<h5 class='my-3 text-danger'>Password ไม่ถูกต้อง กรุณาลองอีกครั้ง</h5>";
                         }
+                        
                     ?>
                     <div class="form-group mt-2">
                         <label for="email" class="text-primary fs-18">Email :</label>
@@ -35,8 +44,11 @@
                     </div>
                     <div class="text-end">
                         <button type="submit" class="btn btn-success text-white mt-4">Login</button>
-                        <a href="register.php" class="btn btn-primary mt-4">ลงทะเบียน</a>
+                        
+                        
                     </div>
+                    <a href="register.php" class="">ลงทะเบียน</a>
+                    <a href="resetpass.php" class="">ลืมรหัส</a>
                 </form>
                 <!-- <a href="register.php">สมัครใช้งานใหม่</a> -->
             </div>
