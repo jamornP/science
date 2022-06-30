@@ -49,11 +49,12 @@ use App\Model\Sciday\Teacher;
                     <table class="table table-striped table-hover mt-2 fs-18">
                         <thead>
                             <tr>
-                                <th width='8%'>#</th>
+                                <th width='5%'>#</th>
                                 <th >ชื่อโครงงานวิทยาศาสตร์</th>
                                 <th width='20%'>โรงเรียน</th>
                                 <th width='20%'>นักเรียน</th>
                                 <th width='15%'>อาจารย์ที่ปรึกษา</th>
+                                <th width='8%'>ติดต่อ</th>
                                 <th width='10%'>เอกสาร</th>
                                 <th width='5%'>รูป</th>
                             </tr>
@@ -72,10 +73,10 @@ use App\Model\Sciday\Teacher;
                                     ?>
                                    
                                         <tr>
-                                            <td width='8%'><?php echo $i; ?>.</td>
+                                            <td ><?php echo $i; ?>.</td>
                                             <td><?php echo $proname['project_name']; ?></td>
-                                            <td width='20%'><?php echo $proname['school']; ?></td>
-                                            <td width='20%'>
+                                            <td ><?php echo $proname['school']; ?></td>
+                                            <td >
                                                 <?php 
                                                     foreach($stus AS $stu){
                                                         $j++;
@@ -83,7 +84,7 @@ use App\Model\Sciday\Teacher;
                                                     }
                                                 ?>
                                             </td>
-                                            <td width='15%'>
+                                            <td >
                                                 <?php 
                                                     foreach($teachers AS $teacher){
                                                         $k++;
@@ -91,8 +92,9 @@ use App\Model\Sciday\Teacher;
                                                     }
                                                 ?>
                                             </td>
-                                            <td width='10%'><a href='/science/upload/sciday/file/<?php echo $proname['file_register']; ?>' target='_blank'>Download</a></td>
-                                            <td width='5%'><a href='/science/sciday/project/pic.php?activity=<?php echo $activity_name; ?>&p_id=<?php echo $proname['id']; ?>&image_id=<?php echo $proname['images_id']; ?>' target='_blank' ><i class='bx bxs-image fs-24' ></i></a></td>
+                                            <td><?php echo $proname['tel']; ?></td>
+                                            <td ><a href='/science/upload/sciday/file/<?php echo $proname['file_register']; ?>' target='_blank'>Download</a></td>
+                                            <td ><a href='/science/sciday/project/pic.php?activity=<?php echo $activity_name; ?>&p_id=<?php echo $proname['id']; ?>&image_id=<?php echo $proname['images_id']; ?>' target='_blank' ><i class='bx bxs-image fs-24' ></i></a></td>
                                         </tr>
                                     
                                     <?php
@@ -195,6 +197,7 @@ use App\Model\Sciday\Teacher;
                                     <th width='20%'>โรงเรียน</th>
                                     <th width='20%'>นักเรียน</th>
                                     <th width='15%'>อาจารย์ที่ปรึกษา</th>
+                                    <!-- <th width='8%'>เบอร์</th> -->
                                     <th width='15%'>Onsite</th>
                                     <!-- <th>รูป</th> -->
                                 </tr>

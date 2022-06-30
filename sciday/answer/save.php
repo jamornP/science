@@ -26,7 +26,7 @@ session_start();
     if(isset($_FILES['file_doc']['tmp_name'])) {
         $ext = end(explode(".",$_FILES['file_doc']['name']));
         if($ext=='pdf' OR $ext=='docx' OR $ext=='doc'){
-            $new_name = $_REQUEST['school']."-".uniqid().".".$ext;
+            $new_name = "answer-".uniqid().".".$ext;
             $file_path = $_SERVER['DOCUMENT_ROOT']."/science/upload/sciday/file/".$new_name;
             move_uploaded_file($_FILES['file_doc']['tmp_name'],$file_path);
             $data['file_register']=$new_name;

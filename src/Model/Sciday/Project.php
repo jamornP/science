@@ -68,10 +68,12 @@ class Project extends DbSciDay {
                 p.teacher_id,
                 p.file_register,
                 p.images_id,
-                p.user_id
+                p.user_id,
+                u.tel
             FROM
                 tb_project AS p
                 LEFT JOIN tb_level AS l ON p.level_id = l.id 
+                LEFT JOIN tb_users AS u ON p.user_id = u.id 
             WHERE
                 p.level_id = ?
             ORDER BY 
@@ -149,6 +151,20 @@ class Project extends DbSciDay {
         $stmt->execute($project);
         return true;
 
+
+    }
+    public function delProjectById($id) {
+        $sql ="
+            DELETE
+            FROM
+                tb_project
+            WHERE
+                id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        return true;
+        
     }
 
 }

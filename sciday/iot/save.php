@@ -23,7 +23,7 @@ $data['user_id']=$_SESSION['user_id'];
 if(isset($_FILES['file_doc']['tmp_name'])) {
     $ext = end(explode(".",$_FILES['file_doc']['name']));
     if($ext=='pdf' OR $ext=='docx' OR $ext=='doc'){
-        $new_name = $_REQUEST['iot_name']."-".uniqid().".".$ext;
+        $new_name = "iot-".uniqid().".".$ext;
         $file_path = $_SERVER['DOCUMENT_ROOT']."/science/upload/sciday/file/".$new_name;
         move_uploaded_file($_FILES['file_doc']['tmp_name'],$file_path);
         $data['file_register']=$new_name;

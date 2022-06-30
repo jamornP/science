@@ -47,10 +47,12 @@ class Artifact extends DbSciDay {
                 p.teacher_id,
                 p.file_register,
                 p.images_id,
-                p.user_id
+                p.user_id,
+                u.tel
             FROM
                 tb_artifact AS p
                 LEFT JOIN tb_level AS l ON p.level_id = l.id 
+                LEFT JOIN tb_users AS u ON p.user_id = u.id 
             WHERE
                 p.level_id = ?
             ORDER BY 
