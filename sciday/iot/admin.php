@@ -50,7 +50,7 @@ use App\Model\Sciday\Teacher;
                         <thead>
                             <tr>
                                 <th width='8%'>#</th>
-                                <th >ชื่อโครงงานวิทยาศาสตร์</th>
+                                <th >ชื่อโครงงาน</th>
                                 <th width='20%'>โรงเรียน</th>
                                 <th width='20%'>นักเรียน</th>
                                 <th width='15%'>อาจารย์ที่ปรึกษา</th>
@@ -118,7 +118,7 @@ use App\Model\Sciday\Teacher;
                             <thead>
                                 <tr>
                                     <th width='8%'>#</th>
-                                    <th>ชื่อโครงงานวิทยาศาสตร์</th>
+                                    <th>ชื่อโครงงาน</th>
                                     <th width='20%'>โรงเรียน</th>
                                     <th width='20%'>นักเรียน</th>
                                     <th width='15%'>อาจารย์ที่ปรึกษา</th>
@@ -191,7 +191,7 @@ use App\Model\Sciday\Teacher;
                             <thead>
                                 <tr>
                                     <th width='8%'>#</th>
-                                    <th>ชื่อโครงงานวิทยาศาสตร์</th>
+                                    <th>ชื่อโครงงาน</th>
                                     <th width='20%'>โรงเรียน</th>
                                     <th width='20%'>นักเรียน</th>
                                     <th width='15%'>อาจารย์ที่ปรึกษา</th>
