@@ -33,6 +33,12 @@ class Activity extends DbSciDay {
         $data = $stmt->fetchAll();
         return $data[0];
     }
+    public function getAllByActivity($da) {
+         
+        $stmt = $this->pdo->query($da);
+        $data = $stmt->rowCount();
+        return $data;
+    }
 
 
 }

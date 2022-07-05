@@ -97,130 +97,136 @@
             </ul>
             <div class="d-flex">
                 <?php if($_SESSION['login']){?>
-                            <a class="nav-link dropdown-toggle active text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <?php echo $_SESSION['name']." ".$_SESSION['surname']." (".$_SESSION['role'].")" ?>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown" style="background-color:rgb(96,168,197);"  >
-                                <span class='badge rounded-pill bg-warning fs-18'> แก้ไขข้อมูล </span>
-                                <hr class="dropdown-divider">
-                                <?php 
-                                    $activitys = $activityObj->getActivityByYear('2022');
-                                    foreach($activitys AS $activity){
-                                        
-                                        switch ($activity['id']) {
-                                            case 1:
-                                                $artifacts = $artifactObj->getArtifactByUser($_SESSION['user_id']);
-                                                if(count($artifacts)>0){
-                                                    echo "
-                                                    <span class='badge rounded-pill bg-primary fs-16'> {$activity['name']}</span>
-                                                    ";
-                                                    
-                                                    foreach($artifacts AS $artifact){
-                                                        $artifact_id = base64_encode($artifact['id']);
-                                                        $activity_id = base64_encode(1);
-                                                        echo "
-                                                            <a class='dropdown-item' href='/science/sciday/artifact/member.php?artifact_id={$artifact_id}'><i class='bx bx-right-arrow-alt' ></i> {$artifact['artifact_name']}</a>
-                                                        ";
-                                                    }
-                                                }
-                                              break;
-                                            case 2:
-                                                $pros = $projectObj->getProjectByUser($_SESSION['user_id']);
-                                                if(count($pros)>0){
-                                                    echo "
-                                                    <span class='badge rounded-pill bg-primary fs-16'> {$activity['name']}</span>
-                                                    ";
-                                                    foreach($pros AS $pro){
-                                                        $pro_id = base64_encode($pro['id']);
-                                                        $activity_id = base64_encode(2);
-                                                        echo "
-                                                            <a class='dropdown-item' href='/science/sciday/project/member.php?project_id={$pro_id}'><i class='bx bx-right-arrow-alt' ></i> {$pro['project_name']}</a>
-                                                        ";
-                                                    }
-                                                }
-                                              break;
-                                            case 3:
-                                                $iots = $iotObj->getIotByUser($_SESSION['user_id']);
-                                                if(count($iots)>0){
-                                                    echo "
-                                                        <span class='badge rounded-pill bg-primary fs-16'> {$activity['name']}</span>
-                                                    ";
-                                                    foreach($iots AS $iot){
-                                                        $pro_id = base64_encode($iot['id']);
-                                                        $activity_id = base64_encode(3);
-                                                        echo "
-                                                            <a class='dropdown-item' href='/science/sciday/iot/member.php?iot_id={$pro_id}'><i class='bx bx-right-arrow-alt' ></i> {$iot['iot_name']}</a>
-                                                        ";
-                                                    }
-                                                }
-                                              break;
-                                            case 4:
-                                                $answers = $answerObj->getAnswerByUser($_SESSION['user_id']);
-                                                if(count($answers)>0){
-                                                    echo "
-                                                    <span class='badge rounded-pill bg-primary fs-16'> {$activity['name']}</span>
-                                                    ";
-                                                    foreach($answers AS $answer){
-                                                        $answer_id = base64_encode($answer['id']);
-                                                        $activity_id = base64_encode(4);
-                                                        echo "
-                                                            <a class='dropdown-item' href='/science/sciday/answer/member.php?answer_id={$answer_id}'><i class='bx bx-right-arrow-alt' ></i> {$answer['level']}</a>
-                                                        ";
-                                                    }
-                                                }
-                                              break;
-
-                                            case 5:
-                                                $esportss = $esportsObj->getEsportsByUser($_SESSION['user_id']);
-                                                if(count($esportss)>0){
-                                                    echo "
-                                                    <span class='badge rounded-pill bg-primary fs-16'> {$activity['name']}</span>
-                                                    ";
-                                                    foreach($esportss AS $esports){
-                                                        $esports_id = base64_encode($esports['id']);
-                                                        $activity_id = base64_encode(5);
-                                                        echo "
-                                                            <a class='dropdown-item' href='/science/sciday/esports/member.php?esports_id={$esports_id}'><i class='bx bx-right-arrow-alt' ></i> {$esports['team']}</a>
-                                                        ";
-                                                    }
-                                                }
-                                                
-                                              break;
-                                            case 6:
-                                                $micros = $microObj->getMicroByUser($_SESSION['user_id']);
-                                                if(count($micros)>0){
-                                                    echo "
-                                                    <span class='badge rounded-pill bg-primary fs-16'> {$activity['name']}</span>
-                                                    ";
-                                                    foreach($micros AS $micro){
-                                                        $micro_id = base64_encode($micro['id']);
-                                                        $activity_id = base64_encode(6);
-                                                        echo "
-                                                            <a class='dropdown-item' href='/science/sciday/micro/member.php?micro_id={$micro_id}'><i class='bx bx-right-arrow-alt' ></i> {$micro['micro_name']}</a>
-                                                        ";
-                                                    }
-                                                }
-                                              break;
-                                            default:
+                    <a class="nav-link dropdown-toggle active text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <?php echo $_SESSION['name']." ".$_SESSION['surname']." (".$_SESSION['role'].")" ?>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown" style="background-color:rgb(96,168,197);"  >
+                        <span class='badge rounded-pill bg-warning fs-18'> แก้ไขข้อมูล </span>
+                        <hr class="dropdown-divider">
+                        <?php 
+                            $activitys = $activityObj->getActivityByYear('2022');
+                            foreach($activitys AS $activity){
+                                
+                                switch ($activity['id']) {
+                                    case 1:
+                                        $artifacts = $artifactObj->getArtifactByUser($_SESSION['user_id']);
+                                        if(count($artifacts)>0){
+                                            echo "
+                                            <span class='badge rounded-pill bg-primary fs-16'> {$activity['name']}</span>
+                                            ";
+                                            
+                                            foreach($artifacts AS $artifact){
+                                                $artifact_id = base64_encode($artifact['id']);
+                                                $activity_id = base64_encode(1);
+                                                echo "
+                                                    <a class='dropdown-item' href='/science/sciday/artifact/member.php?artifact_id={$artifact_id}'><i class='bx bx-right-arrow-alt' ></i> {$artifact['artifact_name']}</a>
+                                                ";
+                                            }
                                         }
-                                    }
-                                ?>
-                                <!-- </ul> -->
-                                <?php  
-                                    if($_SESSION['role']=='admin'){
-                                        echo "
-                                        <a class='dropdown-item' href='/science/sciday/pages/declaration.php'>ประกาศผล</a>
-                                        ";
-                                    }
-                                    
-                                   
-                                ?>
-                                <hr class="dropdown-divider">
-                                <a class="dropdown-item" href="/science/sciday/auth/logout.php">ออกจากระบบ</a>
-                            </div>
-                       
-                   
-                <?php }else{?>
+                                        break;
+                                    case 2:
+                                        $pros = $projectObj->getProjectByUser($_SESSION['user_id']);
+                                        if(count($pros)>0){
+                                            echo "
+                                            <span class='badge rounded-pill bg-primary fs-16'> {$activity['name']}</span>
+                                            ";
+                                            foreach($pros AS $pro){
+                                                $pro_id = base64_encode($pro['id']);
+                                                $activity_id = base64_encode(2);
+                                                echo "
+                                                    <a class='dropdown-item' href='/science/sciday/project/member.php?project_id={$pro_id}'><i class='bx bx-right-arrow-alt' ></i> {$pro['project_name']}</a>
+                                                ";
+                                            }
+                                        }
+                                        break;
+                                    case 3:
+                                        $iots = $iotObj->getIotByUser($_SESSION['user_id']);
+                                        if(count($iots)>0){
+                                            echo "
+                                                <span class='badge rounded-pill bg-primary fs-16'> {$activity['name']}</span>
+                                            ";
+                                            foreach($iots AS $iot){
+                                                $pro_id = base64_encode($iot['id']);
+                                                $activity_id = base64_encode(3);
+                                                echo "
+                                                    <a class='dropdown-item' href='/science/sciday/iot/member.php?iot_id={$pro_id}'><i class='bx bx-right-arrow-alt' ></i> {$iot['iot_name']}</a>
+                                                ";
+                                            }
+                                        }
+                                        break;
+                                    case 4:
+                                        $answers = $answerObj->getAnswerByUser($_SESSION['user_id']);
+                                        if(count($answers)>0){
+                                            echo "
+                                            <span class='badge rounded-pill bg-primary fs-16'> {$activity['name']}</span>
+                                            ";
+                                            foreach($answers AS $answer){
+                                                $answer_id = base64_encode($answer['id']);
+                                                $activity_id = base64_encode(4);
+                                                echo "
+                                                    <a class='dropdown-item' href='/science/sciday/answer/member.php?answer_id={$answer_id}'><i class='bx bx-right-arrow-alt' ></i> {$answer['level']}</a>
+                                                ";
+                                            }
+                                        }
+                                        break;
+
+                                    case 5:
+                                        $esportss = $esportsObj->getEsportsByUser($_SESSION['user_id']);
+                                        if(count($esportss)>0){
+                                            echo "
+                                            <span class='badge rounded-pill bg-primary fs-16'> {$activity['name']}</span>
+                                            ";
+                                            foreach($esportss AS $esports){
+                                                $esports_id = base64_encode($esports['id']);
+                                                $activity_id = base64_encode(5);
+                                                echo "
+                                                    <a class='dropdown-item' href='/science/sciday/esports/member.php?esports_id={$esports_id}'><i class='bx bx-right-arrow-alt' ></i> {$esports['team']}</a>
+                                                ";
+                                            }
+                                        }
+                                        
+                                        break;
+                                    case 6:
+                                        $micros = $microObj->getMicroByUser($_SESSION['user_id']);
+                                        if(count($micros)>0){
+                                            echo "
+                                            <span class='badge rounded-pill bg-primary fs-16'> {$activity['name']}</span>
+                                            ";
+                                            foreach($micros AS $micro){
+                                                $micro_id = base64_encode($micro['id']);
+                                                $activity_id = base64_encode(6);
+                                                echo "
+                                                    <a class='dropdown-item' href='/science/sciday/micro/member.php?micro_id={$micro_id}'><i class='bx bx-right-arrow-alt' ></i> {$micro['micro_name']}</a>
+                                                ";
+                                            }
+                                        }
+                                        break;
+                                    default:
+                                }
+                            }
+                        ?>
+                        <!-- </ul> -->
+                        <?php  
+                            if($_SESSION['role']=='admin'){
+                                echo "
+                                    <a class='dropdown-item' href='/science/sciday/pages/declaration.php'>ประกาศผล</a>
+                                    <a class='dropdown-item' href='/science/sciday/pages/all.php'>สรุปทีมที่สมัครทุกกิจกรรม</a>
+                                ";
+                            }elseif($_SESSION['role']=='chairman'){
+                                echo "
+                                    <a class='dropdown-item' href='/science/sciday/pages/all.php'>สรุปทีมที่สมัครทุกกิจกรรม</a>
+                                ";
+                            }
+                            
+                            
+                        ?>
+                        <hr class="dropdown-divider">
+                        <a class="dropdown-item" href="/science/sciday/auth/logout.php">ออกจากระบบ</a>
+                    </div>
+                
+            
+                    <?php 
+                    }else{?>
                     <a class="nav-link text-white" href="/science/sciday/auth/register.php"><i class='bx bx-registered' ></i> ลงทะเบียน</a>
                     <div class="vr"></div>
                     <a class="nav-link text-white" href="/science/sciday/auth/login.php"><i class='bx bx-user-circle'></i> เข้าสู่ระบบ</a>
