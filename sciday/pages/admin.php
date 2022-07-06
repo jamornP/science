@@ -17,8 +17,8 @@
 </head>
 
 <body class="font-prompt">
-    <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
-    <div class="container">
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/navbar.php";?>
+<div class="container">
         <div class="mt-2 card shadow p-3 mb-5 bg-white rounded">
             <div class="card-header">
                 <h3>สรุปทีมที่สัมคร กิจกรรงานวันวิทยาศาสตร์ 2022 </h3>(Update : <?php echo date("d-m-Y");?>)
@@ -35,9 +35,12 @@
                             
                                 <div class='col-md-4 mt-2'>
                                     <div class='d-flex position-relative'>
-                                        <img src='/science/sciday/images/<?php echo $activity['id'].".png";?>' class='flex-shrink-0 me-3 w-50 shadow mb-5 ' alt='{$activity['name']}'>
+                                        <!-- <div class="w-75"> -->
+                                            <img src='/science/sciday/images/<?php echo $activity['id'].".png";?>' class='flex-shrink-0 me-3 w-50 shadow mb-5 ' alt=''>
+                                        <!-- </div> -->
                                         
-                                        <div class=''>
+                                        
+                                        <div class='w-100'>
                                             <h5 class='text-center mt-0'>จำนวนทีมที่สมัคร</h5>
                                             <div class='text-center mt-0 '>
                                                 <?php
@@ -70,11 +73,14 @@
                                                               break;
                                                         }
                                                         $count=$activityObj->getAllByActivity($sql);
+                                                        $level_id= base64_encode($level['id']);
                                                         echo "
-                                                            <p class='fs-16 text-primary'>{$level['name']}</p>
+                                                            <a class='text-decoration-none' href='{$activity['committee']}?level={$level_id}'>
+                                                                <p class='border bg-primary text-white fs-16 text-primary'>{$level['name']}</p>
+                                                            </a>
                                                             <p class='fs-16 text-primary'>{$count}</p>
-                                                            
                                                         ";
+
                                                         
                                                     }
                                                     if($activity['id']==5){
@@ -89,7 +95,7 @@
                                                 
                                                 
                                                 
-                                                <a href='<?php echo $activity['link']."?activity=".$activity_id; ?>' class='stretched-link'></a>
+                                                
                                             </div>   
                                             <!-- <h5 class='text-center mt-0'>ทีม</h5> -->
                                             

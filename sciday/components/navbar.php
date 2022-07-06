@@ -210,7 +210,7 @@
                             if($_SESSION['role']=='admin'){
                                 echo "
                                     <a class='dropdown-item' href='/science/sciday/pages/declaration.php'>ประกาศผล</a>
-                                    <a class='dropdown-item' href='/science/sciday/pages/all.php'>สรุปทีมที่สมัครทุกกิจกรรม</a>
+                                    <a class='dropdown-item' href='/science/sciday/pages/admin.php'>สรุปทีมที่สมัครทุกกิจกรรม</a>
                                 ";
                             }elseif($_SESSION['role']=='chairman'){
                                 echo "
