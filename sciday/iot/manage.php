@@ -9,7 +9,7 @@ $level_name = $levels['name'];
  $titleObj = new Title;   
  use App\Model\Sciday\Activity;
     $activityObj = new Activity; 
-    $activitys = $activityObj->getActivityById($_SESSION['activity']);
+    $activitys = $activityObj->getActivityById(3);
     $activity_name = $activitys['name'];
 use App\Model\Sciday\Iot;
  $iotObj = new Iot;  

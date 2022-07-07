@@ -8,7 +8,6 @@ class Db{
 	private $user = "usersci";
 	private $password = "sciencepwd";
 	private $dbName = "db_science";
-
 	protected $pdo;
 
 	function __construct() {

@@ -9,7 +9,7 @@ use App\Model\Sciday\Title;
 $titleObj = new Title;   
 use App\Model\Sciday\Activity;
 $activityObj = new Activity; 
-$activitys = $activityObj->getActivityById($_SESSION['activity']);
+$activitys = $activityObj->getActivityById(4);
 $activity_name = $activitys['name'];
 use App\Model\Sciday\Answer;
 $answerObj = new Answer;  

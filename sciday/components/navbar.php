@@ -20,7 +20,7 @@
  
 ?>
 
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark fs-24" style="height: 80px; background-color:rgb(2,29,75);">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark fs-16" style="height: 80px; background-color:rgb(2,29,75);">
     <div class="container-fluid" >
         <a class="navbar-brand fs-28" href="/science/sciday/pages/"><i class='bx bx-planet'></i> Science Day&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation" style="--bs-scroll-height: 100px;">
@@ -44,15 +44,22 @@
                                 foreach($activitys as $activity){
                                     $activitty = base64_encode($activity['id']);
                                     echo "
-                                        <li><a class='dropdown-item fs-18' href='{$activity['link']}?activity={$activitty}'><i class='bx bx-chevron-right-circle' ></i> {$activity['name']}</a></li>
+                                        <li><a class='dropdown-item fs-16' href='{$activity['link']}?activity={$activitty}'><i class='bx bx-chevron-right-circle' ></i> {$activity['name']}</a></li>
                                     ";
                                 }
                             ?>
                         </ul>
                     </li>
                 <?php } ?> 
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/science/sciday/document/ขั้นตอนการสมัครกิจกรรมวันวิทยาศาสตร์.pdf" target='_blank'><i class='bx bx-user-voice' ></i> คู่มือการสมัคร</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class='bx bx-user-voice'></i> คู่มือ
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown" style="background-color:rgb(233,152,20);">
+                        <li>
+                            <a class="dropdown-item" aria-current="page" href="/science/sciday/document/ขั้นตอนการสมัครกิจกรรมวันวิทยาศาสตร์.pdf" target='_blank'><i class='bx bx-user-voice' ></i> คู่มือการสมัคร</a>
+                        </li>
+                    </ul>
                 </li>
                 <?php if($_SESSION['role']=='committee' OR $_SESSION['role']=='chairman'){ ?>
                 <li class="nav-item dropdown">
@@ -66,7 +73,7 @@
                         foreach($levels AS $level){
                             $level_id= base64_encode($level['id']);
                             echo "
-                                <li><a class='dropdown-item fs-18' href='{$activityByLink['committee']}?level={$level_id}'><i class='bx bx-chevron-right-circle' ></i> {$level['name']}</a></li
+                                <li><a class='dropdown-item fs-16' href='{$activityByLink['committee']}?level={$level_id}'><i class='bx bx-chevron-right-circle' ></i> {$level['name']}</a></li
                             ";
                         }
                         ?>
@@ -86,7 +93,7 @@
                         foreach($levels AS $level){
                             $level_id= base64_encode($level['id']);
                             echo "
-                                <li><a class='dropdown-item fs-18' href='{$activityByLink['admin']}?level={$level_id}'><i class='bx bx-chevron-right-circle' ></i> {$level['name']}</a></li
+                                <li><a class='dropdown-item fs-16' href='{$activityByLink['admin']}?level={$level_id}'><i class='bx bx-chevron-right-circle' ></i> {$level['name']}</a></li
                             ";
                         }
                         ?>

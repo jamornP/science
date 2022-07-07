@@ -9,7 +9,7 @@ $level_name = $levels['name'];
  $titleObj = new Title;   
  use App\Model\Sciday\Activity;
     $activityObj = new Activity; 
-    $activitys = $activityObj->getActivityById($_SESSION['activity']);
+    $activitys = $activityObj->getActivityById(1);
     $activity_name = $activitys['name'];
 use App\Model\Sciday\Artifact;
  $artifactObj = new Artifact;  
@@ -38,7 +38,7 @@ use App\Model\Sciday\Teacher;
     <div class="container mt-3">
         <div class="d-flex justify-content-between">
             <span class="badge rounded-pill bg-warning mt-3 shadow text-truncate">
-                <h2><b>&nbsp;&nbsp;&nbsp;<?php echo $activity_name ;?>&nbsp;&nbsp;&nbsp;</b></h2>
+                <h2><b>&nbsp;&nbsp;&nbsp;การประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์&nbsp;&nbsp;&nbsp;</b></h2>
             </span>
         </div>
         <div class="row">
