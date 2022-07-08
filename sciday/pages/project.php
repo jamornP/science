@@ -84,11 +84,12 @@ use App\Model\Sciday\Showround;
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span class="badge rounded-pill bg-danger fs-20 shadow">ปิดระบบรับสมัคร</span> <br>
+                                            <span class="badge rounded-pill bg-danger fs-20 shadow">เลื่อนเวลาปิดระบบรับสมัคร</span> <br>
                                             - เวลา 23.59 น.
                                         </td>
                                         <td class="text-center">
-                                            วันที่ 8 ก.ค. 2565
+                                            <p class="text-decoration-line-through">วันที่ 8 ก.ค. 2565</p>
+                                            <p class="">วันที่ 20 ก.ค. 2565</p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -97,7 +98,8 @@ use App\Model\Sciday\Showround;
                                             - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> 
                                         </td>
                                         <td class="text-center">
-                                            วันที่ 20 ก.ค. 2565
+                                        <p class="text-decoration-line-through">วันที่ 20 ก.ค. 2565</p>
+                                        <p class="">วันที่ 31 ก.ค. 2565</p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -106,7 +108,8 @@ use App\Model\Sciday\Showround;
                                             - สำหรับทีมที่ผ่านเข้ารอบที่ 2 ให้ผู้สมัครอัพคลิปลง Youtube แล้วส่งลิงค์เข้า ระบบของคณะ ที่ช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> 
                                         </td>
                                         <td class="text-center">
-                                            วันที่ 20 ก.ค. 2565
+                                            <p class="text-decoration-line-through">วันที่ 20 ก.ค. 2565</p>
+                                            <p class="">วันที่ 1 ส.ค. 2565</p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -115,7 +118,8 @@ use App\Model\Sciday\Showround;
                                             - เวลา 23.59 น.
                                         </td>
                                         <td class="text-center">
-                                            วันที่ 31 ก.ค. 2565
+                                            <p class="text-decoration-line-through">วันที่ 31 ก.ค. 2565</p>
+                                            <p class="">วันที่ 7 ส.ค. 2565</p>
                                         </td>
                                     </tr>
                                     <tr>

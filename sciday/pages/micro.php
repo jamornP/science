@@ -223,7 +223,7 @@ use App\Model\Sciday\Teacher;
             ?>
             <!-- round 2 -->
             <?php 
-                $shows = $showroundObj->ShowByActivity(1,2); 
+                $shows = $showroundObj->ShowByActivity(6,2); 
                 if($shows['showround']=='yes'){?>
                 <div class="d-flex justify-content-between">
                     <span class="badge rounded-pill bg-primary mt-3 shadow">
@@ -304,7 +304,7 @@ use App\Model\Sciday\Teacher;
             <?php } ?>
             <!-- round 3 -->
             <?php 
-                $shows = $showroundObj->ShowByActivity(1,3); 
+                $shows = $showroundObj->ShowByActivity(6,3); 
                 if($shows['showround']=='yes'){?>
                 <div class="d-flex justify-content-between">
                     <span class="badge rounded-pill bg-success mt-3 shadow">

@@ -113,6 +113,7 @@ use App\Model\Sciday\Teacher;
                                         ";
                                     }
                                 ?>
+                                <!-- <a href='move.php?id={$project['id']}' class='btn btn-sm btn-warning fs-12'>ย้ายไปโครงงาน</a> -->
                             </tbody>
                         </table>
                         <?php// if($_SESSION['round']==1){?>

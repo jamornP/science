@@ -72,8 +72,8 @@ use App\Model\Sciday\Teacher;
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">เปิดระบบรับสมัคร</span> <br>
                                             - เอกสารหลักเกณฑ์การประกวด <a href="/science/sciday/document/iot/1.รายละเอียดและใบสมัครการประกวดโครงงาน IoT.pdf" class="btn btn-sm btn-warning text-white mt-1" target='_blank'>Download </a><br>
-                                            - ใบสมัคร <a href="/science/sciday/document/iot/2.ใบสมัครIot.pdf" class="btn btn-sm btn-warning text-white p-1" target='_blank'><i class='bx bxs-file-pdf'></i> pdf</a>
-                                            &nbsp;<a href="/science/sciday/document/iot/2.ใบสมัครIot.docx" class=" btn btn-sm btn-warning text-white p-1" target='_blank'><i class='bx bxs-file-doc'></i> word</a>
+                                            - ใบสมัคร <a href="/science/sciday/document/iot/2.ใบสมัครIoT.pdf" class="btn btn-sm btn-warning text-white p-1" target='_blank'><i class='bx bxs-file-pdf'></i> pdf</a>
+                                            &nbsp;<a href="/science/sciday/document/iot/2.ใบสมัครIoT.docx" class=" btn btn-sm btn-warning text-white p-1" target='_blank'><i class='bx bxs-file-doc'></i> word</a>
                                             <br>
                                             กรอกใบสมัครแล้วยื่นสมัครทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> หรือ <a href="" target='_blank'></a><br>
                                         </td>
@@ -234,7 +234,7 @@ use App\Model\Sciday\Teacher;
             ?>
             <!-- round 2 -->
             <?php 
-                $shows = $showroundObj->ShowByActivity(1,2); 
+                $shows = $showroundObj->ShowByActivity(3,2); 
                 if($shows['showround']=='yes'){?>
                 <div class="d-flex justify-content-between">
                     <span class="badge rounded-pill bg-success mt-3 shadow">
@@ -315,7 +315,7 @@ use App\Model\Sciday\Teacher;
             <?php } ?>
             <!-- round 3 -->
             <?php 
-                $shows = $showroundObj->ShowByActivity(1,3); 
+                $shows = $showroundObj->ShowByActivity(3,3); 
                 if($shows['showround']=='yes'){?>
                 <div class="d-flex justify-content-between">
                     <span class="badge rounded-pill bg-success mt-3 shadow">

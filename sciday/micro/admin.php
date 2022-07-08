@@ -44,13 +44,16 @@ use App\Model\Sciday\Teacher;
         <div class="row">
             <div class="col-lg-12">
                 <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
+                    <div class="text-end p-2">
+                        <a href="/science/sciday/export/micro.php?level_id=<?php echo base64_decode($_REQUEST['level']);?>" class="text-end btn btn-success text-white"><i class='bx bx-file' ></i> Excel</a>
+                    </div>
                     <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp;ทีมที่สมัคร <?php echo $level_name;?></div>
                     
                     <table class="table table-striped table-hover mt-2 fs-18">
                         <thead>
                             <tr>
                                 <th width='8%'>#</th>
-                                <th >ชื่อโครงงานวิทยาศาสตร์</th>
+                                <th >ชื่อโครงงาน</th>
                                 <th width='20%'>โรงเรียน</th>
                                 <th width='20%'>นักเรียน</th>
                                 <th width='15%'>อาจารย์ที่ปรึกษา</th>
@@ -118,7 +121,7 @@ use App\Model\Sciday\Teacher;
                             <thead>
                                 <tr>
                                     <th width='8%'>#</th>
-                                    <th>ชื่อโครงงานวิทยาศาสตร์</th>
+                                    <th>ชื่อโครงงาน</th>
                                     <th width='20%'>โรงเรียน</th>
                                     <th width='20%'>นักเรียน</th>
                                     <th width='15%'>อาจารย์ที่ปรึกษา</th>
@@ -191,7 +194,7 @@ use App\Model\Sciday\Teacher;
                             <thead>
                                 <tr>
                                     <th width='8%'>#</th>
-                                    <th>ชื่อโครงงานวิทยาศาสตร์</th>
+                                    <th>ชื่อโครงงาน</th>
                                     <th width='20%'>โรงเรียน</th>
                                     <th width='20%'>นักเรียน</th>
                                     <th width='15%'>อาจารย์ที่ปรึกษา</th>

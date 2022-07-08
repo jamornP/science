@@ -9,8 +9,10 @@ use App\Model\Sciday\Student;
 $studentObj = new Student;  
 use App\Model\Sciday\Teacher;
 $teacherObj = new Teacher;
-
-$sheetname = "Basic";
+use App\Model\Sciday\Level;
+$levelObj = new Level;
+$levelname = $levelObj->getLevelById($_REQUEST['level_id']);
+$sheetname = $levelname['name'];
 $sheet->setTitle($sheetname);
 
 $data = $answerObj->getAnswerByLevel($_REQUEST['level_id']);
@@ -35,7 +37,7 @@ $count_column=count($column_head_arr); // 5
 $excel_column_end = $column_excel_arr[$count_column-1]; // E
 // กำหนดค่าในแต่ละ cell
 
-$title = "ตอบปัญหาภาษาไทย";
+$title = "การแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์";
 $sheet->SetCellValue('A1',$title);
 $sheet->mergeCells('A1:'.$excel_column_end .'1');
 $sheet->getStyle('A1:'.$excel_column_end.'2')->applyFromArray($excel_font_bold);
@@ -57,16 +59,20 @@ foreach($data as $value){
 
    $sheet->SetCellValue($column_excel_arr[$index].$j,$num);$index++;
    $sheet->SetCellValue($column_excel_arr[$index].$j,$value['school']);$index++;
+   $jj=$j;
+   $snum =0;
    foreach($students AS $stu){
-      $jj++;
-      $studentname = $stu['stitle'].$stu['sname']." ".$stu['ssurname'];
+        $snum++;
+        $studentname = $snum.". ".$stu['stitle'].$stu['sname']." ".$stu['ssurname'];
       $sheet->SetCellValue($column_excel_arr[$index].$jj,$studentname);
+      $jj++;
    }
    $index++;
+   $jjj=$j;
+   $tnum=0;
    foreach($teachers AS $tea){
-      $jjj=$j;
-      
-      $teachername = $tea['ttitle'].$tea['tname']." ".$tea['tsurname'];
+      $tnum++;
+      $teachername = $tnum.". ".$tea['ttitle'].$tea['tname']." ".$tea['tsurname'];
       $sheet->SetCellValue($column_excel_arr[$index].$jjj,$teachername);
       $jjj++;
    }
@@ -75,13 +81,15 @@ foreach($data as $value){
    
    $sheet->SetCellValue($column_excel_arr[$index].$j,$value['tel']);$index++;
    if($jj > $jjj){
-      $j = $jj;
+      $j = $jj-1;
+   }elseif($jj = $jjj){
+      $j = $jj-1;
    }else{
-      $j = $jjj;
+        $j = $jjj-1;
    }
-   $sheet->mergeCells($column_excel_arr[0].$jjjj.':'.$column_excel_arr[0].$j);
-   $sheet->mergeCells($column_excel_arr[1].$jjjj.':'.$column_excel_arr[1].$j);
-   $sheet->mergeCells($column_excel_arr[4].$jjjj.':'.$column_excel_arr[4].$j);
+   // $sheet->mergeCells($column_excel_arr[0].$jjjj.':'.$column_excel_arr[0].$j);
+   // $sheet->mergeCells($column_excel_arr[1].$jjjj.':'.$column_excel_arr[1].$j);
+   // $sheet->mergeCells($column_excel_arr[4].$jjjj.':'.$column_excel_arr[4].$j);
 }
 
 

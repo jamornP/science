@@ -105,6 +105,7 @@ use App\Model\Sciday\Teacher;
                                                 <td width='' align='center'>
                                                     <div class='form-check'>
                                                         <input class='form-check-input' type='checkbox' value='{$project['id']}' id='flexCheckDefault' name='p_id[]' {$checkbox}>
+                                                        
                                                     </div>
                                                     
                                                 </td>
@@ -113,6 +114,7 @@ use App\Model\Sciday\Teacher;
                                         ";
                                     }
                                 ?>
+                                <!-- <a href='move.php?id={$project['id']}' class='btn btn-sm btn-warning fs-12'>ย้ายไปสิ่งประดิษฐ์</a> -->
                             </tbody>
                         </table>
                         
