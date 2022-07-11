@@ -21,7 +21,7 @@
     <div class="container">
         <div class="mt-2 card shadow p-3 mb-5 bg-white rounded">
             <div class="card-header">
-                <h3>สรุปทีมที่สัมคร กิจกรรงานวันวิทยาศาสตร์ 2022 </h3>(Update : <?php echo date("d-m-Y");?>)
+                <h3>สรุปทีมที่สมัคร กิจกรรงานวันวิทยาศาสตร์ 2022 </h3>(Update : <?php echo date("d-m-Y");?>)
             </div>
             <div class="card-body">
                 <div class="row">
