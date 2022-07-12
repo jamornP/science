@@ -309,9 +309,9 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" value="<?php echo $project2s['id'];?>" name="project_id">
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" value="<?php echo $project2s['level_id'];?>" name="level_id">
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" value="2" name="activity_id">
+                    <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="" value="<?php echo $project2s['id'];?>" name="project_id">
+                    <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="" value="<?php echo $project2s['level_id'];?>" name="level_id">
+                    <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="" value="2" name="activity_id">
                     <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">เพิ่มข้อมูลวีดีโอ</label>
                             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ใส่ลิงค์ Video Youtube ที่นี้..." name="link_video">
