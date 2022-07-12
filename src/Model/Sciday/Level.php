@@ -10,7 +10,7 @@ class Level extends DbSciDay {
             FROM
                 tb_level
             WHERE
-                activity_id = ?
+                activity_id = ? AND register ='yes'
             ORDER BY
                 id
         ";

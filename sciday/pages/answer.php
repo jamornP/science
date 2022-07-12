@@ -43,9 +43,29 @@ use App\Model\Sciday\Teacher;
         </div>
         
         <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3">
-            <div class="d-flex flex-row-reverse bd-highlight">
-                <a href="../answer/form.php?activity=<?php echo $_REQUEST['activity'];?>" class="btn btn-lg btn-outline-success my-bottom">
-                <span class="spinner-grow spinner-grow-sm text-warning" role="status" aria-hidden="true"></span> ยื่นใบสมัครแข่งขัน</a>
+        
+            <div class="d-flex flex-row-reverse bd-highlight" ">
+                <?php 
+                    $datenow = new DateTime();
+                    $input = "22/07/2022 23:59:59";
+                    $format = "d/m/Y H:i:s";
+                    $date = DateTime::createFromFormat($format, $input);
+                    if($datenow > $date){
+                        echo "
+                        <a href='' class='btn btn-lg btn-outline-danger my-bottom' id='regis'> ปิดรับสมัคร </a>
+                        ";
+                    }else{
+                    ?>
+                    <!-- ปิดรับสมัคร 22 ก.ค. 2565 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                    <a href="../answer/form.php?activity=<?php echo $_REQUEST['activity'];?>" class="btn btn-lg btn-outline-success my-bottom" id="regis">
+                        <span class="spinner-grow spinner-grow-sm text-warning" role="status" aria-hidden="true"></span> ยื่นใบสมัครแข่งขัน
+                        <div class="fs-10" id="showRemain"></div>
+                    </a>
+                    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                    <?php
+                    }
+                ?>
+                
             </div>
         
             <figure class="">
@@ -88,10 +108,12 @@ use App\Model\Sciday\Teacher;
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-danger fs-20 shadow">ปิดระบบรับสมัคร</span> <br>
-                                            - เวลา 23.59 น.
+                                            - ภาษาไทย ปิดรับสมัครวันที่ 12 ก.ค. 2565 เวลา 23.59 น.<br>
+                                            - ภาษาอังกฤษ ปิดรับสมัครวันที่ 20 ก.ค. 2565 เวลา 23.59 น.
                                         </td>
                                         <td class="text-center">
-                                            วันที่ 12  ก.ค. 2565
+                                            <p class="text-decoration-line-through">วันที่ 12  ก.ค. 2565</p>
+                                            <p class="">วันที่ 20  ก.ค. 2565</p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -100,7 +122,8 @@ use App\Model\Sciday\Teacher;
                                             - ผ่านช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> 
                                         </td>
                                         <td class="text-center">
-                                            วันที่ 19 ก.ค. 2565
+                                        <p class="text-decoration-line-through">วันที่ 19 ก.ค. 2565</p>
+                                        <p class="">วันที่ 26 ก.ค. 2565</p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -308,5 +331,40 @@ use App\Model\Sciday\Teacher;
         
         
     </div>
+    <script type="text/javascript">
+        function countDown(){
+            var timeA = new Date(); // วันเวลาปัจจุบัน
+            // var timeB = new Date("Febriaru 24,2012 00:00:01"); // วันเวลาสิ้นสุด รูปแบบ เดือน/วัน/ปี ชั่วโมง:นาที:วินาที
+             var timeB = new Date(2022,6,22,23,59,59,0); 
+            // วันเวลาสิ้นสุด รูปแบบ ปี,เดือน;วันที่,ชั่วโมง,นาที,วินาที,,มิลลิวินาที    เลขสองหลักไม่ต้องมี 0 นำหน้า
+            // เดือนต้องลบด้วย 1 เดือนมกราคมคือเลข 0
+            var timeDifference = timeB.getTime()-timeA.getTime();    
+            if(timeDifference>=0){
+                timeDifference=timeDifference/1000;
+                timeDifference=Math.floor(timeDifference);
+                var wan=Math.floor(timeDifference/86400);
+                var l_wan=timeDifference%86400;
+                var hour=Math.floor(l_wan/3600);
+                var l_hour=l_wan%3600;
+                var minute=Math.floor(l_hour/60);
+                var second=l_hour%60;
+                var showPart=document.getElementById('showRemain');
+                // var showDate=document.getElementById('showDate');
+                var btn=document.getElementById("regis");
+                // showDate.innerHTML=timeA;
+                showPart.innerHTML="เหลือเวลา "+wan+" วัน "+hour+" ชั่วโมง "
+                +minute+" นาที "+second+" วินาที"; 
+                    if(wan==0 && hour==0 && minute==0 && second==0){
+                        // btn.hidden;
+                        clearInterval(iCountDown);
+                        location.reload();
+                         // ยกเลิกการนับถอยหลังเมื่อครบ
+                        // เพิ่มฟังก์ชันอื่นๆ ตามต้องการ
+                    }
+            }
+        }
+        // การเรียกใช้
+        var iCountDown=setInterval("countDown()",1000); 
+    </script>
 </body>
 </html>

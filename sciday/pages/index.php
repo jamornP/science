@@ -86,15 +86,47 @@
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <div class="col">
                         <div class="card h-100 border-success">
+                            <img src="/science/sciday/images/news03.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                
+                                <!-- <a href="/science/sciday/pages/project.php?activity=Mg==" class=""> -->
+                                    <button type="button" class="btn btn-primary position-relative">
+                                        <h5 class="card-title">เลื่อนการปิดรับสมัคร</h5>
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                                            New    
+                                        <span class="visually-hidden">New alerts</span>
+                                        </span>
+                                    </button>
+                                <!-- </a> -->
+                                <p class="card-text mt-4 text-primary">
+                                1. <a href="/science/sciday/pages/artifact.php?activity=MQ==" class="text-primary">กิจกรรมการประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์</a> <br>
+                                2. <a href="/science/sciday/pages/iot.php?activity=Mw==" class="text-primary">กิจกรรมการประกวดโครงงาน IoT</a> <br>
+                                3. <a href="/science/sciday/pages/answer.php?activity=NA==" class="text-primary">กิจกรรมการแข่งขันตอบปัญหาฯ ภาษาอังกฤษ</a> <br>
+                                4. <a href="/science/sciday/pages/micro.php?activity=Ng==" class="text-primary">กิจกรรมการแข่งขัน micro:bit</a> <br>
+                                </p>
+                                <p class="card-text">
+                                    จากเดิม วันที่ 12 ก.ค. 2565 เป็น <b class="text-danger">วันที่ 22 ก.ค. 2565</b> รีบๆสมัครกันเข้ามานะครับผม
+                                </p>
+                                <!-- <div class="text-end">
+                                    <a href="/science/sciday/pages/project.php?activity=Mg==" class="">รายละเอียดเพิ่มเติม</a>
+                                </div> -->
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted text-end">Post date : 12 ก.ค. 2565</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news01.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 
                                 <!-- <a href="/science/sciday/pages/project.php?activity=Mg==" class=""> -->
                                     <button type="button" class="btn btn-primary position-relative">
                                         <h5 class="card-title">ชิงถ้วยพระราชทาน</h5>
-                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                                        <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
                                             New    
-                                        <span class="visually-hidden">New alerts</span>
+                                        <span class="visually-hidden">New alerts</span> -->
                                         </span>
                                     </button>
                                 <!-- </a> -->
@@ -131,9 +163,9 @@
                                 <a href="/science/sciday/pages/project.php?activity=Mg==" class="">
                                     <button type="button" class="btn btn-primary position-relative">
                                         <h5 class="card-title">เลื่อนการปิดรับสมัคร</h5>
-                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                                        <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
                                             New    
-                                        <span class="visually-hidden">New alerts</span>
+                                        <span class="visually-hidden">New alerts</span> -->
                                         </span>
                                     </button>
                                 </a>

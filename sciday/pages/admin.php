@@ -21,7 +21,8 @@
 <div class="container">
         <div class="mt-2 card shadow p-3 mb-5 bg-white rounded">
             <div class="card-header">
-                <h3>สรุปทีมที่สมัคร กิจกรรงานวันวิทยาศาสตร์ 2022 </h3>(Update : <?php echo date("d-m-Y");?>)
+                <h3>สรุปทีมที่สมัคร กิจกรรงานวันวิทยาศาสตร์ 2022 </h3><b id="showDate"></b>
+                <div class="fs-14 text-danger" id="showRemain"></div>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -111,6 +112,37 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        function countDown(){
+            var timeA = new Date(); // วันเวลาปัจจุบัน
+            // var timeB = new Date("Febriaru 24,2012 00:00:01"); // วันเวลาสิ้นสุด รูปแบบ เดือน/วัน/ปี ชั่วโมง:นาที:วินาที
+             var timeB = new Date(2022,6,13,0,0,1,0); 
+            // วันเวลาสิ้นสุด รูปแบบ ปี,เดือน;วันที่,ชั่วโมง,นาที,วินาที,,มิลลิวินาที    เลขสองหลักไม่ต้องมี 0 นำหน้า
+            // เดือนต้องลบด้วย 1 เดือนมกราคมคือเลข 0
+            var timeDifference = timeB.getTime()-timeA.getTime();    
+            if(timeDifference>=0){
+                timeDifference=timeDifference/1000;
+                timeDifference=Math.floor(timeDifference);
+                var wan=Math.floor(timeDifference/86400);
+                var l_wan=timeDifference%86400;
+                var hour=Math.floor(l_wan/3600);
+                var l_hour=l_wan%3600;
+                var minute=Math.floor(l_hour/60);
+                var second=l_hour%60;
+                var showPart=document.getElementById('showRemain');
+                var showDate=document.getElementById('showDate');
+                showDate.innerHTML=timeA;
+                showPart.innerHTML="เหลือเวลา "+wan+" วัน "+hour+" ชั่วโมง "
+                +minute+" นาที "+second+" วินาที"; 
+                    if(wan==0 && hour==0 && minute==0 && second==0){
+                        clearInterval(iCountDown); // ยกเลิกการนับถอยหลังเมื่อครบ
+                        // เพิ่มฟังก์ชันอื่นๆ ตามต้องการ
+                    }
+            }
+        }
+        // การเรียกใช้
+        var iCountDown=setInterval("countDown()",1000); 
+    </script>
 </body>
 
 </html>
