@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="form-group mt-2">
                                         <?php 
-                                            $levels =$levelObj->getLevelByActivity('4');
+                                            $levels =$levelObj->getLevelByActivity2('4');
                                             foreach($levels AS $level){
                                                 echo "
                                                     <div class='form-check form-check-inline'>

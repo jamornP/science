@@ -307,7 +307,7 @@ use App\Model\Sciday\Showround;
                                             "checked" : "";
                                             echo "
                                                 <div class='form-check form-check-inline'>
-                                                    <input class='form-check-input' type='radio' name='level_id' id='inlineRadio{$levle['id']}' value='{$level['id']}' {$selected}>
+                                                    <input class='form-check-input' type='radio' name='level_id' id='inlineRadio{$levle['id']}' value='{$level['id']}' {$selected} disabled>
                                                     <label class='form-check-label' for='inlineRadio{$levle['id']}'>{$level['name']}</label>
                                                 </div>
                                             ";

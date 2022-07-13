@@ -10,6 +10,21 @@ class Level extends DbSciDay {
             FROM
                 tb_level
             WHERE
+                activity_id = ?
+            ORDER BY
+                id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$activity]);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
+    public function getLevelByActivity2($activity) {
+        $sql = "
+            SELECT * 
+            FROM
+                tb_level
+            WHERE
                 activity_id = ? AND register ='yes'
             ORDER BY
                 id
