@@ -58,7 +58,7 @@ use App\Model\Sciday\Teacher;
                                 <th width='20%'>นักเรียน</th>
                                 <th width='15%'>อาจารย์ที่ปรึกษา</th>
                                 <th width='10%'>เอกสาร</th>
-                                <th width='5%'>รูป</th>
+                                <!-- <th width='5%'>รูป</th> -->
                             </tr>
                         </thead>
                         <tbody class="fs-14">
@@ -95,7 +95,7 @@ use App\Model\Sciday\Teacher;
                                                 ?>
                                             </td>
                                             <td width='10%'><a href='/science/upload/sciday/file/<?php echo $proname['file_register']; ?>' target='_blank'>Download</a></td>
-                                            <td width='5%'><a href='/science/sciday/iot/pic.php?activity=<?php echo $activity_name; ?>&p_id=<?php echo $proname['id']; ?>' target='_blank' ><i class='bx bxs-image fs-24' ></i></a></td>
+                                            <!-- <td width='5%'><a href='/science/sciday/iot/pic.php?activity=<?php echo $activity_name; ?>&p_id=<?php echo $proname['id']; ?>' target='_blank' ><i class='bx bxs-image fs-24' ></i></a></td> -->
                                         </tr>
                                     
                                     <?php
