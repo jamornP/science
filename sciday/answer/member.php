@@ -304,10 +304,10 @@ use App\Model\Sciday\Showround;
                                         $levels =$levelObj->getLevelByActivity('4');
                                         foreach($levels AS $level){
                                             $selected =($level['id']==$projects['level_id']) ?
-                                            "checked" : "";
+                                            "checked" : "hidden";
                                             echo "
                                                 <div class='form-check form-check-inline'>
-                                                    <input class='form-check-input' type='radio' name='level_id' id='inlineRadio{$levle['id']}' value='{$level['id']}' {$selected} disabled>
+                                                    <input class='form-check-input' type='radio' name='level_id' id='inlineRadio{$levle['id']}' value='{$level['id']}' {$selected} >
                                                     <label class='form-check-label' for='inlineRadio{$levle['id']}'>{$level['name']}</label>
                                                 </div>
                                             ";
