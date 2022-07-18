@@ -37,6 +37,7 @@
             background: #262626;
             color: #fff;
             border: 2px solid #000;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.50) !important;
         }
         #clock div:last-child
         {
