@@ -14,7 +14,7 @@ $spacers: map-merge( ( 0: 0, 1: ($spacer * .25), 2: ($spacer * .5), 3: $spacer, 
 }
 
 // เอา font ไทย ใน google มาใส่
-@import 'https://fonts.googleapis.com/css?family=Charm|K2D|Sarabun|Kanit|Mali|Prompt|Sriracha|Itim&display=swap';
+@import 'https://fonts.googleapis.com/css?family=Charm|K2D|Sarabun|Kanit|Mali|Prompt|Sriracha|Itim|Poppins&display=swap';
 .font-sarabun {
     font-family: 'Sarabun', sans-serif;
 }
@@ -45,4 +45,8 @@ $spacers: map-merge( ( 0: 0, 1: ($spacer * .25), 2: ($spacer * .5), 3: $spacer, 
 
 .font-itim {
     font-family: 'Itim', cursive;
+}
+
+.font-poppins {
+    font-family: 'Poppins', sans-serif;
 }
