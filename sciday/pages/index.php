@@ -89,9 +89,9 @@
                             <div class="carousel-item" data-bs-interval="5000">
                             <img src="/science/sciday/images/news01.png" class="d-block w-100" alt="...">
                             </div>
-                            <div class="carousel-item" data-bs-interval="5000">
+                            <!-- <div class="carousel-item" data-bs-interval="5000">
                             <img src="/science/sciday/images/news04.png" class="d-block w-100" alt="...">
-                            </div>
+                            </div> -->
                             
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -134,9 +134,9 @@
                             <div class="card-body">
                                 <button type="button" class="btn btn-primary position-relative">
                                     <h5 class="card-title">เลื่อนการปิดรับสมัคร</h5>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                                    <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
                                         New    
-                                    <span class="visually-hidden">New alerts</span>
+                                    <span class="visually-hidden">New alerts</span> -->
                                     </span>
                                 </button>
                                 <p class="card-text mt-4 text-primary">

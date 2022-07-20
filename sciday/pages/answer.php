@@ -109,11 +109,11 @@ use App\Model\Sciday\Teacher;
                                         <td>
                                             <span class="badge rounded-pill bg-danger fs-20 shadow">ปิดระบบรับสมัคร</span> <br>
                                             - ภาษาไทย ปิดรับสมัครวันที่ 12 ก.ค. 2565 เวลา 23.59 น.<br>
-                                            - ภาษาอังกฤษ ปิดรับสมัครวันที่ 20 ก.ค. 2565 เวลา 23.59 น.
+                                            - ภาษาอังกฤษ ปิดรับสมัครวันที่ 22 ก.ค. 2565 เวลา 23.59 น.
                                         </td>
                                         <td class="text-center">
                                             <p class="text-decoration-line-through">วันที่ 12  ก.ค. 2565</p>
-                                            <p class="">วันที่ 20  ก.ค. 2565</p>
+                                            <p class="">วันที่ 22  ก.ค. 2565</p>
                                         </td>
                                     </tr>
                                     <tr>
