@@ -59,7 +59,14 @@
                         <li>
                             <a class="dropdown-item" aria-current="page" href="/science/sciday/document/ขั้นตอนการสมัครกิจกรรมวันวิทยาศาสตร์.pdf" target='_blank'><i class='bx bx-user-voice' ></i> คู่มือการสมัคร</a>
                         </li>
+                        <li>
+                            <a class="dropdown-item" aria-current="page" href="/science/sciday/document/คู่มือแก้ไข.pdf" target='_blank'><i class='bx bx-user-voice' ></i> คู่มือการแก้ไขข้อมูล</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" aria-current="page" href="/science/sciday/document/คู่มืออัพลิงค์ video.pdf" target='_blank'><i class='bx bx-user-voice' ></i> คู่มือการแนบ Link video</a>
+                        </li>
                     </ul>
+                    
                 </li>
                 <?php if($_SESSION['role']=='committee' OR $_SESSION['role']=='chairman'){ ?>
                 <li class="nav-item dropdown">
