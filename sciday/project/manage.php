@@ -186,10 +186,11 @@ use App\Model\Sciday\Teacher;
                                             $k2++;
                                             $tea2 .=$k2.". ".$teacher2['ttitle'].$teacher2['tname']." ".$teacher2['tsurname']."<br>";
                                         }
+                                       
                                         echo "
                                         <tr>
                                         <td width=''>{$i2}.</td>
-                                        <td>{$round2['Project_name']}</td>
+                                        <td>{$round2['project_name']}</td>
                                         <td width=''>{$round2['school']}</td>
                                         <td width=''>{$st2}</td>
                                         <td width=''>{$tea2}</td>
@@ -271,7 +272,7 @@ use App\Model\Sciday\Teacher;
                                         echo "
                                             <tr>
                                                 <td width=''>{$i3}.</td>
-                                                <td>{$round3['Project_name']}</td>
+                                                <td>{$round3['project_name']}</td>
                                                 <td width=''>{$round3['school']}</td>
                                                 <td width=''>{$st3}</td>
                                                 <td width=''>{$tea3}</td>
