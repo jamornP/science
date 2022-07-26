@@ -128,7 +128,7 @@
             </div>
             <div class="card-body">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col">
+                    <!-- <div class="col">
                         <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news_answer02.png" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -143,10 +143,9 @@
                                     ทีมที่ผ่านเข้ารอบ 2 <br>การแข่งขันที่ต้องแนบ link video สามารถทำตามคู่มือที่แนบมาด้านล่างนี้ โดยท่านต้อง upload video ของท่านผ่านเว็บ Youtube จากนั้นให้นำ link มาแนบในระบบ
                                 </p>
                                 <p class="card-text mt-4 text-primary">
-                                <!-- 1. <a href="/science/sciday/pages/artifact.php?activity=MQ==" class="text-primary">การประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์</a> <br>
-                                2. <a href="/science/sciday/pages/iot.php?activity=Mw==" class="text-primary">การประกวดโครงงาน IoT</a> <br> -->
+                               
                                 <a href="/science/sciday/document/คู่มืออัพลิงค์ video.pdf" class="text-primary" target='_blank'>คู่มือแนบ link video</a> <br>
-                                <!-- 4. <a href="/science/sciday/pages/micro.php?activity=Ng==" class="text-primary">การแข่งขัน micro:bit</a> <br> -->
+                               
                                 </p>
                                 
                             </div>
@@ -154,8 +153,8 @@
                                 <small class="text-muted text-end">Post date : 27 ก.ค. 2565</small>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
+                    </div> -->
+                    <!-- <div class="col">
                         <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news_answer02.png" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -170,10 +169,9 @@
                                     ทีมที่ผ่านเกณฑ์เข้ารอบของ การแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ ให้ดำเนินการ Login เข้าสู่ระบบเพื่อรับทราบข้อมูลการแข่งขัน การอธิบายการแข่งขัน ผ่านช่องทางที่ระบุ โดยให้ท่านทำตาม เอกสารแนบจาก link  ภายในวันที่ 3 ส.ค. 65
                                 </p>
                                 <p class="card-text mt-4 text-primary">
-                                <!-- 1. <a href="/science/sciday/pages/artifact.php?activity=MQ==" class="text-primary">การประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์</a> <br>
-                                2. <a href="/science/sciday/pages/iot.php?activity=Mw==" class="text-primary">การประกวดโครงงาน IoT</a> <br> -->
+                               
                                 <a href="/science/sciday/document/ตอบปัญหารอบ2.pdf" class="text-primary">เอกสารแบบ</a> <br>
-                                <!-- 4. <a href="/science/sciday/pages/micro.php?activity=Ng==" class="text-primary">การแข่งขัน micro:bit</a> <br> -->
+                                
                                 </p>
                                 
                             </div>
@@ -181,7 +179,7 @@
                                 <small class="text-muted text-end">Post date : 27 ก.ค. 2565</small>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col">
                         <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news05.png" class="card-img-top" alt="...">
@@ -363,7 +361,7 @@
         function countDown(){
             var timeA = new Date(); // วันเวลาปัจจุบัน
             // var timeB = new Date("Febriaru 24,2012 00:00:01"); // วันเวลาสิ้นสุด รูปแบบ เดือน/วัน/ปี ชั่วโมง:นาที:วินาที
-             var timeB = new Date(2022,8,23,9,0,0,0); 
+             var timeB = new Date(2022,7,23,9,0,0,0); 
             // วันเวลาสิ้นสุด รูปแบบ ปี,เดือน;วันที่,ชั่วโมง,นาที,วินาที,,มิลลิวินาที    เลขสองหลักไม่ต้องมี 0 นำหน้า
             // เดือนต้องลบด้วย 1 เดือนมกราคมคือเลข 0
             var timeDifference = timeB.getTime()-timeA.getTime();    
