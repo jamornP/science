@@ -157,7 +157,7 @@ use App\Model\Sciday\Showround;
                                         <th width='20%'>นักเรียน</th>
                                         <th width='15%'>อาจารย์ที่ปรึกษา</th>
                                         <th width='15%'>เบอร์ติดต่อ</th>
-                                        <!-- <th width='10%'>เอกสาร</th> -->
+                                        <th width='10%'>รายละเอียด</th>
                                     </tr>
                                     </thead>
                                     <tbody class="fs-14">
@@ -189,6 +189,7 @@ use App\Model\Sciday\Showround;
                                                     <td >{$st2}</td>
                                                     <td >{$tea2}</td>
                                                     <td >{$project2s['tel']}</td>
+                                                    <td ><a href='/science/sciday/images/news_answer.png' target='_blank'>QRcode</a></td>
                                                 </tr>
                                             ";
                                         ?>
