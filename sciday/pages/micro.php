@@ -282,7 +282,7 @@ use App\Model\Sciday\Teacher;
                                         
                                         <?php 
                                             $round2s = $roundObj->getRoundByLevelMicro($level['id'],2,6);
-                                            $i=0;
+                                            $i2=0;
                                             foreach($round2s AS $round2){
                                                 $stu2s = $studentObj->getStuById($round2['student_id']);
                                                 $teacher2s = $teacherObj->getTeacherById($round2['teacher_id']);
@@ -358,7 +358,7 @@ use App\Model\Sciday\Teacher;
                                         
                                         <?php 
                                             $round3s = $roundObj->getRoundByLevelMicro($level['id'],3,6);
-                                            $i=0;
+                                            $i3=0;
                                             foreach($round3s AS $round3){
                                                 $stu3s = $studentObj->getStuById($round3['student_id']);
                                                 $teacher3s = $teacherObj->getTeacherById($round3['teacher_id']);

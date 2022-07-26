@@ -128,9 +128,9 @@
             </div>
             <div class="card-body">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <!-- <div class="col">
+                    <div class="col">
                         <div class="card h-100 border-success">
-                            <img src="/science/sciday/images/news04.png" class="card-img-top" alt="...">
+                            <img src="/science/sciday/images/news05.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <button type="button" class="btn btn-primary position-relative">
                                     <h5 class="card-title">ประกาศรายชื่อผู้ที่ผ่านเข้ารอบ</h5>
@@ -146,7 +146,7 @@
                                 1. <a href="/science/sciday/pages/artifact.php?activity=MQ==" class="text-primary">การประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์</a> <br>
                                 2. <a href="/science/sciday/pages/iot.php?activity=Mw==" class="text-primary">การประกวดโครงงาน IoT</a> <br>
                                 3. <a href="/science/sciday/pages/answer.php?activity=NA==" class="text-primary">การแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์</a> <br>
-                                4. <a href="/science/sciday/pages/micro.php?activity=Ng==" class="text-primary">การแข่งขัน micro:bit</a> <br>
+                                <!-- 4. <a href="/science/sciday/pages/micro.php?activity=Ng==" class="text-primary">การแข่งขัน micro:bit</a> <br> -->
                                 </p>
                                 
                             </div>
@@ -154,7 +154,7 @@
                                 <small class="text-muted text-end">Post date : 26 ก.ค. 2565</small>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="col">
                         <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news04.png" class="card-img-top" alt="...">

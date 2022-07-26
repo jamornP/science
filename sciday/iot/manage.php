@@ -97,12 +97,12 @@ use App\Model\Sciday\Teacher;
                                         }
                                         echo "
                                             <tr>
-                                                <td width=''>{$i}.</td>
+                                                <td>{$i}.</td>
                                                 <td>{$project['iot_name']}</td>
-                                                <td width=''>{$project['school']}</td>
-                                                <td width=''>{$st}</td>
-                                                <td width=''>{$tea}</td>
-                                                <td width='' align='center'>
+                                                <td>{$project['school']}</td>
+                                                <td>{$st}</td>
+                                                <td>{$tea}</td>
+                                                <td>
                                                     <div class='form-check'>
                                                         <input class='form-check-input' type='checkbox' value='{$project['id']}' id='flexCheckDefault' name='p_id[]' {$checkbox}>
                                                     </div>
