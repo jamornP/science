@@ -120,12 +120,13 @@ use App\Model\Sciday\Teacher;
                         <table class="table table-striped table-hover mt-2 fs-18">
                             <thead>
                                 <tr>
-                                    <th width='8%'>#</th>
+                                    <th width='5%'>#</th>
                                     <th>ชื่อโครงงาน</th>
                                     <th width='20%'>โรงเรียน</th>
                                     <th width='20%'>นักเรียน</th>
                                     <th width='15%'>อาจารย์ที่ปรึกษา</th>
-                                    <th width='15%'>วีดีโอ</th>
+                                    <th width='10%'>วีดีโอ</th>
+                                    <th width='10%'>File</th>
                                     <!-- <th>รูป</th> -->
                                 </tr>
                             </thead>
@@ -149,7 +150,12 @@ use App\Model\Sciday\Teacher;
                                         if($round['link_video']==""){
                                             $show_link="";
                                         }else{
-                                            $show_link="<a href='{$round['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
+                                            $show_link="<a href='{$round['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Video</a>";
+                                        }
+                                        if($round['file_program']==""){
+                                            $show_file="";
+                                        }else{
+                                            $show_file="<a href='{$round['file_program']}' class='btn btn-primary btn-sm text-white' target='_blank'><i class='bx bx-file'></i> File</a>";
                                         }
                                         // ค้นหานักเรียน
                                         foreach($stus AS $stu){
@@ -163,12 +169,13 @@ use App\Model\Sciday\Teacher;
                                         }
                                         echo "
                                             <tr>
-                                                <td width='8%'>{$i}.</td>
+                                                <td>{$i}.</td>
                                                 <td>{$round['micro_name']}</td>
-                                                <td width='20%'>{$round['school']}</td>
-                                                <td width='20%'>{$st}</td>
-                                                <td width='15%'>{$tea}</td>
-                                                <td width='10%'>{$show_link}</td>
+                                                <td>{$round['school']}</td>
+                                                <td>{$st}</td>
+                                                <td>{$tea}</td>
+                                                <td>{$show_link}</td>
+                                                <td>{$show_file}</td>
                                             </tr>
                                         ";
                                     }

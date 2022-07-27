@@ -539,6 +539,7 @@ public function getRound3ById($id) {
                 r.link_video,
                 r.level_id,
                 r.activity_id, 
+                r.file_program, 
                 r.project_id
             FROM 
                 tb_round AS r
