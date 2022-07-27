@@ -258,6 +258,22 @@ public function getRound3ById($id) {
         return true;
 
     }
+    public function UpdateFile($data) {
+        $sql = "
+        UPDATE 
+            tb_round 
+        SET 
+            file_program= :file_program
+        WHERE     
+            project_id= :project_id AND
+            activity_id= :activity_id AND
+            level_id= :level_id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+        return true;
+
+    }
     // check ทีมที่เข้ารอบ ว่ามีใน Database หรือไม่
     public function checkRound($id,$num,$activity,$level) {
         $sql ="

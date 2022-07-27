@@ -146,12 +146,13 @@ use App\Model\Sciday\Showround;
                                 <table class="table table-striped table-hover mt-2 fs-18">
                                     <thead>
                                         <tr>
-                                            <th width='8%'>#</th>
-                                            <th >ชื่อโครงงานวิทยาศาสตร์</th>
+                                            <th width='5%'>#</th>
+                                            <th>ชื่อโครงงานวิทยาศาสตร์</th>
                                             <th width='20%'>โรงเรียน</th>
                                             <th width='20%'>นักเรียน</th>
                                             <th width='15%'>อาจารย์ที่ปรึกษา</th>
-                                            <th width='15%'>วีดีโอ</th>
+                                            <th width='10%'>วีดีโอ</th>
+                                            <th width='10%'>File</th>
                                             <!-- <th>รูป</th> -->
                                         </tr>
                                     </thead>
@@ -178,18 +179,40 @@ use App\Model\Sciday\Showround;
                                                 $show = $showroundObj->ShowByActivity(6,1);
                                                 if($show['edit_video']=='yes'){
                                                     $show_link2="
-                                                        <a href='{$round2s['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>
+                                                        <a href='{$round2s['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Video</a>
                                                         <button type='button' class='btn btn-sm btn-warning text-white' data-bs-toggle='modal' data-bs-target='#exampleModal'>
                                                             <i class='bx bxs-video-plus'></i> แก้ไข
                                                         </button>
+                                                        
                                                     ";
                                                 }else{
                                                     $show_link2="
-                                                        <a href='{$round2s['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>
+                                                        <a href='{$round2s['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Video</a>
+                                                    ";
+                                                   
+                                                }
+                                            }
+                                            if($round2s['file_program']==""){
+                                                $show_file2="
+                                                    <button type='button' class='btn btn-sm btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal2'>
+                                                        <i class='bx bx-file'></i> อัพลิงค์ไฟล์ Hex
+                                                    </button>
+                                                ";
+                                            }else{
+                                                $show = $showroundObj->ShowByActivity(6,1);
+                                                if($show['edit_video']=='yes'){
+                                                    $show_file2="
+                                                        <a href='{$round2s['file_program']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bx-file'></i> File</a>
+                                                        <button type='button' class='btn btn-sm btn-warning text-white' data-bs-toggle='modal' data-bs-target='#exampleModal2'>
+                                                            <i class='bx bx-file'></i> แก้ไข
+                                                        </button>
+                                                    ";
+                                                }else{
+                                                    $show_file2="
+                                                        <a href='{$round2s['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bx-file'></i> File</a>
                                                     ";
                                                 }
-                            
-                                                
+
                                             }
                                             foreach($stus2 AS $stu2){
                                                 $j2++;
@@ -207,6 +230,7 @@ use App\Model\Sciday\Showround;
                                                     <td width='20%'>{$st2}</td>
                                                     <td width='15%'>{$tea2}</td>
                                                     <td width='10%'>{$show_link2}</td>
+                                                    <td width='10%'>{$show_file2}</td>
                                                 </tr>
                                             ";
                                         ?>
@@ -323,6 +347,35 @@ use App\Model\Sciday\Showround;
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">เพิ่มข้อมูลวีดีโอ</label>
                             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ใส่ลิงค์ Video Youtube ที่นี้..." name="link_video">
+                         
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger text-white" data-bs-dismiss="modal">ปิด</button>
+                        <button type="submit" class="btn btn-primary">บันทึก</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Up Link file -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="file.php" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">อัพลิงค์ file Hex</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="" value="<?php echo $project2s['id'];?>" name="project_id">
+                    <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="" value="<?php echo $project2s['level_id'];?>" name="level_id">
+                    <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="" value="6" name="activity_id">
+                    
+                    <!-- <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="Link Video Yuotube" value="<?php echo $project2s['id'];?>" name="project_id"> -->
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">เพิ่ม link file Hex</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ใส่ลิงค์ file Hex ที่นี้..." name="file_program">
                          
                         </div>
                     </div>
