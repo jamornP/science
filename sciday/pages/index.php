@@ -143,8 +143,8 @@
                                 &nbsp;&nbsp;&nbsp;เนื่องจากมีทีมสมัครเข้ามาจำนวนมาก ทางคณะกรรมการจัดการแข่งขันจึงขอขยายเวลาในการประกาศผลทีมที่ผ่านเข้ารอบ เป็นภายในวันที่ 27 ก.ค. 2565 เวลา 18.00 น. เป็นต้นไป
                                 </p>
                                 <p class="card-text mt-4 text-primary">
-                               
-                               
+                                    ประกาศผล
+                                    <a href="/science/sciday/pages/micro.php?activity=Ng==" class="text-primary">การแข่งขัน micro:bit</a> <br>
                                
                                 </p>
                                 
@@ -224,7 +224,7 @@
                                 1. <a href="/science/sciday/pages/artifact.php?activity=MQ==" class="text-primary">การประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์</a> <br>
                                 2. <a href="/science/sciday/pages/iot.php?activity=Mw==" class="text-primary">การประกวดโครงงาน IoT</a> <br>
                                 3. <a href="/science/sciday/pages/answer.php?activity=NA==" class="text-primary">การแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์</a> <br>
-                                <!-- 4. <a href="/science/sciday/pages/micro.php?activity=Ng==" class="text-primary">การแข่งขัน micro:bit</a> <br> -->
+                                4. <a href="/science/sciday/pages/micro.php?activity=Ng==" class="text-primary">การแข่งขัน micro:bit</a> <br>
                                 </p>
                                 
                             </div>
