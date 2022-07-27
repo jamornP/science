@@ -130,6 +130,32 @@
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <div class="col">
                         <div class="card h-100 border-success">
+                            <img src="/science/sciday/images/news08.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <button type="button" class="btn btn-primary position-relative">
+                                    <h5 class="card-title">รายละเอียดการแนบ Link file Hex</h5>
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                                        New    
+                                    <span class="visually-hidden">New alerts</span>
+                                    </span>
+                                </button>
+                                <p class="card-text mt-2" style="text-align: justify">
+                                    ทีมที่ผ่านเข้ารอบ 2 <br>&nbsp;&nbsp;&nbsp;การแข่งขันที่ต้องแนบ link file Hex สามารถทำตามคู่มือที่แนบมาด้านล่างนี้ โดยท่านต้อง upload file Hex ของท่านผ่าน Google Drive และแชร์ให้คนที่มี link ดูได้ จากนั้นให้นำ link มาแนบในระบบ
+                                </p>
+                                <p class="card-text mt-4 text-primary">
+                               
+                                <a href="/science/sciday/document/คู่มืออัพลิงค์ file Hex.pdf" class="text-primary" target='_blank'>คู่มือแนบ link file Hex</a> <br>
+                               
+                                </p>
+                                
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted text-end">Post date : 27 ก.ค. 2565</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news07.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <button type="button" class="btn btn-primary position-relative">
