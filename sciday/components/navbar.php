@@ -66,6 +66,9 @@
                             <a class="dropdown-item" aria-current="page" href="/science/sciday/document/คู่มืออัพลิงค์ video.pdf" target='_blank'><i class='bx bx-user-voice' ></i> คู่มือการแนบ Link video</a>
                         </li>
                         <li>
+                            <a class="dropdown-item" aria-current="page" href="/science/sciday/document/คู่มืออัพลิงค์ file Hex.pdf" target='_blank'><i class='bx bx-user-voice' ></i> คู่มือการแนบ Link file Hex</a>
+                        </li>
+                        <li>
                             <a class="dropdown-item" aria-current="page" href="/science/sciday/document/ตอบปัญหารอบ2.pdf" target='_blank'><i class='bx bx-user-voice' ></i> คู่มือการแข่งตอบปัญหา</a>
                         </li>
                     </ul>

@@ -127,7 +127,8 @@ use App\Model\Sciday\Teacher;
                                     <th width='20%'>โรงเรียน</th>
                                     <th width='20%'>นักเรียน</th>
                                     <th width='15%'>อาจารย์ที่ปรึกษา</th>
-                                    <th width='15%'>วีดีโอ</th>
+                                    <th width=''>วีดีโอ</th>
+                                    <th width=''>เบอร์โทร</th>
                                     <!-- <th>รูป</th> -->
                                 </tr>
                             </thead>
@@ -171,6 +172,7 @@ use App\Model\Sciday\Teacher;
                                                 <td >{$st}</td>
                                                 <td >{$tea}</td>
                                                 <td >{$show_link}</td>
+                                                <td >{$round['tel']}</td>
                                             </tr>
                                         ";
                                     }

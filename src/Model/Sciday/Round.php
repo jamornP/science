@@ -440,11 +440,13 @@ public function getRound3ById($id) {
                 r.link_video,
                 r.level_id,
                 r.activity_id, 
-                r.project_id
+                r.project_id,
+                u.tel
             FROM 
                 tb_round AS r
                 LEFT JOIN tb_artifact AS p ON r.project_id = p.id
                 LEFT JOIN tb_level AS l ON r.level_id = l.id
+                LEFT JOIN tb_users AS u ON p.user_id = u.id
             WHERE
                 r.level_id = ? AND
                 r.num = ".$num." AND
@@ -473,11 +475,13 @@ public function getRound3ById($id) {
                 r.link_video,
                 r.level_id,
                 r.activity_id, 
-                r.project_id
+                r.project_id,
+                u.tel
             FROM 
                 tb_round AS r
                 LEFT JOIN tb_project AS p ON r.project_id = p.id
                 LEFT JOIN tb_level AS l ON r.level_id = l.id
+                LEFT JOIN tb_users AS u ON p.user_id = u.id
             WHERE
                 r.level_id = ? AND
                 r.num = ".$num." AND
@@ -506,11 +510,13 @@ public function getRound3ById($id) {
                 r.link_video,
                 r.level_id,
                 r.activity_id, 
-                r.project_id
+                r.project_id,
+                u.tel
             FROM 
                 tb_round AS r
                 LEFT JOIN tb_iot AS p ON r.project_id = p.id
                 LEFT JOIN tb_level AS l ON r.level_id = l.id
+                LEFT JOIN tb_users AS u ON p.user_id = u.id
             WHERE
                 r.level_id = ? AND
                 r.num = ".$num." AND
@@ -540,11 +546,13 @@ public function getRound3ById($id) {
                 r.level_id,
                 r.activity_id, 
                 r.file_program, 
-                r.project_id
+                r.project_id,
+                u.tel
             FROM 
                 tb_round AS r
                 LEFT JOIN tb_micro AS p ON r.project_id = p.id
                 LEFT JOIN tb_level AS l ON r.level_id = l.id
+                LEFT JOIN tb_users AS u ON p.user_id = u.id
             WHERE
                 r.level_id = ? AND
                 r.num = ".$num." AND
