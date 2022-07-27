@@ -283,10 +283,11 @@ use App\Model\Sciday\Teacher;
                                 <table class="table table-striped table-hover fs-20">
                                     <thead>
                                         <tr>
-                                            <th width='10%'>#</th>
-                                            <th width='40%'>โรงเรียน</th>
-                                            <th width='25%'>นักเรียน</th>
-                                            <th width='25%'>อาจารย์ที่ปรึกษา</th>
+                                            <th width='5%'>#</th>
+                                            <th width=''>ชื่อโครงงาน</th>
+                                            <th width=''>โรงเรียน</th>
+                                            <th width='20%'>นักเรียน</th>
+                                            <th width='20%'>อาจารย์ที่ปรึกษา</th>
                                         </tr>
                                     </thead>
                                     <tbody class="fs-14">
@@ -319,10 +320,11 @@ use App\Model\Sciday\Teacher;
                                                 }
                                                 echo "
                                                     <tr>
-                                                        <td width='8%'>{$i2}.</td>
-                                                        <td width='20%'>{$round2['school']}</td>
-                                                        <td width='20%'>{$st2}</td>
-                                                        <td width='15%'>{$tea2}</td>
+                                                        <td>{$i2}.</td>
+                                                        <td>{$round2['iot_name']}</td>
+                                                        <td>{$round2['school']}</td>
+                                                        <td>{$st2}</td>
+                                                        <td>{$tea2}</td>
                                                     </tr>
                                                 ";
                                             }
@@ -359,10 +361,11 @@ use App\Model\Sciday\Teacher;
                                 <table class="table table-striped table-hover fs-20">
                                     <thead>
                                         <tr>
-                                            <th width='10%'>#</th>
-                                            <th width='40%'>โรงเรียน</th>
-                                            <th width='25%'>นักเรียน</th>
-                                            <th width='25%'>อาจารย์ที่ปรึกษา</th>
+                                            <th width='5%'>#</th>
+                                            <th width=''>ชื่อโครงงาน</th>
+                                            <th width=''>โรงเรียน</th>
+                                            <th width='20%'>นักเรียน</th>
+                                            <th width='20%'>อาจารย์ที่ปรึกษา</th>
                                         </tr>
                                     </thead>
                                     <tbody class="fs-14">
@@ -395,10 +398,11 @@ use App\Model\Sciday\Teacher;
                                                 }
                                                 echo "
                                                     <tr>
-                                                        <td width='8%'>{$i3}.</td>
-                                                        <td width='20%'>{$round3['school']}</td>
-                                                        <td width='20%'>{$st3}</td>
-                                                        <td width='15%'>{$tea3}</td>
+                                                        <td>{$i3}.</td>
+                                                        <td>{$round3['iot_name']}</td>
+                                                        <td>{$round3['school']}</td>
+                                                        <td>{$st3}</td>
+                                                        <td>{$tea3}</td>
                                                     </tr>
                                                 ";
                                             }

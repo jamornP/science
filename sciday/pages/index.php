@@ -128,9 +128,35 @@
             </div>
             <div class="card-body">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <!-- <div class="col">
+                    <div class="col">
                         <div class="card h-100 border-success">
-                            <img src="/science/sciday/images/news_answer02.png" class="card-img-top" alt="...">
+                            <img src="/science/sciday/images/news07.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <button type="button" class="btn btn-primary position-relative">
+                                    <h5 class="card-title">เลื่อนการประกาศผล micro:bit</h5>
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                                        New    
+                                    <span class="visually-hidden">New alerts</span>
+                                    </span>
+                                </button>
+                                <p class="card-text mt-2" style="text-align: justify">
+                                &nbsp;&nbsp;&nbsp;เนื่องจากมีทีมสมัครเข้ามาจำนวนมาก ทางคณะกรรมการจัดการแข่งขันจึงขอขยายเวลาในการประกาศผลทีมที่ผ่านเข้ารอบ เป็นภายในวันที่ 27 ก.ค. 2565 เวลา 18.00 น. เป็นต้นไป
+                                </p>
+                                <p class="card-text mt-4 text-primary">
+                               
+                               
+                               
+                                </p>
+                                
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted text-end">Post date : 27 ก.ค. 2565</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 border-success">
+                            <img src="/science/sciday/images/news06.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <button type="button" class="btn btn-primary position-relative">
                                     <h5 class="card-title">รายละเอียดการแนบ Link video</h5>
@@ -140,7 +166,7 @@
                                     </span>
                                 </button>
                                 <p class="card-text mt-2" style="text-align: justify">
-                                    ทีมที่ผ่านเข้ารอบ 2 <br>การแข่งขันที่ต้องแนบ link video สามารถทำตามคู่มือที่แนบมาด้านล่างนี้ โดยท่านต้อง upload video ของท่านผ่านเว็บ Youtube จากนั้นให้นำ link มาแนบในระบบ
+                                    ทีมที่ผ่านเข้ารอบ 2 <br>&nbsp;&nbsp;&nbsp;การแข่งขันที่ต้องแนบ link video สามารถทำตามคู่มือที่แนบมาด้านล่างนี้ โดยท่านต้อง upload video ของท่านผ่านเว็บ Youtube จากนั้นให้นำ link มาแนบในระบบ
                                 </p>
                                 <p class="card-text mt-4 text-primary">
                                
@@ -153,8 +179,8 @@
                                 <small class="text-muted text-end">Post date : 27 ก.ค. 2565</small>
                             </div>
                         </div>
-                    </div> -->
-                    <!-- <div class="col">
+                    </div>
+                    <div class="col">
                         <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news_answer02.png" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -166,7 +192,7 @@
                                     </span>
                                 </button>
                                 <p class="card-text mt-2" style="text-align: justify">
-                                    ทีมที่ผ่านเกณฑ์เข้ารอบของ การแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ ให้ดำเนินการ Login เข้าสู่ระบบเพื่อรับทราบข้อมูลการแข่งขัน การอธิบายการแข่งขัน ผ่านช่องทางที่ระบุ โดยให้ท่านทำตาม เอกสารแนบจาก link  ภายในวันที่ 3 ส.ค. 65
+                                &nbsp;&nbsp;&nbsp;ทีมที่ผ่านเกณฑ์เข้ารอบของ การแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ ให้ดำเนินการ Login เข้าสู่ระบบเพื่อรับทราบข้อมูลการแข่งขัน การอธิบายการแข่งขัน ผ่านช่องทางที่ระบุ โดยให้ท่านทำตาม เอกสารแนบจาก link  ภายในวันที่ 3 ส.ค. 65
                                 </p>
                                 <p class="card-text mt-4 text-primary">
                                
@@ -179,7 +205,7 @@
                                 <small class="text-muted text-end">Post date : 27 ก.ค. 2565</small>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="col">
                         <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news05.png" class="card-img-top" alt="...">
