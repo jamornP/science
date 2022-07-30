@@ -84,14 +84,14 @@
                     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="5000">
-                            <img src="/science/sciday/images/news05.png" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000">
                             <img src="/science/sciday/images/news00.png" class="d-block w-100" alt="...">
                             </div>
-                            <div class="carousel-item" data-bs-interval="5000">
+                            <!-- <div class="carousel-item" data-bs-interval="5000">
+                            <img src="/science/sciday/images/news00.png" class="d-block w-100" alt="...">
+                            </div> -->
+                            <!-- <div class="carousel-item" data-bs-interval="5000">
                             <img src="/science/sciday/images/news01.png" class="d-block w-100" alt="...">
-                            </div>
+                            </div> -->
                             
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -128,16 +128,14 @@
             </div>
             <div class="card-body">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col">
+                    <!-- <div class="col">
                         <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news08.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <button type="button" class="btn btn-primary position-relative">
                                     <h5 class="card-title">รายละเอียดการแนบ Link file Hex</h5>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
-                                        New    
-                                    <span class="visually-hidden">New alerts</span>
-                                    </span>
+                                    
+                                   
                                 </button>
                                 <p class="card-text mt-2" style="text-align: justify">
                                     ทีมที่ผ่านเข้ารอบ 2 <br>&nbsp;&nbsp;&nbsp;การแข่งขันที่ต้องแนบ link file Hex สามารถทำตามคู่มือที่แนบมาด้านล่างนี้ โดยท่านต้อง upload file Hex ของท่านผ่าน Google Drive และแชร์ให้คนที่มี link ดูได้ จากนั้นให้นำ link มาแนบในระบบ
@@ -153,8 +151,8 @@
                                 <small class="text-muted text-end">Post date : 27 ก.ค. 2565</small>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
+                    </div> -->
+                    <!-- <div class="col">
                         <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news07.png" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -179,17 +177,14 @@
                                 <small class="text-muted text-end">Post date : 27 ก.ค. 2565</small>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col">
                         <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news06.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <button type="button" class="btn btn-primary position-relative">
                                     <h5 class="card-title">รายละเอียดการแนบ Link video</h5>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
-                                        New    
-                                    <span class="visually-hidden">New alerts</span>
-                                    </span>
+                                    
                                 </button>
                                 <p class="card-text mt-2" style="text-align: justify">
                                     ทีมที่ผ่านเข้ารอบ 2 <br>&nbsp;&nbsp;&nbsp;การแข่งขันที่ต้องแนบ link video สามารถทำตามคู่มือที่แนบมาด้านล่างนี้ โดยท่านต้อง upload video ของท่านผ่านเว็บ Youtube จากนั้นให้นำ link มาแนบในระบบ
@@ -197,6 +192,7 @@
                                 <p class="card-text mt-4 text-primary">
                                
                                 <a href="/science/sciday/document/คู่มืออัพลิงค์ video.pdf" class="text-primary" target='_blank'>คู่มือแนบ link video</a> <br>
+                                <a href="/science/sciday/document/คู่มืออัพลิงค์ file Hex.pdf" class="text-primary" target='_blank'>คู่มือแนบ link file Hex</a> <br>
                                
                                 </p>
                                 
@@ -212,10 +208,7 @@
                             <div class="card-body">
                                 <button type="button" class="btn btn-primary position-relative">
                                     <h5 class="card-title">รายละเอียดรอบแข่งขันออนไลน์</h5>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
-                                        New    
-                                    <span class="visually-hidden">New alerts</span>
-                                    </span>
+                                    
                                 </button>
                                 <p class="card-text mt-2" style="text-align: justify">
                                 &nbsp;&nbsp;&nbsp;ทีมที่ผ่านเกณฑ์เข้ารอบของ การแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ ให้ดำเนินการ Login เข้าสู่ระบบเพื่อรับทราบข้อมูลการแข่งขัน การอธิบายการแข่งขัน ผ่านช่องทางที่ระบุ โดยให้ท่านทำตาม เอกสารแนบจาก link  ภายในวันที่ 3 ส.ค. 65
@@ -238,10 +231,7 @@
                             <div class="card-body">
                                 <button type="button" class="btn btn-primary position-relative">
                                     <h5 class="card-title">ประกาศรายชื่อผู้ที่ผ่านเข้ารอบ</h5>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
-                                        New    
-                                    <span class="visually-hidden">New alerts</span>
-                                    </span>
+                                   
                                 </button>
                                 <p class="card-text mt-2">
                                     คลิกดูรายละเอียดที่กิจกรรมได้เลยครับผม
@@ -259,15 +249,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <!-- <div class="col">
                         <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news04.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <button type="button" class="btn btn-primary position-relative">
                                     <h5 class="card-title">เลื่อนการปิดรับสมัคร</h5>
-                                    <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
-                                        New    
-                                    <span class="visually-hidden">New alerts</span> -->
+                                   
                                     </span>
                                 </button>
                                 <p class="card-text mt-4 text-primary">
@@ -284,18 +272,16 @@
                                 <small class="text-muted text-end">Post date : 12 ก.ค. 2565</small>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col">
                         <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news01.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 
-                                <!-- <a href="/science/sciday/pages/project.php?activity=Mg==" class=""> -->
+                                
                                     <button type="button" class="btn btn-primary position-relative">
                                         <h5 class="card-title">ชิงถ้วยพระราชทาน</h5>
-                                        <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
-                                            New    
-                                        <span class="visually-hidden">New alerts</span> -->
+                                        
                                         </span>
                                     </button>
                                 <!-- </a> -->
@@ -310,16 +296,14 @@
                                     
                                     
                                 </p>
-                                <!-- <div class="text-end">
-                                    <a href="/science/sciday/pages/project.php?activity=Mg==" class="">รายละเอียดเพิ่มเติม</a>
-                                </div> -->
+                                
                             </div>
                             <div class="card-footer">
                                 <small class="text-muted text-end">Post date : 8 ก.ค. 2565</small>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <!-- <div class="col">
                         <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news02.png" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -327,9 +311,7 @@
                                 <a href="/science/sciday/pages/project.php?activity=Mg==" class="">
                                     <button type="button" class="btn btn-primary position-relative">
                                         <h5 class="card-title">เลื่อนการปิดรับสมัคร</h5>
-                                        <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
-                                            New    
-                                        <span class="visually-hidden">New alerts</span> -->
+                                        
                                         </span>
                                     </button>
                                 </a>
@@ -345,7 +327,7 @@
                                 <small class="text-muted text-end">Post date : 8 ก.ค. 2565</small>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
