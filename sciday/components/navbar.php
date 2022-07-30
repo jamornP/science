@@ -74,6 +74,29 @@
                     </ul>
                     
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class='bx bx-down-arrow-alt'></i> Download
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown" style="background-color:rgb(233,152,20);">
+                        <li>
+                            <a class="dropdown-item" aria-current="page" href="https://drive.google.com/drive/folders/1w3uIgGuAabaIeWQe3O-seP7iTj4Y8kgV?usp=sharing" target='_blank'><i class='bx bx-download' ></i> เทมเพลต IoT</a>
+                        </li>
+                        <!-- <li>
+                            <a class="dropdown-item" aria-current="page" href="/science/sciday/document/คู่มือแก้ไข.pdf" target='_blank'><i class='bx bx-user-voice' ></i> คู่มือการแก้ไขข้อมูล</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" aria-current="page" href="/science/sciday/document/คู่มืออัพลิงค์ video.pdf" target='_blank'><i class='bx bx-user-voice' ></i> คู่มือการแนบ Link video</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" aria-current="page" href="/science/sciday/document/คู่มืออัพลิงค์ file Hex.pdf" target='_blank'><i class='bx bx-user-voice' ></i> คู่มือการแนบ Link file Hex</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" aria-current="page" href="/science/sciday/document/ตอบปัญหารอบ2.pdf" target='_blank'><i class='bx bx-user-voice' ></i> คู่มือการแข่งตอบปัญหา</a>
+                        </li> -->
+                    </ul>
+                    
+                </li>
                 <?php if($_SESSION['role']=='committee' OR $_SESSION['role']=='chairman'){ ?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

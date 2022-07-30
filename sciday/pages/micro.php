@@ -138,7 +138,7 @@ use App\Model\Sciday\Teacher;
                                         </td>
                                         <td class="text-center">
                                             <p class="text-decoration-line-through">วันที่ 27  ก.ค. 2565</p>
-                                            <p class="">วันที่ 3  ส.ค. 2565</p>
+                                            <p class="">วันที่ 15  ส.ค. 2565</p>
                                         </td>
                                     </tr>
                                     <!-- <tr>

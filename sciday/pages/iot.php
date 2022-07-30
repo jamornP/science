@@ -124,7 +124,8 @@ use App\Model\Sciday\Teacher;
                                     <tr>
                                         <td>
                                             <span class="badge rounded-pill bg-primary fs-20 shadow">เปิดระบบแนบ Link video</span> <br>
-                                            - สำหรับทีมที่ผ่านเข้ารอบที่ 2 ให้ผู้สมัครอัพคลิปลง Youtube แล้วส่งลิงค์เข้า ระบบของคณะ ที่ช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> 
+                                            - สำหรับทีมที่ผ่านเข้ารอบที่ 2 ให้ผู้สมัครอัพคลิปลง Youtube แล้วส่งลิงค์เข้า ระบบของคณะ ที่ช่องทาง --> <a href="" class="">http://sciday.kmitl.ac.th</a> <br> 
+                                            <a href="https://drive.google.com/drive/folders/1w3uIgGuAabaIeWQe3O-seP7iTj4Y8kgV?usp=sharing" class="btn btn-warning text-white"> Download เทมเพลต </a> <span class="spinner-grow spinner-grow-sm text-primary" role="status" aria-hidden="true"></span>
                                         </td>
                                         <td class="text-center">
                                             <p class="text-decoration-line-through">วันที่ 20  ก.ค. 2565</p>
