@@ -379,6 +379,7 @@ use App\Model\Sciday\Showround;
                                     <input class="form-control" type="hidden" id="tel" name="teacher_id" value="<?php echo $projects['teacher_id'];?>">
                                     <ol>
                                     <?php 
+                                            
                                             foreach($teachers AS $teacher){
                                                 ?>
                                                     <li>
@@ -387,7 +388,8 @@ use App\Model\Sciday\Showround;
                                                                 <select class="form-select" aria-label="Default select example" name="ttitle[]">
                                                                     <option selected>คำนำหน้าชื่อ</option>
                                                                     <?php 
-                                                                        foreach($titles AS $title){
+                                                                        $gtitles = $titleObj->getTitleByGroup(2);
+                                                                        foreach($gtitles AS $title){
                                                                             $selected =($title['id']==$teacher['ttitle_id']) ?
                                                                             "selected" : "";
                                                                             echo "

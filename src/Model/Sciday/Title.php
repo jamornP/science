@@ -15,6 +15,19 @@ class Title extends DbSciDay {
         return $data;
     }
 
+    public function getTitleByGroup($group) {
+        $sql = "
+            SELECT *
+            FROM tb_title
+            WHERE group_title =?
+            ORDER BY id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$group]);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
+
 
 
 }
