@@ -313,9 +313,9 @@ use App\Model\Sciday\Showround;
                                                 echo "
                                                     <tr>
                                                         <td>{$i2}.</td>
-                                                        <td'>{$round2['project_name']}</td>
-                                                        <td'>{$round2['school']}</td>
-                                                        <td'>{$st2}</td>
+                                                        <td>{$round2['project_name']}</td>
+                                                        <td>{$round2['school']}</td>
+                                                        <td>{$st2}</td>
                                                         <td>{$tea2}</td>
                                                     </tr>
                                                 ";
