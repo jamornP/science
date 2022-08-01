@@ -82,18 +82,13 @@
                         <li>
                             <a class="dropdown-item" aria-current="page" href="https://drive.google.com/drive/folders/1w3uIgGuAabaIeWQe3O-seP7iTj4Y8kgV?usp=sharing" target='_blank'><i class='bx bx-download' ></i> เทมเพลต IoT</a>
                         </li>
-                        <!-- <li>
-                            <a class="dropdown-item" aria-current="page" href="/science/sciday/document/คู่มือแก้ไข.pdf" target='_blank'><i class='bx bx-user-voice' ></i> คู่มือการแก้ไขข้อมูล</a>
+                        <li>
+                            <a class="dropdown-item" aria-current="page" href="/science/sciday/document/รายชื่อกลุ่มการแข่งขันตอบปัญหาTH.pdf" target='_blank'><i class='bx bx-download' ></i> รายชื่อกลุ่มการแข่งขันตอบปัญหาTH</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" aria-current="page" href="/science/sciday/document/คู่มืออัพลิงค์ video.pdf" target='_blank'><i class='bx bx-user-voice' ></i> คู่มือการแนบ Link video</a>
+                            <a class="dropdown-item" aria-current="page" href="/science/sciday/document/รายชื่อกลุมการแข่งขันตอบปัญหาEN.pdf" target='_blank'><i class='bx bx-download' ></i> รายชื่อกลุมการแข่งขันตอบปัญหาEN</a>
                         </li>
-                        <li>
-                            <a class="dropdown-item" aria-current="page" href="/science/sciday/document/คู่มืออัพลิงค์ file Hex.pdf" target='_blank'><i class='bx bx-user-voice' ></i> คู่มือการแนบ Link file Hex</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" aria-current="page" href="/science/sciday/document/ตอบปัญหารอบ2.pdf" target='_blank'><i class='bx bx-user-voice' ></i> คู่มือการแข่งตอบปัญหา</a>
-                        </li> -->
+                        
                     </ul>
                     
                 </li>
