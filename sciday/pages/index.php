@@ -84,10 +84,10 @@
                     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="5000">
-                            <img src="/science/sciday/images/news00.png" class="d-block w-100" alt="...">
+                            <img src="/science/sciday/images/news09.png" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000">
-                            <img src="/science/sciday/images/news05.png" class="d-block w-100" alt="...">
+                            <img src="/science/sciday/images/news00.png" class="d-block w-100" alt="...">
                             </div>
                             <!-- <div class="carousel-item" data-bs-interval="5000">
                             <img src="/science/sciday/images/news01.png" class="d-block w-100" alt="...">
