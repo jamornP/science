@@ -11,7 +11,7 @@
 
 <body class="font-sriracha">
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/sci-covid/components/navbar.php";?>
-
+<?php header('Location: /science/sci-covid/pages/register.php'); ?>
 </body>
 
 </html>

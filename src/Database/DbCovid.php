@@ -24,5 +24,6 @@ class DbCovid{
 		date_default_timezone_set('Asia/Bangkok');
 		return $pdo;
 	}
+    
 }
 ?>
