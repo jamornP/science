@@ -189,7 +189,10 @@ use App\Model\Sciday\Showround;
                                                     <td >{$st2}</td>
                                                     <td >{$tea2}</td>
                                                     <td >{$project2s['tel']}</td>
-                                                    <td ><a href='/science/sciday/images/news_answer.png' target='_blank'>QRcode</a></td>
+                                                    <td >
+                                                        <a href='/science/sciday/images/news_answer.png' target='_blank'>QRcode</a><br>
+                                                        <a href='https://line.me/R/ti/g/EefxBnFxoX' target='_blank'>Link line</a>    
+                                                    </td>
                                                 </tr>
                                             ";
                                         ?>
