@@ -82,6 +82,10 @@
                         <li>
                             <a class="dropdown-item" aria-current="page" href="https://drive.google.com/drive/folders/1w3uIgGuAabaIeWQe3O-seP7iTj4Y8kgV?usp=sharing" target='_blank'><i class='bx bx-download' ></i> เทมเพลต IoT</a>
                         </li>
+
+                        <li>
+                            <a class="dropdown-item" aria-current="page" href="/sciday/document/กำหนดการแข่งขันตอบปัญหาฯ 090865 -2565.pdf" target='_blank'><i class='bx bx-download' ></i> เอกสารกำหนดการแข่งขัน</a>
+                        </li>
                         <li>
                             <a class="dropdown-item" aria-current="page" href="/science/sciday/document/รายชื่อกลุ่มการแข่งขันตอบปัญหาTH.pdf" target='_blank'><i class='bx bx-download' ></i> รายชื่อกลุ่มการแข่งขันตอบปัญหาTH</a>
                         </li>
