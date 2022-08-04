@@ -120,5 +120,38 @@ class Data extends DbCovid {
         $data = $stmt->fetchAll();
         return $data;
     }
+    public function getAllDataByDate($date1,$date2) {
+        
+        $sql = "
+            SELECT 
+                d.name,
+                d.surname,
+                d.stu_num,
+                d.tel,
+                d.date_covid,
+                d.remark,
+                d.images_id ,
+                d.date_add,
+                c.name as class,
+                m.name as magor,
+                de.name as department,
+                d.images_id
+            FROM 
+                `tb_data` as d
+                LEFT JOIN tb_class as c ON c.id = d.class_id
+                LEFT JOIN tb_magor as m ON m.id = d.magor_id
+                LEFT JOIN tb_department as de ON de.id = m.d_id
+            WHERE
+                d.date_add BETWEEN '".$date1."' AND '".$date2."'
+            ORDER BY
+                m.name,
+                c.name
+            
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$depart]);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
 }
 ?>

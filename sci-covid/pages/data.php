@@ -43,6 +43,7 @@
             echo "
               <h5 class='card-title mt-5 text-center text-primary'>รายงานวันที่ {$datenow}</h5>
               <p class='text-center'>{$ldate}</p>
+              <a href='/science/certificate/pdf/sci_covid.php?date={$datenow}&date1={$date1}&date2={$date2}' target='_blank'>Export PDF <i class='bx bxs-file-pdf'></i></a>
             ";
           }else{
             $datenow = date('d-m-Y');
@@ -52,6 +53,7 @@
             echo "
             <h5 class='card-title mt-5 text-center text-primary'>รายงานวันที่ {$datenow}</h5>
             <p class='text-center'>{$ldate}</p>
+            <a href='/science/certificate/pdf/sci_covid.php?date={$datenow}&date1={$date1}&date2={$date2}' target='_blank'>Export PDF <i class='bx bxs-file-pdf'></i></a>
             ";
           }
         ?>
