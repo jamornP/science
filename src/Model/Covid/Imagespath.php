@@ -20,7 +20,20 @@ class Imagespath extends DbCovid {
         $stmt->execute($imagespath);
         return $this->pdo->lastInsertId();
     }
-
+    public function getImagesById($id) {
+        $sql = "
+            SELECT 
+                *
+            FROM 
+                tb_images 
+            WHERE 
+                images_id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
 
 
 }

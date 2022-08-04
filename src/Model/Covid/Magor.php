@@ -15,7 +15,24 @@ class Magor extends DbCovid {
                 tb_magor AS m
                 LEFT JOIN tb_department AS d ON d.id = m.d_id
             ORDER BY 
-                m.name  
+                m.name 
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
+    public function getDepartment() {
+        $sql="
+            SELECT 
+                d.name AS department,
+                d.id as d_id
+            FROM
+                tb_magor AS m
+                LEFT JOIN tb_department AS d ON d.id = m.d_id
+            GROUP BY
+                d.name
+            ORDER BY 
+                d.name  DESC
         ";
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();

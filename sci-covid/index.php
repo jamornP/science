@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<?php header('Location: /science/sci-covid/pages/register.php'); ?>
+<?php header('Location: /science/sci-covid/pages'); ?>
 </body>
 
 </html>

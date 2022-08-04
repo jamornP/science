@@ -32,7 +32,7 @@
             $images_id = $imagespathObj->InsertImagespath($img);
         }
         $line = $lineObj->SentLine($id);
-        header("location: /science/sci-covid/pages/register.php?msg=success");
+        header("location: /science/sci-covid/pages/intro.php?msg=success");
     }catch(Exception $e) {
         header("location: /science/sci-covid/pages/register.php?msg=error");
     }

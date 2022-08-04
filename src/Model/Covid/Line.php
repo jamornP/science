@@ -34,7 +34,7 @@ class Line extends DbCovid {
 
         $stu = $this->getDatarById($id);
         $date_covid = date_format(date_create($stu['date_covid']),"d-m-Y");
-        $data="รายใหม่\nชื่อ : ".$stu['name']." ".$stu['surname']."\nรหัส : ".$stu['stu_num']."\nเบอร์ : ".$stu['tel']."\nสาขา : ".$stu['magor']."\nภาค : ".$stu['department']."\nวันที่ทราบผลตรวจ : ".$date_covid."\nรายละเอียดห้อง : ".$stu['remark']."\nLink : " ;
+        $data="รายใหม่\nชื่อ : ".$stu['name']." ".$stu['surname']."\nรหัส : ".$stu['stu_num']."\nเบอร์ : ".$stu['tel']."\nสาขา : ".$stu['magor']."\nภาค : ".$stu['department']."\nวันที่ทราบผลตรวจ : ".$date_covid."\nรายละเอียดห้อง : ".$stu['remark']."\nLink : https://bit.ly/3d5wng0" ;
             ini_set('display_errors', 1);
             ini_set('display_startup_errors', 1);
             error_reporting(E_ALL);

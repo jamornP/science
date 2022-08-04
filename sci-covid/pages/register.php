@@ -58,12 +58,12 @@
         
         <div class="card mt-5 shadow">
             <div class="card-header bg-d">
-                <h3 class="text-center text-success"><b>ติดต่องานกิจการนักศึกษา</b><br></h3>
-                <h3 class="text-center text-danger"><b>Tel : 0899660233</b></h3>
-            
+                <!-- <h3 class="text-center text-success"><b>ติดต่องานกิจการนักศึกษา</b><br></h3>
+                <h3 class="text-center text-danger"><b>Tel : 089-966-0233 ติดต่อเฉพาะเวลาราชการ</b></h3> -->
+                <h5 class="card-title text-white mt-2">ข้อมูลทั่วไป</h5>
             </div>
             <div class="card-body">
-                <h5 class="card-title">ข้อมูลทั่วไป</h5>
+                
                 <form action="save.php" method="post" enctype="multipart/form-data" id="">
                     <br>
                     <div class="row">
@@ -137,7 +137,7 @@
                         <div class="col-md">
                             <div class="form-group mt-2">
                                 <div class="mb-3 w-75">
-                                    <label for="formFileMultiple" class="form-label "><b class="">Upload ไฟล์รูปภาพ ผลตรวจ <font color="red">( *.png หรือ *.jpg )</font> เท่านั้น</b></label>
+                                    <label for="formFileMultiple" class="form-label "><b class="">Upload ไฟล์รูปภาพ ผลตรวจ<font color="red">( *.png หรือ *.jpg )</font> เท่านั้น</b></label>
                                     <div class="container">
                                         <div class="card">
                                             <div class="card-body">
