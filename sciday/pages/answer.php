@@ -41,7 +41,36 @@ use App\Model\Sciday\Teacher;
             </span>
            
         </div>
-        
+        <!-- <div class="card mt-5" style="width: 100%;"> -->
+            
+        <!-- </div> -->
+        <div class="card mb-3 mt-5" style="max-width: 100%;">
+            <div class="row g-0">
+                <div class="col-md-6">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe width="100%" height="300" class="embed-responsive-item mt-2" src="/science/sciday/images/การเตรียมตัวแข่งขันตอบปัญหา คณะวิทยาศาสร.mp4" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h3 class="card-title"> Download</h3>
+                            </div>
+                            <div class="card-body">
+                            <a class="dropdown-item text-primary" aria-current="page" href="/sciday/document/กำหนดการแข่งขันตอบปัญหาฯ 090865 -2565.pdf" target='_blank'><i class='bx bx-download' ></i> เอกสารกำหนดการแข่งขัน</a>
+                            <a class="dropdown-item text-primary" aria-current="page" href="/science/sciday/document/รายชื่อกลุ่มการแข่งขันตอบปัญหาTH.pdf" target='_blank'><i class='bx bx-download' ></i> รายชื่อกลุ่มการแข่งขันตอบปัญหา ภาษาไทย</a>
+                            <a class="dropdown-item text-primary" aria-current="page" href="/science/sciday/document/รายชื่อกลุมการแข่งขันตอบปัญหาEN.pdf" target='_blank'><i class='bx bx-download' ></i> รายชื่อกลุ่มการแข่งขันตอบปัญหา ภาษาอังกฤษ</a>
+                            </div>
+                        </div>
+                        
+                        
+                       
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3">
         
             <div class="d-flex flex-row-reverse bd-highlight" ">
