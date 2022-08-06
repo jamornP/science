@@ -5,10 +5,21 @@ use App\Database\DbCar;
 
 class Car extends DbCar {
 
+    public function getAllCarByAdmin() {
+        $sql = "
+            SELECT *
+            FROM tb_car
+            ORDER BY name
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
     public function getAllCar() {
         $sql = "
             SELECT *
             FROM tb_car
+            WHERE status = 'y'
             ORDER BY name
         ";
         $stmt = $this->pdo->query($sql);

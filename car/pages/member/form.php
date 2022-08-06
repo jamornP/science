@@ -244,7 +244,11 @@ if($_REQUEST['action']=='edit'){
                                                 <option value="">เลือก</option>
                                                 <?php
                                                     $carObj = new Car;
-                                                    $cars = $carObj->getAllcar(); 
+                                                    if($_SESSION['role']=='member'){
+                                                        $cars = $carObj->getAllcar(); 
+                                                    }else{
+                                                        $cars = $carObj->getAllcarByAdmin(); 
+                                                    } 
                                                     foreach($cars as $car) {
                                                         $selected =($car['id']==$book['c_id']) ? 
                                                         "selected" : "";

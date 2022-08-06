@@ -294,12 +294,12 @@ if($_REQUEST['action']=='edit'){
                                     
                                     <div class="col-sm-12 col-md-6 col-lg-2">
                                     <div class="form-group">
-                                            <label for="car"class="form-label">ประเถทรถ</label>
+                                            <label for="car"class="form-label">ประเถทรถ<?php //echo $_SESSION['role'];?></label>
                                             <select class="form-select" aria-label="Default select example" id="car" name="car" required>
                                                 <option value="">เลือก</option>
                                                 <?php
                                                     $carObj = new Car;
-                                                    $cars = $carObj->getAllcar(); 
+                                                    $cars = $carObj->getAllcarByAdmin(); 
                                                     foreach($cars as $car) {
                                                         $selected =($car['id']==$book['c_id']) ? 
                                                         "selected" : "disabled";
