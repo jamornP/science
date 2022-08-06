@@ -1,5 +1,6 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php"?>
-<?php require $_SERVER['DOCUMENT_ROOT']."/science/lib/TCPDF-master/tcpdf.php";?>
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/lib/TCPDF-master/tcpdf.php";
+require($_SERVER['DOCUMENT_ROOT'].'/science/function/function.php');?>
 <?php 
     use App\Model\Covid\Data;
     $dataObj = new Data();
@@ -60,12 +61,12 @@ foreach($datas as $value){
     $pdf->Cell(65, 0, $value['magor'], 1, 0, 'C', 1);
     $pdf->Cell(55, 0, $value['department'], 1, 0, 'C', 1);
     $pdf->Cell(10, 0, $value['class'], 1, 0, 'C', 1);
-    $pdf->Cell(30, 0, $value['date_covid'], 1, 0, 'C', 1);
+    $pdf->Cell(30, 0, datethai($value['date_covid']), 1, 0, 'C', 1);
     $pdf->Ln();
 }
 $pdf->SetFontSize(14);
 $pdf->SetFont('', '');
 //Cell($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=0, $link='', $stretch=0, $ignore_min_height=false, $calign='T', $valign='M')
-$pdf->Cell(0, 0, "วันที่พิมพ์รายงาน ".date("Y-m-d"), 0, 1, 'R', 1);
+$pdf->Cell(0, 0, "วันที่พิมพ์รายงาน ".datethai(date("Y-m-d")), 0, 1, 'R', 1);
 $pdf->Output('basic_table.pdf', 'I');
 ?>

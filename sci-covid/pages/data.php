@@ -1,4 +1,5 @@
-<?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";
+require($_SERVER['DOCUMENT_ROOT'].'/science/function/function.php');?>
 <?php
     use App\Model\Covid\Magor;
     $magorObj = new Magor;
@@ -36,7 +37,7 @@
         <hr>
         <?php
           if(isset($_REQUEST['datesearch'])){
-            $datenow = $_REQUEST['datesearch'];
+            $datenow = datethai($_REQUEST['datesearch']);
             $date1 = $_REQUEST['datesearch']." 00:00:00";
             $date2 = $_REQUEST['datesearch']." 23:59:59";
             $ldate = $date1." - ".$date2;
@@ -46,7 +47,7 @@
               <a href='/science/certificate/pdf/sci_covid.php?date={$datenow}&date1={$date1}&date2={$date2}' target='_blank'>Export PDF <i class='bx bxs-file-pdf'></i></a>
             ";
           }else{
-            $datenow = date('d-m-Y');
+            $datenow = datethai(date('Y-m-d'));
             $date1 = date("Y-m-d 00:00:00");
             $date2 = date("Y-m-d 23:59:59");
             $ldate = $date1." - ".$date2;
@@ -124,6 +125,7 @@
                         $i++;
                         $name = $stu['name']." ".$stu['surname'];
                         // $date_covid = date_format(date_create($stu['date_covid']),"d-m-Y");
+                        $date_covid =datethai($stu['date_covid']);
                         echo "
                             <tr class='fs-14'>
                                 <th scope='row'>{$i}</th>
@@ -133,7 +135,7 @@
                                 <td>{$stu['magor']}</td>
                                 <td>{$stu['department']}</td>
                                 <td>{$stu['class']}</td>
-                                <td>{$stu['date_covid']}</td>
+                                <td>{$date_covid}</td>
                                 <td>
                                 <a class=' btn btn-sm text-white btn-primary' href='/science/sci-covid/pages/show-img.php?imges_id={$stu['images_id']}&name={$name}&date_covid={$stu['date_covid']}' target='_blank'>ATK</a>
                                 

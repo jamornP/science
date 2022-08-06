@@ -11,14 +11,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/car/index.php">ปฏิทินการใช้รถ</a>
+          <a class="nav-link" aria-current="page" href="/science/car/index.php">ปฏิทินการใช้รถ</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/car/pages/member/form.php">แบบฟอร์มขอใช้รถ</a>
+          <a class="nav-link" href="/science/car/pages/member/form.php">แบบฟอร์มขอใช้รถ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/car/pages/member/index.php">ข้อมูลขอใช้รถทั้งหมด</a>
+          <a class="nav-link" href="/science/car/pages/member/index.php">ข้อมูลขอใช้รถทั้งหมด</a>
         </li>
        
         <?php
@@ -29,15 +29,15 @@
                 จัดการข้อมูลระบบ
               </a>
               <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
-                <li><a class='dropdown-item' href='/car/pages/book/index.php'>ข้อมูลการจองรถ</a></li>
+                <li><a class='dropdown-item' href='/science/car/pages/book/index.php'>ข้อมูลการจองรถ</a></li>
                 <li><hr class='dropdown-divider'></li>
-                <li><a class='dropdown-item' href='/car/pages/car/index.php'>ข้อมูลรถ</a></li>
-                <li><a class='dropdown-item' href='/car/pages/status/index.php'>ข้อมูลสถานะ</a></li>
-                <li><a class='dropdown-item' href='/car/pages/position/index.php'>ข้อมูลตำแหน่ง</a></li>
-                <li><a class='dropdown-item' href='/car/pages/department/index.php'>ข้อมูลสังกัด</a></li>
-                <li><a class='dropdown-item' href='/car/pages/choose/index.php'>ข้อมูลการรับส่ง</a></li>
+                <li><a class='dropdown-item' href='/science/car/pages/car/index.php'>ข้อมูลรถ</a></li>
+                <li><a class='dropdown-item' href='/science/car/pages/status/index.php'>ข้อมูลสถานะ</a></li>
+                <li><a class='dropdown-item' href='/science/car/pages/position/index.php'>ข้อมูลตำแหน่ง</a></li>
+                <li><a class='dropdown-item' href='/science/car/pages/department/index.php'>ข้อมูลสังกัด</a></li>
+                <li><a class='dropdown-item' href='/science/car/pages/choose/index.php'>ข้อมูลการรับส่ง</a></li>
                 <li><hr class='dropdown-divider'></li>
-                <li><a class='dropdown-item' href='/car/pages/user'>ข้อมูลสมาชิก</a></li>
+                <li><a class='dropdown-item' href='/science/car/pages/user'>ข้อมูลสมาชิก</a></li>
               </ul>
             </li>
           ";
@@ -55,16 +55,16 @@
                 {$name}
               </a>
               <div class='dropdown-menu dropdown-menu-end' aria-labelledby='navbarDropdown'>
-                <a class='dropdown-item' href='/car/pages/user/form.php?id={$_SESSION['id']}&action=edit'>แก้ไขข้อมูลส่วนตัว</a>
+                <a class='dropdown-item' href='/science/car/pages/user/form.php?id={$_SESSION['id']}&action=edit'>แก้ไขข้อมูลส่วนตัว</a>
                 <hr class='dropdown-divider'>
-                <a class='dropdown-item' href='/car/pages/auth/logout.php'>ออกจากระบบ</a>
+                <a class='dropdown-item' href='/science/car/auth/logout.php'>ออกจากระบบ</a>
               </div>
             </li>
           ";
         }else {
           echo "
             <li class='nav-item '>
-              <a href='/car/pages/auth/login.php'class='nav-link active'>เข้าสู่ระบบ</a>
+              <a href='/science/car/auth/login.php'class='nav-link active'>เข้าสู่ระบบ</a>
             </li>
           ";
         }
