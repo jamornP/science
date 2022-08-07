@@ -1,1 +1,1 @@
-<?php //require $_SERVER['DOCUMENT_ROOT']."/science/car/auth/auth.php";?>
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/car/auth/auth.php";?>
