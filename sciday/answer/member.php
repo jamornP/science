@@ -182,6 +182,11 @@ use App\Model\Sciday\Showround;
                                                 $k2++;
                                                 $tea2 .=$k2.". ".$teacher2['ttitle'].$teacher2['tname']." ".$teacher2['tsurname']."<br>";
                                             }
+                                            if($project2s['level_id']==7){
+                                                $a ="<a href='/science/sciday/document/answer/รอบ1(ไทย)-ข้อสอบและเฉลย.pdf' target='_blank'>เฉลยข้อสอบ{$project2s['level']}</a>";
+                                            }elseif($project2s['level_id']==8){
+                                                $a ="<a href='/science/sciday/document/answer/รวม1(ENG)-ข้อสอบและเฉลย.pdf' target='_blank'>เฉลยข้อสอบ{$project2s['level']}</a>";
+                                            }
                                             echo "
                                                 <tr>
                                                     <td >{$i2}.</td>
@@ -191,11 +196,13 @@ use App\Model\Sciday\Showround;
                                                     <td >{$project2s['tel']}</td>
                                                     <td >
                                                         <a href='/science/sciday/images/news_answer.png' target='_blank'>QRcode</a><br>
-                                                        <a href='https://line.me/R/ti/g/EefxBnFxoX' target='_blank'>Link line</a>    
+                                                        <a href='https://line.me/R/ti/g/EefxBnFxoX' target='_blank'>Link line</a><br>{$a}    
+                                                            
                                                     </td>
                                                 </tr>
                                             ";
                                         ?>
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -237,7 +244,7 @@ use App\Model\Sciday\Showround;
                                         <th width='20%'>นักเรียน</th>
                                         <th width='15%'>อาจารย์ที่ปรึกษา</th>
                                         <th width='15%'>เบอร์ติดต่อ</th>
-                                        <!-- <th width='10%'>เอกสาร</th> -->
+                                        <th width='10%'>ยืนยัน</th>
                                     </tr>
                                     </thead>
                                     <tbody class="fs-14">
@@ -269,6 +276,7 @@ use App\Model\Sciday\Showround;
                                                     <td >{$st3}</td>
                                                     <td >{$tea3}</td>
                                                     <td >{$project3s['tel']}</td>
+                                                    <td ><a href='https://forms.gle/YU5GZHe1FrbFhFGJ7' target='_blank'>แบบฟอร์ม</a></td>
                                                 </tr>
                                             ";
                                         ?>

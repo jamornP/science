@@ -44,33 +44,18 @@ use App\Model\Sciday\Teacher;
         <!-- <div class="card mt-5" style="width: 100%;"> -->
             
         <!-- </div> -->
-        <div class="card mb-3 mt-5" style="max-width: 100%;">
-            <div class="row g-0">
-                <div class="col-md-6">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe width="100%" height="300" class="embed-responsive-item mt-2" src="/science/sciday/images/การเตรียมตัวแข่งขันตอบปัญหา คณะวิทยาศาสร.mp4" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card-body">
-                        <div class="card">
-                            <div class="card-header bg-primary text-white">
-                                <h3 class="card-title"> Download</h3>
-                            </div>
-                            <div class="card-body">
-                            <a class="dropdown-item text-primary" aria-current="page" href="/science/sciday/document/กำหนดการแข่งขันตอบปัญหาฯ 090865 -2565.pdf" target='_blank'><i class='bx bx-download' ></i> เอกสารกำหนดการแข่งขัน</a>
-                            <a class="dropdown-item text-primary" aria-current="page" href="/science/sciday/document/รายชื่อกลุ่มการแข่งขันตอบปัญหาTH.pdf" target='_blank'><i class='bx bx-download' ></i> รายชื่อกลุ่มการแข่งขันตอบปัญหา ภาษาไทย</a>
-                            <a class="dropdown-item text-primary" aria-current="page" href="/science/sciday/document/รายชื่อกลุมการแข่งขันตอบปัญหาEN.pdf" target='_blank'><i class='bx bx-download' ></i> รายชื่อกลุ่มการแข่งขันตอบปัญหา ภาษาอังกฤษ</a>
-                            </div>
-                        </div>
-                        
-                        
-                       
-                       
-                    </div>
-                </div>
+        <div class="card mt-3">
+            <div class="card-header bg-primary text-white">
+                <h3>ประกาศ</h3>
+            </div>
+            <div class="card-body">
+            <h5 class="text-danger">**ให้ทางโรงเรียนยืนยันสิทธิ์เข้าร่วมการเเข่งขันรอบตัดสินภายในวันที่ 11 สิงหาคม 2565 ก่อนเวลา 16.30 น.
+โดยการ login ด้วย user ที่ใช้ส่งใบสมัครในการยืนยัน ถ้าทางโรงเรียนไม่ยืนยันสิทธิ์ภายในวันและเวลาดังกล่าว จะถือว่าสละสิทธิ์ และจะให้ทีมที่ได้คะแนนลำดับถัดไปแทน**
+            </h5>
+               
             </div>
         </div>
+        
         <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3">
         
             <div class="d-flex flex-row-reverse bd-highlight" ">
@@ -347,7 +332,7 @@ use App\Model\Sciday\Teacher;
                                             ";
                                         }
                                     ?>
-                                
+                                    
                                 </tbody>
                             </table>
                         </div>
