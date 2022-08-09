@@ -130,13 +130,37 @@
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <div class="col">
                         <div class="card h-100 border-success">
-                            <img src="/science/sciday/images/news_answer03.png" class="card-img-top" alt="...">
+                            
                             <div class="card-body">
-                                <button type="button" class="btn btn-primary position-relative">
+                            <img src="/science/sciday/images/news10.png" class="card-img-top shadow" alt="...">
+                               <!--  <button type="button" class="btn btn-primary position-relative">
                                     <h5 class="card-title">การแข่งขันตอบปัญหาฯ ออนไลน์</h5>
                                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
                                         New    
                                     <span class="visually-hidden">New alerts</span>  
+                                    </span>
+                                </button>
+                                <a class="dropdown-item text-primary mt-3" aria-current="page" href="/science/sciday/document/กำหนดการแข่งขันตอบปัญหาฯ 090865 -2565.pdf" target='_blank'><i class='bx bx-download' ></i> เอกสารกำหนดการแข่งขัน</a>
+                                <a class="dropdown-item text-primary" aria-current="page" href="/science/sciday/document/รายชื่อกลุ่มการแข่งขันตอบปัญหาTH.pdf" target='_blank'><i class='bx bx-download' ></i> รายชื่อกลุ่มการแข่งขันตอบปัญหา ภาษาไทย</a>
+                                <a class="dropdown-item text-primary" aria-current="page" href="/science/sciday/document/รายชื่อกลุมการแข่งขันตอบปัญหาEN.pdf" target='_blank'><i class='bx bx-download' ></i> รายชื่อกลุ่มการแข่งขันตอบปัญหา ภาษาอังกฤษ</a>
+                                <div class="embed-responsive embed-responsive-16by9 text-center">
+                                    <iframe width="80%" height="150" class="embed-responsive-item mt-2" src="/science/sciday/images/การเตรียมตัวแข่งขันตอบปัญหา คณะวิทยาศาสร.mp4" allowfullscreen></iframe>
+                                </div> -->
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted text-end">Post date : 8 ส.ค. 2565</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 border-success">
+                            <img src="/science/sciday/images/news_answer03.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <button type="button" class="btn btn-primary position-relative">
+                                    <h5 class="card-title">การแข่งขันตอบปัญหาฯ ออนไลน์</h5>
+                                    <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                                        New    
+                                    <span class="visually-hidden">New alerts</span>   -->
                                     </span>
                                 </button>
                                 <a class="dropdown-item text-primary mt-3" aria-current="page" href="/science/sciday/document/กำหนดการแข่งขันตอบปัญหาฯ 090865 -2565.pdf" target='_blank'><i class='bx bx-download' ></i> เอกสารกำหนดการแข่งขัน</a>
