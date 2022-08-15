@@ -276,7 +276,10 @@ use App\Model\Sciday\Showround;
                                                     <td >{$st3}</td>
                                                     <td >{$tea3}</td>
                                                     <td >{$project3s['tel']}</td>
-                                                    <td ><a href='https://forms.gle/YU5GZHe1FrbFhFGJ7' target='_blank'>แบบฟอร์ม</a></td>
+                                                    <td >
+                                                        <a href='https://forms.gle/YU5GZHe1FrbFhFGJ7' target='_blank'>แบบฟอร์ม</a><br>
+                                                        <a href='https://forms.gle/d2zGX8kcgadFRrXA7' target='_blank'>ข้อมูลรถที่จะนำมา</a>
+                                                    </td>
                                                 </tr>
                                             ";
                                         ?>

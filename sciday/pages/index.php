@@ -81,18 +81,12 @@
         <div class="card shadow mt-1">
             <div class="card-body">
                 <div class="row">
-                    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                    <!-- <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="5000">
                             <img src="/science/sciday/images/news00.png" class="d-block w-100" alt="...">
                             </div>
-                            <!-- <div class="carousel-item" data-bs-interval="5000">
-                            <img src="/science/sciday/images/news00.png" class="d-block w-100" alt="...">
-                            </div> -->
-                            <!-- <div class="carousel-item" data-bs-interval="5000">
-                            <img src="/science/sciday/images/news01.png" class="d-block w-100" alt="...">
-                            </div> -->
-                            
+                                                        
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -102,7 +96,9 @@
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
-                    </div>
+                    </div> -->
+                    <iframe width="80%" height="620" class="embed-responsive-item mt-2" src="https://www.youtube.com/embed/SbVQsw4y6zk?autoplay=1" allowfullscreen></iframe>
+                    <!-- <iframe width="800" height="620" src="https://www.youtube.com/embed/SbVQsw4y6zk?autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                 </div>
             </div>
         </div>
@@ -127,40 +123,41 @@
                 </h2>
             </div>
             <div class="card-body">
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col">
+                <div class="row ">
+                    <div class="col-lg-8 col-md-8 ">
+                        <div class="alert alert-success" role="alert">
+                            <h5 class="card-title">การประกวดโครงงานวิทยาศาสตร์</h5>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                                        New    
+                                <span class="visually-hidden">New alerts</span>  
+                            </span>
+                            <p class="card-text">ประกาศรายชื่อผู้ที่ผ่านเข้ารอบสุดท้ายการประกวดโครงงานวิทยาศาสตร์</p>
+                            <a href="/science/sciday/pages/project.php?activity=Mg==" class="btn btn-sm btn-primary">อ่านต่อ...</a>
+                        </div>
+                    </div>
+                
+                  
+                    <!-- <div class="col">
                         <div class="card h-100 border-success">
                             
                             <div class="card-body">
                             <img src="/science/sciday/images/news10.png" class="card-img-top shadow" alt="...">
-                               <!--  <button type="button" class="btn btn-primary position-relative">
-                                    <h5 class="card-title">การแข่งขันตอบปัญหาฯ ออนไลน์</h5>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
-                                        New    
-                                    <span class="visually-hidden">New alerts</span>  
-                                    </span>
-                                </button>
-                                <a class="dropdown-item text-primary mt-3" aria-current="page" href="/science/sciday/document/กำหนดการแข่งขันตอบปัญหาฯ 090865 -2565.pdf" target='_blank'><i class='bx bx-download' ></i> เอกสารกำหนดการแข่งขัน</a>
-                                <a class="dropdown-item text-primary" aria-current="page" href="/science/sciday/document/รายชื่อกลุ่มการแข่งขันตอบปัญหาTH.pdf" target='_blank'><i class='bx bx-download' ></i> รายชื่อกลุ่มการแข่งขันตอบปัญหา ภาษาไทย</a>
-                                <a class="dropdown-item text-primary" aria-current="page" href="/science/sciday/document/รายชื่อกลุมการแข่งขันตอบปัญหาEN.pdf" target='_blank'><i class='bx bx-download' ></i> รายชื่อกลุ่มการแข่งขันตอบปัญหา ภาษาอังกฤษ</a>
-                                <div class="embed-responsive embed-responsive-16by9 text-center">
-                                    <iframe width="80%" height="150" class="embed-responsive-item mt-2" src="/science/sciday/images/การเตรียมตัวแข่งขันตอบปัญหา คณะวิทยาศาสร.mp4" allowfullscreen></iframe>
-                                </div> -->
+                               
                             </div>
                             <div class="card-footer">
                                 <small class="text-muted text-end">Post date : 8 ส.ค. 2565</small>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
+                    </div> -->
+                    <!-- <div class="col">
                         <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news_answer03.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <button type="button" class="btn btn-primary position-relative">
                                     <h5 class="card-title">การแข่งขันตอบปัญหาฯ ออนไลน์</h5>
-                                    <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
                                         New    
-                                    <span class="visually-hidden">New alerts</span>   -->
+                                    <span class="visually-hidden">New alerts</span>  
                                     </span>
                                 </button>
                                 <a class="dropdown-item text-primary mt-3" aria-current="page" href="/science/sciday/document/กำหนดการแข่งขันตอบปัญหาฯ 090865 -2565.pdf" target='_blank'><i class='bx bx-download' ></i> เอกสารกำหนดการแข่งขัน</a>
@@ -174,8 +171,8 @@
                                 <small class="text-muted text-end">Post date : 4 ส.ค. 2565</small>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
+                    </div> -->
+                    <!-- <div class="col">
                         <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news05.png" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -200,7 +197,7 @@
                                 <small class="text-muted text-end">Post date : 31 ก.ค. 2565</small>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="col">
                         <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news08.png" class="card-img-top" alt="...">
@@ -251,7 +248,7 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="col">
+                    <!-- <div class="col">
                         <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news06.png" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -274,7 +271,7 @@
                                 <small class="text-muted text-end">Post date : 27 ก.ค. 2565</small>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     
                     
                     <!-- <div class="col">
@@ -301,7 +298,7 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="col">
+                    <!-- <div class="col">
                         <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news01.png" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -312,7 +309,7 @@
                                         
                                         </span>
                                     </button>
-                                <!-- </a> -->
+                                
                                 <p class="card-text mt-4">
                                 
                                     โค้งสุดท้ายสำหรับรับสมัครกิจกรรมงานวันวิทยาศาสตร์<br>
@@ -330,7 +327,7 @@
                                 <small class="text-muted text-end">Post date : 8 ก.ค. 2565</small>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="col">
                         <div class="card h-100 border-success">
                             <img src="/science/sciday/images/news02.png" class="card-img-top" alt="...">
@@ -408,7 +405,9 @@
                         ";
                     }
                     ?>
-                   
+                    <div class='col-md-4 mt-4'>
+                        <img src="/science/sciday/images/news10.png" class='d-block w-100 img-thumbnail' alt="...">
+                    </div>
                 </div>
             </div>
             <div class="mt5">

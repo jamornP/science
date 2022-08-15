@@ -214,12 +214,12 @@ use App\Model\Sciday\Teacher;
                                 <input type='hidden' class='form-control' name='link_video' value=''>
                                 <?php 
                                     $rounds = $roundObj->getRoundByLevelProject(base64_decode($_REQUEST['level']),3,2);
-                                    $i=0;
+                                    $i3=0;
                                     
                                     foreach($rounds AS $round){
                                         $stus = $studentObj->getStuById($round['student_id']);
                                         $teachers = $teacherObj->getTeacherById($round['teacher_id']);
-                                        $i++;
+                                        $i3++;
                                         $j=0;
                                         $k=0;
                                         $st="";
@@ -241,7 +241,7 @@ use App\Model\Sciday\Teacher;
                                         }
                                         echo "
                                             <tr>
-                                                <td {$i}.</td>
+                                                <td>{$i3}.</td>
                                                 <td>{$round['project_name']}</td>
                                                 <td >{$round['school']}</td>
                                                 <td >{$st}</td>

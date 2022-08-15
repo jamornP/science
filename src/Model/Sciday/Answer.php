@@ -131,5 +131,34 @@ class Answer extends DbSciDay {
         return true;
         
     }
+    public function CertificateRound($round){
+        $sql="
+            SELECT
+                p.id as project_id,
+                t.name as stutitle,
+                s.sname as stuname,
+                s.ssurname as stusurname,
+                p.school,
+                ac.name as activity,
+                l.name as level,
+                p.tel,
+                r.num as round	
+            FROM 
+                tb_round AS r
+                LEFT JOIN tb_answer AS p ON r.project_id = p.id
+                LEFT JOIN tb_level AS l ON r.level_id = l.id
+                LEFT JOIN tb_student AS s ON s.student_id = p.student_id
+                LEFT JOIN tb_title AS t ON t.id = s.stitle
+                LEFT JOIN tb_activity AS ac ON ac.id = r.activity_id
+            WHERE
+                r.level_id = 7 AND
+                r.num = ? AND
+                r.activity_id = 4 
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$round]);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
 
 }

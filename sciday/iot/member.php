@@ -283,7 +283,10 @@ use App\Model\Sciday\Showround;
                                                     <td width='20%'>{$project3s['school']}</td>
                                                     <td width='20%'>{$st3}</td>
                                                     <td width='15%'>{$tea3}</td>
-                                                    <td width='10%'><button type='button' class='btn btn-success text-white'>Success</button></td>
+                                                    <td width='10%'>
+                                                        <button type='button' class='btn btn-success text-white'>Success</button><br>
+                                                        <a href='https://forms.gle/d2zGX8kcgadFRrXA7' target='_blank'>ข้อมูลรถที่จะนำมา</a>
+                                                    </td>
                                                 </tr>
                                             ";
                                         ?>

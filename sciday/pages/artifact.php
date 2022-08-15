@@ -395,7 +395,7 @@ use App\Model\Sciday\Teacher;
                                                 echo "
                                                     <tr>
                                                         <td>{$i3}.</td>
-                                                        <td>{$round3['aritfact_name']}</td>
+                                                        <td>{$round3['artifact_name']}</td>
                                                         <td>{$round3['school']}</td>
                                                         <td>{$st3}</td>
                                                         <td>{$tea3}</td>
