@@ -14,7 +14,7 @@
     // }else{
     //     mkdir("/science/upload/sciday/certificate");
     // }
-    
+    $i=0;
         $pdf = new TCPDF("L", "mm", "A4", true, 'UTF-8', false);
         // remove default header/footer
         $pdf->setPrintHeader(false);
@@ -27,6 +27,7 @@
     
 
         foreach($persons as $person){
+            $i++;
         $name = $person['stutitle'].$person['stuname']." ".$person['stusurname'];
         // add a page
         $pdf->AddPage('L','A4');
@@ -116,7 +117,7 @@
 
         //สร้าง pdf file 'F' eletronic 'I'
         //$pdf->lastPage();
-      
+        
         $pdf->Output($fileNL, 'I');
         
     }
