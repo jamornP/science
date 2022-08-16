@@ -111,6 +111,39 @@
         </div>
         <br>
         <div class="card  shadow">
+            <div class="card-header bg-success">
+                <h2 class="card-title text-white">
+                    <!-- <div class="spinner-grow text-warning" role="status">
+                        <span class="visually-hidden"></span>
+                    </div> -->
+                    <b>หนังสือขอเชิญเข้าร่วมรอบตัดสิน Sciday@KMITL</b>
+                    <!-- <div class="spinner-grow text-warning" role="status">
+                        <span class="visually-hidden"></span>
+                    </div> -->
+                </h2>
+            </div>
+            <div class="card-body text-center">
+                <a href="/science/sciday/document/หนังสือเชิญโรงเรียนที่เข้าร่วมการแข่งขัน.pdf" class="btn btn-primary position-relative mt-3">
+                    <h4>หนังสือขอเชิญเข้าร่วมการประกวดแข่งขันรอบตัดสิน ณ คณะวิทยาศาสตร์ สจล.</h4>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        New
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+                </a>
+                <a href="/science/sciday/document/รายชื่อผู้ผ่านเข้ารอบตัดสินการประกวดแข่ง.pdf" class="btn btn-warning position-relative text-white mt-3">
+                    <h4>รายชื่อผู้ผ่านเข้ารอบตัดสินการประกวดแข่งขันทางวิทยาศาสตรและเทคโนโลยี</h4>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        New
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+                </a>
+                <br>
+                <br>
+                
+            </div>
+        </div>
+        <br>
+        <div class="card  shadow">
             <div class="card-header bg-info">
                 <h2 class="card-title text-white">
                     <div class="spinner-grow text-warning" role="status">
@@ -125,6 +158,39 @@
             <div class="card-body">
                 <div class="row ">
                     <div class="col-lg-8 col-md-8 ">
+                        <div class="alert alert-warning" role="alert">
+                            <h5 class="card-title">สำหรับโรงเรียนที่จะนำยานพาหนะเพื่อขน-ส่งอุปกรณ์ต่างๆสำหรับการแข่งขัน</h5>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                                        New    
+                                <span class="visually-hidden">New alerts</span>  
+                            </span>
+                            <p class="card-text">ให้ท่านทำการ Login และกรอกข้อมูลใน google form เพื่อทางผู้จัดงานจะได้จัดเตรียมพื้นที่จอดยานพาหนะให้แก่ท่าน</p>
+                            <a href="https://forms.gle/f8scZiGarkHMrPRy7" class="btn btn-sm btn-primary" target='_blank'>รายละเอียด...</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 ">
+                        <div class="alert alert-success" role="alert">
+                            <h5 class="card-title">การประกวดโครงงาน IoT</h5>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                                        New    
+                                <span class="visually-hidden">New alerts</span>  
+                            </span>
+                            <p class="card-text">ประกาศรายชื่อผู้ที่ผ่านเข้ารอบสุดท้ายการประกวดโครงงาน IoT</p>
+                            <a href="/science/sciday/pages/iot.php?activity=Mw==" class="btn btn-sm btn-primary">รายละเอียด...</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 ">
+                        <div class="alert alert-success" role="alert">
+                            <h5 class="card-title">การประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์</h5>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                                        New    
+                                <span class="visually-hidden">New alerts</span>  
+                            </span>
+                            <p class="card-text">ประกาศรายชื่อผู้ที่ผ่านเข้ารอบสุดท้ายการประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์</p>
+                            <a href="/science/sciday/pages/artifact.php?activity=MQ==" class="btn btn-sm btn-primary">รายละเอียด...</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 ">
                         <div class="alert alert-success" role="alert">
                             <h5 class="card-title">การประกวดโครงงานวิทยาศาสตร์</h5>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
@@ -132,7 +198,7 @@
                                 <span class="visually-hidden">New alerts</span>  
                             </span>
                             <p class="card-text">ประกาศรายชื่อผู้ที่ผ่านเข้ารอบสุดท้ายการประกวดโครงงานวิทยาศาสตร์</p>
-                            <a href="/science/sciday/pages/project.php?activity=Mg==" class="btn btn-sm btn-primary">อ่านต่อ...</a>
+                            <a href="/science/sciday/pages/project.php?activity=Mg==" class="btn btn-sm btn-primary">รายละเอียด...</a>
                         </div>
                     </div>
                 
