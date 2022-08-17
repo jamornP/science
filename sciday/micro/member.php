@@ -209,7 +209,7 @@ use App\Model\Sciday\Showround;
                                                     ";
                                                 }else{
                                                     $show_file2="
-                                                        <a href='{$round2s['link_video']}' class='btn btn-primary btn-sm text-white' target='_blank'><i class='bx bx-file'></i> File</a>
+                                                        <a href='{$round2s['file_program']}' class='btn btn-primary btn-sm text-white' target='_blank'><i class='bx bx-file'></i> File</a>
                                                     ";
                                                 }
 
