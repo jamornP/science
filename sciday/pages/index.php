@@ -81,10 +81,14 @@
         <div class="card shadow mt-1">
             <div class="card-body">
                 <div class="row">
-                    <!-- <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="5000">
-                            <img src="/science/sciday/images/news00.png" class="d-block w-100" alt="...">
+                                <img src="/science/sciday/images/news00.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="5000">
+                                <!-- <iframe width="100%" height="720" class="embed-responsive-item" src="https://www.youtube.com/embed/SbVQsw4y6zk?autoplay=1" allowfullscreen></iframe> -->
+                    
                             </div>
                                                         
                         </div>
@@ -96,8 +100,7 @@
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
-                    </div> -->
-                    <iframe width="80%" height="620" class="embed-responsive-item mt-2" src="https://www.youtube.com/embed/SbVQsw4y6zk?autoplay=1" allowfullscreen></iframe>
+                    </div>
                     <!-- <iframe width="800" height="620" src="https://www.youtube.com/embed/SbVQsw4y6zk?autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                 </div>
             </div>
@@ -157,51 +160,53 @@
             </div>
             <div class="card-body">
                 <div class="row ">
-                    <div class="col-lg-8 col-md-8 ">
+                    <div class="col-lg-6 col-md-6 ">
                         <div class="alert alert-warning" role="alert">
                             <h5 class="card-title">สำหรับโรงเรียนที่จะนำยานพาหนะเพื่อขน-ส่งอุปกรณ์ต่างๆสำหรับการแข่งขัน</h5>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                            <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
                                         New    
                                 <span class="visually-hidden">New alerts</span>  
-                            </span>
-                            <p class="card-text">ให้ท่านทำการ Login และกรอกข้อมูลใน google form เพื่อทางผู้จัดงานจะได้จัดเตรียมพื้นที่จอดยานพาหนะให้แก่ท่าน</p>
+                            </span> -->
+                            <p class="card-text">ให้ท่านทำการ Login และกรอกข้อมูลใน google form เพื่อทางผู้จัดงานจะได้จัดเตรียมพื้นที่จอดยานพาหนะให้แก่ท่าน หรือ คลิกที่ รายละเอียด</p>
                             <a href="https://forms.gle/f8scZiGarkHMrPRy7" class="btn btn-sm btn-primary" target='_blank'>รายละเอียด...</a>
                         </div>
-                    </div>
-                    <div class="col-lg-8 col-md-8 ">
+                    <!-- </div>
+                    <div class="col-lg-8 col-md-8 "> -->
                         <div class="alert alert-success" role="alert">
                             <h5 class="card-title">การประกวดโครงงาน IoT</h5>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                            <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
                                         New    
                                 <span class="visually-hidden">New alerts</span>  
-                            </span>
+                            </span> -->
                             <p class="card-text">ประกาศรายชื่อผู้ที่ผ่านเข้ารอบสุดท้ายการประกวดโครงงาน IoT</p>
                             <a href="/science/sciday/pages/iot.php?activity=Mw==" class="btn btn-sm btn-primary">รายละเอียด...</a>
                         </div>
-                    </div>
-                    <div class="col-lg-8 col-md-8 ">
+                    <!-- </div>
+                    <div class="col-lg-8 col-md-8 "> -->
                         <div class="alert alert-success" role="alert">
                             <h5 class="card-title">การประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์</h5>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                            <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
                                         New    
                                 <span class="visually-hidden">New alerts</span>  
-                            </span>
+                            </span> -->
                             <p class="card-text">ประกาศรายชื่อผู้ที่ผ่านเข้ารอบสุดท้ายการประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์</p>
                             <a href="/science/sciday/pages/artifact.php?activity=MQ==" class="btn btn-sm btn-primary">รายละเอียด...</a>
                         </div>
-                    </div>
-                    <div class="col-lg-8 col-md-8 ">
+                    <!-- </div>
+                    <div class="col-lg-8 col-md-8 "> -->
                         <div class="alert alert-success" role="alert">
                             <h5 class="card-title">การประกวดโครงงานวิทยาศาสตร์</h5>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                            <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
                                         New    
                                 <span class="visually-hidden">New alerts</span>  
-                            </span>
+                            </span> -->
                             <p class="card-text">ประกาศรายชื่อผู้ที่ผ่านเข้ารอบสุดท้ายการประกวดโครงงานวิทยาศาสตร์</p>
                             <a href="/science/sciday/pages/project.php?activity=Mg==" class="btn btn-sm btn-primary">รายละเอียด...</a>
                         </div>
                     </div>
-                
+                    <div class="col-lg-6 col-md-6 ">
+                        <iframe width="100%" height="400" class="embed-responsive-item mt-2" src="https://www.youtube.com/embed/SbVQsw4y6zk?autoplay=1" allowfullscreen></iframe>
+                    </div>
                   
                     <!-- <div class="col">
                         <div class="card h-100 border-success">

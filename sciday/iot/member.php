@@ -99,14 +99,26 @@ use App\Model\Sciday\Showround;
                         </tbody>
                     </table>
                     <?php 
+                        use App\Model\Sciday\Success;
+                        $successObj = new Success;
                         $show = $showroundObj->ShowByActivity(3,1);
                         if($show['edit_data']=='yes'){
                             ?>
                         <div class="d-flex flex-row-reverse bd-highlight mt-3">
                             <a href="/science/sciday/iot/del.php?id=<?php echo $projects['id']; ?>&stu_id=<?php echo $projects['student_id']; ?>&tea_id=<?php echo $projects['teacher_id']; ?>" class='btn btn-danger text-white'>ลบข้อมูล</a>&nbsp;
-                            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#edit'>
+                            <button type='button' class='btn btn-warning' data-bs-toggle='modal' data-bs-target='#edit'>
                                 <i class='bx bx-edit' ></i> แก้ไขข้อมูล
-                            </button>
+                            </button>&nbsp;
+                                <a href="/science/sciday/success.php?project_id=<?php echo $projects['id']; ?>&activity_id=3&user_id=<?php echo $_SESSION['user_id']; ?>" class='btn btn-success text-white'>ยืนยันข้อมูลถูกต้อง</a>&nbsp;
+                                <?php
+                                $datac['project_id']=$projects['id'];
+                                $datac['activity_id']=3;
+                                if($successObj->CheckSuccess($datac)){
+                                    ?>
+                                    <a href="" class='btn btn-danger text-white'>ยืนยันแล้ว</a>&nbsp;
+                                    <?php
+                                }
+                            ?>
                         </div>
                         <?php
                         }

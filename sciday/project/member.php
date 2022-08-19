@@ -102,14 +102,26 @@
                         </tbody>
                     </table>
                     <?php 
+                        use App\Model\Sciday\Success;
+                        $successObj = new Success;
                         $show = $showroundObj->ShowByActivity(2,1);
                         if($show['edit_data']=='yes'){
                             ?>
                         <div class="d-flex flex-row-reverse bd-highlight mt-3">
                             <a href="/science/sciday/project/del.php?id=<?php echo $projects['id']; ?>&stu_id=<?php echo $projects['student_id']; ?>&tea_id=<?php echo $projects['teacher_id']; ?>" class='btn btn-danger text-white'>ลบข้อมูล</a>&nbsp;
-                            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#edit'>
+                            <button type='button' class='btn btn-warning' data-bs-toggle='modal' data-bs-target='#edit'>
                                 <i class='bx bx-edit' ></i> แก้ไขข้อมูล
-                            </button>
+                            </button>&nbsp;
+                            <a href="/science/sciday/success.php?project_id=<?php echo $projects['id']; ?>&activity_id=2&user_id=<?php echo $_SESSION['user_id']; ?>" class='btn btn-success text-white'>ยืนยันข้อมูลถูกต้อง</a>&nbsp;
+                            <?php
+                                $datac['project_id']=$projects['id'];
+                                $datac['activity_id']=2;
+                                if($successObj->CheckSuccess($datac)){
+                                    ?>
+                                    <a href="" class='btn btn-danger text-white'>ยืนยันแล้ว</a>&nbsp;
+                                    <?php
+                                }
+                            ?>
                         </div>
                         <?php
                         }
@@ -217,89 +229,89 @@
         ?>
         <!-- Round 3 -->
         <?php 
-        if($show3){
-            $round3s = $roundObj->checkRound3ById(base64_decode($_REQUEST['project_id']));
-            if($round3s){
-                $project3s = $projectObj->getProjectById(($_REQUEST['project_id']));
-                // print_r($project3s);
-                $round3s = $roundObj->getRound3ById($project3s['id']);
-                // echo "<br>";
-                // echo "<br>";
-                // print_r($round3s);
-            ?>
-                <div class="d-flex justify-content-between">
-                    <span class="badge rounded-pill bg-success mt-3 shadow">
-                        <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 3&nbsp;&nbsp;&nbsp;</b></h3>
-                    </span>
-                </div>
-                <div class="row"> 
-                    <div class="col-lg-12">
-                        <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
-                            <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $round3s['name'];?></div>
-                            <table class="table table-striped table-hover mt-2 fs-18">
-                                <thead>
-                                    <tr>
-                                        <th width='8%'>#</th>
-                                        <th >ชื่อโครงงานวิทยาศาสตร์</th>
-                                        <th width='20%'>โรงเรียน</th>
-                                        <th width='20%'>นักเรียน</th>
-                                        <th width='15%'>อาจารย์ที่ปรึกษา</th>
-                                        <th width='15%'>Onsite</th>
-                                        <!-- <th>รูป</th> -->
-                                    </tr>
-                                </thead>
-                                <tbody class="fs-14">
-                                    <input type='hidden' class='form-control' name='link_video' value='<?php echo $round3s["link_video"];?>'>
-                                    <?php 
-                                        $stus3 = $studentObj->getStuById($project3s['student_id']);
-                                        $teachers3 = $teacherObj->getTeacherById($project3s['teacher_id']);
-                                        $i3++;
-                                        $j3=0;
-                                        $k3=0;
-                                        $st3="";
-                                        $tea3="";
+            if($show3){
+                $round3s = $roundObj->checkRound3ById(base64_decode($_REQUEST['project_id']));
+                if($round3s){
+                    $project3s = $projectObj->getProjectById(($_REQUEST['project_id']));
+                    // print_r($project3s);
+                    $round3s = $roundObj->getRound3ById($project3s['id']);
+                    // echo "<br>";
+                    // echo "<br>";
+                    // print_r($round3s);
+                ?>
+                    <div class="d-flex justify-content-between">
+                        <span class="badge rounded-pill bg-success mt-3 shadow">
+                            <h3><b>&nbsp;&nbsp;&nbsp;ทีมที่ผ่านเข้ารอบ 3&nbsp;&nbsp;&nbsp;</b></h3>
+                        </span>
+                    </div>
+                    <div class="row"> 
+                        <div class="col-lg-12">
+                            <div class="shadow-lg p-3 mb-5 bg-white rounded mt-3 fs-20 table-responsive">
+                                <div class="rounded-pill bg-primary text-white">&nbsp;&nbsp;&nbsp; <?php echo $round3s['name'];?></div>
+                                <table class="table table-striped table-hover mt-2 fs-18">
+                                    <thead>
+                                        <tr>
+                                            <th width='8%'>#</th>
+                                            <th >ชื่อโครงงานวิทยาศาสตร์</th>
+                                            <th width='20%'>โรงเรียน</th>
+                                            <th width='20%'>นักเรียน</th>
+                                            <th width='15%'>อาจารย์ที่ปรึกษา</th>
+                                            <th width='15%'>Onsite</th>
+                                            <!-- <th>รูป</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody class="fs-14">
+                                        <input type='hidden' class='form-control' name='link_video' value='<?php echo $round3s["link_video"];?>'>
+                                        <?php 
+                                            $stus3 = $studentObj->getStuById($project3s['student_id']);
+                                            $teachers3 = $teacherObj->getTeacherById($project3s['teacher_id']);
+                                            $i3++;
+                                            $j3=0;
+                                            $k3=0;
+                                            $st3="";
+                                            $tea3="";
 
-                                        $ck3 = $roundObj->checkRound3ById($project3s['id']);
-                                        
-                                        if($round3s['link_video']==""){
-                                            $show_link3="
-                                                <button type='button' class='btn btn-sm btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'>
-                                                    <i class='bx bxs-video-plus'></i> อัพลิงค์วีดีโอ
-                                                </button>
+                                            $ck3 = $roundObj->checkRound3ById($project3s['id']);
+                                            
+                                            if($round3s['link_video']==""){
+                                                $show_link3="
+                                                    <button type='button' class='btn btn-sm btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'>
+                                                        <i class='bx bxs-video-plus'></i> อัพลิงค์วีดีโอ
+                                                    </button>
+                                                ";
+                                            }else{
+                                                $show_link3="<a href='{$round3s['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
+                                            }
+                                            foreach($stus3 AS $stu3){
+                                                $j3++;
+                                                $st3 .=$j3.". ".$stu3['stitle'].$stu3['sname']." ".$stu3['ssurname']."<br>";
+                                            }
+                                            foreach($teachers3 AS $teacher3){
+                                                $k3++;
+                                                $tea3 .=$k3.". ".$teacher3['ttitle'].$teacher3['tname']." ".$teacher3['tsurname']."<br>";
+                                            }
+                                            echo "
+                                                <tr>
+                                                    <td width='8%'>{$i3}.</td>
+                                                    <td>{$project3s['project_name']}</td>
+                                                    <td width='20%'>{$project3s['school']}</td>
+                                                    <td width='20%'>{$st3}</td>
+                                                    <td width='15%'>{$tea3}</td>
+                                                    <td width='10%'>
+                                                        <button type='button' class='btn btn-success text-white'>Success</button><br>
+                                                        <a href='https://forms.gle/d2zGX8kcgadFRrXA7' target='_blank'>ข้อมูลรถที่จะนำมา</a>
+                                                    </td>
+                                                </tr>
                                             ";
-                                        }else{
-                                            $show_link3="<a href='{$round3s['link_video']}' class='btn btn-danger btn-sm text-white' target='_blank'><i class='bx bxl-youtube'></i> Link</a>";
-                                        }
-                                        foreach($stus3 AS $stu3){
-                                            $j3++;
-                                            $st3 .=$j3.". ".$stu3['stitle'].$stu3['sname']." ".$stu3['ssurname']."<br>";
-                                        }
-                                        foreach($teachers3 AS $teacher3){
-                                            $k3++;
-                                            $tea3 .=$k3.". ".$teacher3['ttitle'].$teacher3['tname']." ".$teacher3['tsurname']."<br>";
-                                        }
-                                        echo "
-                                            <tr>
-                                                <td width='8%'>{$i3}.</td>
-                                                <td>{$project3s['project_name']}</td>
-                                                <td width='20%'>{$project3s['school']}</td>
-                                                <td width='20%'>{$st3}</td>
-                                                <td width='15%'>{$tea3}</td>
-                                                <td width='10%'>
-                                                    <button type='button' class='btn btn-success text-white'>Success</button><br>
-                                                    <a href='https://forms.gle/d2zGX8kcgadFRrXA7' target='_blank'>ข้อมูลรถที่จะนำมา</a>
-                                                </td>
-                                            </tr>
-                                        ";
-                                    ?>
-                                </tbody>
-                            </table>
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php
+                <?php
+                }
             }
-        }
         ?>
     </div>
     <!-- Modal Up Link Video -->
