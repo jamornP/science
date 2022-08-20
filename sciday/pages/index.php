@@ -86,10 +86,10 @@
                             <div class="carousel-item active" data-bs-interval="5000">
                                 <img src="/science/sciday/images/news00.png" class="d-block w-100" alt="...">
                             </div>
-                            <div class="carousel-item" data-bs-interval="5000">
+                            <!-- <div class="carousel-item" data-bs-interval="5000"> -->
                                 <!-- <iframe width="100%" height="720" class="embed-responsive-item" src="https://www.youtube.com/embed/SbVQsw4y6zk?autoplay=1" allowfullscreen></iframe> -->
                     
-                            </div>
+                            <!-- </div> -->
                                                         
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -162,47 +162,55 @@
                 <div class="row ">
                     <div class="col-lg-6 col-md-6 ">
                         <div class="alert alert-warning" role="alert">
-                            <h5 class="card-title">สำหรับโรงเรียนที่จะนำยานพาหนะเพื่อขน-ส่งอุปกรณ์ต่างๆสำหรับการแข่งขัน</h5>
-                            <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                            <h5 class="card-title"><b>เรียนผู้เข้าร่วมงานนิทรรศการวันวิทยาศาสตร์ ประจำปี 2565 ทุกท่าน</b></h5>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
                                         New    
                                 <span class="visually-hidden">New alerts</span>  
-                            </span> -->
+                            </span>
+                            <p class="card-text">เพื่อเป็นการป้องกันการแพร่ระบาดของเชื้อ Covid-19  ทางผู้จัดงานขอให้ทุกท่านที่จะเข้าร่วมงานนิทรรศการวันวิทยาศาสตร์ ประจำปี 2565  ณ หอประชุมจุฬาภรณวลัยลักษณ์ คณะวิทยาศาสตร์ สจล. ในวันที่ 23 และ 24 สิงหาคม 2565
+                                ต้องแสดงผลการตรวจ ATK ที่ตรวจไว้ไม่เกิน 24 ชั่วโมง ก่อนเข้าร่วมกิจกรรม โดยสามารถแสดงผลการตรวจ ATK ได้ที่จุดลงทะเบียนก่อนเข้าร่วมกิจกรรม
+                            </p>
+                            <a href="/science/sciday/images/ATK.jpg" class="btn btn-sm btn-primary" target='_blank'>ตัวอย่างภาพที่ต้องแสดง</a>
+                        </div>
+                        <div class="alert alert-danger" role="alert">
+                            <h5 class="card-title"><b>ขอให้ทุกทีม ยืนยันความถูกต้องของข้อมูล เพื่อออกใบประกาศนียบัตร</b></h5>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                                        ด่วน    
+                                <span class="visually-hidden">New alerts</span>  
+                            </span>
+                            <p class="card-text">
+                                ขอให้ทุกทีมตรวจสอบความถูกต้องของ คำนำหน้า ชื่อ-นามสกุล(ของผู้แข่งขันและอาจารย์ที่ปรึกษา) ชื่อโรงเรียน(ต้องมี โรงเรียน นำหน้า) และคลิก ยืนยันข้อมูลถูกต้อง เพื่อที่ระบบจะนำข้อมูลมาจัดทำใบประกาศนียบัตร ยืนยันข้อมูลภายใน <b class="text-danger">วันศุกร์ที่ 26 สิงหาคม 2565</b><br>
+                                <b class="text-danger">หมายเหตุ ถ้าระบบออกใบประกาศนียบัตรมาแล้วจะไม่สามารถแก้ไขได้ครับ </b>
+                            </p>
+                            <a href="/science/sciday/document/คู่มือแก้ไข.pdf" class="btn btn-sm btn-primary" target='_blank'>คู่มือ</a>
+                        </div>
+                        <!-- <div class="alert alert-success" role="alert">
+                            <h5 class="card-title">สำหรับโรงเรียนที่จะนำยานพาหนะเพื่อขน-ส่งอุปกรณ์ต่างๆสำหรับการแข่งขัน</h5>
+                            
                             <p class="card-text">ให้ท่านทำการ Login และกรอกข้อมูลใน google form เพื่อทางผู้จัดงานจะได้จัดเตรียมพื้นที่จอดยานพาหนะให้แก่ท่าน หรือ คลิกที่ รายละเอียด</p>
                             <a href="https://forms.gle/f8scZiGarkHMrPRy7" class="btn btn-sm btn-primary" target='_blank'>รายละเอียด...</a>
                         </div>
-                    <!-- </div>
-                    <div class="col-lg-8 col-md-8 "> -->
+                    
                         <div class="alert alert-success" role="alert">
                             <h5 class="card-title">การประกวดโครงงาน IoT</h5>
-                            <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
-                                        New    
-                                <span class="visually-hidden">New alerts</span>  
-                            </span> -->
+                           
                             <p class="card-text">ประกาศรายชื่อผู้ที่ผ่านเข้ารอบสุดท้ายการประกวดโครงงาน IoT</p>
                             <a href="/science/sciday/pages/iot.php?activity=Mw==" class="btn btn-sm btn-primary">รายละเอียด...</a>
                         </div>
-                    <!-- </div>
-                    <div class="col-lg-8 col-md-8 "> -->
+                    
                         <div class="alert alert-success" role="alert">
                             <h5 class="card-title">การประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์</h5>
-                            <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
-                                        New    
-                                <span class="visually-hidden">New alerts</span>  
-                            </span> -->
+                            
                             <p class="card-text">ประกาศรายชื่อผู้ที่ผ่านเข้ารอบสุดท้ายการประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์</p>
                             <a href="/science/sciday/pages/artifact.php?activity=MQ==" class="btn btn-sm btn-primary">รายละเอียด...</a>
                         </div>
-                    <!-- </div>
-                    <div class="col-lg-8 col-md-8 "> -->
+                   
                         <div class="alert alert-success" role="alert">
                             <h5 class="card-title">การประกวดโครงงานวิทยาศาสตร์</h5>
-                            <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
-                                        New    
-                                <span class="visually-hidden">New alerts</span>  
-                            </span> -->
+                           
                             <p class="card-text">ประกาศรายชื่อผู้ที่ผ่านเข้ารอบสุดท้ายการประกวดโครงงานวิทยาศาสตร์</p>
                             <a href="/science/sciday/pages/project.php?activity=Mg==" class="btn btn-sm btn-primary">รายละเอียด...</a>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-lg-6 col-md-6 ">
                         <iframe width="100%" height="400" class="embed-responsive-item mt-2" src="https://www.youtube.com/embed/SbVQsw4y6zk?autoplay=1" allowfullscreen></iframe>
