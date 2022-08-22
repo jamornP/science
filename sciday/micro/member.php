@@ -248,6 +248,17 @@ use App\Model\Sciday\Showround;
                                         ?>
                                     </tbody>
                                 </table>
+                                <br>
+                                <div class="alert alert-success" role="alert">
+                                <h5>การแข่งขันรอบสุดท้าย Micro:bit งานวันวิทยาศาสตร์ สจล 2565</h5>
+                                <p>
+                                Meeting ID: 396 127 0504 <br>
+                                Passcode: 522595<br>
+                                Join Zoom Meeting: 
+                                <a href="https://us06web.zoom.us/j/3961270504?pwd=a1FKemdQb1R4MFJpSjdSVCt6N1JMQT09">Link</a>
+
+                                </p>
+                                </div>
                             </div>
                         </div>
                     </div>
