@@ -4,14 +4,14 @@
 }
 
 body {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.24) 100%), url('/science/sciday/images/bg-poster2.jpg');
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.24) 100%), url('/science/sciday/images/bg2022-1.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
 
 .bg-poster {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.24) 100%), url('/science/sciday/images/bg-poster2.jpg');
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.24) 100%), url('/science/sciday/images/bg2022-1.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
