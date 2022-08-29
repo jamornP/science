@@ -113,16 +113,12 @@
             <!-- </div> -->
         </div>
         <br>
-        <div class="card  shadow">
+        <!-- <div class="card  shadow">
             <div class="card-header bg-success">
                 <h2 class="card-title text-white">
-                    <!-- <div class="spinner-grow text-warning" role="status">
-                        <span class="visually-hidden"></span>
-                    </div> -->
+                    
                     <b>หนังสือขอเชิญเข้าร่วมรอบตัดสิน Sciday@KMITL</b>
-                    <!-- <div class="spinner-grow text-warning" role="status">
-                        <span class="visually-hidden"></span>
-                    </div> -->
+                   
                 </h2>
             </div>
             <div class="card-body text-center">
@@ -144,7 +140,7 @@
                 <br>
                 
             </div>
-        </div>
+        </div> -->
         <br>
         <div class="card  shadow">
             <div class="card-header bg-info">
@@ -161,7 +157,7 @@
             <div class="card-body">
                 <div class="row ">
                     <div class="col-lg-6 col-md-6 ">
-                        <div class="alert alert-warning" role="alert">
+                        <!-- <div class="alert alert-warning" role="alert">
                             <h5 class="card-title"><b>การแข่งขันรอบสุดท้าย Micro:bit งานวันวิทยาศาสตร์ สจล 2565</b></h5>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
                                         New    
@@ -197,6 +193,24 @@
                                 ต้องแสดงผลการตรวจ ATK ที่ตรวจไว้ไม่เกิน 24 ชั่วโมง ก่อนเข้าร่วมกิจกรรม โดยสามารถแสดงผลการตรวจ ATK ได้ที่จุดลงทะเบียนก่อนเข้าร่วมกิจกรรม
                             </p>
                             <a href="/science/sciday/images/ATK.jpg" class="btn btn-sm btn-primary" target='_blank'>ตัวอย่างภาพที่ต้องแสดง</a>
+                        </div> -->
+                        <div class="alert alert-warning" role="alert">
+                            <h5 class="card-title"><b>เอกสารแนะแนวการศึกษาและแนะนำหลักสูตรอบรม</b></h5>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                                        New    
+                                <span class="visually-hidden">New alerts</span>  
+                            </span>
+                            <p class="card-text">
+                                ดาวน์โหลดเอกสารแนะนำหลักสูตร
+                            </p>
+                            <a href="/science/sciday/document/แนะนำ/งานบริการวิชาการ.pdf" class="btn btn-sm btn-primary mt-2" target='_blank'>งานบริการวิชาการ</a>
+                            <a href="/science/sciday/document/แนะนำ/นำเสนอหลักสูตรคณิตศาสตร์ประยุกต์.pdf" class="btn btn-sm btn-primary mt-2" target='_blank'>คณิตศาสตร์ประยุกต์</a>
+                            <a href="/science/sciday/document/แนะนำ/หลักสูตรสถิติประยุกต์และการวิเคราะห์ข้อมูล.pdf" class="btn btn-sm btn-primary mt-2" target='_blank'>สถิติประยุกต์และการวิเคราะห์ข้อมูล</a>
+                            <a href="/science/sciday/document/แนะนำ/นำเสนอหลักสูตรวิทยาการคอมพิวเตอร์.pptx" class="btn btn-sm btn-primary mt-2" target='_blank'>วิทยาการคอมพิวเตอร์</a>
+                            <a href="/science/sciday/document/แนะนำ/นำเสนอหลักสูตรฟิสิกส์ประยุกต์.pdf" class="btn btn-sm btn-primary mt-2" target='_blank'>ฟิสิกส์อุตสาหกรรม</a>
+                            <a href="/science/sciday/document/แนะนำ/นำเสนอหลักสูตรเทคโนโลยีสิ่งแวดล้อม.pdf" class="btn btn-sm btn-primary mt-2" target='_blank'>เทคโนโลยีสิ่งแวดล้อมและการจัดการอย่างยั่งยืน</a>
+                            <a href="/science/sciday/document/แนะนำ/นำเสนอหลักสูตรเทคโนโลยีชีภาพ.pptx" class="btn btn-sm btn-primary mt-2" target='_blank'>เทคโนโลยีชีวภาพอุตสาหกรรม จุลชีววิทยาอุตสาหกรรม</a>
+                            
                         </div>
                         <div class="alert alert-danger" role="alert">
                             <h5 class="card-title"><b>ขอให้ทุกทีม ยืนยันความถูกต้องของข้อมูล เพื่อออกใบประกาศนียบัตร</b></h5>
