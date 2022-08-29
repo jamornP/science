@@ -113,6 +113,85 @@
             <!-- </div> -->
         </div>
         <br>
+        <div class="card  shadow">
+            <div class="card-header bg-info">
+                <h2 class="card-title text-white">
+                    <b>ประกาศรายชื่อผู้ที่ได้รับรางวัล และรูปภาพกิจกรรมนิทรรศการวันวิทยาศาสตร์</b>
+                </h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img src="/science/sciday/images/sciday.jpg" class="d-block w-100 shadow" alt="...">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card shadow">
+                            <p class="card-header bg-primary text-white">
+                                ประกาศรายชื่อผู้ที่ได้รับรางวัลการแข่งขันโครงการนิทรรศการวันวิทยาศาสตร์<br> 
+                                หัวข้อเรื่อง Science for every Generation ประจำปี 2565 </p>
+                            <div class="card-body">           
+                                <a type="button" href="/science/sciday/document/รายชื่อผู้ได้รับรางวัล230856.pdf" class="btn btn-outline-warning position-relative" target='_blank'>
+                                    กิจกรรมวันที่ 23 สิงหาคม 2565
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        New
+                                        <span class="visually-hidden">unread messages</span>
+                                    </span>
+                                </a>  
+                                <br>                  
+                                <a type="button" href="/science/sciday/document/รายชื่อผู้ได้รับรางวัล240856.pdf" class="btn btn-outline-warning position-relative mt-2" target='_blank'>
+                                    กิจกรรมวันที่ 24 สิงหาคม 2565
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        New
+                                        <span class="visually-hidden">unread messages</span>
+                                    </span>
+                                </a> 
+                            </div>
+                        </div>
+                        <div class="card shadow mt-2">
+                            <p class="card-header bg-success text-white">
+                                รูปภาพกิจกรรมนิทรรศการวันวิทยาศาสตร์ ประจำปี 2565 <br>
+                                ระหว่างวันที่ 23-24 สิงหาคม 2565
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a  href="https://drive.google.com/drive/folders/1oKeflhMSyj-7ob6NxMTTBFR8j9HJUTCX?fbclid=IwAR1JoM4_9en1DeTxqDSNFe52fOdTIgxnyag7AwSzMzSNQjN2P36OX6tkqrI" class="text-decoration-none" target='_blank'><i class='bx bx-image'></i> ชุดที่ 1 </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a  href="https://drive.google.com/drive/folders/1S-rls4dDLk6OdMPU2xjSgURa1kyVlP02?fbclid=IwAR06WZxZBqCNnxgG3lTFc9Y0oRnXXHqm4DovE_xbh_h-zSZn7h6AlUsuVpo" class="text-decoration-none" target='_blank'><i class='bx bx-image'></i> ชุดที่ 2 </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a  href="https://drive.google.com/drive/folders/1QRJ7oLo9DUDdHEmONKHG99iLB1Maleck?fbclid=IwAR1JoM4_9en1DeTxqDSNFe52fOdTIgxnyag7AwSzMzSNQjN2P36OX6tkqrI" class="text-decoration-none" target='_blank'><i class='bx bx-image'></i> ชุดที่ 3 </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a  href="https://drive.google.com/drive/folders/1HKPB4NOf8SEsJXTikKfWfUB26UZzRR9a?fbclid=IwAR3CCGinddFKvLYlAJheneByVkmOrqfb9MNAxXxxdS2ff_XmHmrkxshb7Yc" class="text-decoration-none" target='_blank'><i class='bx bx-image'></i> ชุดที่ 4 </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a  href="https://drive.google.com/drive/folders/1SfOP0Slns_MflNLyy9vWRwyZNxNO4yMy?fbclid=IwAR302-5Irhgai3GRSfWjTkhQ-vpW9wvTINAaXEyDB71FSqnG_KqkX0i_0o0" class="text-decoration-none" target='_blank'><i class='bx bx-image'></i> ชุดที่ 5 </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a  href="https://drive.google.com/drive/folders/1JVsgeQmOAmGEesfUylLDqhYkYDXmFIej?fbclid=IwAR1v5NHqNQMLmmi6qBMrC5uDl8cxdkWHG676yRcZ519PLiC-SF8CQW0iJN0" class="text-decoration-none" target='_blank'><i class='bx bx-image'></i> ชุดที่ 6 </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a  href="https://drive.google.com/drive/folders/1aYapbYBXzlE1s6zoHRgM1gQMjdyoQ_NO?fbclid=IwAR0NqboMVzOlsDtR7HNp0KvE8yMEFU7yyZsB0n4CO8CYI3QmvFLxMeOY4fY" class="text-decoration-none" target='_blank'><i class='bx bx-image'></i> ชุดที่ 7 </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a  href="https://drive.google.com/drive/folders/1Muut1I4QijX9XgKF82RS32obYQclYTto?fbclid=IwAR0el6CgJz8jZqX724J9LLZuadY7VHUNcq5vjigokW1AUIX93A6bRZG7c-s" class="text-decoration-none" target='_blank'><i class='bx bx-image'></i> ชุดที่ 8 </a>
+                                    </div>
+                                    <!-- <div class="col-6">
+                                        <a  href="#" class="text-decoration-none"><i class='bx bx-image'></i> ชุดที่ 9 </a>
+                                    </div> -->
+                                    
+                                </div>           
+                                                                
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
         <!-- <div class="card  shadow">
             <div class="card-header bg-success">
                 <h2 class="card-title text-white">
@@ -196,9 +275,9 @@
                         </div> -->
                         <div class="alert alert-warning" role="alert">
                             <h5 class="card-title"><b>เอกสารแนะแนวการศึกษาและแนะนำหลักสูตรอบรม</b></h5>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                            <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
                                         New    
-                                <span class="visually-hidden">New alerts</span>  
+                                <span class="visually-hidden">New alerts</span>   -->
                             </span>
                             <p class="card-text">
                                 ดาวน์โหลดเอกสารแนะนำหลักสูตร
@@ -212,7 +291,7 @@
                             <a href="/science/sciday/document/แนะนำ/นำเสนอหลักสูตรเทคโนโลยีชีภาพ.pptx" class="btn btn-sm btn-primary mt-2" target='_blank'>เทคโนโลยีชีวภาพอุตสาหกรรม จุลชีววิทยาอุตสาหกรรม</a>
                             
                         </div>
-                        <div class="alert alert-danger" role="alert">
+                        <!-- <div class="alert alert-danger" role="alert">
                             <h5 class="card-title"><b>ขอให้ทุกทีม ยืนยันความถูกต้องของข้อมูล เพื่อออกใบประกาศนียบัตร</b></h5>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
                                         ด่วน    
@@ -223,7 +302,7 @@
                                 <b class="text-danger">หมายเหตุ ถ้าระบบออกใบประกาศนียบัตรมาแล้วจะไม่สามารถแก้ไขได้ครับ </b>
                             </p>
                             <a href="/science/sciday/document/คู่มือแก้ไข.pdf" class="btn btn-sm btn-primary" target='_blank'>คู่มือ</a>
-                        </div>
+                        </div> -->
                         <!-- <div class="alert alert-success" role="alert">
                             <h5 class="card-title">สำหรับโรงเรียนที่จะนำยานพาหนะเพื่อขน-ส่งอุปกรณ์ต่างๆสำหรับการแข่งขัน</h5>
                             
