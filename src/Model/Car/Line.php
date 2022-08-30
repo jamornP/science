@@ -49,7 +49,7 @@ class Line extends DbCar {
     }
     public function SentLine($name) {
         $dataCount = $this->CountStatus1();
-        $data=" รถสถาบัน\nขอใช้รถ/คณะส่งเรื่องออก =: ".$dataCount[0]."/".$dataCount[1]."\nขอใช้รถ/อนุมัติ:ไม่อนุมัติ =: ".$dataCount[0]."/".$dataCount[2].":".$dataCount[3]."\nขอใช้รถตู้คณะฯ พี่อภิสิทธิ์ =: ".$dataCount[4]."\n---------------------\nรวมทั้งหมด/รถคณะฯ : รถสภาบันฯ =: ".$dataCount[5]."/".$dataCount[4].":".$dataCount[0]."\nLink : http://161.246.23.21/car/\n".$name ;
+        $data=" รถสถาบัน\nขอใช้รถ/คณะส่งเรื่องออก =: ".$dataCount[0]."/".$dataCount[1]."\nขอใช้รถ/อนุมัติ:ไม่อนุมัติ =: ".$dataCount[0]."/".$dataCount[2].":".$dataCount[3]."\nขอใช้รถตู้คณะฯ พี่อภิสิทธิ์ =: ".$dataCount[4]."\n---------------------\nรวมทั้งหมด/รถคณะฯ : รถสถาบันฯ =: ".$dataCount[5]."/".$dataCount[4].":".$dataCount[0]."\nLink : http://161.246.23.21/car/\n".$name ;
             ini_set('display_errors', 1);
             ini_set('display_startup_errors', 1);
             error_reporting(E_ALL);
@@ -83,7 +83,7 @@ class Line extends DbCar {
     }
     public function SentLineSci($name) {
         $dataCount = $this->CountStatus1();
-        $data="\nขอใช้รถตู้คณะฯ พี่อภิสิทธิ์ =: ".$dataCount[4]."\n---------------------\nรวมทั้งหมด/รถคณะฯ : รถสภาบันฯ =: ".$dataCount[5]."/".$dataCount[4].":".$dataCount[0]."\nLink : http://161.246.23.21/car/\n".$name  ;
+        $data="\nขอใช้รถตู้คณะฯ พี่อภิสิทธิ์ =: ".$dataCount[4]."\n---------------------\nรวมทั้งหมด/รถคณะฯ : รถสถาบันฯ =: ".$dataCount[5]."/".$dataCount[4].":".$dataCount[0]."\nLink : http://161.246.23.21/car/\n".$name  ;
             ini_set('display_errors', 1);
             ini_set('display_startup_errors', 1);
             error_reporting(E_ALL);
