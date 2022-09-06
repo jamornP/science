@@ -76,7 +76,7 @@ class Certificate extends DbSciDay {
                         st.sname,
                         st.ssurname,
                         p.school,
-                        'ได้เข้าร่วม' as lang,
+                        'เข้ารอบการประกวด' as lang,
                         'การประกวดโครงงาน IoT' as activity ,
                         p.iot_name,
                         p.teacher_id
@@ -87,7 +87,7 @@ class Certificate extends DbSciDay {
                         left join tb_title as t on (t.id = st.stitle)
                         left join tb_level as l on l.id = p.level_id
                     where 
-                        r.project_id is null
+                        r.project_id is not null
                     order by 
                         l.name,
                         p.id,

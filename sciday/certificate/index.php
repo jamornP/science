@@ -71,7 +71,7 @@
                                                                     $regis = $certificateObj->getAll($activity['id']);
                                                                     foreach($regis as $data){
                                                                         $i++;
-                                                                        $tname ="";
+                                                                        $tname ="อาจารย์ที่ปรึกษา ";
                                                                         $tea = $teacherObj->getTeacherById($data['teacher_id']);
 
                                                                         foreach($tea as $teacher){
@@ -95,7 +95,7 @@
                                                                             <td width=''>{$data['school']}</td>
                                                                             <td width=''>{$data['lang']}</td>
                                                                             <td width=''>{$activity}</td>
-                                                                            <td width=''>{$data['artifact_name']}</td>
+                                                                            <td width=''>เรื่อง {$data['artifact_name']}</td>
                                                                             <td width=''>{$tname}</td>
                                                                             <td width=''>{$success}</td>
                                                                             <td width=''>{$data['id']}</td>
@@ -207,7 +207,6 @@
                                                                         $i++;
                                                                         $tname ="";
                                                                         $tea = $teacherObj->getTeacherById($data['teacher_id']);
-
                                                                         foreach($tea as $teacher){
                                                                             $tname = $tname." ".$teacher['ttitle'].$teacher['tname']." ".$teacher['tsurname'];
                                                                         }
