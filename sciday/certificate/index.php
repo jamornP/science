@@ -71,18 +71,22 @@
                                                                     $regis = $certificateObj->getAll($activity['id']);
                                                                     foreach($regis as $data){
                                                                         $i++;
-                                                                        $tname ="อาจารย์ที่ปรึกษา ";
+                                                                        $tname ="";
                                                                         $tea = $teacherObj->getTeacherById($data['teacher_id']);
-
+                                                                        $t=1;
                                                                         foreach($tea as $teacher){
+                                                                            if($t>=2){
+                                                                                $tname = $tname." และ "; 
+                                                                            }
                                                                             $tname = $tname." ".$teacher['ttitle'].$teacher['tname']." ".$teacher['tsurname'];
+                                                                            $t++;
                                                                         }
                                                                         $activity = $data['activity']." ".$data['level'];
                                                                         $ckdata['activity_id']=4;
                                                                         $ckdata['project_id']=$data['id'];
                                                                         $ck = $successObj->CheckSuccess($ckdata);
                                                                         if($ck){
-                                                                            $success = "<i class='bx bxs-check-square text-success'></i>";
+                                                                            $success = "<i class='bx bxs-check-square text-success'></i>ok";
                                                                         }else{
                                                                             $success = "<i class='bx bxs-no-entry text-danger'></i>";
                                                                         }
@@ -96,7 +100,7 @@
                                                                             <td width=''>{$data['lang']}</td>
                                                                             <td width=''>{$activity}</td>
                                                                             <td width=''>เรื่อง {$data['artifact_name']}</td>
-                                                                            <td width=''>{$tname}</td>
+                                                                            <td width=''>อาจารย์ที่ปรึกษา {$tname}</td>
                                                                             <td width=''>{$success}</td>
                                                                             <td width=''>{$data['id']}</td>
                                                                         </tr>
@@ -140,16 +144,20 @@
                                                                         $i++;
                                                                         $tname ="";
                                                                         $tea = $teacherObj->getTeacherById($data['teacher_id']);
-
+                                                                        $t=1;
                                                                         foreach($tea as $teacher){
+                                                                            if($t>=2){
+                                                                                $tname = $tname." และ "; 
+                                                                            }
                                                                             $tname = $tname." ".$teacher['ttitle'].$teacher['tname']." ".$teacher['tsurname'];
+                                                                            $t++;
                                                                         }
                                                                         $activity = $data['activity']." ".$data['level'];
                                                                         $ckdata['activity_id']=4;
                                                                         $ckdata['project_id']=$data['id'];
                                                                         $ck = $successObj->CheckSuccess($ckdata);
                                                                         if($ck){
-                                                                            $success = "<i class='bx bxs-check-square text-success'></i>";
+                                                                            $success = "<i class='bx bxs-check-square text-success'></i>ok";
                                                                         }else{
                                                                             $success = "<i class='bx bxs-no-entry text-danger'></i>";
                                                                         }
@@ -162,8 +170,8 @@
                                                                             <td width=''>{$data['school']}</td>
                                                                             <td width=''>{$data['lang']}</td>
                                                                             <td width=''>{$activity}</td>
-                                                                            <td width=''>{$data['project_name']}</td>
-                                                                            <td width=''>{$tname}</td>
+                                                                            <td width=''>เรื่อง {$data['project_name']}</td>
+                                                                            <td width=''>อาจารย์ที่ปรึกษา {$tname}</td>
                                                                             <td width=''>{$success}</td>
                                                                             <td width=''>{$data['id']}</td>
                                                                         </tr>
@@ -207,15 +215,20 @@
                                                                         $i++;
                                                                         $tname ="";
                                                                         $tea = $teacherObj->getTeacherById($data['teacher_id']);
+                                                                        $t=1;
                                                                         foreach($tea as $teacher){
+                                                                            if($t>=2){
+                                                                                $tname = $tname." และ "; 
+                                                                            }
                                                                             $tname = $tname." ".$teacher['ttitle'].$teacher['tname']." ".$teacher['tsurname'];
+                                                                            $t++;
                                                                         }
                                                                         $activity = $data['activity'];
                                                                         $ckdata['activity_id']=4;
                                                                         $ckdata['project_id']=$data['id'];
                                                                         $ck = $successObj->CheckSuccess($ckdata);
                                                                         if($ck){
-                                                                            $success = "<i class='bx bxs-check-square text-success'></i>";
+                                                                            $success = "<i class='bx bxs-check-square text-success'></i>ok";
                                                                         }else{
                                                                             $success = "<i class='bx bxs-no-entry text-danger'></i>";
                                                                         }
@@ -228,8 +241,8 @@
                                                                             <td width=''>{$data['school']}</td>
                                                                             <td width=''>{$data['lang']}</td>
                                                                             <td width=''>{$activity}</td>
-                                                                            <td width=''>{$data['iot_name']}</td>
-                                                                            <td width=''>{$tname}</td>
+                                                                            <td width=''>เรื่อง {$data['iot_name']}</td>
+                                                                            <td width=''>อาจารย์ที่ปรึกษา {$tname}</td>
                                                                             <td width=''>{$success}</td>
                                                                             <td width=''>{$data['id']}</td>
                                                                         </tr>
@@ -274,7 +287,7 @@
                                                                         $ckdata['project_id']=$data['id'];
                                                                         $ck = $successObj->CheckSuccess($ckdata);
                                                                         if($ck){
-                                                                            $success = "<i class='bx bxs-check-square text-success'></i>";
+                                                                            $success = "<i class='bx bxs-check-square text-success'></i>ok";
                                                                         }else{
                                                                             $success = "<i class='bx bxs-no-entry text-danger'></i>";
                                                                         }
@@ -330,16 +343,20 @@
                                                                         $i++;
                                                                         $tname ="";
                                                                         $tea = $teacherObj->getTeacherById($data['teacher_id']);
-
+                                                                        $t=1;
                                                                         foreach($tea as $teacher){
+                                                                            if($t>=2){
+                                                                                $tname = $tname." และ "; 
+                                                                            }
                                                                             $tname = $tname." ".$teacher['ttitle'].$teacher['tname']." ".$teacher['tsurname'];
+                                                                            $t++;
                                                                         }
                                                                         $activity = $data['activity'];
                                                                         $ckdata['activity_id']=4;
                                                                         $ckdata['project_id']=$data['id'];
                                                                         $ck = $successObj->CheckSuccess($ckdata);
                                                                         if($ck){
-                                                                            $success = "<i class='bx bxs-check-square text-success'></i>";
+                                                                            $success = "<i class='bx bxs-check-square text-success'></i>ok";
                                                                         }else{
                                                                             $success = "<i class='bx bxs-no-entry text-danger'></i>";
                                                                         }
@@ -352,8 +369,8 @@
                                                                             <td width=''>{$data['school']}</td>
                                                                             <td width=''>{$data['lang']}</td>
                                                                             <td width=''>{$activity}</td>
-                                                                            <td width=''>{$data['micro_name']}</td>
-                                                                            <td width=''>{$tname}</td>
+                                                                            <td width=''>เรื่อง {$data['micro_name']}</td>
+                                                                            <td width=''>อาจารย์ที่ปรึกษา {$tname}</td>
                                                                             <td width=''>{$success}</td>
                                                                             <td width=''>{$data['id']}</td>
                                                                         </tr>

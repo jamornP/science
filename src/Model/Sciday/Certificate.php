@@ -14,7 +14,7 @@ class Certificate extends DbSciDay {
                         st.sname,
                         st.ssurname,
                         p.school,
-                        'ได้เข้าร่วม' as lang,
+                        'เข้าร่วมการประกวด' as lang,
                         'การประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์ ' as activity ,
                         l.name as level,
                         p.artifact_name,
@@ -45,7 +45,7 @@ class Certificate extends DbSciDay {
                         st.sname,
                         st.ssurname,
                         p.school,
-                        'ได้เข้าร่วม' as lang,
+                        'เข้าร่วมการประกวด' as lang,
                         'การประกวดโครงงานวิทยาศาสตร์' as activity ,
                         l.name as level,
                         p.project_name,
@@ -106,7 +106,7 @@ class Certificate extends DbSciDay {
                         st.sname,
                         st.ssurname,
                         a.school,
-                        'ได้เข้าร่วม' as lang,
+                        'เข้าร่วมการแข่งขัน' as lang,
                         'การแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ ' as activity ,
                         l.name as level
                     from 
@@ -136,7 +136,7 @@ class Certificate extends DbSciDay {
                         st.sname,
                         st.ssurname,
                         p.school,
-                        'ได้เข้าร่วม' as lang,
+                        'เข้าร่วมการแข่งขัน' as lang,
                         'การแข่งขัน micro:bit' as activity ,
                         p.micro_name,
                         p.teacher_id
