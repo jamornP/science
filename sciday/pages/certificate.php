@@ -1,3 +1,4 @@
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php";?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,10 +6,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sciday2022</title>
+    <?php require $_SERVER['DOCUMENT_ROOT']."/science/sciday/components/link.php";?>
 </head>
 
-<body>
+<body class="font-prompt">
 <?php //header('Location: /science/sciday/pages/'); 
 $name ="วุฒิพร";
 $curl = curl_init();

@@ -37,6 +37,9 @@ class Certificate extends DbSciDay {
                 $data = $stmt->fetchAll();
                 return $data;
                 break;
+                //where 
+                // r.project_id is null
+                // left join (select * from tb_round WHERE activity_id=2 AND (level_id = 1 OR level_id = 2 OR level_id = 3) AND num=2) as r on (r.project_id = p.id) 
             case 2:
                 $sql="
                     select  
@@ -52,12 +55,11 @@ class Certificate extends DbSciDay {
                         p.teacher_id
                     from 
                         tb_project as p 
-                        left join (select * from tb_round WHERE activity_id=2 AND (level_id = 4 OR level_id = 5 OR level_id = 6) AND num=2) as r on (r.project_id = p.id) 
+                        
                         left join tb_student as st on (p.student_id = st.student_id)
                         left join tb_title as t on (t.id = st.stitle)
                         left join tb_level as l on l.id = p.level_id
-                    where 
-                        r.project_id is null
+                    
                     order by 
                         l.name,
                         p.id,
@@ -68,6 +70,9 @@ class Certificate extends DbSciDay {
                 $data = $stmt->fetchAll();
                 return $data;
                 break;
+                // left join (select * from tb_round WHERE activity_id=2 AND (level_id = 4 OR level_id = 5 OR level_id = 6) AND num=2) as r on (r.project_id = p.id) 
+                // where 
+                        // r.project_id is null
             case 3:
                 $sql="
                     select  
@@ -76,18 +81,17 @@ class Certificate extends DbSciDay {
                         st.sname,
                         st.ssurname,
                         p.school,
-                        'เข้ารอบการประกวด' as lang,
+                        '' as lang,
                         'การประกวดโครงงาน IoT' as activity ,
                         p.iot_name,
                         p.teacher_id
                     from 
                         tb_iot as p 
-                        left join (select * from tb_round WHERE activity_id=3 AND num=2) as r on (r.project_id = p.id) 
+                        
                         left join tb_student as st on (p.student_id = st.student_id)
                         left join tb_title as t on (t.id = st.stitle)
                         left join tb_level as l on l.id = p.level_id
-                    where 
-                        r.project_id is not null
+                    
                     order by 
                         l.name,
                         p.id,
@@ -136,18 +140,16 @@ class Certificate extends DbSciDay {
                         st.sname,
                         st.ssurname,
                         p.school,
-                        'เข้าร่วมการแข่งขัน' as lang,
+                        '' as lang,
                         'การแข่งขัน micro:bit' as activity ,
                         p.micro_name,
                         p.teacher_id
                     from 
                         tb_micro as p 
-                        left join (select * from tb_round WHERE activity_id=3 AND num=2) as r on (r.project_id = p.id) 
                         left join tb_student as st on (p.student_id = st.student_id)
                         left join tb_title as t on (t.id = st.stitle)
                         left join tb_level as l on l.id = p.level_id
-                    where 
-                        r.project_id is null
+                    
                     order by 
                         l.name,
                         p.id,
@@ -158,6 +160,9 @@ class Certificate extends DbSciDay {
                 $data = $stmt->fetchAll();
                 return $data;
                 break;             
+                // left join (select * from tb_round WHERE activity_id=3 AND num=2) as r on (r.project_id = p.id) 
+                // where 
+                // r.project_id is null
           }
        
     }
