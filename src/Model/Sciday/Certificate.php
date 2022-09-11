@@ -166,6 +166,55 @@ class Certificate extends DbSciDay {
           }
        
     }
-
+    public function addCertificate($data) {
+        $sql="
+            INSERT INTO tb_certificate (
+                id, 
+                certificateId, 
+                certificateName, 
+                certificateProcessId, 
+                templateId, 
+                studentCode, 
+                studentTitle, 
+                studentName, 
+                batchId, 
+                certificateLink, 
+                certificateCreateDate
+            ) VALUES (
+                NULL, 
+                :certificateId, 
+                :certificateName, 
+                :certificateProcessId, 
+                :templateId, 
+                :studentCode, 
+                :studentTitle, 
+                :studentName, 
+                :batchId, 
+                :certificateLink, 
+                :certificateCreateDate                
+            );
+        ";
+        // '2022-09-11 11:22:21.000000'
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+        // return $this->pdo->lastInsertId();
+        return true;
+    }
+    public function searchCertificate($name) {
+        $sql="
+            SELECT
+                *
+            FROM
+                tb_certificate
+            WHERE
+                studentName LIKE '%".$name."%'
+            ORDER BY
+                studentName
+            DESC  
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
 }
 ?>

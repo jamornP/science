@@ -92,6 +92,9 @@
                         <li>
                             <a class="dropdown-item" aria-current="page" href="/science/sciday/document/รายชื่อกลุมการแข่งขันตอบปัญหาEN.pdf" target='_blank'><i class='bx bx-download' ></i> รายชื่อกลุมการแข่งขันตอบปัญหาEN</a>
                         </li>
+                        <li>
+                            <a class="dropdown-item" aria-current="page" href="/science/sciday/pages/certificate.php" target='_blank'><i class='bx bx-download' ></i> ใบประกาศนียบัตร</a>
+                        </li>
                         
                     </ul>
                     

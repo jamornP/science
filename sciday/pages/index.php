@@ -84,12 +84,12 @@
                     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="5000">
-                                <img src="/science/sciday/images/news00.png" class="d-block w-100" alt="...">
+                                <a href="/science/sciday/pages/certificate.php"><img src="/science/sciday/images/certificate.png" class="d-block w-100" alt="..."></a>
                             </div>
-                            <!-- <div class="carousel-item" data-bs-interval="5000"> -->
-                                <!-- <iframe width="100%" height="720" class="embed-responsive-item" src="https://www.youtube.com/embed/SbVQsw4y6zk?autoplay=1" allowfullscreen></iframe> -->
+                            <!-- <div class="carousel-item" data-bs-interval="5000">
+                                <iframe width="100%" height="720" class="embed-responsive-item" src="https://www.youtube.com/embed/SbVQsw4y6zk?autoplay=1" allowfullscreen></iframe>
                     
-                            <!-- </div> -->
+                            </div> -->
                                                         
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -112,6 +112,17 @@
                 <div id="clock"></div>
             <!-- </div> -->
         </div>
+        <!-- <br>
+        <div class="card  shadow">
+            <div class="card-header bg-primary">
+                <h2 class="card-title text-white">
+                    <b>เปิดให้ Download ใบประกาศนียบัตร ได้แล้วตั้งแต่บัดนี้เป็นต้นไป จนถึง มกราคม พ.ศ. 2566</b>
+                </h2>
+            </div>
+            <div class="card-body">
+
+            </div>
+        </div> -->
         <br>
         <div class="card  shadow">
             <div class="card-header bg-info">
@@ -127,23 +138,38 @@
                     <div class="col-lg-6">
                         <div class="card shadow">
                             <p class="card-header bg-primary text-white">
-                                ประกาศรายชื่อผู้ที่ได้รับรางวัลการแข่งขันโครงการนิทรรศการวันวิทยาศาสตร์<br> 
-                                หัวข้อเรื่อง Science for every Generation ประจำปี 2565 </p>
+                            เปิดให้ Download ใบประกาศนียบัตร ได้แล้วตั้งแต่บัดนี้เป็นต้นไป จนถึง มกราคม พ.ศ. 2566</p>
                             <div class="card-body">           
-                                <a type="button" href="/science/sciday/document/รายชื่อผู้ได้รับรางวัล230856.pdf" class="btn btn-outline-warning position-relative" target='_blank'>
-                                    กิจกรรมวันที่ 23 สิงหาคม 2565
+                                <a type="button" href="/science/sciday/pages/certificate.php" class="btn btn-danger text-white position-relative" target='_blank'>
+                                    Download ใบประกาศนียบัตร
                                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                         New
                                         <span class="visually-hidden">unread messages</span>
                                     </span>
                                 </a>  
                                 <br>                  
-                                <a type="button" href="/science/sciday/document/รายชื่อผู้ได้รับรางวัล240856.pdf" class="btn btn-outline-warning position-relative mt-2" target='_blank'>
-                                    กิจกรรมวันที่ 24 สิงหาคม 2565
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                               
+                            </div>
+                        </div>
+                        <div class="card shadow mt-2">
+                            <p class="card-header bg-primary text-white">
+                                ประกาศรายชื่อผู้ที่ได้รับรางวัลการแข่งขันโครงการนิทรรศการวันวิทยาศาสตร์<br> 
+                                หัวข้อเรื่อง Science for every Generation ประจำปี 2565 </p>
+                            <div class="card-body">           
+                                <a type="button" href="/science/sciday/document/รายชื่อผู้ได้รับรางวัล230856.pdf" class="btn btn-outline-warning position-relative" target='_blank'>
+                                    กิจกรรมวันที่ 23 สิงหาคม 2565
+                                    <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                         New
                                         <span class="visually-hidden">unread messages</span>
-                                    </span>
+                                    </span> -->
+                                </a>  
+                                <br>                  
+                                <a type="button" href="/science/sciday/document/รายชื่อผู้ได้รับรางวัล240856.pdf" class="btn btn-outline-warning position-relative mt-2" target='_blank'>
+                                    กิจกรรมวันที่ 24 สิงหาคม 2565
+                                    <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        New
+                                        <span class="visually-hidden">unread messages</span>
+                                    </span> -->
                                 </a> 
                             </div>
                         </div>
@@ -236,6 +262,21 @@
             <div class="card-body">
                 <div class="row ">
                     <div class="col-lg-6 col-md-6 ">
+                        <div class="alert alert-success" role="alert">
+                            <h5 class="card-title"><b>เปิดให้ Download ใบประกาศนียบัตร ได้แล้วตั้งแต่บัดนี้เป็นต้นไป จนถึง มกราคม พ.ศ. 2566</b></h5>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
+                                        New    
+                                <span class="visually-hidden">New alerts</span>  
+                            </span>
+                           
+                            <a type="button" href="/science/sciday/pages/certificate.php" class="btn btn-primary text-white position-relative" target='_blank'>
+                                    Download ใบประกาศนียบัตร
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        New
+                                        <span class="visually-hidden">unread messages</span>
+                                    </span>
+                                </a>  
+                        </div>
                         <!-- <div class="alert alert-warning" role="alert">
                             <h5 class="card-title"><b>การแข่งขันรอบสุดท้าย Micro:bit งานวันวิทยาศาสตร์ สจล 2565</b></h5>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">   
