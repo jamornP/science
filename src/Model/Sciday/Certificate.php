@@ -140,15 +140,18 @@ class Certificate extends DbSciDay {
                         st.sname,
                         st.ssurname,
                         p.school,
-                        '' as lang,
+                        'เข้าร่วมการแข่งขัน' as lang,
                         'การแข่งขัน micro:bit' as activity ,
                         p.micro_name,
                         p.teacher_id
                     from 
                         tb_micro as p 
+                        left join (select * from tb_round WHERE activity_id=3 AND num=2) as r on (r.project_id = p.id)
                         left join tb_student as st on (p.student_id = st.student_id)
                         left join tb_title as t on (t.id = st.stitle)
                         left join tb_level as l on l.id = p.level_id
+                    where 
+                        r.project_id is null
                     
                     order by 
                         l.name,
