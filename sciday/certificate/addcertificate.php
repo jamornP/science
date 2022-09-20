@@ -53,6 +53,7 @@
                     <th scope="col">StudentName</th>
                     <th scope="col">BatchId</th>
                     <th scope="col">CreateDate</th>
+                    <th scope="col">link</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -82,7 +83,16 @@
                         $dataCertificate['batchId']=$BatchId; 
                         $dataCertificate['certificateLink']=$certificateLink; 
                         $dataCertificate['certificateCreateDate']=$CreateDate;
+                        // insert
                         // $ck=$certificateObj->addCertificate($dataCertificate);
+                        $updateLink['certificateLink']=$certificateLink;
+                        $updateLink['certificateId']=$certificateId; 
+                        $updateLink['studentTitle']=$Title; 
+                        $updateLink['studentName']=$StudentName; 
+                        $updateLink['certificateProcessId']=$ProcessId;
+                        // update
+                          $ck=$certificateObj->updateCertificate($updateLink);
+
                         $show="";
                         if($ck){
                             $show="<i class='bx bxs-check-square text-success'></i>";
@@ -101,6 +111,7 @@
                                 <td>{$StudentName}</td>
                                 <td>{$BatchId}</td>
                                 <td>{$CreateDate}</td>
+                                <td><a href='{$certificateLink}'>link</a></td>
                             </tr>
                         ";
                         // echo $i.". ";
