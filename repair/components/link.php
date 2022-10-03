@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/science/lib/fullcalendar/fullcalendar.css">
 <link rel="stylesheet" href="/science/lib/fullcalendar/fullcalendar.print.css" media="print">
 <link rel="stylesheet" href="/science/theme/css/bootstrap-theme.css">
-<link rel="stylesheet" href="/science/theme/css/style_car.css">
+<link rel="stylesheet" href="/science/theme/css/style_repair.css">
 <link rel="stylesheet" href="/science/lib/dropzone/min/dropzone.min.css">
 <link rel="stylesheet" href="/science/theme/css/datepicker.css">
 
