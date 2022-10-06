@@ -28,7 +28,7 @@ $buildingObj = new Building;
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="mb-3">
                         <label for="fullname" class="form-label">ชื่อ-สกุล</label>
-                        <input type="text" class="form-control" id="fullname" placeholder="" name="fullname">
+                        <input type="text" class="form-control" id="fullname" placeholder="" name="fullname" autofocus>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-6">
