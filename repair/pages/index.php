@@ -1,3 +1,4 @@
+<?php require $_SERVER['DOCUMENT_ROOT']."/science/function/function.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 

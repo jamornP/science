@@ -7,7 +7,7 @@ class DbRepair{
     private $host = "localhost";
 	private $user = "root";
 	private $password = "";
-	private $dbName = "db_scirepair";
+	private $dbName = "db_repair";
 
 	protected $pdo;
 
