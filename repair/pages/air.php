@@ -25,7 +25,7 @@ $departmentObj = new Department;
     <div id="in"></div>
     <div class="card">
         <!-- <from action="save.php" method="post"> -->
-            <form id="add" action="save.php">
+            <form id="add" action="save.php" method="post">
             <h5 class="card-header bg-primary text-white">ฟอร์มข้อมูล</h5>
             <div class="card-body">
                 <h5 class="card-title text-primary"><span class="badge rounded-pill bg-info">ข้อมูลผู้แจ้ง</span></h5>
@@ -33,14 +33,14 @@ $departmentObj = new Department;
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="mb-3">
                             <label for="fullname" class="form-label">ชื่อ-สกุล</label>
-                            <input type="text" class="form-control" id="fullname" placeholder="" name="fullname" autofocus>
+                            <input type="text" class="form-control" id="fullname" placeholder="" name="fullname" autofocus required>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="mb-3">
                             <label for="department" class="form-label">หน่วยงาน</label>
-                            <select class="form-select" id="department" aria-label="Default select example" name="department">
-                                <option selected>กรุณาเลือก</option>
+                            <select class="form-select" id="department" aria-label="Default select example" name="department" required>
+                                <option selected disable>กรุณาเลือก</option>
                                 <?php
                                     $datad = $departmentObj->getDepartment();
                                     foreach($datad as $depart){
@@ -55,13 +55,13 @@ $departmentObj = new Department;
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="mb-3">
                             <label for="tel" class="form-label">เบอร์ติดต่อ</label>
-                            <input type="tel" class="form-control" id="tel" placeholder="0861234567">
+                            <input type="tel" class="form-control" id="tel" placeholder="0861234567" required>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="mb-3">
                             <label for="yearterm" class="form-label">ปีงบประมาน</label>
-                            <input type="text" class="form-control" id="yearterm" placeholder="" value="<?php echo yearterm(date('Y-m-d'));?>">
+                            <input type="text" class="form-control" id="yearterm" placeholder="" value="<?php echo yearterm(date('Y-m-d'));?>" readonly>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ $departmentObj = new Department;
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="mb-3">
                             <label for="floor" class="form-label">ชั้น</label>
-                            <select class="form-select" id="floor" aria-label="Default select example" name="floor">
+                            <select class="form-select" id="floor" aria-label="Default select example" name="floor" required>
                                 
                             </select>
                         </div>
@@ -95,7 +95,7 @@ $departmentObj = new Department;
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="mb-3">
                             <label for="room" class="form-label">ห้อง</label>
-                            <select class="form-select" id="room" aria-label="Default select example" name="room">
+                            <select class="form-select" id="room" aria-label="Default select example" name="room" required>
                                 
                             </select>
                         </div>
@@ -103,11 +103,9 @@ $departmentObj = new Department;
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="mb-3">
                             <label for="air" class="form-label">เลขครุภัณฑ์</label>
-                            <select class="form-select" id="air" aria-label="Default select example" name="air">
+                            <select class="form-select" id="air" aria-label="Default select example" name="air" required>
                                 
                             </select>
-                            
-                            
                         </div>
                     </div>
                 </div>
@@ -115,7 +113,8 @@ $departmentObj = new Department;
                     <div class="col">
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">รายละเอียดแจ้งซ่อม</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="remark"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="remark" required></textarea>
+                            <input type="hidden" class="form-control" id="a_num" placeholder="" name="a_num" >
                         </div>
                     </div>
                 </div>
@@ -130,33 +129,7 @@ $departmentObj = new Department;
         </form>
     </div>
 </div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("form").submit(function (event) {
-            var formData = {
-            fullname: $("#fullname").val(),
-            department: $("#department").val(),
-            tel: $("#tel").val(),
-            };
 
-            $.ajax({
-                type: "post",
-                url: "save.php",
-                data: formData,
-                // dataType: "json",
-                // encode: true,
-                success: function(data){
-                    console.log(data)
-                    // toastr.success(data, { timeOut: 50000 })
-                    // alert(data);
-                    
-                }    
-            });
-
-            event.preventDefault();
-        });
-    });
-</script>
 <script type="text/javascript">
     $('#building').change(function(){
         var bid = $(this).val();
@@ -190,6 +163,12 @@ $departmentObj = new Department;
                 $('#air').html(data)
             }
         });
+    });
+    $('#air').change(function(){        
+        var a_num = document.getElementById('air').selectedOptions[0].text;
+
+        $('#a_num').val(a_num);
+        
     });
 </script>
 </body>
