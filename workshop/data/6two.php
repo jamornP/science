@@ -27,9 +27,9 @@
     <a class="navbar-brand " href="">
     <h3>
         <img src="/science/workshop/images/logo.png" alt="" width="60" height="48" class="d-inline-block align-text-top">
-        กิจกรรม Workshop
+        กิจกรรม Workshop รอบที่ 2
     </h3>
-        <p>เวลา 13.00 น. - 14.00 น.</p>
+        <p>เวลา 14.30 น. - 15.30 น.</p>
     </a>
   </div>
 </nav>

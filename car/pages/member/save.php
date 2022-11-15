@@ -20,7 +20,8 @@ if ($_REQUEST['action']=='delete'){
     unset($book['action']);
     $bookObj->updateBook($book);
     $namere="คุณ".$book['name']." ".$book['surname'];
-    $data = $lineObj->SentLine($namere);
+    $dates = $book['start_date'];
+    $data = $lineObj->SentLine($namere,$dates);
 }elseif ($_REQUEST['action']=='add'){
     if($_REQUEST['car']==1){
         $book = $_REQUEST;
@@ -40,7 +41,8 @@ if ($_REQUEST['action']=='delete'){
         // echo "<br> car ".$_REQUEST['car'];
         // $bsObj->addBs($bs);
         $namere="คุณ".$book['name']." ".$book['surname'];
-        $data = $lineObj->SentLineSci($namere);
+        $dates=$book['start_date'];
+        $data = $lineObj->SentLineSci($namere,$dates);
         echo "<pre>";
         print_r($book);
         echo "</pre>";
@@ -63,7 +65,8 @@ if ($_REQUEST['action']=='delete'){
         echo "<br> car ".$_REQUEST['car'];
         $bsObj->addBs($bs);
         $namere="คุณ".$book['name']." ".$book['surname'];
-        $data = $lineObj->SentLine($namere);
+        $dates = $book['start_date'];
+        $data = $lineObj->SentLine($namere,$dates);
     }
 }
 
