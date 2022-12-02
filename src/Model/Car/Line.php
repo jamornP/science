@@ -83,7 +83,7 @@ class Line extends DbCar {
     }
     public function SentLineSci($name,$dates) {
         $dataCount = $this->CountStatus1();
-        $data="\nขอใช้รถตู้คณะฯ พี่อภิสิทธิ์ =: ".$dataCount[4]."\n---------------------\nรวมทั้งหมด/รถคณะฯ : รถสถาบันฯ =: ".$dataCount[5]."/".$dataCount[4].":".$dataCount[0]."\nLink : http://161.246.23.21/car/\n".$name."\nวันที่ ".datethai($dates)  ;
+        $data="\nขอใช้รถตู้คณะฯ พี่อภิสิทธิ์ =: ".$dataCount[4]."\n---------------------\nรวมทั้งหมด/รถคณะฯ : รถสถาบันฯ =: ".$dataCount[5]."/".$dataCount[4].":".$dataCount[0]."\nLink : http://161.246.23.21/car/\n".$name."\nวันที่ ".$dates  ;
             ini_set('display_errors', 1);
             ini_set('display_startup_errors', 1);
             error_reporting(E_ALL);
