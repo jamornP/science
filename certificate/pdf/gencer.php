@@ -81,7 +81,7 @@
         $pdf->SetFont('thsarabun', 'B');
         $pdf->SetTextColor(0,98,133);
         $pdf->SetFontSize(30);
-        $pdf->MultiCell(0, 0, "ระหว่างวันที่ 6 ธันวาคม พ.ศ. 2565", 0, 'C', 0, 1, 0, 142);
+        $pdf->MultiCell(0, 0, "วันที่ 6 ธันวาคม พ.ศ. 2565", 0, 'C', 0, 1, 0, 142);
 
         $pdf->SetFont('thsarabun', '');
         $pdf->SetTextColor(0,98,133);

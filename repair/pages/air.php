@@ -25,7 +25,7 @@ $departmentObj = new Department;
     <div id="in"></div>
     <div class="card">
         <!-- <from action="save.php" method="post"> -->
-            <form id="add" action="save.php" method="post">
+        <form id="add" action="save.php" method="post">
             <h5 class="card-header bg-primary text-white">ฟอร์มข้อมูล</h5>
             <div class="card-body">
                 <h5 class="card-title text-primary"><span class="badge rounded-pill bg-info">ข้อมูลผู้แจ้ง</span></h5>

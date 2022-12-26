@@ -96,4 +96,51 @@ function yearterm($date){
      return  $y+543;
 
 }
+function time_dif($begin,$end){
+	$remain=intval(strtotime($end)-strtotime($begin));
+	$wan=floor($remain/86400);
+	$l_wan=$remain%86400;
+	$hour=floor($l_wan/3600);
+	$l_hour=$l_wan%3600;
+	$minute=floor($l_hour/60);
+	$second=$l_hour%60;
+	return "ผ่านมาแล้ว ".$wan." วัน ".$hour." ชั่วโมง ".$minute." นาที ".$second." วินาที";
+}
+function statusRepair($s){
+    switch ($s) {
+        
+    case "1":
+        return 260;
+        break;
+    case "2":
+        return 30;
+        break;
+    case "3":
+        return 270;
+        break;
+    case "4":
+        return 130;
+        break;
+    case "5":
+        return 164;
+        break;
+    case "6":
+        return 107;
+        break;
+    case "7":
+        return 205;
+        break;
+    case "8":
+        return 210;
+        break;
+    case "9":
+        return 138;
+        break;
+    case "10":
+        return 151;
+        break;
+    default:
+        return 1;
+    }
+}
 ?>

@@ -11,5 +11,7 @@
             "email": "100953989+jamornP@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {
+        "google/apiclient": "2.0"
+    }
 }
