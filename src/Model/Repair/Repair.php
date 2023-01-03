@@ -18,7 +18,7 @@ class Repair extends DbRepair {
                 LEFT JOIN tb_status as s ON s.s_id = r.s_id
 
             WHERE
-                year_term ='".$year."'
+                r.year_term ='".$year."'
             ORDER BY
                 r.s_id,r.date_add
             DESC
@@ -41,10 +41,50 @@ class Repair extends DbRepair {
                 LEFT JOIN tb_status as s ON s.s_id = r.s_id
 
             WHERE
-                year_term ='{$year}'
+                r.year_term ='{$year}'
             ORDER BY
                 r.s_id,r.date_add
             DESC
+            
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        $row = $stmt->rowCount();
+        return $row;
+    }
+    public function getRowsRepairByType($year,$t_id) {
+        $sql = "
+            SELECT 
+                r.*,d.d_name,b.b_name,t.t_name,n.n_name,s.s_name
+            FROM
+                tb_repair as r
+                LEFT JOIN tb_department as d ON d.d_id = r.d_id
+                LEFT JOIN tb_building as b ON b.b_id = r.b_id
+                LEFT JOIN tb_type as t ON t.t_id = r.t_id
+                LEFT JOIN tb_nature as n ON n.n_id = r.n_id
+                LEFT JOIN tb_status as s ON s.s_id = r.s_id
+            WHERE
+                r.year_term ='{$year}' AND r.t_id = '{$t_id}'
+            
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        $row = $stmt->rowCount();
+        return $row;
+    }
+    public function getRowsRepairByTypeStatus($year,$t_id,$s_id) {
+        $sql = "
+            SELECT 
+                r.*,d.d_name,b.b_name,t.t_name,n.n_name,s.s_name
+            FROM
+                tb_repair as r
+                LEFT JOIN tb_department as d ON d.d_id = r.d_id
+                LEFT JOIN tb_building as b ON b.b_id = r.b_id
+                LEFT JOIN tb_type as t ON t.t_id = r.t_id
+                LEFT JOIN tb_nature as n ON n.n_id = r.n_id
+                LEFT JOIN tb_status as s ON s.s_id = r.s_id
+            WHERE
+                r.year_term ='{$year}' AND r.t_id = '{$t_id}' AND r.s_id = '{$s_id}'
             
         ";
         $stmt = $this->pdo->query($sql);

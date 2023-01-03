@@ -11,6 +11,8 @@ use App\Model\Repair\Type;
 $typeObj = new Type;
 use App\Model\Repair\Nature;
 $natureObj = new Nature;
+use App\Model\Repair\Status;
+$statusObj = new Status;
 // $building = $buildingObj->getBuilding();
 // print_r($building);
 ?> 
@@ -28,6 +30,18 @@ $natureObj = new Nature;
 
 <body class="font-sriracha">
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/repair/components/navbar.php"; ?>
+<?php
+    $perpage = 10;
+    if (isset($_GET['page'])) {
+        $page = $_GET['page'];
+    } else {
+        $page = 1;
+    }
+    $start = ($page - 1) * $perpage;
+    $total_record = $repairObj->getRowsRepairByYear(yearterm(date('Y-m-d')));
+    $total_page = ceil($total_record / $perpage);
+    // echo $total_record;
+?>
     <div class="container-fluid mt-5">
         <div class="row">
             <?php 
@@ -59,27 +73,75 @@ $natureObj = new Nature;
             //     ";
             // }
         ?>
-            
+            <p>
+                <button class="btn btn-warning" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                   รายงานแยกประเภท
+                </button>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body bg-12">
+                    <div class='row g-4'>
+                    <?php 
+                        $datat = $typeObj->getType();
+                        foreach($datat as $type){
+                            $typeR = $repairObj->getRowsRepairByType(yearterm(date('Y-m-d')),$type['t_id']);
+                            // <i class='bx bxl-ok-ru'></i> {$type['t_name']} จำนวน {$typeR} งาน
+                            $per = number_format(($typeR*100/$total_record),2);
+                            echo "
+                            
+                                <div class='col-sm-12 col-md-4 col-lg-3 col-xl-3 text-primary'>
+                                    <div class='card text-white bg-primary mb-3' style='max-width: 18rem;'>
+                                        <div class='card-header text-center'>{$type['t_name']}</div>
+                                        <div class='card-body bg-white'>
+                                            <h5 class='card-title text-center fs-35 text-primary'>{$typeR}</h5>
+                                            <p class='card-text text-center text-danger'>{$per} %</p>
+                                        </div>
+                                        <div class='card-footer bg-transparent border-success'>
+                                            <div class='row g-1'>
+                            ";
+                            $status = $statusObj->getStatus();
+                            foreach($status as $datas){
+                                $color = statusRepair($datas['s_id']);
+                                $srow = $repairObj->getRowsRepairByTypeStatus(yearterm(date('Y-m-d')),$type['t_id'],$datas['s_id']);
+                                            echo "
+                                                <div class='col-8'>
+                                                    <div class='d-grid gap-2'>
+                                                        <button class='btn btn-sm btn-success text-white ' type='button'>{$datas['s_name']}</button>
+                                                    </div>
+                                                </div>
+                                                <div class='col-4'>
+                                                    <div class='d-grid gap-2'>
+                                                        <button class='btn btn-sm btn-warning text-white ' type='button'>{$srow}</button>
+                                                    </div>
+                                                </div>
+                                            ";
+                            }
+                            echo "
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='d-grid gap-2'>
+                                       
+                                    </div>
+                                </div>
+                            ";
+                        }
+                    ?>
+                    </div>  
+                </div>
+            </div> 
+
             
         </div>
-        <?php
-            $perpage = 10;
-            if (isset($_GET['page'])) {
-                $page = $_GET['page'];
-            } else {
-                $page = 1;
-            }
-            $start = ($page - 1) * $perpage;
-            $total_record = $repairObj->getRowsRepairByYear(yearterm(date('Y-m-d')));
-            $total_page = ceil($total_record / $perpage);
-            // echo $total_record;
-        ?>
+        <br>
+        
         <div class="card">
             <form id="add" action="save.php" method="post">
-                <h5 class="card-header bg-primary text-white">ฟอร์มข้อมูลแจ้งซ่อมไฟฟ้าและประปา</h5>
+                <h5 class="card-header bg-primary text-white"><i class='bx bxs-devices bx-rotate-90 bx-tada' style='color:#ffffff'  ></i> ฟอร์มข้อมูลแจ้งซ่อมไฟฟ้าและประปา </h5>
                 <div class="d-flex flex-row-reverse bd-highlight">
                     <button type="button" class="btn btn-danger text-white mt-2 me-md-2 shadow mb-2 rounded" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        แจ้งซ่อม
+                        <i class='bx bxs-wrench bx-burst bx-flip-horizontal' > </i> แจ้งซ่อม
                     </button>
                 </div>
                 <div class="card-body">
@@ -93,6 +155,7 @@ $natureObj = new Nature;
                             <th width="10%" scope="col">อาคาร</th>
                             <th width="8%" scope="col">ประเถท</th>
                             <th width="8%" scope="col">ลักษณะงาน</th>
+                            <th width="10%" scope="col">ผู้แจ้ง</th>
                             <th width="10%" scope="col">สถานะ</th>
                             </tr>
                         </thead>
@@ -107,14 +170,15 @@ $natureObj = new Nature;
                                 $color = statusRepair($data['s_id']);
                                 echo "
                                     <tr>
-                                    <th scope='row'>{$i}</th>
-                                    <td class='fs-10'>{$data['date_add']}</td>
-                                    <td>{$data['r_remark']}</td>
-                                    <td class='fs-14'>{$data['room']}</td>
-                                    <td class='fs-12'>{$data['b_name']}</td>
-                                    <td class='fs-14'>{$data['t_name']}</td>
-                                    <td class='fs-14'>{$data['n_name']}</td>
-                                    <td class='fs-14'><i class='bx bx-chevron-right-square bx-flip-horizontal bx-tada bg-{$color} text-white' ></i> {$data['s_name']}</td>
+                                        <th scope='row'>{$i}</th>
+                                        <td class='fs-10'>{$data['date_add']}</td>
+                                        <td>{$data['r_remark']}</td>
+                                        <td class='fs-14'>{$data['room']}</td>
+                                        <td class='fs-12'>{$data['b_name']}</td>
+                                        <td class='fs-14'>{$data['t_name']}</td>
+                                        <td class='fs-14'>{$data['n_name']}</td>
+                                        <td class='fs-14'>{$data['fullname']}</td>
+                                        <td class='fs-14'><i class='bx bx-chevron-right-square bx-flip-horizontal bx-tada bg-{$color} text-white' ></i> {$data['s_name']}</td>
                                     
                                     </tr>
                                 ";
@@ -143,7 +207,7 @@ $natureObj = new Nature;
                                     ?>
                                     <li class="page-item <?php echo $d;?>">
                                         <a class="page-link" href="repair.php?page=<?php echo $page-1;?>" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
+                                            Previous
                                         </a>
                                     </li>
                                     <?php 
@@ -287,7 +351,7 @@ $natureObj = new Nature;
                                     ?>
                                     <li class="page-item <?php echo $d;?>">
                                         <a class="page-link" href="repair.php?page=<?php echo $page+1;?>" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
+                                            Next
                                         </a>
                                     </li>
                                 </ul>
@@ -395,7 +459,7 @@ $natureObj = new Nature;
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">บันทึก</button>
                     </div>
                 </form>
             </div>
