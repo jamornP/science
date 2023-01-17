@@ -1,7 +1,7 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/science/vendor/autoload.php"?>
 <?php require("{$_SERVER['DOCUMENT_ROOT']}/science/lib/TCPDF-master/tcpdf.php");?>
 <?php 
- use App\Model\Certificate;
+ use App\Model\Tcas66\Certificate;
  $personObj = new Certificate();   
 ?>
 <?php
@@ -107,7 +107,7 @@ $style = [
    'module_height' => 1 // height of a single module in points
 ];
 // QRCODE,M : QR-CODE Medium error correction
-$pdf->write2DBarcode('http://161.246.13.229/science/upload/'.$filename, 'QRCODE,M', 260, 172, 30, 30, $style, 'N');
+$pdf->write2DBarcode('http://161.246.13.34/science/upload/'.$filename, 'QRCODE,M', 260, 172, 30, 30, $style, 'N');
 
 //สร้าง pdf
 $pdf->Output($fileNL, 'F');

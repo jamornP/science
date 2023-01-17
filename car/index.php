@@ -22,10 +22,10 @@ session_start();
 
 ?>
 </div>
-    <div class="container mt-2">
+    <div class=" mt-2">
         <div class="row">
             <div class="col">
-                <div class="card ">
+                <div class="card bg-back">
                     <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
                     <h3>ปฏิทินการใช้รถ <?php if($_SESSION['role']=='moderator' OR $_SESSION['role']=='admin'){?></h3>
                         <a href="https://www.itrector.kmitl.ac.th/vehicle/index.php" class="btn btn-warning text-white"  target='_blank'>ขอใช้รถสถาบันฯ</a>

@@ -12,7 +12,8 @@ $_REQUEST['user_add'] = $_SESSION['email'];
 // print_r($_REQUEST);
 $bsObj->addBs($_REQUEST);
 $namere=$_SESSION['name']." ".$_SESSION['surname'];
-$lineObj->SentLine($namere);
+$dates = $_REQUEST['start_date'];
+$lineObj->SentLine($namere,$dates);
 
 
 $book = $_REQUEST;

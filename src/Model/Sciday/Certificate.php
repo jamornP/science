@@ -203,6 +203,25 @@ class Certificate extends DbSciDay {
         // return $this->pdo->lastInsertId();
         return true;
     }
+    public function updateCertificate($data) {
+        
+        $sql="
+            UPDATE 
+                tb_certificate 
+            SET
+                certificateLink= :certificateLink 
+            WHERE
+                certificateId=:certificateId AND
+                studentTitle=:studentTitle AND
+                studentName=:studentName AND
+                certificateProcessId=:certificateProcessId 
+        ";
+        // '2022-09-11 11:22:21.000000'
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+        // return $this->pdo->lastInsertId();
+        return true;
+    }
     public function searchCertificate($name) {
         $sql="
             SELECT

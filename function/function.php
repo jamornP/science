@@ -73,4 +73,74 @@
     return  $y+543;
 
 }
+function bookId_recive($data){
+    return sprintf("%06d",$data);
+}
+function bookId_reciveRe($data){
+    return sprintf("%03d",$data);
+}
+function yearterm($date){
+    $da=explode("-",$date);
+    $d=$da[2];
+    $m=$da[1];
+    $y=$da[0]; 
+    $dateck = date($y."-10-01");
+    if($date >= $dateck){
+        $y=$da[0]+1;
+        $da="ตรงปี+1 วันที่กรอก :".$date." วันที่เช็ค :".$dateck."<br>ปีงบประมาณ :";
+    }else{
+        $y=$da[0];
+        $da="ตรงปี วันที่กรอก :".$date." วันที่เช็ค :".$dateck."<br>ปีงบประมาณ :";
+    }
+    // return  $da;
+     return  $y+543;
+
+}
+function time_dif($begin,$end){
+	$remain=intval(strtotime($end)-strtotime($begin));
+	$wan=floor($remain/86400);
+	$l_wan=$remain%86400;
+	$hour=floor($l_wan/3600);
+	$l_hour=$l_wan%3600;
+	$minute=floor($l_hour/60);
+	$second=$l_hour%60;
+	return "ผ่านมาแล้ว ".$wan." วัน ".$hour." ชั่วโมง ".$minute." นาที ".$second." วินาที";
+}
+function statusRepair($s){
+    switch ($s) {
+        
+    case "1":
+        return 260;
+        break;
+    case "2":
+        return 30;
+        break;
+    case "3":
+        return 270;
+        break;
+    case "4":
+        return 130;
+        break;
+    case "5":
+        return 164;
+        break;
+    case "6":
+        return 107;
+        break;
+    case "7":
+        return 205;
+        break;
+    case "8":
+        return 210;
+        break;
+    case "9":
+        return 138;
+        break;
+    case "10":
+        return 151;
+        break;
+    default:
+        return 1;
+    }
+}
 ?>
