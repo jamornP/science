@@ -1,3 +1,10 @@
+
+<?php require $_SERVER['DOCUMENT_ROOT'] . "/science/vendor/autoload.php"; ?>
+<?php require $_SERVER['DOCUMENT_ROOT'] . "/science/function/function.php"; ?>
+<?php
+use App\Model\Expro2023\Dates;
+$dateObj = new Dates;
+?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-298">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Science KMITL Expro 2023</a>

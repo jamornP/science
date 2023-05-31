@@ -18,7 +18,7 @@
 			
 			<form action="checkLogin.php" class="mb-3" method="POST">
 				<?php
-					if($_GET['msg']) {
+					if(isset($_GET['msg'])) {
 						echo "<h5 class='my-3 text-danger'>Password ไม่ถูกต้อง กรุณาลองอีกครั้ง</h5>";
 					}
 				?>

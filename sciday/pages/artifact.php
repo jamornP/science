@@ -47,7 +47,7 @@ use App\Model\Sciday\Teacher;
             <div class="d-flex flex-row-reverse bd-highlight">
                 <?php 
                     $datenow = new DateTime();
-                    $input = "22/07/2022 23:59:59";
+                    $input = "22/07/2023 23:59:59";
                     $format = "d/m/Y H:i:s";
                     $date = DateTime::createFromFormat($format, $input);
                     if($datenow > $date){

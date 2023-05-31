@@ -1,4 +1,5 @@
 <?php
+session_start();
  function datethai($date){
     $da=explode("-",$date);
 
@@ -141,6 +142,40 @@ function statusRepair($s){
         break;
     default:
         return 1;
+    }
+}
+function navMenu($page){
+    switch ($page){
+        case "home":
+            $_SESSION['m_home']="active";
+            $_SESSION['m_activity']="";
+            $_SESSION['m_download']="";
+            $_SESSION['m_manual']="";
+            break;
+        case "activity":
+            $_SESSION['m_home']="";
+            $_SESSION['m_activity']="active";
+            $_SESSION['m_download']="";
+            $_SESSION['m_manual']="";
+            break;
+        case "download":
+            $_SESSION['m_home']="";
+            $_SESSION['m_activity']="";
+            $_SESSION['m_download']="active";
+            $_SESSION['m_manual']="";
+            break;
+        case "manual":
+            $_SESSION['m_home']="";
+            $_SESSION['m_activity']="";
+            $_SESSION['m_download']="";
+            $_SESSION['m_manual']="active";
+            break;
+        default :
+            $_SESSION['m_home']="active";
+            $_SESSION['m_activity']="";
+            $_SESSION['m_download']="";
+            $_SESSION['m_manual']="";
+            break;
     }
 }
 ?>

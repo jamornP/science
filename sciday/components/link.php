@@ -13,21 +13,46 @@
 <link rel="icon" type="image/png" sizes="192x192"  href="/science/favicons/android-icon-192x192.png">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="theme-color" content="#ffffff">
-<link rel="stylesheet" href="../../lib/lib/jquery.fancybox.css" media="screen">
-<link rel="stylesheet" href="../../lib/fullcalendar/fullcalendar.css">
-<link rel="stylesheet" href="../../lib/fullcalendar/fullcalendar.print.css" media="print">
-<link rel="stylesheet" href="../../theme/css/bootstrap-theme.css">
-<link rel="stylesheet" href="../../theme/css/style_sciday2023.css">
-<link rel="stylesheet" href="../../theme/css/color.css">
-<link rel="stylesheet" href="../../lib/dropzone/min/dropzone.min.css">
-
+<link rel="stylesheet" href="/science/lib/lib/jquery.fancybox.css" media="screen">
+<link rel="stylesheet" href="/science/lib/fullcalendar/fullcalendar.css">
+<link rel="stylesheet" href="/science/lib/fullcalendar/fullcalendar.print.css" media="print">
+<link rel="stylesheet" href="/science/theme/css/bootstrap-theme.css">
+<link rel="stylesheet" href="/science/theme/css/style_sciday2023.css">
+<link rel="stylesheet" href="/science/theme/css/color.css">
+<link rel="stylesheet" href="/science/lib/dropzone/min/dropzone.min.css">
+<link href="/science/theme/css/toastr.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
 
-<script src='../../lib/lib/jquery/dist/jquery.min.js'></script>
-<script src='../../lib/lib/moment.min.js'></script>
-<script src='../../lib/fullcalendar/fullcalendar.min.js'></script>
-<script src='../../lib/lib/lang/th.js'></script>
-<script src='../../lib/lib/jquery.fancybox.pack.js'></script>
+<script src='/science/lib/lib/jquery/dist/jquery.min.js'></script>
+<script src='/science/lib/lib/moment.min.js'></script>
+<script src='/science/lib/fullcalendar/fullcalendar.min.js'></script>
+<script src='/science/lib/lib/lang/th.js'></script>
+<script src='/science/lib/lib/jquery.fancybox.pack.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js'></script>
-<script src="../../lib/dropzone/min/dropzone.min.js"></script>
+<script src="/science/lib/dropzone/min/dropzone.min.js"></script>
+ <!-- Toastr -->
+ <script src="/science/theme/js/toastr.js"></script>
+<script>
+    // Command: toastr["success"]("ข้อความ")
+
+    //ตัวนี้จะเอาไว้ set ค่าต่างๆ toastr
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "3000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+</script>
