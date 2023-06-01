@@ -59,7 +59,7 @@
                                     <div class="form-group">
                                         <label for="tel"class="form-label text-primary fs-18 fw-bold"><i class='bx bx-phone' ></i> เบอร์โทร</label>
                                         <input type="text" id="tel" class="form-control" name="tel" required >
-                                        <input type="text" name="action"  id="action" class="form-control" value="edit">
+                                        <input type="hidden" name="action"  id="action" class="form-control" value="edit">
                                     </div>
                                 </div>
                             </div>
