@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <div class="row">
-                <p class="text-danger mt-2 fs-18"><b>หมายเหตุ : ในกรณีที่มีการส่งผลงานเข้าร่วมประกวดเข้ามาในระบบมากกว่า 1 ครั้ง</b><b class='text-primary'>(กรณี สมัครซ้ำ หรือท่านสามารถลบรายการที่สมัครซ้ำออกด้วยตัวท่านเองได้ ก่อนวันปิดรับสมัคร) </b><b>คณะวิทยาศาสตร์ขอสงวนสิทธิ์ในการพิจารณาเฉพาะผลงานในวันและเวลาล่าสุดเท่านั้น</b></p>
+                <p class="text-danger mt-2 fs-18"><b>หมายเหตุ : ในกรณีที่มีการส่งผลงานเข้าร่วมประกวดเข้ามาในระบบมากกว่า 1 ครั้ง</b><b class='text-primary'>(กรณี สมัครซ้ำ ท่านสามารถลบรายการที่สมัครซ้ำออกด้วยตัวท่านเองได้ ก่อนวันปิดรับสมัคร) </b><b>คณะวิทยาศาสตร์ขอสงวนสิทธิ์ในการพิจารณาเฉพาะผลงานในวันและเวลาล่าสุดเท่านั้น</b></p>
                 </div>
             </div>
         </div>
@@ -128,7 +128,7 @@
                                             <a href='/science/upload/sciday/file2023/{$fileDoc['doc_regis_pdf']}' class='btn btn-primary'><h5'><i class='bx bx-file' ></i> ใบสมัคร PDF</h5></a>
                                         ";
                                     }else{
-                                        echo "<p>Coming soon...</p>";
+                                        echo "<p></p>";
                                     }
                                     if($fileDoc['doc_regis_word']!=""){
                                         echo "
@@ -150,9 +150,15 @@
                                 <?php
                                 if ($bt_register) {
                                     if($bt_regis_show){
-                                        echo "
-                                            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='{$activity['pages']}'>ยื่นใบสมัคร</button>
-                                        ";
+                                        if($activity['pages']=="esport"){
+                                            echo "
+                                            <a href='https://forms.gle/mdXPTaTUU5ZWeSrPA' class='btn btn-primary'>สมัครแข่งขัน</a>
+                                           ";
+                                        }else{
+                                            echo "
+                                                <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='{$activity['pages']}'>ยื่นใบสมัคร</button>
+                                            ";
+                                        }
                                     }else{
                                         echo "
                                             <button class='btn btn-danger'>ปิดรับสมัครแล้ว</button>
@@ -249,7 +255,7 @@
                 </div>
             </div>
         <?php
-            }elseif($activity['pages'] == "answer"){
+            }elseif($activity['pages'] == "answer-TH" OR $activity['pages'] == "answer-EN"){
         ?>
             <div class="card mt-2">
                 <h5 class="card-header bg-193 text-white">รายชื่อทีมที่สมัครแล้ว</h5>
@@ -493,7 +499,7 @@
 
                         </div>
                     <?php
-                    } elseif ($activity['pages'] == "answer") {
+                    } elseif ($activity['pages'] == "answer-TH" OR $activity['pages'] == "answer-EN") {
                     ?>
                         <div class="modal-body">
                             <div class="mb-3">

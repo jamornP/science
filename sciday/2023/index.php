@@ -158,9 +158,10 @@ session_start();
 
 <body class="font-sriracha">
     <?php require $_SERVER['DOCUMENT_ROOT'] . "/science/sciday/components/navbar2023.php"; ?>
+    <?php $indexs = $adminObj->getIndex(); ?>
     <section class="min-vh-100">
         <div class="container-fluid">
-            <img src="/science/sciday/images/header-2023.png" class="mt-2 img-fluid rounded mx-auto d-block shadow" alt="...">
+            <img src="/science/sciday/images/<?php echo $indexs[0]['img_head'];?>" class="mt-2 img-fluid rounded mx-auto d-block shadow" alt="...">
             <!-- <iframe width="100%" height="700" class="embed-responsive-item mt-2 shadow" src="https://www.youtube.com/embed/SbVQsw4y6zk?autoplay=1" allowfullscreen></iframe> -->
             <br>
             <div class="container">
@@ -194,7 +195,8 @@ session_start();
 
                 <div class="row ">
                     <div class="col-lg-6 col-md-6">
-                        <iframe width="100%" height="400" class="embed-responsive-item mt-2" src="https://www.youtube.com/embed/SbVQsw4y6zk?autoplay=1" allowfullscreen></iframe>
+                        <?php echo "{$indexs[0]['youtube']}";?>
+                        <!-- <iframe width="100%" height="400" class="embed-responsive-item mt-2" src="https://www.youtube.com/embed/SbVQsw4y6zk?autoplay=1" allowfullscreen></iframe> -->
                     </div>
                     <div class="col-lg-6 col-md-6 ">
                         <div class="div_news" data-bs-spy="scroll">
@@ -264,7 +266,7 @@ session_start();
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-2">
-                        <a href="/science/sciday/images/poster-2023.png" target="_blank"> <img src="/science/sciday/images/poster-2023.png" class="img-fluid rounded shadow" alt="..."></a>
+                        <a href="/science/sciday/images/<?php echo $indexs[0]['img_head'];?>" target="_blank"> <img src="/science/sciday/images/poster-2023.png" class="img-fluid rounded shadow" alt="..."></a>
                     </div>
                     <div class="col-md ">
                         <p class="card-text fs-16 mt-2" style="text-align: justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ด้วยในวันที่ 18 สิงหาคม ของทุกปีเป็นวันวิทยาศาสตร์แห่งชาติ คณะวิทยาศาสตร์ สจล. จึงได้จัดงานนิทรรศการ
@@ -289,7 +291,7 @@ session_start();
                         <h5 class=""><b>&nbsp;&nbsp;&nbspกิจกรรมงานวันวิทยาศาสตร์ ปี 2566&nbsp;&nbsp;</b></h5>
                     </span>
                     <div class="row">
-                    <p class="text-danger mt-2 fs-18"><b>หมายเหตุ : ในกรณีที่มีการส่งผลงานเข้าร่วมประกวดเข้ามาในระบบมากกว่า 1 ครั้ง</b><b class='text-primary'>(กรณี สมัครซ้ำ หรือท่านสามารถลบรายการที่สมัครซ้ำออกด้วยตัวท่านเองได้ ก่อนวันปิดรับสมัคร) </b><b>คณะวิทยาศาสตร์ขอสงวนสิทธิ์ในการพิจารณาเฉพาะผลงานในวันและเวลาล่าสุดเท่านั้น</b></p>
+                    <p class="text-danger mt-2 fs-18"><b>หมายเหตุ : ในกรณีที่มีการส่งผลงานเข้าร่วมประกวดเข้ามาในระบบมากกว่า 1 ครั้ง</b><b class='text-primary'>(กรณี สมัครซ้ำ ท่านสามารถลบรายการที่สมัครซ้ำออกด้วยตัวท่านเองได้ ก่อนวันปิดรับสมัคร) </b><b>คณะวิทยาศาสตร์ขอสงวนสิทธิ์ในการพิจารณาเฉพาะผลงานในวันและเวลาล่าสุดเท่านั้น</b></p>
                         <?php
                         $i = 0;
                         $activitys = $adminObj->getActivityAll("data");

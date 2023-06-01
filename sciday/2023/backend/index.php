@@ -53,7 +53,7 @@
                         <button class="nav-link" id="v-pills-news-tab" data-bs-toggle="pill" data-bs-target="#v-pills-news" type="button" role="tab" aria-controls="v-pills-news" aria-selected="false">ข่าว</button>
                         <button class="nav-link" id="v-pills-activity-tab" data-bs-toggle="pill" data-bs-target="#v-pills-activity" type="button" role="tab" aria-controls="v-pills-activity" aria-selected="false">กิจกรรม</button>
                         <button class="nav-link" id="v-pills-document-tab" data-bs-toggle="pill" data-bs-target="#v-pills-document" type="button" role="tab" aria-controls="v-pills-document" aria-selected="false">เอกสารการรับสมัคร</button>
-                        <button class="nav-link" id="v-pills-setttings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-setttings" aria-selected="false">Settings</button>
+                        <button class="nav-link" id="v-pills-setttings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-setttings" aria-selected="false">หน้าหลัก</button>
                     </div>
                     <div class="tab-content mt-1 w-100 div_menu" id="v-pills-tabContent" style="padding: 25px;">
                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -337,10 +337,35 @@
                         <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
                             <div class="card mt-5">
                                 <div class="card-header bg-29">
-                                    Setting
+                                    หน้าหลัก
                                 </div>
                                 <div class="card-body">
-
+                                    <div class="row">
+                                        <div class="col-6">
+                                        <?php
+                                        $indexs = $adminObj->getIndex();
+                                        
+                                        echo "
+                                            <p>header</p>
+                                            <div class='text-center'>
+                                                <img src='/science/sciday/images/{$indexs[0]['img_head']}' class='img-thumbnail' alt='...'>
+                                            </div>
+                                            <br>
+                                            <p>youtube</p>
+                                            {$indexs[0]['youtube']}
+                                            <br>
+                                            <p>poster</p>
+                                            <div class='col-6'>
+                                                <img src='/science/sciday/images/{$indexs[0]['img_poster']}' class='img-thumbnail' alt='...'>
+                                            </div>
+                                            <br>
+                                            <a href='/science/sciday/2023/backend/home.php?id={$indexs[0]['id']}' class='btn btn-primary'>แก้ไข</a>
+                                        ";
+                                    ?>
+                                        </div>
+                                    </div>
+                                    
+                                        
                                 </div>
                             </div>
                         </div>

@@ -544,5 +544,38 @@ use App\Database\DbSciDay2023;
         $stmt->execute($data);
         return true;
     }
+    // หน้าหลัก
+    public function getIndex(){
+        $sql ="
+            SELECT * 
+            FROM tb_index
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
+    public function getIndexฺById($id){
+        $sql ="
+            SELECT * 
+            FROM tb_index
+            WHERE id={$id}
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data[0];
+    }
+    public function updateIndex($data){
+        $sql = "
+            UPDATE tb_index SET
+                img_head = :img_head,
+                youtube = :youtube,
+                img_poster = :img_poster
+            WHERE
+                id = :id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+        return true;
+    }
 }
 ?>

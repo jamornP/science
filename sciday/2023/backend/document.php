@@ -85,7 +85,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="doc_spec" class="form-label">ไฟล์หลักเกณฑ์การประกวด เก่า :</label>
-                        <input type="text" class="form-control" id="doc_spec" placeholder="" value="<?php echo $activity['doc_spec'];?>" name="doc_spec" >
+                        <input type="text" class="form-control" id="doc_spec" placeholder="" value="<?php echo $activity['doc_spec'];?>" name="doc_spec" readonly>
                     </div>
                     <div class="mb-3">
                         <label for="file_spec" class="form-label">Upload ไฟล์หลักเกณฑ์การประกวด (*.pdf) :</label>
@@ -93,7 +93,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="doc_regis_pdf" class="form-label">ไฟล์ใบสมัคร PDF เก่า :</label>
-                        <input type="text" class="form-control" id="doc_regis_pdf" placeholder="" value="<?php echo $activity['doc_regis_pdf'];?>" name="doc_regis_pdf" >
+                        <input type="text" class="form-control" id="doc_regis_pdf" placeholder="" value="<?php echo $activity['doc_regis_pdf'];?>" name="doc_regis_pdf" readonly>
                     </div>
                     <div class="mb-3">
                         <label for="file_pdf" class="form-label">Upload ไฟล์ใบสมัคร PDF (*.pdf) :</label>
@@ -101,7 +101,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="doc_regis_word" class="form-label">ไฟล์ใบสมัคร Word เก่า :</label>
-                        <input type="text" class="form-control" id="doc_regis_word" placeholder="" value="<?php echo $activity['doc_regis_word'];?>" name="doc_regis_word" >
+                        <input type="text" class="form-control" id="doc_regis_word" placeholder="" value="<?php echo $activity['doc_regis_word'];?>" name="doc_regis_word" readonly>
                     </div>
                     <div class="mb-3">
                         <label for="file_word" class="form-label">Upload ไฟล์ใบสมัคร Word (*.doc, *.docx) :</label>
@@ -110,7 +110,7 @@
                     
                     <hr>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
                         <button type="submit" class="btn btn-primary" name="edit_fileRegis">Update</button>
                     </div>
                     
