@@ -6,6 +6,7 @@ use App\Model\Sciday2023\Auth;
 $authObj = new Auth;
 use App\Model\Sciday2023\Admin;
 $adminObj = new Admin;
+date_default_timezone_set('Asia/Bangkok');
 
 
 if(isset($_SESSION['user_id'])){
@@ -57,7 +58,7 @@ if(isset($_SESSION['user_id'])){
 
                                 }
                             ?>
-                            <li><a class="dropdown-item text-center" href="/science/sciday/2023/pages/member">- ข้อมูลการสมัคร</a></li>
+                            <li><a class="dropdown-item text-center" href="/science/sciday/2023/pages/member">ข้อมูลการสมัคร</a></li>
                             <li><a class="dropdown-item bg-274 text-center" href="/science/sciday/2023/pages/auth/logout.php">ออกจากระบบ</a></li>
                         </ul>
                     </li>
@@ -66,7 +67,7 @@ if(isset($_SESSION['user_id'])){
                 } else {
                 ?>
 
-                    <a class="nav-link text-white" href="/science/sciday/2023/pages/auth/register.php"><i class='bx bx-registered'></i> ลงทะเบียน</a>
+                    <!-- <a class="nav-link text-white" href="/science/sciday/2023/pages/auth/register.php"><i class='bx bx-registered'></i> ลงทะเบียน</a> -->
                     <div class="vr"></div>
                     <a class="nav-link text-white" href="/science/sciday/2023/pages/auth/login.php"><i class='bx bx-user-circle'></i> เข้าสู่ระบบ</a>
                 <?php

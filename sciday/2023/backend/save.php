@@ -4,7 +4,7 @@
     $authObj = new Auth;
     use App\Model\Sciday2023\Admin;
     $adminObj = new Admin;
-
+    date_default_timezone_set('Asia/Bangkok');
     if(isset($_POST['add_news'])){
         // echo "<pre>";
         // print_r($_REQUEST);

@@ -70,7 +70,7 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card">
-                            <h5 class="card-header bg-173 text-white">กำหนดการ</h5>
+                            <h5 class="card-header bg-173 text-white">กำหนดการ <?php echo $activity['name']; ?></h5>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <?php
@@ -142,10 +142,17 @@
                         <p>Download ใบสมัคร กรอกข้อมูล</p> -->
                     </div>
                     <div class="col-lg-4">
+                        <?php
+                            if($activity['pages']=='answer-TH' OR $activity['pages']=='answer-EN'){
+                                $textshow = "ยื่นสมัคร";
+                            }else{
+                                $textshow = "ยื่นเสนอผลงาน";
+                            }
+                        ?>
                         <div class="card mt-2">
-                            <h5 class="card-header bg-40">ขั้นตอนที่ 3 ยื่นใบสมัคร</h5>
+                            <h5 class="card-header bg-40">ขั้นตอนที่ 3 <?php echo $textshow;?></h5>
                             <div class="card-body">
-                            <p>3.ยื่นเอกสารใบสมัคร ในระบบ</p>
+                            <p>3.<?php echo $textshow;?> ในระบบ</p>
                                 <!-- <h5 class="card-title">เอกสารหลักเกณฑ์การประกวด</h5> -->
                                 <?php
                                 if ($bt_register) {
@@ -155,8 +162,9 @@
                                             <a href='https://forms.gle/mdXPTaTUU5ZWeSrPA' class='btn btn-primary'>สมัครแข่งขัน</a>
                                            ";
                                         }else{
+                                            
                                             echo "
-                                                <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='{$activity['pages']}'>ยื่นใบสมัคร</button>
+                                                <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='{$activity['pages']}'>{$textshow}</button>
                                             ";
                                         }
                                     }else{
@@ -373,7 +381,7 @@
             <div class="modal-content">
                 <form action="save.php" method="post" enctype="multipart/form-data" id="from-post">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">ลงทะเบียน</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">เสนอผลงาน <?php echo $activity['name'];?></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <?php

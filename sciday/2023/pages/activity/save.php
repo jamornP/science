@@ -5,6 +5,7 @@ session_start();
     $authObj = new Auth;
     use App\Model\Sciday2023\Admin;
     $adminObj = new Admin;
+    date_default_timezone_set('Asia/Bangkok');
     // echo "<pre>";
     // print_r($_REQUEST);
     // echo "</pre>";
@@ -81,7 +82,7 @@ session_start();
             ";
             exit();
         }
-    }elseif($_POST['pages']=="answer"){
+    }elseif($_POST['pages']=="answer-TH" OR $_POST['pages']=="answer-EN"){
         // $data['p_name']=$_POST['p_name'];
         $data['le_id']=$_POST['le_id'];
         $data['school']=$_POST['school'];
