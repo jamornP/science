@@ -33,8 +33,8 @@ if(isset($_SESSION['user_id'])){
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link active" href="http://www.it.science.kmitl.ac.th/workshop/" aria-current="page">
-                        กิจกรรม Workshop
+                    <a class="nav-link active" href="" aria-current="page">
+                        กิจกรรมWorkshop
                     </a>
                 </li>
                 <!-- <li class="nav-item">
