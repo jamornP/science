@@ -57,7 +57,9 @@ session_start();
             $stdata['ac_id']=$_POST['ac_id'];
             $stdata['stu_email']=$_POST['semail'][$key];
             $stck = $adminObj->addStuden($stdata);
-        
+            // echo "<pre>";
+            // print_r($stdata);
+            // echo "</pre>";
         }
         foreach($_POST['tti_id'] as $key => $tt){
             $tedata['tea_id']=$_POST['tea_id'];
@@ -69,6 +71,9 @@ session_start();
             $tedata['ac_id']=$_POST['ac_id'];
             $tedata['tea_email']=$_POST['temail'][$key];
             $teck = $adminObj->addTeacher($tedata);
+            // echo "<pre>";
+            // print_r($tedata);
+            // echo "</pre>";
         }
         foreach ($_POST['img_path'] as $key => $imgs) {
             $img['img_id']=$_POST['img_id'];
@@ -116,7 +121,9 @@ session_start();
         $data['tel']=$_POST['tel'];
         // $data['link_video']=$_POST['link_video'];
         $data['u_id']=$_SESSION['user_id'];//$_SESSION['user_id'];
-
+        // echo "<pre>";
+        // print_r($data);
+        // echo "</pre>";
         $pro_id = $adminObj->addProjectAnswer($data);
         foreach($_POST['sti_id'] as $key => $st){
             $stdata['stu_id']=$_POST['stu_id'];
@@ -127,6 +134,9 @@ session_start();
             $stdata['school']=$_POST['school'];
             $stdata['ac_id']=$_POST['ac_id'];
             $stdata['stu_email']=$_POST['semail'][$key];
+            // echo "<pre>";
+            // print_r($stdata);
+            // echo "</pre>";
             $stck = $adminObj->addStuden($stdata);
         
         }
@@ -139,6 +149,9 @@ session_start();
             $tedata['school']=$_POST['school'];
             $tedata['ac_id']=$_POST['ac_id'];
             $tedata['tea_email']=$_POST['temail'][$key];
+            // echo "<pre>";
+            // print_r($tedata);
+            // echo "</pre>";
             $teck = $adminObj->addTeacher($tedata);
         }
         $img="";
