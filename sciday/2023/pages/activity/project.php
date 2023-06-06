@@ -441,7 +441,10 @@
                                                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="sname[]">
                                             </div>
                                             <div class="">
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="ssurname[]">
+                                                <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="นามสกุล" name="ssurname[]">
+                                            </div>
+                                            <div class="">
+                                                <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="email" name="semail[]">
                                             </div>
                                             <button type="button" class="btn btn-success mx-2 sbtn-add text-white">เพิ่ม</button>
                                             <button class="btn btn-danger sbtn-remove text-white">ลบ</button>
@@ -466,14 +469,16 @@
                                                     ";
                                                     }
                                                     ?>
-
                                                 </select>
                                             </div>
                                             <div class="">
                                                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="tname[]">
                                             </div>
                                             <div class="">
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="tsurname[]">
+                                                <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="นามสกุล" name="tsurname[]">
+                                            </div>
+                                            <div class="">
+                                                <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="email" name="temail[]">
                                             </div>
                                             <button type="button" class="btn btn-success mx-2 tbtn-add text-white">เพิ่ม</button>
                                             <button class="btn btn-danger tbtn-remove text-white">ลบ</button>
@@ -560,7 +565,10 @@
                                                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="sname[]">
                                             </div>
                                             <div class="">
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="ssurname[]">
+                                                <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="นามสกุล" name="ssurname[]">
+                                            </div>
+                                            <div class="">
+                                                <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="email" name="semail[]">
                                             </div>
                                             <button type="button" class="btn btn-success mx-2 sbtn-add2 text-white">เพิ่ม</button>
                                             <button class="btn btn-danger sbtn-remove2 text-white">ลบ</button>
@@ -592,7 +600,10 @@
                                                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="tname[]">
                                             </div>
                                             <div class="">
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="tsurname[]">
+                                                <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="นามสกุล" name="tsurname[]">
+                                            </div>
+                                            <div class="">
+                                                <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="email" name="temail[]">
                                             </div>
                                             <button type="button" class="btn btn-success mx-2 tbtn-add text-white">เพิ่ม</button>
                                             <button class="btn btn-danger tbtn-remove text-white">ลบ</button>

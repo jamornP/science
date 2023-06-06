@@ -47,6 +47,7 @@
                 $stdata['ti_id']=$_POST['sti_id'][$key];
                 $stdata['stu_name']=$_POST['sname'][$key];
                 $stdata['stu_surname']=$_POST['ssurname'][$key];
+                $stdata['stu_email']=$_POST['semail'][$key];
                 $stdata['school']=$_POST['school'];
                 $stck = $adminObj->updateStudent($stdata);
                 // print_r($stdata);
@@ -56,6 +57,7 @@
                 $tedata['ti_id']=$_POST['tti_id'][$key];
                 $tedata['tea_name']=$_POST['tname'][$key];
                 $tedata['tea_surname']=$_POST['tsurname'][$key];
+                $tedata['tea_email']=$_POST['temail'][$key];
                 $tedata['school']=$_POST['school'];
                 $teck = $adminObj->updateTeacher($tedata);
             }
@@ -120,6 +122,7 @@
                 $stdata['ti_id']=$_POST['sti_id'][$key];
                 $stdata['stu_name']=$_POST['sname'][$key];
                 $stdata['stu_surname']=$_POST['ssurname'][$key];
+                $stdata['stu_email']=$_POST['semail'][$key];
                 $stdata['school']=$_POST['school'];
                 $stck = $adminObj->updateStudent($stdata);
                 // print_r($stdata);
@@ -129,6 +132,7 @@
                 $tedata['ti_id']=$_POST['tti_id'][$key];
                 $tedata['tea_name']=$_POST['tname'][$key];
                 $tedata['tea_surname']=$_POST['tsurname'][$key];
+                $tedata['tea_email']=$_POST['temail'][$key];
                 $tedata['school']=$_POST['school'];
                 $teck = $adminObj->updateTeacher($tedata);
             }
@@ -222,6 +226,9 @@
                                                 <div class="">
                                                     <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="นามสกุล" name="ssurname[]" value="<?php echo $st['stu_surname'];?>">
                                                 </div>
+                                                <div class="">
+                                                    <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="email" name="semail[]" value="<?php echo $st['stu_email'];?>">
+                                                </div>
                                             </div>
                                             <?php
                                         }
@@ -258,7 +265,10 @@
                                                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="tname[]" value="<?php echo $te['tea_name'];?>">
                                                 </div>
                                                 <div class="">
-                                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="tsurname[]" value="<?php echo $te['tea_surname'];?>">
+                                                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="นามสกุล" name="tsurname[]" value="<?php echo $te['tea_surname'];?>">
+                                                </div>
+                                                <div class="">
+                                                    <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="email" name="temail[]" value="<?php echo $te['tea_email'];?>">
                                                 </div>
                                                 
                                             </div>
@@ -341,7 +351,10 @@
                                                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="sname[]" value="<?php echo $st['stu_name'];?>">
                                                 </div>
                                                 <div class="">
-                                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="ssurname[]" value="<?php echo $st['stu_surname'];?>">
+                                                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="นามสกุล" name="ssurname[]" value="<?php echo $st['stu_surname'];?>">
+                                                </div>
+                                                <div class="">
+                                                    <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="email" name="semail[]" value="<?php echo $st['stu_email'];?>">
                                                 </div>
                                             </div>
                                             <?php
@@ -379,7 +392,10 @@
                                                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="tname[]" value="<?php echo $te['tea_name'];?>">
                                                 </div>
                                                 <div class="">
-                                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="นามสกุล" name="tsurname[]" value="<?php echo $te['tea_surname'];?>">
+                                                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="นามสกุล" name="tsurname[]" value="<?php echo $te['tea_surname'];?>">
+                                                </div>
+                                                <div class="">
+                                                    <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="email" name="temail[]" value="<?php echo $te['tea_email'];?>">
                                                 </div>
                                                 
                                             </div>

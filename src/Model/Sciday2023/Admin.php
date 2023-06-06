@@ -312,7 +312,8 @@ use App\Database\DbSciDay2023;
                 stu_surname,
                 pro_id,
                 school,
-                ac_id
+                ac_id,
+                stu_email
             )VALUES(
                 :stu_id,
                 :ti_id,
@@ -320,7 +321,8 @@ use App\Database\DbSciDay2023;
                 :stu_surname,
                 :pro_id,
                 :school,
-                :ac_id
+                :ac_id,
+                :stu_email
             )    
         ";
         $stmt = $this->pdo->prepare($sql);
@@ -348,6 +350,7 @@ use App\Database\DbSciDay2023;
                 ti_id = :ti_id,
                 stu_name = :stu_name,
                 stu_surname = :stu_surname,
+                stu_email = :stu_email,
                 school = :school
             WHERE
                 id = :id
@@ -377,7 +380,8 @@ use App\Database\DbSciDay2023;
                 tea_surname,
                 pro_id,
                 school,
-                ac_id
+                ac_id,
+                tea_email
             )VALUES(
                 :tea_id,
                 :ti_id,
@@ -385,7 +389,8 @@ use App\Database\DbSciDay2023;
                 :tea_surname,
                 :pro_id,
                 :school,
-                :ac_id
+                :ac_id,
+                :tea_email
             )    
         ";
         $stmt = $this->pdo->prepare($sql);
@@ -413,6 +418,7 @@ use App\Database\DbSciDay2023;
                 ti_id = :ti_id,
                 tea_name = :tea_name,
                 tea_surname = :tea_surname,
+                tea_email = :tea_email,
                 school = :school
             WHERE
                 id = :id

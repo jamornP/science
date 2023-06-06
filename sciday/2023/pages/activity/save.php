@@ -55,6 +55,7 @@ session_start();
             $stdata['pro_id']=$pro_id;
             $stdata['school']=$_POST['school'];
             $stdata['ac_id']=$_POST['ac_id'];
+            $stdata['stu_email']=$_POST['semail'][$key];
             $stck = $adminObj->addStuden($stdata);
         
         }
@@ -66,6 +67,7 @@ session_start();
             $tedata['pro_id']=$pro_id;
             $tedata['school']=$_POST['school'];
             $tedata['ac_id']=$_POST['ac_id'];
+            $tedata['tea_email']=$_POST['temail'][$key];
             $teck = $adminObj->addTeacher($tedata);
         }
         foreach ($_POST['img_path'] as $key => $imgs) {
@@ -124,6 +126,7 @@ session_start();
             $stdata['pro_id']=$pro_id;
             $stdata['school']=$_POST['school'];
             $stdata['ac_id']=$_POST['ac_id'];
+            $stdata['stu_email']=$_POST['semail'][$key];
             $stck = $adminObj->addStuden($stdata);
         
         }
@@ -135,6 +138,7 @@ session_start();
             $tedata['pro_id']=$pro_id;
             $tedata['school']=$_POST['school'];
             $tedata['ac_id']=$_POST['ac_id'];
+            $tedata['tea_email']=$_POST['temail'][$key];
             $teck = $adminObj->addTeacher($tedata);
         }
         $img="";
