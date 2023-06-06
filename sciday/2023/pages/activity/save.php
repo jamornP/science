@@ -77,7 +77,7 @@ session_start();
         if($pro_id and $stck and $teck and $imgck){
             echo "  
                 <script type='text/javascript'>
-                    setTimeout(function(){location.href='/science/sciday/2023/pages/activity/project.php?pages={$_POST['pages']}&msg=ok'} , 1000);
+                    setTimeout(function(){location.href='/science/sciday/2023/pages/member/index.php?msg=ok'} , 1000);
                 </script>
             ";
             exit();
@@ -141,13 +141,13 @@ session_start();
         if($pro_id and $stck and $teck){
             echo "  
                 <script type='text/javascript'>
-                    setTimeout(function(){location.href='/science/sciday/2023/pages/activity/project.php?pages={$_POST['pages']}&msg=ok'} , 1000);
+                    setTimeout(function(){location.href='/science/sciday/2023/pages/member/index.php?msg=add_ok'} , 1000);
                 </script>
             ";
         }else{
             echo "  
             <script type='text/javascript'>
-                setTimeout(function(){location.href='/science/sciday/2023/pages/activity/project.php?pages={$_POST['pages']}&msg=error'} , 1000);
+                setTimeout(function(){location.href='/science/sciday/2023/pages/member/index.php?msg=add_error'} , 1000);
             </script>
         ";
         }

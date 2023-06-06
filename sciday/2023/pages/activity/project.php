@@ -418,7 +418,7 @@
                                 <input type="text" class="form-control" id="school" name="school" placeholder="โรงเรียนพรตพิทยพยัต" required>
                             </div>
                             <div class="mb-3">
-                                <label for="stu_id" class="col-form-label">4. ผู้เข้าประกวด<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
+                                <label for="stu_id" class="col-form-label">4. ผู้เข้าประกวด (ไม่เกิน 3 คน)<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
                                 <input type="hidden" class="form-control" id="stu_id" name="stu_id" value="<?php echo "s-" . uniqid(); ?>">
                                 <ol>
                                     <li>
@@ -450,7 +450,7 @@
                                 </ol>
                             </div>
                             <div class="mb-3">
-                                <label for="tea_id" class="col-form-label">5. อาจารย์ที่ปรึกษา<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
+                                <label for="tea_id" class="col-form-label">5. อาจารย์ที่ปรึกษา (ไม่เกิน 2 คน)<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
                                 <input type="hidden" class="form-control" id="tea_id" name="tea_id" value="<?php echo "t-" . uniqid(); ?>">
                                 <ol>
                                     <li>
@@ -537,7 +537,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="stu_id" class="col-form-label">3. ผู้เข้าประกวด<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
+                                <label for="stu_id" class="col-form-label">3. ผู้เข้าประกวด(ไม่เกิน 2 คน)<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
                                 <input type="hidden" class="form-control" id="stu_id" name="stu_id" value="<?php echo "s-" . uniqid(); ?>">
                                 <ol>
                                     <li>
@@ -569,7 +569,7 @@
                                 </ol>
                             </div>
                             <div class="mb-3">
-                                <label for="tea_id" class="col-form-label">4. อาจารย์ที่ปรึกษา<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
+                                <label for="tea_id" class="col-form-label">4. อาจารย์ที่ปรึกษา (ไม่เกิน 2 คน)<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
                                 <input type="hidden" class="form-control" id="tea_id" name="tea_id" value="<?php echo "t-" . uniqid(); ?>">
                                 <ol>
                                     <li>

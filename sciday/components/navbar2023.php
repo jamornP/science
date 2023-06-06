@@ -29,7 +29,12 @@ if(isset($_SESSION['user_id'])){
 
                 <li class="nav-item dropdown">
                     <a class="nav-link active" href="/science/sciday/2023/pages/activity" aria-current="page">
-                        กิจกรรม
+                        กิจกรรมประกวดแข่งขัน
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link active" href="http://www.it.science.kmitl.ac.th/workshop/" aria-current="page">
+                        กิจกรรม Workshop
                     </a>
                 </li>
                 <!-- <li class="nav-item">

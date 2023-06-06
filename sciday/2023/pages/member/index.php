@@ -34,6 +34,17 @@
                     setTimeout(function(){location.href='/science/sciday/2023/pages/member'} , 2000);
                 </script>
             ";
+        }elseif($_GET['msg']=='add_ok'){
+            $mes="บันทึกข้อมูลเรียบร้อย";
+            echo "<script type='text/javascript'>toastr.success('" . $mes . "', { timeOut: 2000 })</script>";  
+            echo "  
+                <script type='text/javascript'>
+                    setTimeout(function(){location.href='/science/sciday/2023/pages/member'} , 2000);
+                </script>
+            ";
+        }elseif($_GET['msg']=='add_error'){
+            $mes="บันทึกข้อมูลไม่สำเร็จ";
+            echo "<script type='text/javascript'>toastr.error('" . $mes . "', { timeOut: 2000 })</script>";
         }
     }
     ?>
@@ -50,11 +61,11 @@
                     foreach ($activitys as $ac) {
                         $data = $adminObj->getProjectByActivityUserId("data", $ac['ac_id'], $_SESSION['user_id']);
                         if (count($data) > 0) {
-                            if ($ac['ac_id'] == 4) {
+                            if ($ac['ac_id'] == 4 OR $ac['ac_id'] == 5 ) {
                                 echo "
                                 <p><span class='badge rounded-pill bg-primary fs-16'> {$ac['name']} </span></p>
                                 ";
-                    ?>
+                        ?>
                                 <table class="table table-striped table-sm">
                                     <thead>
                                         <tr class="bg-246">
@@ -127,6 +138,13 @@
                                 echo "
                                 <p><span class='badge rounded-pill bg-primary fs-16'> {$ac['name']} </span></p>
                                 ";
+                                if($ac['line']!=""){
+                                    echo "
+                                    <br>
+                                <img src='/science/sciday/images/{$ac['line']}' class='rounded mx-auto d-block' alt='{$ac['line']}'>
+                                <b><p class='text-center text-danger fs-24'>* กรุณา scan QRcode Line OpenChate ใช้เพื่อสื่อสารข้อมูลของกิจกรรม *</p></b>
+                                    ";
+                                }
                             ?>
                                 <table class="table table-striped table-sm">
                                     <thead>

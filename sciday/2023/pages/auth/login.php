@@ -51,9 +51,9 @@
                             <input type="password" name="password" id="password" class="form-control" required>
                         </div>
                         <div class="text-end">
-                            <button type="submit" class="btn btn-success text-white mt-4">Login</button>
+                            <button type="submit" class="btn btn-success text-white mt-4">Sign in</button>
                         </div>
-                        <a href="register.php" class="">ลงทะเบียน</a>
+                        <a href="register.php" class="">Sign up</a>
                         <a href="reset_password.php" class="">ลืมรหัส</a>
                     </form>
                     <!-- <a href="register.php">สมัครใช้งานใหม่</a> -->

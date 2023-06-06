@@ -20,7 +20,7 @@
     // echo "<pre>";
     // print_r($_POST);
     // echo "</pre>";
-    for($i=1;$i<7;$i++){
+    for($i=1;$i<8;$i++){
         if(isset($_POST[$i])){
             $data['ac_id']=$i; 
             if(isset($_POST[$i]['register'])){
