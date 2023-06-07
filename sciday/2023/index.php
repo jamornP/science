@@ -160,7 +160,7 @@ session_start();
     
     <?php require $_SERVER['DOCUMENT_ROOT'] . "/science/sciday/components/navbar2023.php"; ?>
     <?php $indexs = $adminObj->getIndex(); ?>
-    <section class="min-vh-100">
+    <!-- <section class="min-vh-100"> -->
         <div class="container-fluid">
             <img src="/science/sciday/images/<?php echo $indexs[0]['img_head'];?>" class="mt-2 img-fluid rounded mx-auto d-block shadow" alt="...">
             <!-- <iframe width="100%" height="700" class="embed-responsive-item mt-2 shadow" src="https://www.youtube.com/embed/SbVQsw4y6zk?autoplay=1" allowfullscreen></iframe> -->
@@ -176,35 +176,75 @@ session_start();
             <br>
 
         </div>
-    </section>
+    <!-- </section> -->
+    <br>
+    <div class="container">
+        <div class="card  shadow">
+            <div class="card-header bg-primary">
+                <h2 class="card-title text-center text-white"><b>ขอเชิญร่วมงาน</b></h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <a href="/science/sciday/images/<?php echo $indexs[0]['img_poster'];?>" target="_blank"> <img src="/science/sciday/images/<?php echo $indexs[0]['img_poster'];?>" class="img-fluid rounded shadow" alt="..."></a>
+                    </div>
+                    <div class="col-md ">
+                        <p class="card-text fs-16 mt-2" style="text-align: justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ด้วยในวันที่ 18 สิงหาคม ของทุกปีเป็นวันวิทยาศาสตร์แห่งชาติ คณะวิทยาศาสตร์ สจล. จึงได้จัดงานนิทรรศการ
+                            วันวิทยาศาสตร์ ประจำปี 2566 ในหัวข้อ <b>“Science Today is Technology Tomorrow”</b> เพื่อเป็นการเทิดพระเกียรติพระบาทสมเด็จพระจอมเกล้าเจ้าอยู่หัว รัชกาลที่ 4 ผู้ทรงเป็นพระบิดาแห่งวิทยาศาสตร์ไทย และเพื่อกระตุ้นให้นักเรียนนักศึกษา ประชาชนทั่วไปได้ตระหนักถึงความสำคัญของวิทยาศาสตร์และเทคโนโลยีที่มีต่อการพัฒนาคุณภาพชีวิตและการพัฒนาประเทศ โดยได้จัดกิจกรรมเพื่อให้นักเรียน นักศึกษา และคณาจารย์ได้มีส่วนร่วมในการทำกิจกรรมด้าน
+                            วิทยาศาสตร์ เช่น การประกวดโครงงานวิทยาศาสตร์ การประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์ การแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ และ Open House & workshop ของคณะวิทยาศาสตร์ สจล.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <div class="spinner-grow text-success fs-20" role="status">
+                    <span class="visually-hidden"></span>
+                </div>
+                <div class="spinner-grow text-success fs-20" role="status">
+                    <span class="visually-hidden"></span>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfK7bqwjacNIwNDQsTmFAN0fcdHh6IeiIHcwA8HqbUr30vYcg/viewform" class="btn btn-primary text-center fs-20 bg-200" target='_blank'>ลงทะเบียนเข้าเยี่ยมชมนิทรรศการวันวิทยาศาสตร์ คณะวิทยาศาสตร์ สจล.</a>
+                <div class="spinner-grow text-success" role="status">
+                    <span class="visually-hidden"></span>
+                </div>
+                <div class="spinner-grow text-success" role="status">
+                    <span class="visually-hidden"></span>
+                </div>
+            </div>
+        </div>
+    </div>
     <br>
     <!-- <section class="min-vh-100"> -->
     <div class="container">
         <div class="card  shadow">
-            <div class="card-header bg-187">
+            <div class="card-header bg-112">
                 <h2 class="card-title text-white">
-                    <div class="spinner-grow text-warning" role="status">
+                    <!-- <div class="spinner-grow text-warning" role="status">
                         <span class="visually-hidden"></span>
-                    </div>
+                    </div> -->
                     <b> ข่าวประชาสัมพันธ์ </b>
-                    <div class="spinner-grow text-warning" role="status">
+                    <!-- <div class="spinner-grow text-warning" role="status">
                         <span class="visually-hidden"></span>
-                    </div>
+                    </div> -->
                 </h2>
             </div>
             <div class="card-body">
 
                 <div class="row ">
-                    <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-6 col-md-6 text-center">
                         <?php echo "{$indexs[0]['youtube']}";?>
+                        
                         <!-- <iframe width="100%" height="400" class="embed-responsive-item mt-2" src="https://www.youtube.com/embed/SbVQsw4y6zk?autoplay=1" allowfullscreen></iframe> -->
                     </div>
                     <div class="col-lg-6 col-md-6 ">
                         <div class="div_news" data-bs-spy="scroll">
                             <?php
                             $news = $adminObj->getNewsAll("data");
+                            // echo $news[0]['n_detail'];
                             $i = 0;
                             foreach ($news as $n) {
+                                $text_title = nl2br($n['n_title']);
+                                $text_detail = nl2br($n['n_detail']);
                                 $i++;
                                 if ($i == 5) {
                                     echo "
@@ -216,10 +256,10 @@ session_start();
                                     echo "
                                                     <div class='card  mt-1 '>
                                                         <div class='card-header  bg-29'>
-                                                            {$n['n_title']} <i class='fs-10'>({$n['n_date']})</i>
+                                                            {$text_title} <i class='fs-10'>({$n['n_date']})</i>
                                                         </div>
                                                         <div class='card-body fs-14 card_news'>
-                                                            <p class='mb-0'>{$n['n_detail']}</p>
+                                                            <p class='mb-0'>{$text_detail}</p>
                                                 ";
                                     $downlons = $adminObj->getDownloadById("data", $n['d_id']);
                                     $j = 0;
@@ -259,29 +299,7 @@ session_start();
     <!-- </section> -->
     <br>
     <!-- <section class="min-vh-100"> -->
-    <div class="container">
-        <div class="card  shadow">
-            <div class="card-header bg-primary">
-                <h2 class="card-title text-center text-white"><b>ขอเชิญร่วมงาน</b></h2>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-2">
-                        <a href="/science/sciday/images/<?php echo $indexs[0]['img_head'];?>" target="_blank"> <img src="/science/sciday/images/poster-2023.png" class="img-fluid rounded shadow" alt="..."></a>
-                    </div>
-                    <div class="col-md ">
-                        <p class="card-text fs-16 mt-2" style="text-align: justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ด้วยในวันที่ 18 สิงหาคม ของทุกปีเป็นวันวิทยาศาสตร์แห่งชาติ คณะวิทยาศาสตร์ สจล. จึงได้จัดงานนิทรรศการ
-                            วันวิทยาศาสตร์ ประจำปี 2566 ในหัวข้อ <b>“Science Today is Technology Tomorrow”</b> เพื่อเป็นการเทิดพระเกียรติพระบาทสมเด็จพระจอมเกล้าเจ้าอยู่หัว รัชกาลที่ 4 ผู้ทรงเป็นพระบิดาแห่งวิทยาศาสตร์ไทย และเพื่อกระตุ้นให้นักเรียนนักศึกษา ประชาชนทั่วไปได้ตระหนักถึงความสำคัญของวิทยาศาสตร์และเทคโนโลยีที่มีต่อการพัฒนาคุณภาพชีวิตและการพัฒนาประเทศ โดยได้จัดกิจกรรมเพื่อให้นักเรียน นักศึกษา และคณาจารย์ได้มีส่วนร่วมในการทำกิจกรรมด้าน
-                            วิทยาศาสตร์ เช่น การประกวดโครงงานวิทยาศาสตร์ การประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์ การแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ และ Open House & workshop ของคณะวิทยาศาสตร์ สจล.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="card-footer text-center">
-                <!-- <a href="/science/sciday/document/รายละเอียดนิทรรศการวันวิทยาศาสตร์  2565.pdf" class="btn btn-primary text-center fs-20" target='_blank'>ดาวน์โหลดเอกสารเชิญชวน</a> -->
-            </div>
-        </div>
-    </div>
+   
     <!-- </section> -->
     <hr>
     <section class="min-vh-100">
@@ -293,6 +311,8 @@ session_start();
                     </span>
                     <div class="row">
                     <p class="text-danger mt-2 fs-18"><b>หมายเหตุ : ในกรณีที่มีการส่งผลงานเข้าร่วมประกวดเข้ามาในระบบมากกว่า 1 ครั้ง</b><b class='text-primary'>(กรณี สมัครซ้ำ ท่านสามารถลบรายการที่สมัครซ้ำออกด้วยตัวท่านเองได้ ก่อนวันปิดรับสมัคร) </b><b>คณะวิทยาศาสตร์ขอสงวนสิทธิ์ในการพิจารณาเฉพาะผลงานในวันและเวลาล่าสุดเท่านั้น</b></p>
+                    <br>
+                    <h4 class="mt-3">สามารถคลิกดูรายระเอียดเพิ่มเติม ที่รูปได้</h4> 
                         <?php
                         $i = 0;
                         $activitys = $adminObj->getActivityAll("data");

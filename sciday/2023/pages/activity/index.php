@@ -20,9 +20,11 @@
             <div class="card mt-3">
                 <div class="container">
                     <span class="badge rounded-pill bg-primary mt-3 shadow text-truncate">
-                        <h4 class="fs-20"><b>&nbsp;&nbsp;&nbspกิจกรรมงานวันวิทยาศาสตร์ ปี 2566&nbsp;&nbsp;</b></h4>
+                        <h4 class="fs-20"><b>&nbsp;&nbsp;&nbspกิจกรรมงานวันวิทยาศาสตร์ ปี 2566 &nbsp;&nbsp;</b></h4>
                     </span>
                     <p class="text-danger mt-2 fs-18"><b>หมายเหตุ : ในกรณีที่มีการส่งผลงานเข้าร่วมประกวดเข้ามาในระบบมากกว่า 1 ครั้ง</b><b class='text-primary'>(กรณี สมัครซ้ำ หรือท่านสามารถลบรายการที่สมัครซ้ำออกด้วยตัวท่านเองได้ ก่อนวันปิดรับสมัคร) </b><b>คณะวิทยาศาสตร์ขอสงวนสิทธิ์ในการพิจารณาเฉพาะผลงานในวันและเวลาล่าสุดเท่านั้น</b></p>
+                    <br>
+                    <h4 class="mt-3">สามารถคลิกดูรายระเอียดเพิ่มเติม ที่รูปได้</h4>
                     <div class="row">
                         <?php
                         $i = 0;

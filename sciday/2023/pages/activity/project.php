@@ -117,6 +117,9 @@
                         <!-- <p class="mt-2">ขั้นตินที่ 1</p>
                         <p>เอกสารหลักเกณฑ์การประกวด</p> -->
                     </div>
+                    <?php
+                    if($_GET['pages']!="esport") {
+                    ?>
                     <div class="col-lg-4">
                         <div class="card mt-2">
                             <h5 class="card-header bg-40">ขั้นตอนที่ 2 Download ใบสมัคร </h5>
@@ -145,6 +148,8 @@
                         <?php
                             if($activity['pages']=='answer-TH' OR $activity['pages']=='answer-EN'){
                                 $textshow = "ยื่นสมัคร";
+                            }elseif($activity['pages']=='esport'){
+                                $textshow = "สมัคร";
                             }else{
                                 $textshow = "ยื่นเสนอผลงาน";
                             }
@@ -183,6 +188,35 @@
                         <!-- <p class="mt-2">ขั้นตอนที่ 3</p> -->
 
                     </div>
+                    <?php }else{ ?>
+                        <?php
+                            if($activity['pages']=='answer-TH' OR $activity['pages']=='answer-EN'){
+                                $textshow = "ยื่นสมัคร";
+                            }elseif($activity['pages']=='esport'){
+                                $textshow = "สมัครแข่งขัน";
+                            }else{
+                                $textshow = "ยื่นเสนอผลงาน";
+                            }
+                        ?>
+                    <div class="col-lg-4">
+                        <div class="card mt-2">
+                            <h5 class="card-header bg-40">ขั้นตอนที่ 2 <?php echo $textshow;?></h5>
+                            <div class="card-body">
+                                <p>2.สมัครแข่งขันผ่าน link </p>
+                                <a href='https://forms.gle/mdXPTaTUU5ZWeSrPA' class='btn btn-primary'>สมัครแข่งขัน</a>
+                            </div>
+                        </div>
+                    </div>    
+                    <div class="col-lg-4">
+                        <div class="card mt-2">
+                            <h5 class="card-header bg-40">ขั้นตอนที่ 3 ติดตามข้อมูลกิจกรรมนี้ได้ที่ </h5>
+                            <div class="card-body">
+                                <p>3.ข้อมูลการแข่งขัน </p>
+                                <a href='https://challonge.com/scikmitl_rov_2023' class='btn btn-primary'>รายละเอียด</a>
+                            </div>
+                        </div>
+                    </div>    
+                    <?php } ?>
                 </div>
 
             </div>

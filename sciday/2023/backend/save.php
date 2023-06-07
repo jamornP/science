@@ -25,7 +25,7 @@
             $countF = count($_FILES['d_link']['tmp_name']);
             // echo $countF;
             if($countF>0) {
-                if($_FILES['d_link']['tmp_name'][0] != ""){
+                if($_FILES['d_link']['error'][0] != "4"){
                     for($i=0;$i<$countF;$i++){
                         $ext = end(explode(".",$_FILES['d_link']['name'][$i]));
                         $new_name = "project-".uniqid().".".$ext;
