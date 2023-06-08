@@ -53,7 +53,7 @@
                         <div class="text-end">
                             <button type="submit" class="btn btn-success text-white mt-4">Sign in</button>
                         </div>
-                        <a href="register.php" class="">Sign up</a>
+                        <a href="register.php" class="btn btn-primary">ลงทะเบียน</a>
                         <a href="reset_password.php" class="">ลืมรหัส</a>
                     </form>
                     <!-- <a href="register.php">สมัครใช้งานใหม่</a> -->

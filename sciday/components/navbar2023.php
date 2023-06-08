@@ -72,7 +72,7 @@ if(isset($_SESSION['user_id'])){
                 } else {
                 ?>
 
-                    <!-- <a class="nav-link text-white" href="/science/sciday/2023/pages/auth/register.php"><i class='bx bx-registered'></i> ลงทะเบียน</a> -->
+                    <a class="nav-link text-white" href="/science/sciday/2023/pages/auth/register.php"><i class='bx bx-registered'></i> ลงทะเบียน</a>
                     <div class="vr"></div>
                     <a class="nav-link text-white" href="/science/sciday/2023/pages/auth/login.php"><i class='bx bx-user-circle'></i> เข้าสู่ระบบ</a>
                 <?php
