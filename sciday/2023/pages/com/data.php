@@ -154,13 +154,13 @@
                                     foreach ($data as $pro) {
                                         $i++;
                                         echo "
-                                <tr>
-                                    <th scope='row'>$i</th>
-                                    <td>{$pro['p_name']}</td>
-                                    <td>{$pro['school']}</td>
-                                    <td>{$pro['level']}</td>
-                                    <td>
-                                ";
+                                    <tr class='fs-14'>
+                                        <th scope='row'>$i</th>
+                                        <td>{$pro['p_name']}</td>
+                                        <td>{$pro['school']}</td>
+                                        <td>{$pro['level']}</td>
+                                        <td>
+                                    ";
                                         $students = $adminObj->getStudentById("data", $pro['stu_id']);
                                         $sj = count($students);
                                         $j = 0;

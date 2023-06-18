@@ -261,7 +261,7 @@
                                 foreach($projects as $pro){
                                     $i++;
                                     echo "
-                                        <tr>
+                                        <tr class='fs-14'>
                                             <th scope='row'>$i</th>
                                             <td>{$pro['p_name']}</td>
                                             <td>{$pro['school']}</td>
