@@ -124,9 +124,25 @@ use App\Database\DbSciDay2023;
         return true;
     }
     // level
+    public function getLevelById($id){
+        $sql = "
+            SELECT * FROM tb_level WHERE le_id={$id}
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data[0];
+    }
     public function getLevelByActivity($a_id){
         $sql = "
             SELECT * FROM tb_level WHERE ac_id={$a_id} AND status=1
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
+    public function getLevelByActivityAll($a_id){
+        $sql = "
+            SELECT * FROM tb_level WHERE ac_id={$a_id}
         ";
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();
@@ -184,6 +200,22 @@ use App\Database\DbSciDay2023;
             FROM tb_project as pro
             LEFT JOIN tb_level as l ON l.le_id = pro.le_id
             WHERE pro.ac_id ={$ac_id}
+            ORDER BY l.le_id
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        if($action=="count"){
+            return count($data);
+        }else{
+            return $data;
+        }
+    }
+    public function getProjectByActivityLevel($action,$ac_id,$le_id){
+        $sql = "
+            SELECT pro.*,l.name as level
+            FROM tb_project as pro
+            LEFT JOIN tb_level as l ON l.le_id = pro.le_id
+            WHERE pro.ac_id ={$ac_id} AND pro.le_id ={$le_id}
             ORDER BY l.le_id
         ";
         $stmt = $this->pdo->query($sql);
@@ -582,6 +614,17 @@ use App\Database\DbSciDay2023;
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($data);
         return true;
+    }
+    // user เบอร์โทร
+    public function getUserById($u_id){
+        $sql ="
+            SELECT * 
+            FROM tb_users
+            WHERE u_id={$u_id}
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data[0];
     }
 }
 ?>

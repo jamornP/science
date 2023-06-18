@@ -13,19 +13,80 @@
 
 <body class="font-sriracha">
     <?php require $_SERVER['DOCUMENT_ROOT'] . "/science/sciday/components/navbar2023.php"; ?>
-    <?php //print_r($_SESSION);
+    <?php 
+        $ac_id = $_SESSION['activity'];
+       
     ?>
-    <div class="container mt-5">
+    <?php
+         if($ac_id==99){
+            $activitys = $adminObj->getActivityAll("data");
+            foreach($activitys as $activity){
+                ?>
+                <div class="container mt-5">
+                    <div class="card">
+                        <h5 class="card-header bg-170"><b><?php echo $activity['name'];?></b></h5>
+                        <div class="card-body">
+                            <div class='row mt-1'>
+                                <div class='d-grid gap-2 col-6 mx-auto'>
+                                    <button class='btn btn-info' >ประเภท</button>
+                                </div>
+                                <div class='d-grid gap-2 col-3 mx-auto'>
+                                    <a class='btn btn-info text-white' >จำนวนทีมที่สมัคร</a>
+                                </div>
+                            </div>
+                            <!-- <div class="d-grid gap-2 col-3 mx-auto"> -->
+                                <?php
+                                    $levels = $adminObj->getLevelByActivityAll($activity['ac_id']);
+                                    foreach($levels as $level){
+                                        $countTeam = $adminObj->getProjectByActivityLevel("count",$activity['ac_id'],$level['le_id']);
+                                        echo "
+                                            <div class='row mt-1'>
+                                                <div class='d-grid gap-2 col-6 mx-auto'>
+                                                    <a class='btn btn-primary' href='data.php?ac_id={$activity['ac_id']}&le_id={$level['le_id']}&name={$level['name']}'>{$level['name']}</a>
+                                                </div>
+                                                <div class='d-grid gap-2 col-3 mx-auto'>
+                                                    <a class='btn btn-success text-white' href='data.php?ac_id={$activity['ac_id']}&le_id={$level['le_id']}&name={$level['name']}'>{$countTeam} ทีม</a>
+                                                </div>
+                                            </div>
+                                        ";
+                                    }
+                                ?>
+                                
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
 
-        <div class="card">
-            <h5 class="card-header bg-170">Featured</h5>
-            <div class="card-body">
-
-            </div>
-        </div>
-
-
-    </div>
+            <?php
+        }else{
+            $activity = $adminObj->getActivityById($ac_id);
+            ?>
+                <div class="container mt-5">
+                    <div class="card">
+                        <h5 class="card-header bg-170">กรุณาเลือก <b>ประเภท</b> <?php echo $activity['name'];?></h5>
+                        <div class="card-body">
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <?php
+                                    $levels = $adminObj->getLevelByActivityAll($ac_id);
+                                    foreach($levels as $level){
+                                        $countTeam = $adminObj->getProjectByActivityLevel("count",$ac_id,$level['le_id']);
+                                        echo "
+                                            <a class='btn btn-primary' href='data.php?le_id={$level['le_id']}&name={$level['name']}'>{$level['name']} จำนวน {$countTeam} ทีม</a>
+                                        ";
+                                    }
+                                ?>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php
+        }
+    ?>
+    
 
 
 </body>

@@ -54,17 +54,40 @@ if(isset($_SESSION['user_id'])){
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <?php echo $_SESSION['fullname']; ?>
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <?php
                                 if($_SESSION['role']=="superadmin"){
                                     echo "
-                                    <li><a class='dropdown-item text-center' href='/science/sciday/2023/backend'>จัดการระบบ</a></li>
+                                    <li><a class='dropdown-item' href='/science/sciday/2023/backend'>จัดการระบบ</a></li>
+                                    <li><a class='dropdown-item' href='/science/sciday/2023/pages/com'>ข้อมูลทีมสมัคร</a></li>
+                                    <li><a class='dropdown-item' href='/science/sciday/2023/pages/admin'>ตัดสินทีมที่ผ่านเข้ารอบ</a></li>
+                                    <li><hr class='dropdown-divider'></li>
                                     ";
-
+                                }
+                                if($_SESSION['role']=="admin"){
+                                    echo "
+                                    <li><a class='dropdown-item' href='/science/sciday/2023/pages/com'>ข้อมูลทีมสมัคร</a></li>
+                                    <li><a class='dropdown-item' href='/science/sciday/2023/pages/admin'>ตัดสินทีมที่ผ่านเข้ารอบ</a></li>
+                                    <li><hr class='dropdown-divider'></li>
+                                    ";
+                                }
+                                if($_SESSION['role']=="com"){
+                                    echo "
+                                    <li><a class='dropdown-item' href='/science/sciday/2023/pages/com'>ข้อมูลทีมสมัคร</a></li>
+                                    <li><hr class='dropdown-divider'></li>
+                                    ";
                                 }
                             ?>
-                            <li><a class="dropdown-item text-center" href="/science/sciday/2023/pages/member">ข้อมูลการสมัคร</a></li>
-                            <li><a class="dropdown-item bg-274 text-center" href="/science/sciday/2023/pages/auth/logout.php">ออกจากระบบ</a></li>
+                            <?php 
+                                if($_SESSION['role']=="member"){
+                                    echo "
+                                        <li><a class='dropdown-item' href='/science/sciday/2023/pages/member'>ข้อมูลการสมัคร</a></li>
+                                        <li><hr class='dropdown-divider'></li>
+                                    ";
+                                }
+                            ?>
+                            
+                            <li><a class="dropdown-item text-center" href="/science/sciday/2023/pages/auth/logout.php">Sign out</a></li>
                         </ul>
                     </li>
                     
