@@ -437,7 +437,7 @@
 
             $("body").on("click", ".sbtn-add", function(e) {
 
-                if (i < 3) {
+                
                     i++;
                     e.preventDefault();
                     let ol = $(this).closest("ol")
@@ -446,9 +446,7 @@
                     li.find("input").val("")
                     li.find(".sbtn-remove").show()
                     li.find("[name='sti_id[]']").focus()
-                } else {
-
-                }
+                
                 console.log(i);
             })
 

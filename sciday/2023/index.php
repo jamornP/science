@@ -266,7 +266,7 @@ session_start();
                                     foreach ($downlons as $d) {
                                         $j++;
                                         echo "
-                                                        <a href='{$d['d_link']}' class='text-primary me-mr-2' style='text-decoration: none;' target='_blank'>{$j}.<i class='bx bx-file' ></i>  {$d['d_name']}</a>
+                                                        <a href='{$d['d_link']}' class='text-primary me-mr-2' style='text-decoration: none;' target='_blank'>{$j}.<i class='bx bx-file' ></i>  {$d['d_name']}</a><br>
                                                     ";
                                     }
                                     if ($n['n_link'] == "-") {
