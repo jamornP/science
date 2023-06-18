@@ -17,7 +17,7 @@ if(isset($_SESSION['user_id'])){
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-177">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/science/sciday/2023">Science Day 2023</a>
+        <a class="navbar-brand font-sriracha" href="/science/sciday/2023">Science Day 2023</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

@@ -25,7 +25,7 @@
     </style>
 </head>
 
-<body class="font-sriracha">
+<body class="font-kanit">
     <?php require $_SERVER['DOCUMENT_ROOT'] . "/science/sciday/components/navbar2023.php"; ?>
     <?php //print_r($_SESSION);
     if (isset($_GET['msg'])) {
@@ -95,6 +95,15 @@
             ?>
             <h5 class="card-header bg-305 text-white">ขั้นตอนการสมัคร</h5>
             <div class="card-body">
+                <?php
+                if($_GET['pages']!="esport"){
+                 echo "
+                    <br>
+                    <img src='/science/sciday/images/{$activity['line']}' class='rounded mx-auto d-block' alt='{$activity['line']}'>
+                    <b><p class='text-center text-danger fs-24'>* กรุณา scan QRcode Line OpenChate ใช้เพื่อสื่อสารข้อมูลของกิจกรรม *</p></b>
+                 ";
+                }
+                ?>
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="card mt-2">
@@ -237,7 +246,7 @@
                             <thead>
                                 <tr class="bg-246">
                                     <th scope="col">ที่</th>
-                                    <th scope="col">ชื่อผลงาน</th>
+                                    <th scope="col" style="width:30%">ชื่อผลงาน</th>
                                     <th scope="col">โรงเรียน</th>
                                     <th scope="col">ระดับ</th>
                                     <th scope="col">นักเรียน</th>

@@ -156,7 +156,7 @@ session_start();
     </style>
 </head>
 
-<body class="font-sriracha">
+<body class="font-kanit">
     
     <?php require $_SERVER['DOCUMENT_ROOT'] . "/science/sciday/components/navbar2023.php"; ?>
     <?php $indexs = $adminObj->getIndex(); ?>
