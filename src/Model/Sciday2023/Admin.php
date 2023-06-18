@@ -216,7 +216,7 @@ use App\Database\DbSciDay2023;
             FROM tb_project as pro
             LEFT JOIN tb_level as l ON l.le_id = pro.le_id
             WHERE pro.ac_id ={$ac_id} AND pro.le_id ={$le_id}
-            ORDER BY l.le_id
+            ORDER BY pro.date_at
         ";
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();

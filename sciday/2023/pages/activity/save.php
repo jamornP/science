@@ -75,12 +75,20 @@ session_start();
             // print_r($tedata);
             // echo "</pre>";
         }
-        foreach ($_POST['img_path'] as $key => $imgs) {
-            $img['img_id']=$_POST['img_id'];
-            $img['path']=$_POST['img_path'][$key];
-            $img['pro_id']=$pro_id;
-            $imgck = $adminObj->addImages($img);
+        if(isset($_POST['img_path'])){
+            foreach ($_POST['img_path'] as $key => $imgs) {
+                $img['img_id']=$_POST['img_id'];
+                $img['path']=$_POST['img_path'][$key];
+                $img['pro_id']=$pro_id;
+                $imgck = $adminObj->addImages($img);
+            }
+        }else{
+                $img['img_id']=$_POST['img_id'];
+                $img['path']="/science/upload/sciday/images/no_img.jpg";
+                $img['pro_id']=$pro_id;
+                $imgck = $adminObj->addImages($img);
         }
+        
         if($pro_id and $stck and $teck and $imgck){
             echo "  
                 <script type='text/javascript'>

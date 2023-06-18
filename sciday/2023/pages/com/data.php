@@ -37,8 +37,14 @@
                     <?php
                         $data = $adminObj->getProjectByActivityLevel("data", $ac_id, $le_id);
                         if($ac_id == 4 OR $ac_id == 5){ 
+                            echo "
+                                <div class='d-grid gap-2 d-md-flex justify-content-md-end'>
+                                    <a class='btn btn-primary me-md-2' href='/science/sciday/2023/export_excel/index.php?ac_id={$ac_id}&le_id={$le_id}'>export Excel</a>
+                                </div>
                             
+                            ";
                             ?>
+                            
                             <table class="table table-striped table-sm">
                                 <thead>
                                     <tr class="bg-246">
@@ -138,6 +144,7 @@
                                         <th scope="col">video</th>
                                         <th scope="col">รูป</th>
                                         <th scope="col">เบอร์ติดต่อ</th>
+                                        <th scope="col">วันที่สมัคร</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -196,6 +203,9 @@
                                         </td>
                                         <td>
                                            {$tel}
+                                        </td>
+                                        <td>
+                                           {$pro['date_at']}
                                         </td>
                                     </tr>
                                 ";

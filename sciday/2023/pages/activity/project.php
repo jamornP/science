@@ -764,7 +764,7 @@
     <script>
         Dropzone.autoDiscover = false;
         var myDropzone = new Dropzone("#drop", {
-            url: "/science/sciday/project/uploader.php",
+            url: "/science/sciday/2023/uploader.php",
             addRemoveLinks: true,
             // autoProcessQueue: false,
             dictDefaultMessage: "วางไฟล์ที่นี้",
