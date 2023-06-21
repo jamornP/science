@@ -258,7 +258,7 @@ session_start();
                                 } elseif ($i < 5) {
                                     echo "
                                                     <div class='card  mt-1 '>
-                                                        <div class='card-header  bg-29'>
+                                                        <div class='card-header  bg-primary text-white'>
                                                             {$text_title} <i class='fs-10'>({$n['n_date']})</i>
                                                         </div>
                                                         <div class='card-body fs-14 card_news'>

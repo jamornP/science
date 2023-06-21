@@ -127,7 +127,7 @@
                                                 </div>
                                                 <div class='form-check form-switch'>
                                                     <input class='form-check-input' type='checkbox' id='{$ac['ac_id']}-5' {$ck5} name='{$ac['ac_id']}[bt_register]'>
-                                                    <label class='form-check-label' for='{$ac['ac_id']}-5'>ปุ่มเปิดรับสมัคร ck จาก login</label>
+                                                    <label class='form-check-label' for='{$ac['ac_id']}-5'>card ขั้นตอนการสมัคร</label>
                                                 </div>
                                                 <div class='form-check form-switch'>
                                                     <input class='form-check-input' type='checkbox' id='{$ac['ac_id']}-6' {$ck6} name='{$ac['ac_id']}[bt_regis_show]'>

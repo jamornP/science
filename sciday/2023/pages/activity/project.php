@@ -54,6 +54,7 @@
             $round3 = $setting['round3'];
             $round4 = $setting['round4'];
             $bt_regis_show = $setting['bt_regis_show'];
+            $bt_register = $setting['bt_register'];
             // print_r($activity);
             $color = "bg-307";
             ?>
@@ -88,149 +89,156 @@
                 </div>
             </div>
         </div>
-        <div class="card mt-2 shadow">
-            <?php
-            $fileDoc = $adminObj->getDocumentById($activity['ac_id']);
-            // print_r($fileDoc);
+        <?php 
+            if($bt_register){
             ?>
-            <h5 class="card-header bg-305 text-white">ขั้นตอนการสมัคร</h5>
-            <div class="card-body">
-                <?php
-                if($_GET['pages']!="esport"){
-                 echo "
-                    <br>
-                    <img src='/science/sciday/images/{$activity['line']}' class='rounded mx-auto d-block' alt='{$activity['line']}'>
-                    <b><p class='text-center text-danger fs-24'>* กรุณา scan QRcode Line OpenChate ใช้เพื่อสื่อสารข้อมูลของกิจกรรม *</p></b>
-                 ";
-                }
-                ?>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="card mt-2">
-                            <h5 class="card-header bg-40">ขั้นตอนที่ 1 หลักเกณฑ์การประกวด</h5>
-                            <div class="card-body">
-                                <p>1.Download หลักเกณฑ์การประกวด</p>
-                                <?php
-                                if($fileDoc['doc_spec']!=""){
-                                    echo "
-                                        <a href='/science/upload/sciday/file2023/{$fileDoc['doc_spec']}' class='btn btn-primary'><h5'><i class='bx bx-file' ></i> เอกสารหลักเกณฑ์การประกวด</h5></a>
-                                    ";
-                                }else{
-                                    echo "<p>Coming soon...</p>";
-                                }
-                                    
-                                ?>
-                                
-                            </div>
-                        </div>
-                        <!-- <p class="mt-2">ขั้นตินที่ 1</p>
-                        <p>เอกสารหลักเกณฑ์การประกวด</p> -->
-                    </div>
+                <div class="card mt-2 shadow">
                     <?php
-                    if($_GET['pages']!="esport") {
+                    $fileDoc = $adminObj->getDocumentById($activity['ac_id']);
+                    // print_r($fileDoc);
                     ?>
-                    <div class="col-lg-4">
-                        <div class="card mt-2">
-                            <h5 class="card-header bg-40">ขั้นตอนที่ 2 Download ใบสมัคร </h5>
-                            <div class="card-body">
-                            <p>2.กรอกข้อมูลในใบสมัคร แล้ว scan เป็น PDF </p>
-                                <?php
-                                    if($fileDoc['doc_regis_pdf']!=""){
-                                        echo "
-                                            <a href='/science/upload/sciday/file2023/{$fileDoc['doc_regis_pdf']}' class='btn btn-primary'><h5'><i class='bx bx-file' ></i> ใบสมัคร PDF</h5></a>
-                                        ";
-                                    }else{
-                                        echo "<p></p>";
-                                    }
-                                    if($fileDoc['doc_regis_word']!=""){
-                                        echo "
-                                            <a href='/science/upload/sciday/file2023/{$fileDoc['doc_regis_word']}' class='btn btn-primary'><h5'><i class='bx bx-file' ></i> ใบสมัคร Word</h5></a>
-                                        ";
-                                    }
-                                ?>
-                            </div>
-                        </div>
-                        <!-- <p class="mt-2">ขั้นตอนที่ 2</p>
-                        <p>Download ใบสมัคร กรอกข้อมูล</p> -->
-                    </div>
-                    <div class="col-lg-4">
+
+                    <h5 class="card-header bg-305 text-white">ขั้นตอนการสมัคร</h5>
+                    <div class="card-body">
                         <?php
-                            if($activity['pages']=='answer-TH' OR $activity['pages']=='answer-EN'){
-                                $textshow = "ยื่นสมัคร";
-                            }elseif($activity['pages']=='esport'){
-                                $textshow = "สมัคร";
-                            }else{
-                                $textshow = "ยื่นเสนอผลงาน";
-                            }
+                        if($_GET['pages']!="esport"){
+                        echo "
+                            <br>
+                            <img src='/science/sciday/images/{$activity['line']}' class='rounded mx-auto d-block' alt='{$activity['line']}'>
+                            <b><p class='text-center text-danger fs-24'>* กรุณา scan QRcode Line OpenChate ใช้เพื่อสื่อสารข้อมูลของกิจกรรม *</p></b>
+                        ";
+                        }
                         ?>
-                        <div class="card mt-2">
-                            <h5 class="card-header bg-40">ขั้นตอนที่ 3 <?php echo $textshow;?></h5>
-                            <div class="card-body">
-                            <p>3.<?php echo $textshow;?> ในระบบ</p>
-                                <!-- <h5 class="card-title">เอกสารหลักเกณฑ์การประกวด</h5> -->
-                                <?php
-                                if ($bt_register) {
-                                    if($bt_regis_show){
-                                        if($activity['pages']=="esport"){
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="card mt-2">
+                                    <h5 class="card-header bg-40">ขั้นตอนที่ 1 หลักเกณฑ์การประกวด</h5>
+                                    <div class="card-body">
+                                        <p>1.Download หลักเกณฑ์การประกวด</p>
+                                        <?php
+                                        if($fileDoc['doc_spec']!=""){
                                             echo "
-                                            <a href='https://forms.gle/mdXPTaTUU5ZWeSrPA' class='btn btn-primary'>สมัครแข่งขัน</a>
-                                           ";
-                                        }else{
-                                            
-                                            echo "
-                                                <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='{$activity['pages']}'>{$textshow}</button>
+                                                <a href='/science/upload/sciday/file2023/{$fileDoc['doc_spec']}' class='btn btn-primary'><h5'><i class='bx bx-file' ></i> เอกสารหลักเกณฑ์การประกวด</h5></a>
                                             ";
+                                        }else{
+                                            echo "<p>Coming soon...</p>";
                                         }
-                                    }else{
-                                        echo "
-                                            <button class='btn btn-danger'>ปิดรับสมัครแล้ว</button>
-                                        ";
+                                            
+                                        ?>
                                         
-                                    }
-                                    
-                                }else{
-                                    echo "<a class='btn btn-warning' href='/science/sciday/2023/pages/auth/login.php'> กรุณา เข้าสู่ระบบ</a>";
-                                }
-                                ?>
+                                    </div>
+                                </div>
+                                <!-- <p class="mt-2">ขั้นตินที่ 1</p>
+                                <p>เอกสารหลักเกณฑ์การประกวด</p> -->
                             </div>
+                            <?php
+                            if($_GET['pages']!="esport") {
+                            ?>
+                            <div class="col-lg-4">
+                                <div class="card mt-2">
+                                    <h5 class="card-header bg-40">ขั้นตอนที่ 2 Download ใบสมัคร </h5>
+                                    <div class="card-body">
+                                    <p>2.กรอกข้อมูลในใบสมัคร แล้ว scan เป็น PDF </p>
+                                        <?php
+                                            if($fileDoc['doc_regis_pdf']!=""){
+                                                echo "
+                                                    <a href='/science/upload/sciday/file2023/{$fileDoc['doc_regis_pdf']}' class='btn btn-primary'><h5'><i class='bx bx-file' ></i> ใบสมัคร PDF</h5></a>
+                                                ";
+                                            }else{
+                                                echo "<p></p>";
+                                            }
+                                            if($fileDoc['doc_regis_word']!=""){
+                                                echo "
+                                                    <a href='/science/upload/sciday/file2023/{$fileDoc['doc_regis_word']}' class='btn btn-primary'><h5'><i class='bx bx-file' ></i> ใบสมัคร Word</h5></a>
+                                                ";
+                                            }
+                                        ?>
+                                    </div>
+                                </div>
+                                <!-- <p class="mt-2">ขั้นตอนที่ 2</p>
+                                <p>Download ใบสมัคร กรอกข้อมูล</p> -->
+                            </div>
+                            <div class="col-lg-4">
+                                <?php
+                                    if($activity['pages']=='answer-TH' OR $activity['pages']=='answer-EN'){
+                                        $textshow = "ยื่นสมัคร";
+                                    }elseif($activity['pages']=='esport'){
+                                        $textshow = "สมัคร";
+                                    }else{
+                                        $textshow = "ยื่นเสนอผลงาน";
+                                    }
+                                ?>
+                                <div class="card mt-2">
+                                    <h5 class="card-header bg-40">ขั้นตอนที่ 3 <?php echo $textshow;?></h5>
+                                    <div class="card-body">
+                                    <p>3.<?php echo $textshow;?> ในระบบ</p>
+                                        <!-- <h5 class="card-title">เอกสารหลักเกณฑ์การประกวด</h5> -->
+                                        <?php
+                                        if ($bt_register) {
+                                            if($bt_regis_show){
+                                                if($activity['pages']=="esport"){
+                                                    echo "
+                                                    <a href='https://forms.gle/mdXPTaTUU5ZWeSrPA' class='btn btn-primary'>สมัครแข่งขัน</a>
+                                                ";
+                                                }else{
+                                                    
+                                                    echo "
+                                                        <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='{$activity['pages']}'>{$textshow}</button>
+                                                    ";
+                                                }
+                                            }else{
+                                                echo "
+                                                    <button class='btn btn-danger'>ปิดรับสมัครแล้ว</button>
+                                                ";
+                                                
+                                            }
+                                            
+                                        }else{
+                                            echo "<a class='btn btn-warning' href='/science/sciday/2023/pages/auth/login.php'> กรุณา เข้าสู่ระบบ</a>";
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                                <!-- <p class="mt-2">ขั้นตอนที่ 3</p> -->
+
+                            </div>
+                            <?php }else{ ?>
+                                <?php
+                                    if($activity['pages']=='answer-TH' OR $activity['pages']=='answer-EN'){
+                                        $textshow = "ยื่นสมัคร";
+                                    }elseif($activity['pages']=='esport'){
+                                        $textshow = "สมัครแข่งขัน";
+                                    }else{
+                                        $textshow = "ยื่นเสนอผลงาน";
+                                    }
+                                ?>
+                            <div class="col-lg-4">
+                                <div class="card mt-2">
+                                    <h5 class="card-header bg-40">ขั้นตอนที่ 2 <?php echo $textshow;?></h5>
+                                    <div class="card-body">
+                                        <p>2.สมัครแข่งขันผ่าน link </p>
+                                        <a href='https://forms.gle/mdXPTaTUU5ZWeSrPA' class='btn btn-primary'>สมัครแข่งขัน</a>
+                                    </div>
+                                </div>
+                            </div>    
+                            <div class="col-lg-4">
+                                <div class="card mt-2">
+                                    <h5 class="card-header bg-40">ขั้นตอนที่ 3 ติดตามข้อมูลกิจกรรมนี้ได้ที่ </h5>
+                                    <div class="card-body">
+                                        <p>3.ข้อมูลการแข่งขัน </p>
+                                        <a href='https://challonge.com/scikmitl_rov_2023' class='btn btn-primary'>รายละเอียด</a>
+                                    </div>
+                                </div>
+                            </div>    
+                            <?php } ?>
                         </div>
-                        <!-- <p class="mt-2">ขั้นตอนที่ 3</p> -->
 
                     </div>
-                    <?php }else{ ?>
-                        <?php
-                            if($activity['pages']=='answer-TH' OR $activity['pages']=='answer-EN'){
-                                $textshow = "ยื่นสมัคร";
-                            }elseif($activity['pages']=='esport'){
-                                $textshow = "สมัครแข่งขัน";
-                            }else{
-                                $textshow = "ยื่นเสนอผลงาน";
-                            }
-                        ?>
-                    <div class="col-lg-4">
-                        <div class="card mt-2">
-                            <h5 class="card-header bg-40">ขั้นตอนที่ 2 <?php echo $textshow;?></h5>
-                            <div class="card-body">
-                                <p>2.สมัครแข่งขันผ่าน link </p>
-                                <a href='https://forms.gle/mdXPTaTUU5ZWeSrPA' class='btn btn-primary'>สมัครแข่งขัน</a>
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="col-lg-4">
-                        <div class="card mt-2">
-                            <h5 class="card-header bg-40">ขั้นตอนที่ 3 ติดตามข้อมูลกิจกรรมนี้ได้ที่ </h5>
-                            <div class="card-body">
-                                <p>3.ข้อมูลการแข่งขัน </p>
-                                <a href='https://challonge.com/scikmitl_rov_2023' class='btn btn-primary'>รายละเอียด</a>
-                            </div>
-                        </div>
-                    </div>    
-                    <?php } ?>
+
                 </div>
-
-            </div>
-
-        </div>
+            <?php
+            }
+        ?>
         <br>
         <br>
         <br>

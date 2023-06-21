@@ -303,11 +303,20 @@
                 $count1 = count($data1);
                 // print_r($data1);
                 ?>
+                
                     <div class="card mt-3">
                         
                         <h5 class="card-header bg-170">ทีมที่เข้าแข่งขัน Online <?php echo "{$activity['name']} ({$level['name']}) จำนวน {$count1} ทีม";?></h5>
                         <div class="card-body">
                             <div class="d-grid gap-2 mx-auto">
+                                <?php
+                                    echo "
+                                        <div class='d-grid gap-2 d-md-flex justify-content-md-end'>
+                                            <a class='btn btn-primary me-md-2' href='/science/sciday/2023/export_excel/two.php?ac_id={$ac_id}&le_id={$le_id}&name={$level['name']}&ac_name={$activity['name']}'>export Excel</a>
+                                        </div>
+                                    
+                                    ";
+                                ?>
                                 <table class="table table-striped table-sm">
                                         <thead>
                                             <tr class="bg-246">
@@ -424,11 +433,20 @@
                 $data2 = $adminObj->getGroupByRound("data","doc",$ac_id,$le_id);
                 $count2 = count($data2);
                 // print_r($data2);
+                
                 ?>
                     <div class="card mt-3">
                         <h5 class="card-header bg-170">ทีมที่เอกสารผ่านแล้ว <?php echo "{$activity['name']} ({$level['name']}) จำนวน {$count2} ทีม";?></h5>
                         <div class="card-body">
                             <div class="d-grid gap-2 mx-auto">
+                                <?php
+                                    echo "
+                                        <div class='d-grid gap-2 d-md-flex justify-content-md-end'>
+                                            <a class='btn btn-primary me-md-2' href='/science/sciday/2023/export_excel/two.php?ac_id={$ac_id}&le_id={$le_id}&name={$level['name']}&ac_name={$activity['name']}'>export Excel</a>
+                                        </div>
+                                    
+                                    ";
+                                ?>
                             <table class="table table-striped table-sm">
                                     <thead>
                                         <tr class="bg-246">
