@@ -60,14 +60,13 @@ if(isset($_SESSION['user_id'])){
                                     echo "
                                     <li><a class='dropdown-item' href='/science/sciday/2023/backend'>จัดการระบบ</a></li>
                                     <li><a class='dropdown-item' href='/science/sciday/2023/pages/com'>ข้อมูลทีมสมัคร</a></li>
-                                    <li><a class='dropdown-item' href='/science/sciday/2023/pages/admin'>ตัดสินทีมที่ผ่านเข้ารอบ</a></li>
+                                    <li><a class='dropdown-item' href='/science/sciday/2023/pages/admin'>กรอกคะแนนและคัดเลือกทีม</a></li>
                                     <li><hr class='dropdown-divider'></li>
                                     ";
                                 }
                                 if($_SESSION['role']=="admin"){
                                     echo "
-                                    <li><a class='dropdown-item' href='/science/sciday/2023/pages/com'>ข้อมูลทีมสมัคร</a></li>
-                                    <li><a class='dropdown-item' href='/science/sciday/2023/pages/admin'>ตัดสินทีมที่ผ่านเข้ารอบ</a></li>
+                                    <li><a class='dropdown-item' href='/science/sciday/2023/pages/admin'>ให้คะแนนและคัดเลือกทีม</a></li>
                                     <li><hr class='dropdown-divider'></li>
                                     ";
                                 }

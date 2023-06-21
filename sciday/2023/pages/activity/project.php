@@ -235,6 +235,198 @@
         <br>
         <br>
         <?php
+            if ($round4) {
+            ?>
+                <div class="card mt-2">
+                    <h5 class="card-header bg-primary text-white">รายชื่อทีมที่ผ่านเข้ารอบตัดสิน</h5>
+                    <div class="card-body">
+                        <?php
+                            $levels = $adminObj->getLevelByActivity($activity['ac_id']);
+                            // print_r($levels);
+                            // echo "<br>";
+                            if($activity['pages']=='answer-TH' OR $activity['pages']=='answer-EN'){
+                                foreach($levels as $level){           
+                                    $data4 = $adminObj->getGroupByRound("data","final",$level['ac_id'],$level['le_id']);
+                                    $count4 = count($data4);
+                                    if($count4>0){
+                                        // print_r($data4);
+                                        ?> 
+                                            <div class="card mt-2 shadow">
+                                                <h5 class="card-header bg-50 text-white"><?php echo $level['name'];?></h5>
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped table-sm">
+                                                            <thead>
+                                                                <tr class="bg-246">
+                                                                    <th scope="col">ที่</th>
+                                                                    <th scope="col" style="width:30%">ชื่อผลงาน</th>
+                                                                    <th scope="col">โรงเรียน</th>
+                                                                    <th scope="col">ระดับ</th>
+                                                                    <th scope="col">นักเรียน</th>
+                                                                    <th scope="col">อาจารย์ที่ปรึกษา</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php
+                                                                $i=0;
+                                                                foreach($data4 as $pro){
+                                                                    $i++;
+                                                                    echo "
+                                                                        <tr class='fs-14'>
+                                                                            <th scope='row'>$i</th>
+                                                                            <td>{$pro['p_name']}</td>
+                                                                            <td>{$pro['school']}</td>
+                                                                            <td>{$pro['level']}</td>
+                                                                            <td>
+                                                                    ";
+                                                                    $students = $adminObj->getStudentById("data",$pro['stu_id']);
+                                                                    $sj=count($students);
+                                                                    $j=0;
+                                                                    foreach($students as $stu){
+                                                                        $j++;
+                                                                        $st = "{$stu['title']}{$stu['stu_name']} {$stu['stu_surname']}";
+                                                                        echo $st;
+                                                                        if($j<$sj){
+                                                                            echo "<br>";
+                                                                        }
+                                                                    }
+                                                                    echo "
+                                                                            </td>
+                                                                            <td>
+                                                                        ";
+                                                                    $teachers = $adminObj->getTeacherById("data",$pro['tea_id']);
+                                                                    $tj=count($teachers);
+                                                                    $j=0;
+                                                                    foreach($teachers as $tea){
+                                                                        $j++;
+                                                                        $tt = "{$tea['title']}{$tea['tea_name']} {$tea['tea_surname']}";
+                                                                        echo $tt;
+                                                                        if($j<$tj){
+                                                                            echo "<br>";
+                                                                        }
+                                                                    }    
+                                                                    echo "
+                                                                            </td>
+                                                                        </tr>
+                                                                    ";
+                                                                }
+                                                                ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php
+                                    }
+                                }
+                            }else{
+                                foreach($levels as $level){       
+                                    $data4 = $adminObj->getGroupByRound("data","final",$level['ac_id'],$level['le_id']);
+                                    $count4 = count($data4);
+                                    if($count4>0){
+                                        // print_r($data4);
+                                        ?>
+                                            <div class="card mt-2 shadow">
+                                                <h5 class="card-header bg-50 text-white"><?php echo $level['name'];?></h5>
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped table-sm">
+                                                            <thead>
+                                                                <tr class="bg-246">
+                                                                    <th scope="col">ที่</th>
+                                                                    <th scope="col" style="width:30%">ชื่อผลงาน</th>
+                                                                    <th scope="col">โรงเรียน</th>
+                                                                    <th scope="col">ระดับ</th>
+                                                                    <th scope="col">นักเรียน</th>
+                                                                    <th scope="col">อาจารย์ที่ปรึกษา</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php
+                                                                $i=0;
+                                                                foreach($data4 as $pro){
+                                                                    $i++;
+                                                                    echo "
+                                                                        <tr class='fs-14'>
+                                                                            <th scope='row'>$i</th>
+                                                                            <td>{$pro['p_name']}</td>
+                                                                            <td>{$pro['school']}</td>
+                                                                            <td>{$pro['level']}</td>
+                                                                            <td>
+                                                                    ";
+                                                                    $students = $adminObj->getStudentById("data",$pro['stu_id']);
+                                                                    $sj=count($students);
+                                                                    $j=0;
+                                                                    foreach($students as $stu){
+                                                                        $j++;
+                                                                        $st = "{$stu['title']}{$stu['stu_name']} {$stu['stu_surname']}";
+                                                                        echo $st;
+                                                                        if($j<$sj){
+                                                                            echo "<br>";
+                                                                        }
+                                                                    }
+                                                                    echo "
+                                                                            </td>
+                                                                            <td>
+                                                                        ";
+                                                                    $teachers = $adminObj->getTeacherById("data",$pro['tea_id']);
+                                                                    $tj=count($teachers);
+                                                                    $j=0;
+                                                                    foreach($teachers as $tea){
+                                                                        $j++;
+                                                                        $tt = "{$tea['title']}{$tea['tea_name']} {$tea['tea_surname']}";
+                                                                        echo $tt;
+                                                                        if($j<$tj){
+                                                                            echo "<br>";
+                                                                        }
+                                                                    }    
+                                                                    echo "
+                                                                            </td>
+                                                                        </tr>
+                                                                    ";
+                                                                }
+                                                                ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        <?php
+                                    }
+                                }
+                            }
+                        ?>
+                    </div>
+                </div>
+            <?php
+            }
+        ?>
+        <?php
+            if ($round3) {
+            ?>
+                <div class="card mt-2">
+                    <h5 class="card-header bg-193 text-white">รายชื่อทีมที่ผ่านเข้ารอบ 2</h5>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            <?php
+            }
+        ?>
+        <?php
+            if ($round2) {
+            ?>
+                <div class="card mt-2">
+                    <h5 class="card-header bg-193 text-white">รายชื่อทีมที่ผ่านเข้ารอบแรก</h5>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            <?php
+            }
+        ?>
+        <?php
         if ($register) {
             if($activity['pages'] == "artifact" or $activity['pages'] == "project" or $activity['pages'] == "iot" or $activity['pages'] == "microbit") {
         ?>
@@ -377,42 +569,7 @@
             }
         }
         ?>
-        <?php
-        if ($round2) {
-        ?>
-            <div class="card mt-2">
-                <h5 class="card-header bg-193 text-white">รายชื่อทีมที่ผ่านเข้ารอบ 2</h5>
-                <div class="card-body">
-                </div>
-
-            </div>
-        <?php
-        }
-        ?>
-        <?php
-        if ($round3) {
-        ?>
-            <div class="card mt-2">
-                <h5 class="card-header bg-193 text-white">รายชื่อทีมที่ผ่านเข้ารอบ 3</h5>
-                <div class="card-body">
-                </div>
-
-            </div>
-        <?php
-        }
-        ?>
-        <?php
-        if ($round4) {
-        ?>
-            <div class="card mt-2">
-                <h5 class="card-header bg-193 text-white">รายชื่อทีมที่ผ่านเข้ารอบ 4</h5>
-                <div class="card-body">
-                </div>
-
-            </div>
-        <?php
-        }
-        ?>
+        
 
     </div>
     <br>

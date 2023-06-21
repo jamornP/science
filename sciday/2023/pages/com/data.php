@@ -1,4 +1,14 @@
 <?php session_start(); ?>
+<?php
+if(isset($_GET['act'])){
+	if($_GET['act']== 'excel'){
+		header("Content-Type: application/xls");
+		header("Content-Disposition: attachment; filename=export.xls");
+		header("Pragma: no-cache");
+		header("Expires: 0");
+	}
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +37,17 @@
         $countTeam = $adminObj->getProjectByActivityLevel("count",$ac_id, $le_id);
     ?>
     <nav class="container nav nav-pills flex-column flex-sm-row mt-2">
-        <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="index.php">ย้อนกลับ</a>
+        <?php
+            if($_SESSION['role']=="admin" OR $_SESSION['role']=="superadmin"){
+                $path = "/science/sciday/2023/pages/admin/index.php";
+            }else{
+                $path = "index.php";
+            }
+            echo "
+            <a class='flex-sm-fill text-sm-center nav-link active' aria-current='page' href='{$path}'>ย้อนกลับ</a>
+            ";
+        ?>
+       
     </nav>
     <div class="container-fluid mt-5">
         <div class="card">
@@ -39,7 +59,7 @@
                         if($ac_id == 4 OR $ac_id == 5){ 
                             echo "
                                 <div class='d-grid gap-2 d-md-flex justify-content-md-end'>
-                                    <a class='btn btn-primary me-md-2' href='/science/sciday/2023/export_excel/index.php?ac_id={$ac_id}&le_id={$le_id}'>export Excel</a>
+                                    <a class='btn btn-primary me-md-2' href='/science/sciday/2023/export_excel/one.php?ac_id={$ac_id}&le_id={$le_id}&name={$level['name']}&ac_name={$activity['name']}'>export Excel</a>
                                 </div>
                             
                             ";
@@ -118,10 +138,10 @@
                                                         <a href='/science/upload/sciday/file2023/{$pro['file_register']}' target='_blank' class='fs-24'><i class='bx bx-file'></i></a>
                                                     </td>
                                         ";
-                                        $userTel = $adminObj->getUserById($pro['u_id']);
+                                        // $userTel = $adminObj->getUserById($pro['u_id']);
                                         echo "    
                                                     <td>
-                                                        {$userTel['tel']}
+                                                        {$pro['tel']}
                                                     </td>
                                                 </tr>
                                         ";
@@ -130,7 +150,15 @@
                                 </tbody>
                             </table>
                         <?php
-                        }else{?>
+                        }else{
+                            echo "
+                                <div class='d-grid gap-2 d-md-flex justify-content-md-end'>
+                                    <a class='btn btn-primary me-md-2' href='/science/sciday/2023/export_excel/one.php?ac_id={$ac_id}&le_id={$le_id}&name={$level['name']}&ac_name={$activity['name']}'>export Excel</a>
+                                </div>
+                            
+                            ";
+                            ?>
+                        
                             <table class="table table-striped table-sm">
                                 <thead>
                                     <tr class="bg-246">
@@ -188,8 +216,8 @@
                                             }
                                         }
                                         $pro_id = base64_encode($pro['pro_id']);
-                                        $userTel = $adminObj->getUserById($pro['u_id']);
-                                        $tel = $userTel['tel'];
+                                        // $userTel = $adminObj->getUserById($pro['u_id']);
+                                        // $tel = $userTel['tel'];
                                         echo "
                                         </td>
                                         <td>
@@ -202,7 +230,7 @@
                                             <a href='/science/sciday/2023/pages/picture/index.php?id={$pro['img_id']}' target='_blank' class='text-success fs-24'><i class='bx bx-image'></i></a>
                                         </td>
                                         <td>
-                                           {$tel}
+                                           {$pro['tel']}
                                         </td>
                                         <td>
                                            {$pro['date_at']}

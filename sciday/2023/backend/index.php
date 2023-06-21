@@ -115,15 +115,15 @@
                                                 </div>
                                                 <div class='form-check form-switch'>
                                                     <input class='form-check-input' type='checkbox' id='{$ac['ac_id']}-2' {$ck2} name='{$ac['ac_id']}[round2]'>
-                                                    <label class='form-check-label' for='{$ac['ac_id']}-2'>แสดงรายชื่อโรงเรียนผ่านรอบ 2</label>
+                                                    <label class='form-check-label' for='{$ac['ac_id']}-2'>แสดงรายชื่อโรงเรียนผ่านรอบแรก</label>
                                                 </div>
                                                 <div class='form-check form-switch'>
                                                     <input class='form-check-input' type='checkbox' id='{$ac['ac_id']}-3' {$ck3} name='{$ac['ac_id']}[round3]'>
-                                                    <label class='form-check-label' for='{$ac['ac_id']}-3'>แสดงรายชื่อโรงเรียนผ่านรอบ 3</label>
+                                                    <label class='form-check-label' for='{$ac['ac_id']}-3'>แสดงรายชื่อโรงเรียนผ่านรอบสอง</label>
                                                 </div>
                                                 <div class='form-check form-switch'>
                                                     <input class='form-check-input' type='checkbox' id='{$ac['ac_id']}-4' {$ck4} name='{$ac['ac_id']}[round4]'>
-                                                    <label class='form-check-label' for='{$ac['ac_id']}-4'>แสดงรายชื่อโรงเรียนผ่านรอบ 4</label>
+                                                    <label class='form-check-label' for='{$ac['ac_id']}-4'>แสดงรายชื่อโรงเรียนผ่านรอบตัดสิน</label>
                                                 </div>
                                                 <div class='form-check form-switch'>
                                                     <input class='form-check-input' type='checkbox' id='{$ac['ac_id']}-5' {$ck5} name='{$ac['ac_id']}[bt_register]'>

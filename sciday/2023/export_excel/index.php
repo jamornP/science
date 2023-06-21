@@ -17,6 +17,7 @@ $data = $adminObj->getProjectByActivityLevel("data", $ac_id, $le_id);
 echo "<pre>";
 print_r($data);
 echo "</pre>";
+
 // $column_head_arr = ['ลำดับ','ชื่อโครงงาน','โรงเรียน','นักเรียน','อาจารย์ที่ปรึกษา','เบอร์โทร'];
 // foreach($column_head_arr AS $k => $item){
 //       $sheet->SetCellValue("{$column_excel_arr[$k]}2",$item);

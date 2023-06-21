@@ -15,7 +15,7 @@
     <?php require $_SERVER['DOCUMENT_ROOT'] . "/science/sciday/components/navbar2023.php"; ?>
     <?php //print_r($_SESSION);
     ?>
-    <div class="container mt-5">
+    <div class="container-fluid mt-5">
 
         <div class="card">
             <h5 class="card-header bg-170">Featured</h5>
@@ -26,7 +26,11 @@
 
 
     </div>
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
 </body>
 

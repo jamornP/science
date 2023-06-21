@@ -14,8 +14,7 @@
 <body class="font-kanit">
     <?php require $_SERVER['DOCUMENT_ROOT'] . "/science/sciday/components/navbar2023.php"; ?>
     <?php 
-        $ac_id = $_SESSION['activity'];
-       
+        $ac_id = $_SESSION['activity'];   
     ?>
     <?php
          if($ac_id==99){

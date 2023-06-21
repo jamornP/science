@@ -258,6 +258,17 @@ use App\Database\DbSciDay2023;
             return $data[0];
         }
     }
+    public function getProjectById($pro_id){
+        $sql = "
+            SELECT p.*,l.name as level
+            FROM tb_project as p
+            LEFT JOIN tb_level as l ON l.le_id = p.le_id
+            WHERE p.pro_id ={$pro_id}
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data[0];
+    }
     public function updateProjectById($data){
         $sql ="
             UPDATE tb_project SET
@@ -625,6 +636,93 @@ use App\Database\DbSciDay2023;
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();
         return $data[0];
+    }
+    //  Grop
+    public function getGroupByRound($action,$round,$ac_id,$le_id){
+        $sql ="
+            SELECT g.round,p.*,l.name as level 
+            FROM tb_group as g
+            LEFT JOIN tb_project as p ON p.pro_id = g.pro_id
+            LEFT JOIN tb_level as l ON l.le_id = p.le_id
+            WHERE (g.round = '{$round}') AND (g.ac_id = {$ac_id}) AND (g.le_id = {$le_id})
+            ORDER BY g.score DESC
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        if($action=="count"){
+            return count($data);
+        }else{
+            return $data;
+        }
+    }
+    public function getGroupByProRound($action,$pro_id,$round){
+        $sql ="
+            SELECT * 
+            FROM tb_group
+            WHERE pro_id={$pro_id} AND round='{$round}'
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        if($action=="count"){
+            return count($data);
+        }else{
+            return $data[0];
+        }
+    }
+    public function addGroup($data){
+        $sql = "
+            INSERT INTO tb_group ( 
+                pro_id,
+                ac_id,
+                le_id,
+                round,
+                score,
+                year
+            )VALUES(
+                :pro_id,
+                :ac_id,
+                :le_id,
+                :round,
+                :score,
+                :year
+            )
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+        return $this->pdo->lastInsertId();
+    }
+    public function ckProjectInGropu($pro_id,$ac_id,$le_id,$round){
+        $sql="
+            SELECT * 
+            FROM tb_group
+            WHERE pro_id={$pro_id} AND ac_id={$ac_id} AND le_id={$le_id} AND round='{$round}'
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        $count = count($data);
+        if($count>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function delGroup($pro_id,$ac_id,$le_id,$round){
+        $sql = "
+            DELETE FROM tb_group 
+            WHERE pro_id={$pro_id} AND ac_id={$ac_id} AND le_id={$le_id} AND round='{$round}'
+        ";
+        $this->pdo->query($sql);
+        return true;
+    }
+    public function updateGroup($data){
+        $sql = "
+            UPDATE tb_group 
+            SET score=:score
+            WHERE pro_id=:pro_id AND ac_id=:ac_id AND le_id=:le_id AND round=:round
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+        return true;
     }
 }
 ?>

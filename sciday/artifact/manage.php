@@ -116,11 +116,11 @@ use App\Model\Sciday\Teacher;
                                 <!-- <a href='move.php?id={$project['id']}' class='btn btn-sm btn-warning fs-12'>ย้ายไปโครงงาน</a> -->
                             </tbody>
                         </table>
-                        <?php// if($_SESSION['round']==1){?>
+                        <?php // if($_SESSION['round']==1){?>
                         <div class="d-flex flex-row-reverse bd-highlight mt-3">
                             <button type="submit" class="btn btn-primary" name="round1">บันทึก</button>
                         </div>
-                        <?php// }?>
+                        <?php // }?>
                     </form>
                 </div>
             </div>
