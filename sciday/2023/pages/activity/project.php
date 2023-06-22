@@ -174,7 +174,7 @@
                                     <p>3.<?php echo $textshow;?> ในระบบ</p>
                                         <!-- <h5 class="card-title">เอกสารหลักเกณฑ์การประกวด</h5> -->
                                         <?php
-                                        if ($bt_register) {
+                                        if ($_SESSION['login']) {
                                             if($bt_regis_show){
                                                 if($activity['pages']=="esport"){
                                                     echo "
