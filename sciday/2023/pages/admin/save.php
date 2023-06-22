@@ -128,6 +128,57 @@ if(isset($_POST['ck_final'])){
 }
 
 
+// ************************************* คะแนนรอบสุดท้าย ****************************************************
+
+if(isset($_POST['ck_award'])){
+    // echo "Awaed";
+    // echo "<pre>";
+    // print_r($_POST);
+    // echo "</pre>";
+    foreach($_POST['score'] as $key=>$score){
+        $project = $adminObj->getProjectById($key);
+        if($adminObj->ckProjectInGropu($key,$project['ac_id'],$project['le_id'],"award")){
+            // echo "มีแล้ว<br>";
+            $data2['pro_id']=$key;
+            $data2['ac_id']=$project['ac_id'];
+            $data2['le_id']=$project['le_id'];
+            $data2['round']="award";
+            if($_POST['score'][$key]==""){
+                $data2['score']=0;
+            }else{
+                $data2['score']=$_POST['score'][$key];
+            }
+            // print_r($data2);
+            // echo "Update<br>";
+            $ckupdate = $adminObj->updateGroup($data2);
+        }else{
+            // echo "ยังไม่มี<br>";
+            $data['pro_id']=$key;
+            $data['ac_id']=$project['ac_id'];
+            $data['le_id']=$project['le_id'];
+            $data['round']="award";
+            if($_POST['score'][$key]==""){
+                $data['score']=0;
+            }else{
+                $data['score']=$_POST['score'][$key];
+            }
+            $data['year']=date("Y");
+            // print_r($data);
+            // echo "<br>";
+            if($_POST['score'][$key]=="" OR $_POST['score'][$key]==0){
+                
+            }else{
+                $ckadd = $adminObj->addGroup($data);
+            }
+        }
+        echo $key."<br>";
+    }
+    echo "  
+        <script type='text/javascript'>
+            setTimeout(function(){location.href='/science/sciday/2023/pages/admin/award.php?msg=ok&ac_id={$project['ac_id']}&le_id={$project['le_id']}&name={$project['level']}'} , 1);
+        </script>
+    ";
+}
 // ************************************* แจ้งเตือนเมื่อกดปุ่ม ลบ ****************************************************
 
 if(isset($_GET['del'])){
@@ -153,14 +204,36 @@ if(isset($_GET['ckdel']) AND $_GET['ckdel']== 'ok' ){
     // print_r($_GET);
     // echo "</pre>";
     $project = $adminObj->getProjectById($_GET['pro_id']);
+    switch ($_GET['round']){
+        case "doc":
+            $ckdel = $adminObj->delGroup($_GET['pro_id'],$_GET['ac_id'],$_GET['le_id'],"doc");
+            $ckdel = $adminObj->delGroup($_GET['pro_id'],$_GET['ac_id'],$_GET['le_id'],"final");
+            $ckdel = $adminObj->delGroup($_GET['pro_id'],$_GET['ac_id'],$_GET['le_id'],"award");
+            break;
+        case "online":
+            $ckdel = $adminObj->delGroup($_GET['pro_id'],$_GET['ac_id'],$_GET['le_id'],"online");
+            $ckdel = $adminObj->delGroup($_GET['pro_id'],$_GET['ac_id'],$_GET['le_id'],"final");
+            $ckdel = $adminObj->delGroup($_GET['pro_id'],$_GET['ac_id'],$_GET['le_id'],"award");
+            break;
+        case "final":
+            $ckdel = $adminObj->delGroup($_GET['pro_id'],$_GET['ac_id'],$_GET['le_id'],"final");
+            $ckdel = $adminObj->delGroup($_GET['pro_id'],$_GET['ac_id'],$_GET['le_id'],"award");
+            break;
+    }
     $ckdel = $adminObj->delGroup($_GET['pro_id'],$_GET['ac_id'],$_GET['le_id'],$_GET['round']);
     if($ckdel){
-        if($_GET['round']=="final"){
+        if($_GET['round']=="award"){
             echo "  
-            <script type='text/javascript'>
-                setTimeout(function(){location.href='/science/sciday/2023/pages/admin/final.php?msg=delok&ac_id={$project['ac_id']}&le_id={$project['le_id']}&name={$project['level']}'} , 1);
-            </script>
-        ";
+                <script type='text/javascript'>
+                    setTimeout(function(){location.href='/science/sciday/2023/pages/admin/award.php?msg=delok&ac_id={$project['ac_id']}&le_id={$project['le_id']}&name={$project['level']}'} , 1);
+                </script>
+            ";
+        }elseif($_GET['round']=="final"){
+            echo "  
+                <script type='text/javascript'>
+                    setTimeout(function(){location.href='/science/sciday/2023/pages/admin/final.php?msg=delok&ac_id={$project['ac_id']}&le_id={$project['le_id']}&name={$project['level']}'} , 1);
+                </script>
+            ";
         }else{
             echo "  
                 <script type='text/javascript'>

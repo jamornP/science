@@ -23,7 +23,7 @@
             $activitys = $adminObj->getActivityAll("data");
             foreach($activitys as $activity){
                 ?>
-                <div class="container mt-5">
+                <div class="container-fluid mt-5">
                     <div class="card">
                         <h5 class="card-header bg-170">
                             <b>
@@ -34,7 +34,7 @@
                         </h5>
                         <div class="card-body">
                             <div class='row mt-1'>
-                                <div class='d-grid gap-2 col-6 mx-auto'>
+                                <div class='d-grid gap-2 col-4 mx-auto'>
                                     <button class='btn btn-info' >ประเภท</button>
                                 </div>
                                 <div class='d-grid gap-2 col-2 mx-auto'>
@@ -44,19 +44,22 @@
                                     if(($activity['ac_id'] == 4) OR ($activity['ac_id'] == 5)){
                                         echo "
                                             <div class='d-grid gap-2 col-2 mx-auto'>
-                                                <a class='btn btn-info text-white' >เข้าแข่งขัน Online</a>
+                                                <a class='btn btn-info text-white' >กรอกคะแนนรอบOnline</a>
                                             </div>
                                         ";
                                     }else{
                                         echo "
                                             <div class='d-grid gap-2 col-2 mx-auto'>
-                                                <a class='btn btn-info text-white' >ตรวจเอกสารผ่าน</a>
+                                                <a class='btn btn-info text-white' >กรอกคะแนนรอบแรก</a>
                                             </div>
                                         ";
                                     }
                                 ?>
                                 <div class='d-grid gap-2 col-2 mx-auto'>
-                                    <a class='btn btn-info text-white' >ผ่านเข้ารอบตัดสิน</a>
+                                    <a class='btn btn-info text-white' >เลือกทีมเข้ารอบตัดสิน</a>
+                                </div>
+                                <div class='d-grid gap-2 col-2 mx-auto'>
+                                    <a class='btn btn-info text-white' >กรอกคะแนนรอบตัดสิน</a>
                                 </div>
                             </div>
                             
@@ -76,7 +79,7 @@
                                     }
                                     echo "
                                         <div class='row mt-1'>
-                                            <div class='d-grid gap-2 col-6 mx-auto'>
+                                            <div class='d-grid gap-2 col-4 mx-auto'>
                                                 <a class='btn btn-primary' href='/science/sciday/2023/pages/com/data.php?ac_id={$activity['ac_id']}&le_id={$level['le_id']}&name={$level['name']}'>{$level['name']}</a>
                                             </div>
                                             <div class='d-grid gap-2 col-2 mx-auto'>
@@ -87,6 +90,9 @@
                                             </div>
                                             <div class='d-grid gap-2 col-2 mx-auto'>
                                                 <a class='btn btn-success text-white' href='final.php?ac_id={$activity['ac_id']}&le_id={$level['le_id']}&name={$level['name']}'>{$countFinal} ทีม</a>
+                                            </div>
+                                            <div class='d-grid gap-2 col-2 mx-auto'>
+                                                <a class='btn btn-danger text-white' href='award.php?ac_id={$activity['ac_id']}&le_id={$level['le_id']}&name={$level['name']}'>กรอกคะแนน</a>
                                             </div>
                                         </div>
                                     ";
@@ -127,12 +133,12 @@
             }elseif($role=="admin"){
                 $activity = $adminObj->getActivityById($ac_id);
                 ?>
-                    <div class="container mt-5">
+                    <div class="container-fluid mt-5">
                         <div class="card">
                             <h5 class="card-header bg-170">กรุณาเลือก <b>ประเภท</b> <?php echo $activity['name'];?></h5>
                             <div class="card-body">
                                 <div class='row mt-1'>
-                                    <div class='d-grid gap-2 col-6 mx-auto'>
+                                    <div class='d-grid gap-2 col-4 mx-auto'>
                                         <button class='btn btn-info' >ประเภท</button>
                                     </div>
                                     <div class='d-grid gap-2 col-2 mx-auto'>
@@ -142,19 +148,22 @@
                                         if(($activity['ac_id'] == 4) OR ($activity['ac_id'] == 5)){
                                             echo "
                                                 <div class='d-grid gap-2 col-2 mx-auto'>
-                                                    <a class='btn btn-info text-white' >เข้าแข่งขัน Online</a>
+                                                    <a class='btn btn-info text-white' >กรอกคะแนนรอบOnline</a>
                                                 </div>
                                             ";
                                         }else{
                                             echo "
                                                 <div class='d-grid gap-2 col-2 mx-auto'>
-                                                    <a class='btn btn-info text-white' >ตรวจเอกสารผ่าน</a>
+                                                    <a class='btn btn-info text-white' >กรอกคะแนนรอบแรก</a>
                                                 </div>
                                             ";
                                         }
                                     ?>
                                     <div class='d-grid gap-2 col-2 mx-auto'>
-                                        <a class='btn btn-info text-white' >ผ่านเข้ารอบตัดสิน</a>
+                                        <a class='btn btn-info text-white' >เลือกทีมเข้ารอบตัดสิน</a>
+                                    </div>
+                                    <div class='d-grid gap-2 col-2 mx-auto'>
+                                        <a class='btn btn-info text-white' >กรอกคะแนนรอบตัดสิน</a>
                                     </div>
                                 </div>
                                 <?php
@@ -174,7 +183,7 @@
                                         $countTeam = $adminObj->getProjectByActivityLevel("count",$ac_id,$level['le_id']);
                                         echo "
                                             <div class='row mt-1'>
-                                                <div class='d-grid gap-2 col-6 mx-auto'>
+                                                <div class='d-grid gap-2 col-4 mx-auto'>
                                                     <a class='btn btn-primary' href='/science/sciday/2023/pages/com/data.php?le_id={$level['le_id']}&name={$level['name']}'>{$level['name']}</a>
                                                 </div>
                                                 <div class='d-grid gap-2 col-2 mx-auto'>
@@ -185,6 +194,9 @@
                                                 </div>
                                                 <div class='d-grid gap-2 col-2 mx-auto'>
                                                     <a class='btn btn-success text-white' href='final.php?ac_id={$activity['ac_id']}&le_id={$level['le_id']}&name={$level['name']}'>{$countFinal} ทีม</a>
+                                                </div>
+                                                <div class='d-grid gap-2 col-2 mx-auto'>
+                                                    <a class='btn btn-danger text-white' href='award.php?ac_id={$activity['ac_id']}&le_id={$level['le_id']}&name={$level['name']}'>คลิกกรอกคะแนน</a>
                                                 </div>
                                             </div>
                                         ";
