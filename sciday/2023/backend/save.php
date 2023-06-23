@@ -40,7 +40,7 @@
                         if($id){
                             echo "  
                             <script type='text/javascript'>
-                                setTimeout(function(){location.href='/science/sciday/2023/backend/index.php?msg=ok'} , 1000);
+                                setTimeout(function(){location.href='/science/sciday/2023/backend/index.php?msg=ok'} , 1);
                             </script>
                         ";
                         }
@@ -48,7 +48,7 @@
                 }else{
                     echo "  
                     <script type='text/javascript'>
-                        setTimeout(function(){location.href='/science/sciday/2023/backend/index.php?msg=ok'} , 1000);
+                        setTimeout(function(){location.href='/science/sciday/2023/backend/index.php?msg=ok'} , 1);
                     </script>
                     ";
                 }
@@ -66,4 +66,90 @@
     // echo "<pre>";
     // print_r($dataD);
     // echo "</pre>";
+    // ------------------------------------------------------------ ลบ ---------------------------------------------
+    if(isset($_GET['del']) AND $_GET['del']=="del_news"){
+        echo "del";
+        $news = $adminObj->getNewsById($_GET['n_id']);
+        echo "
+            <script type='text/javascript'>
+                let isExecuted = confirm('คุณแน่ใจว่าต้องการลบข้อมูลรายการนี้ ?');
+                if (isExecuted == true) {
+                    location.href='/science/sciday/2023/backend/save.php?ckdel=ok&n_id={$_GET['n_id']}';
+                } else {
+                    location.href='/science/sciday/2023/backend';
+                }
+                console.log(isExecuted);
+            </script>
+        ";
+    }
+    if(isset($_GET['ckdel']) AND $_GET['ckdel']=="ok"){
+        $ckdel = $adminObj->delNews($_GET['n_id']);
+        if($ckdel){
+            echo "  
+                <script type='text/javascript'>
+                    setTimeout(function(){location.href='/science/sciday/2023/backend/index.php?msg=ok'} , 1);
+                </script>
+            ";
+        }else{
+            echo "  
+                <script type='text/javascript'>
+                    setTimeout(function(){location.href='/science/sciday/2023/backend/index.php?msg=error'} , 1);
+                </script>
+            ";
+        }
+        
+    }
+    if(isset($_POST['add_carousel'])){
+        echo "Carousel";
+        echo "<pre>";
+        print_r($_FILES);
+        echo"</pre>";
+        $data['num']=1;
+        $data['c_show']=1;
+        $data['active']=0;
+        if($_FILES['carousel']['error']!=4){
+            $ext = end(explode(".",$_FILES['carousel']['name']));
+            $new_name = "carousel-".uniqid().".".$ext;
+            $file_path = $_SERVER['DOCUMENT_ROOT']."/science/sciday/images/".$new_name;
+            move_uploaded_file($_FILES['carousel']['tmp_name'],$file_path);
+            $data['img_path'] = $new_name;
+            $ckcarosel = $adminObj->addCarousel($data);
+            if($ckcarosel){
+                echo "  
+                <script type='text/javascript'>
+                    setTimeout(function(){location.href='/science/sciday/2023/backend/index.php?msg=ok'} , 1);
+                </script>
+                ";
+            }else{
+                echo "  
+                    <script type='text/javascript'>
+                        setTimeout(function(){location.href='/science/sciday/2023/backend/index.php?msg=error'} , 1);
+                    </script>
+                ";
+            }
+            
+        }else{
+            echo "  
+            <script type='text/javascript'>
+                setTimeout(function(){location.href='/science/sciday/2023/backend/index.php?msg=error'} , 1);
+            </script>
+        ";
+        }
+    }
+    if(isset($_GET['del_ca']) AND $_GET['del_ca']== "ok"){
+        $ckdel = $adminObj->delCarousel($_GET['c_id']);
+        if($ckdel){
+            echo "  
+            <script type='text/javascript'>
+                setTimeout(function(){location.href='/science/sciday/2023/backend/index.php?msg=ok'} , 1);
+            </script>
+            ";
+        }else{
+            echo "  
+                <script type='text/javascript'>
+                    setTimeout(function(){location.href='/science/sciday/2023/backend/index.php?msg=error'} , 1);
+                </script>
+            ";
+        }
+    }
 ?>

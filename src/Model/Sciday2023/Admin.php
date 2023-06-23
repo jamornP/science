@@ -17,6 +17,14 @@ use App\Database\DbSciDay2023;
             return $data;
         }
     }
+    public function getNewsById($n_id){
+        $sql = "
+            SELECT * FROM tb_news WHERE n_id={$n_id}
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data[0];
+    }
     public function addNews($data){
         $sql ="
             INSERT INTO tb_news (
@@ -38,6 +46,18 @@ use App\Database\DbSciDay2023;
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($data);
         return $this->pdo->lastInsertId();
+    }
+    public function delNews($n_id){
+        $sql = "
+            DELETE FROM tb_news
+            WHERE n_id={$n_id}
+        ";
+        $stmt = $this->pdo->query($sql);
+        if($stmt){
+            return true;
+        }else{
+            return false;
+        }
     }
     // Download
     public function getDownloadById($action,$d_id){
@@ -722,6 +742,49 @@ use App\Database\DbSciDay2023;
         ";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($data);
+        return true;
+    }
+    // carousel
+    public function getCarouselAll(){
+        $sql ="
+            SELECT * FROM tb_carousel ORDER BY num
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
+    public function getCarouselShow(){
+        $sql ="
+            SELECT * FROM tb_carousel WHERE c_show=1 ORDER BY c_id
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
+    public function addcarousel($data){
+        $sql = "
+            INSERT INTO tb_carousel ( 
+                img_path,
+                num,
+                c_show,
+                active
+            )VALUES(
+                :img_path,
+                :num,
+                :c_show,
+                :active
+            )
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+        return $this->pdo->lastInsertId();
+    }
+    public function delCarousel($c_id){
+        $sql = "
+            DELETE FROM tb_carousel 
+            WHERE c_id={$c_id}
+        ";
+        $this->pdo->query($sql);
         return true;
     }
 }

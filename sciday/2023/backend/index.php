@@ -53,7 +53,8 @@
                         <button class="nav-link" id="v-pills-news-tab" data-bs-toggle="pill" data-bs-target="#v-pills-news" type="button" role="tab" aria-controls="v-pills-news" aria-selected="false">ข่าว</button>
                         <button class="nav-link" id="v-pills-activity-tab" data-bs-toggle="pill" data-bs-target="#v-pills-activity" type="button" role="tab" aria-controls="v-pills-activity" aria-selected="false">กิจกรรม</button>
                         <button class="nav-link" id="v-pills-document-tab" data-bs-toggle="pill" data-bs-target="#v-pills-document" type="button" role="tab" aria-controls="v-pills-document" aria-selected="false">เอกสารการรับสมัคร</button>
-                        <button class="nav-link" id="v-pills-setttings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-setttings" aria-selected="false">หน้าหลัก</button>
+                        <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">หน้าหลัก</button>
+                        <button class="nav-link" id="v-pills-imgs-tab" data-bs-toggle="pill" data-bs-target="#v-pills-imgs" type="button" role="tab" aria-controls="v-pills-imgs" aria-selected="false">รูปเคลื่อนไหว</button>
                     </div>
                     <div class="tab-content mt-1 w-100 div_menu" id="v-pills-tabContent" style="padding: 25px;">
                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -173,6 +174,7 @@
                                                 <th scope="col">link</th>
                                                 <th scope="col">download</th>
                                                 <th scope="col">show</th>
+                                                <th scope="col">ลบ</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -205,6 +207,7 @@
                                                 echo  "
                                                         </td>
                                                         <td>{$n['n_show']}</td>
+                                                        <td><a href='/science/sciday/2023/backend/save.php?del=del_news&n_id={$n['n_id']}'>ลบ</a></td>
                                                     </tr>
                                                     ";
                                             }
@@ -334,6 +337,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- หน้าหลัก -->
                         <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
                             <div class="card mt-5">
                                 <div class="card-header bg-29">
@@ -366,6 +370,49 @@
                                     </div>
                                     
                                         
+                                </div>
+                            </div>
+                        </div>
+                        <!-- รูปเคลือนไหว -->
+                        <div class="tab-pane fade" id="v-pills-imgs" role="tabpanel" aria-labelledby="v-pills-imgs-tab">
+                            <div class="d-flex flex-row-reverse bd-highlight mt-1 me-2">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModelAddCarousel">
+                                    เพิ่มรูป
+                                </button>
+                            </div>
+                            <div class="card mt-5">
+                                <div class="card-header bg-29">
+                                    รูปเคลือนไหว
+                                </div>
+                                <div class="card-body">
+                                        <table class="table p-2">
+                                            <thead>
+                                                <tr>
+                                                    <th>num</th>
+                                                    <th>img_path</th>
+                                                    <th>c_show</th>
+                                                    <th>active</th>
+                                                    <th>ลบ</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $carousels = $adminObj->getCarouselAll();
+                                                    foreach($carousels as $ca){
+                                                        echo "
+                                                        <tr>
+                                                            <td><img src='/science/sciday/images/{$ca['img_path']}' class='img-thumbnail' alt='...' width='100'></td>
+                                                            <td>{$ca['img_path']}</td>
+                                                            <td>{$ca['c_show']}</td>
+                                                            <td>{$ca['active']}</td>
+                                                            <td><a href='/science/sciday/2023/backend/save.php?del_ca=ok&c_id={$ca['c_id']}'>ลบ</a></td>
+                                                        </tr>
+                                                        ";
+                                                    }
+                                                ?>
+                                                
+                                            </tbody>
+                                        </table>
                                 </div>
                             </div>
                         </div>
@@ -422,6 +469,30 @@
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary" name="add_news">บันทึก</button>
                         </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Modal add Carousel-->
+    <div class="modal fade" id="ModelAddCarousel" tabindex="-1" aria-labelledby="ModelAddCarouselLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="save.php" method="post" enctype="multipart/form-data" id="from-post">
+                    <div class="modal-header bg-193 text-white">
+                        <h5 class="modal-title " id="ModelAddNewsLabel">รูปเคลือนไหว</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="n_title" class="col-form-label">File รูป : </label>
+                            <input type="file" class="form-control" id="d_link" name="carousel" accept=".png, .jpg">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" name="add_carousel">บันทึก</button>
+                    </div>
                 </form>
             </div>
         </div>
