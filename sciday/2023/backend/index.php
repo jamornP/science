@@ -392,6 +392,7 @@
                                                     <th>img_path</th>
                                                     <th>c_show</th>
                                                     <th>active</th>
+                                                    <th>Link</th>
                                                     <th>ลบ</th>
                                                 </tr>
                                             </thead>
@@ -405,6 +406,7 @@
                                                             <td>{$ca['img_path']}</td>
                                                             <td>{$ca['c_show']}</td>
                                                             <td>{$ca['active']}</td>
+                                                            <td><a href='{$ca['c_link']}'>Link</a></td>
                                                             <td><a href='/science/sciday/2023/backend/save.php?del_ca=ok&c_id={$ca['c_id']}'>ลบ</a></td>
                                                         </tr>
                                                         ";
@@ -487,6 +489,10 @@
                         <div class="mb-3">
                             <label for="n_title" class="col-form-label">File รูป : </label>
                             <input type="file" class="form-control" id="d_link" name="carousel" accept=".png, .jpg">
+                        </div>
+                        <div class="mb-3">
+                            <label for="d_link" class="col-form-label">Link : </label>
+                            <input type="text" class="form-control" id="d_link" name="c_link" >
                         </div>
                     </div>
                     <div class="modal-footer">

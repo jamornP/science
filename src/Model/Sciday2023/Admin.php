@@ -747,7 +747,7 @@ use App\Database\DbSciDay2023;
     // carousel
     public function getCarouselAll(){
         $sql ="
-            SELECT * FROM tb_carousel ORDER BY num
+            SELECT * FROM tb_carousel ORDER BY c_id 
         ";
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();
@@ -755,7 +755,7 @@ use App\Database\DbSciDay2023;
     }
     public function getCarouselShow(){
         $sql ="
-            SELECT * FROM tb_carousel WHERE c_show=1 ORDER BY c_id
+            SELECT * FROM tb_carousel WHERE c_show=1 ORDER BY c_id 
         ";
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();
@@ -767,12 +767,14 @@ use App\Database\DbSciDay2023;
                 img_path,
                 num,
                 c_show,
-                active
+                active,
+                c_link
             )VALUES(
                 :img_path,
                 :num,
                 :c_show,
-                :active
+                :active,
+                :c_link
             )
         ";
         $stmt = $this->pdo->prepare($sql);

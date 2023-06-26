@@ -194,9 +194,13 @@ session_start();
                                     $active = "";
                                 }
                                 echo "
-                                    <div class='carousel-item {$active}'>
-                                        <img src='/science/sciday/images/{$ca['img_path']}' class='d-block w-100' alt='...'>
-                                    </div>
+                                    
+                                        <div class='carousel-item {$active}'>
+                                            <a href='{$ca['c_link']}'>
+                                                <img src='/science/sciday/images/{$ca['img_path']}' class='d-block w-100' alt='...'>
+                                            </a>
+                                        </div>
+                                    
                                 ";
                             }
                         ?>
@@ -217,45 +221,7 @@ session_start();
         <?php } 
     ?>
     <br>
-    <div class="container">
-        <div class="card  shadow">
-            <div class="card-header bg-primary">
-                <h2 class="card-title text-center text-white"><b>ขอเชิญร่วมงาน</b></h2>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-2">
-                        <a href="/science/sciday/images/<?php echo $indexs[0]['img_poster'];?>" target="_blank"> <img src="/science/sciday/images/<?php echo $indexs[0]['img_poster'];?>" class="img-fluid rounded shadow" alt="..."></a>
-                    </div>
-                    <div class="col-md ">
-                        <p class="card-text fs-16 mt-2" style="text-align: justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ด้วยในวันที่ 18 สิงหาคม ของทุกปีเป็นวันวิทยาศาสตร์แห่งชาติ คณะวิทยาศาสตร์ สจล. จึงได้จัดงานนิทรรศการ
-                            วันวิทยาศาสตร์ ประจำปี 2566 ในหัวข้อ <b>“Science Today is Technology Tomorrow”</b> เพื่อเป็นการเทิดพระเกียรติพระบาทสมเด็จพระจอมเกล้าเจ้าอยู่หัว รัชกาลที่ 4 ผู้ทรงเป็นพระบิดาแห่งวิทยาศาสตร์ไทย และเพื่อกระตุ้นให้นักเรียนนักศึกษา ประชาชนทั่วไปได้ตระหนักถึงความสำคัญของวิทยาศาสตร์และเทคโนโลยีที่มีต่อการพัฒนาคุณภาพชีวิตและการพัฒนาประเทศ โดยได้จัดกิจกรรมเพื่อให้นักเรียน นักศึกษา และคณาจารย์ได้มีส่วนร่วมในการทำกิจกรรมด้าน
-                            วิทยาศาสตร์ เช่น การประกวดโครงงานวิทยาศาสตร์ การประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์ การแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ และ Open House & workshop ของคณะวิทยาศาสตร์ สจล.
-                        </p>
-                        <div class="d-grid gap-2 col-6 mx-auto">
-                            <a class="btn btn-primary" href="/science/upload/sciday/file2023/project-649015d5d12c1.pdf">ดาวน์โหลดเอกสารเชิญชวน</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-footer text-center">
-                <div class="spinner-grow text-success fs-20" role="status">
-                    <span class="visually-hidden"></span>
-                </div>
-                <div class="spinner-grow text-success fs-20" role="status">
-                    <span class="visually-hidden"></span>
-                </div>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfK7bqwjacNIwNDQsTmFAN0fcdHh6IeiIHcwA8HqbUr30vYcg/viewform" class="btn btn-primary text-center fs-20 bg-200" target='_blank'>ลงทะเบียนเข้าเยี่ยมชมนิทรรศการวันวิทยาศาสตร์ คณะวิทยาศาสตร์ สจล.</a>
-                <div class="spinner-grow text-success" role="status">
-                    <span class="visually-hidden"></span>
-                </div>
-                <div class="spinner-grow text-success" role="status">
-                    <span class="visually-hidden"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
+    
     <!-- <section class="min-vh-100"> -->
     <div class="container">
         <div class="card  shadow">
@@ -339,6 +305,45 @@ session_start();
         </div>
     </div>
     <!-- </section> -->
+    <br>
+    <div class="container">
+        <div class="card  shadow">
+            <div class="card-header bg-primary">
+                <h2 class="card-title text-center text-white"><b>ขอเชิญร่วมงาน</b></h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <a href="/science/sciday/images/<?php echo $indexs[0]['img_poster'];?>" target="_blank"> <img src="/science/sciday/images/<?php echo $indexs[0]['img_poster'];?>" class="img-fluid rounded shadow" alt="..."></a>
+                    </div>
+                    <div class="col-md ">
+                        <p class="card-text fs-16 mt-2" style="text-align: justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ด้วยในวันที่ 18 สิงหาคม ของทุกปีเป็นวันวิทยาศาสตร์แห่งชาติ คณะวิทยาศาสตร์ สจล. จึงได้จัดงานนิทรรศการ
+                            วันวิทยาศาสตร์ ประจำปี 2566 ในหัวข้อ <b>“Science Today is Technology Tomorrow”</b> เพื่อเป็นการเทิดพระเกียรติพระบาทสมเด็จพระจอมเกล้าเจ้าอยู่หัว รัชกาลที่ 4 ผู้ทรงเป็นพระบิดาแห่งวิทยาศาสตร์ไทย และเพื่อกระตุ้นให้นักเรียนนักศึกษา ประชาชนทั่วไปได้ตระหนักถึงความสำคัญของวิทยาศาสตร์และเทคโนโลยีที่มีต่อการพัฒนาคุณภาพชีวิตและการพัฒนาประเทศ โดยได้จัดกิจกรรมเพื่อให้นักเรียน นักศึกษา และคณาจารย์ได้มีส่วนร่วมในการทำกิจกรรมด้าน
+                            วิทยาศาสตร์ เช่น การประกวดโครงงานวิทยาศาสตร์ การประกวดสิ่งประดิษฐ์ทางวิทยาศาสตร์ การแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ และ Open House & workshop ของคณะวิทยาศาสตร์ สจล.
+                        </p>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <a class="btn btn-primary" href="/science/upload/sciday/file2023/project-649015d5d12c1.pdf">ดาวน์โหลดเอกสารเชิญชวน</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <div class="spinner-grow text-success fs-20" role="status">
+                    <span class="visually-hidden"></span>
+                </div>
+                <div class="spinner-grow text-success fs-20" role="status">
+                    <span class="visually-hidden"></span>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfK7bqwjacNIwNDQsTmFAN0fcdHh6IeiIHcwA8HqbUr30vYcg/viewform" class="btn btn-primary text-center fs-20 bg-200" target='_blank'>ลงทะเบียนเข้าเยี่ยมชมนิทรรศการวันวิทยาศาสตร์ คณะวิทยาศาสตร์ สจล.</a>
+                <div class="spinner-grow text-success" role="status">
+                    <span class="visually-hidden"></span>
+                </div>
+                <div class="spinner-grow text-success" role="status">
+                    <span class="visually-hidden"></span>
+                </div>
+            </div>
+        </div>
+    </div>
     <br>
     <!-- <section class="min-vh-100"> -->
    

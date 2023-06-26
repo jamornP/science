@@ -107,6 +107,7 @@
         $data['num']=1;
         $data['c_show']=1;
         $data['active']=0;
+        $data['c_link']=$_POST['c_link'];
         if($_FILES['carousel']['error']!=4){
             $ext = end(explode(".",$_FILES['carousel']['name']));
             $new_name = "carousel-".uniqid().".".$ext;
