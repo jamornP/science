@@ -47,6 +47,7 @@
             echo "<script type='text/javascript'>toastr.error('" . $mes . "', { timeOut: 2000 })</script>";
         }
     }
+
     ?>
     <div class="container mt-5">
         <div class="card">
@@ -60,6 +61,10 @@
 
                     foreach ($activitys as $ac) {
                         $data = $adminObj->getProjectByActivityUserId("data", $ac['ac_id'], $_SESSION['user_id']);
+                        $setting = $adminObj->getSettingByActivity($ac['ac_id']);
+                        // print_r($setting);
+                        $bt_edit = $setting['bt_edit'];
+                        $bt_del = $setting['bt_del'];
                         if (count($data) > 0) {
                             if ($ac['ac_id'] == 4 OR $ac['ac_id'] == 5 ) {
                                 echo "
@@ -82,6 +87,7 @@
                                         <?php
                                         $i = 0;
                                         foreach ($data as $pro) {
+
                                             $i++;
                                             echo "
                                                  <tr>
@@ -122,10 +128,19 @@
                                                      <td>
                                                 <a href='/science/upload/sciday/file2023/{$pro['file_register']}' target='_blank' class='fs-24'><i class='bx bx-file'></i></a>
                                             </td>
-                                            
                                             <td>
-                                                <a href='/science/sciday/2023/pages/member/edit.php?id={$pro_id}' class='btn btn-sm btn-warning shadow text-white'>แก้ไข</a>
-                                                <a href='/science/sciday/2023/pages/member/del.php?id={$pro_id}' class='btn btn-sm btn-danger shadow text-white' >ลบ</a>
+                                            ";
+                                            if($bt_edit){
+                                                echo "
+                                                    <a href='/science/sciday/2023/pages/member/edit.php?id={$pro_id}' class='btn btn-sm btn-warning shadow text-white'>แก้ไข</a>
+                                                ";
+                                            }
+                                            if($bt_del){
+                                                echo "
+                                                    <a href='/science/sciday/2023/pages/member/del.php?id={$pro_id}' class='btn btn-sm btn-danger shadow text-white' >ลบ</a>
+                                                ";
+                                            }
+                                            echo "
                                             </td>
                                                  </tr>
                                              ";
@@ -214,11 +229,22 @@
                                                 <a href='/science/sciday/2023/pages/picture/index.php?id={$pro['img_id']}' target='_blank' class='text-success fs-24'><i class='bx bx-image'></i></a>
                                             </td>
                                             <td>
-                                                <a href='/science/sciday/2023/pages/member/edit.php?id={$pro_id}' class='btn btn-sm btn-warning shadow text-white'>แก้ไข</a>
-                                                <a href='/science/sciday/2023/pages/member/del.php?id={$pro_id}' class='btn btn-sm btn-danger shadow text-white' >ลบ</a>
+                                            ";
+                                            if($bt_edit){
+                                                echo "
+                                                    <a href='/science/sciday/2023/pages/member/edit.php?id={$pro_id}' class='btn btn-sm btn-warning shadow text-white'>แก้ไข</a>
+                                                ";
+                                            }
+                                            if($bt_del){
+                                                echo "
+                                                    <a href='/science/sciday/2023/pages/member/del.php?id={$pro_id}' class='btn btn-sm btn-danger shadow text-white' >ลบ</a>
+                                                ";
+                                            }
+                                            echo "
                                             </td>
-                                        </tr>
-                                    ";
+                                                 </tr>
+                                             ";
+                                           
                                         }
 
                                         ?>
