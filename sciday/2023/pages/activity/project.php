@@ -237,6 +237,14 @@
 
                 </div>
             <?php
+            }else{
+                echo "
+                    <div class='card mt-2'>
+                        <div class='card-body  bg-danger text-white'>
+                            ปิดรับสมัครแล้ว
+                        </div>
+                    </div>
+                ";
             }
         ?>
         <br>
