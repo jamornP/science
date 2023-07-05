@@ -262,7 +262,7 @@
                             // echo "<br>";
                             if($activity['pages']=='answer-TH' OR $activity['pages']=='answer-EN'){
                                 foreach($levels as $level){           
-                                    $data4 = $adminObj->getGroupByRound("data","final",$level['ac_id'],$level['le_id']);
+                                    $data4 = $adminObj->getGroupByRoundShow("data","final",$level['ac_id'],$level['le_id']);
                                     $count4 = count($data4);
                                     if($count4>0){
                                         // print_r($data4);
@@ -337,7 +337,7 @@
                                 }
                             }else{
                                 foreach($levels as $level){       
-                                    $data4 = $adminObj->getGroupByRound("data","final",$level['ac_id'],$level['le_id']);
+                                    $data4 = $adminObj->getGroupByRoundShow("data","final",$level['ac_id'],$level['le_id']);
                                     $count4 = count($data4);
                                     if($count4>0){
                                         // print_r($data4);

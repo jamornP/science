@@ -675,6 +675,23 @@ use App\Database\DbSciDay2023;
             return $data;
         }
     }
+    public function getGroupByRoundShow($action,$round,$ac_id,$le_id){
+        $sql ="
+            SELECT g.round,p.*,l.name as level 
+            FROM tb_group as g
+            LEFT JOIN tb_project as p ON p.pro_id = g.pro_id
+            LEFT JOIN tb_level as l ON l.le_id = p.le_id
+            WHERE (g.round = '{$round}') AND (g.ac_id = {$ac_id}) AND (g.le_id = {$le_id})
+            ORDER BY p.pro_id
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        if($action=="count"){
+            return count($data);
+        }else{
+            return $data;
+        }
+    }
     public function getGroupByProRound($action,$pro_id,$round){
         $sql ="
             SELECT * 
