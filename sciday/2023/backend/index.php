@@ -108,6 +108,16 @@
                                             }else{
                                                 $ck8 = "";
                                             }
+                                            if($ac['bt_con']){
+                                                $ck9 = "checked value='1'";
+                                            }else{
+                                                $ck9 = "";
+                                            }
+                                            if($ac['bt_editcer']){
+                                                $ck10 = "checked value='1'";
+                                            }else{
+                                                $ck10 = "";
+                                            }
                                             echo "
                                                 <p>กิจกรรม{$ac['name']}</p>
                                                 <div class='form-check form-switch'>
@@ -141,6 +151,14 @@
                                                 <div class='form-check form-switch'>
                                                     <input class='form-check-input' type='checkbox' id='{$ac['ac_id']}-8' {$ck8} name='{$ac['ac_id']}[bt_del]'>
                                                     <label class='form-check-label' for='{$ac['ac_id']}-8'>ปุ่มลบ</label>
+                                                </div>
+                                                <div class='form-check form-switch'>
+                                                    <input class='form-check-input' type='checkbox' id='{$ac['ac_id']}-9' {$ck9} name='{$ac['ac_id']}[bt_con]'>
+                                                    <label class='form-check-label' for='{$ac['ac_id']}-9'>ปุ่ม Confirm</label>
+                                                </div>
+                                                <div class='form-check form-switch'>
+                                                    <input class='form-check-input' type='checkbox' id='{$ac['ac_id']}-10' {$ck10} name='{$ac['ac_id']}[bt_editcer]'>
+                                                    <label class='form-check-label' for='{$ac['ac_id']}-10'>ปุ่ม แก้ไขข้อมูลเฉพาะ Certificate</label>
                                                 </div>
                                                 <hr>
                                             ";

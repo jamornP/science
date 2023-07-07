@@ -63,6 +63,16 @@
             }else{
                 $data['bt_del']=0;
             }
+            if(isset($_POST[$i]['bt_con'])){
+                $data['bt_con']=1;
+            }else{
+                $data['bt_con']=0;
+            }
+            if(isset($_POST[$i]['bt_editcer'])){
+                $data['bt_editcer']=1;
+            }else{
+                $data['bt_editcer']=0;
+            }
         }else{
             $data['ac_id'] = $i;
             $data['register'] = 0;
@@ -73,6 +83,8 @@
             $data['bt_regis_show'] = 0;
             $data['bt_edit'] = 0;
             $data['bt_del'] = 0;
+            $data['bt_con'] = 0;
+            $data['bt_editcer'] = 0;
         }
         $ckUpdate = $adminObj->updateSetting($data);
         // echo "<pre>";

@@ -3,6 +3,48 @@ namespace App\Model\Sciday2023;
 use App\Database\DbSciDay2023;
 
  class Admin extends DbSciDay2023 {
+    // confirm
+    public function addConfirm($data){
+        $sql ="
+            INSERT INTO tb_confirm (
+               pro_id,
+               date_confirm
+            )VALUES(
+               :pro_id,
+               :date_confirm
+            )
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+        return $this->pdo->lastInsertId();
+    }
+    public function getConfirmByProject($action,$pro_id){
+        $sql ="
+            SELECT * 
+            FROM tb_confirm
+            WHERE pro_id={$pro_id}
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        if($action=="count"){
+            $count = count($data);
+            return $count;
+        }else{
+            return $data;
+        }
+    }
+    public function delConfirm($pro_id){
+        $sql = "
+        DELETE FROM tb_confirm
+        WHERE pro_id={$pro_id}
+    ";
+    $stmt = $this->pdo->query($sql);
+    if($stmt){
+        return true;
+    }else{
+        return false;
+    }
+    }
     // SQL SELECT count(school) FROM `tb_project` GROUP BY school ORDER BY school
     public function getSql($action,$sql){
         $stmt = $this->pdo->query($sql);
@@ -335,6 +377,19 @@ use App\Database\DbSciDay2023;
         $stmt->execute($data);
         return true;
     }
+    public function updateProjectById2($data){
+        $sql ="
+            UPDATE tb_project SET
+                p_name = :p_name,
+                school = :school,
+                date_update = :date_update
+            WHERE
+                pro_id = :pro_id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+        return true;
+    }
     public function delProjectById($id){
         $sql ="
             DELETE FROM tb_project WHERE pro_id = {$id}
@@ -384,6 +439,19 @@ use App\Database\DbSciDay2023;
                 school = :school,
                 file_register = :file_register,
                 tel = :tel,
+                date_update = :date_update
+            WHERE
+                pro_id = :pro_id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+        return true;
+
+    }
+    public function updateProjectAnswerById2($data){
+        $sql ="
+            UPDATE tb_project SET
+                school = :school,
                 date_update = :date_update
             WHERE
                 pro_id = :pro_id
@@ -664,7 +732,9 @@ use App\Database\DbSciDay2023;
                 bt_register = :bt_register,
                 bt_regis_show = :bt_regis_show,
                 bt_edit = :bt_edit,
-                bt_del = :bt_del
+                bt_del = :bt_del,
+                bt_con = :bt_con,
+                bt_editcer = :bt_editcer
             WHERE ac_id = :ac_id
         ";
         $stmt = $this->pdo->prepare($sql);
@@ -865,4 +935,3 @@ use App\Database\DbSciDay2023;
         return true;
     }
 }
-?>
