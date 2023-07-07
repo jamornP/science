@@ -14,6 +14,7 @@
 <body class="font-kanit">
     <?php require $_SERVER['DOCUMENT_ROOT'] . "/science/sciday/components/navbar2023.php"; ?>
     <?php 
+    
     if(isset($_POST['edit'])){
 
         // echo "<pre>";
@@ -156,289 +157,299 @@
     <div class="container mt-5">
 
         <div class="card">
-            <h5 class="card-header bg-173">แก้ไขข้อมูล</h5>
-            <form action="" method="post" enctype="multipart/form-data" id="from-post">
-                <div class="card-body">
-            
-                    <?php
-                        $id=base64_decode($_GET['id']);
-                        $data = $adminObj->getProjectByProjectUserId("data",$id,$_SESSION['user_id']);
-                        // echo $_GET['ac_id'];
-                        // echo $_SESSION['user_id'];
-                        // print_r($data);
-                        if(count($data)>0){
-                            if($data['ac_id'] == 4){
-                                ?>
-                                <div class="mb-3">
-                                    <input type="hidden" class="form-control" id="pro_id" name="pro_id" value="<?php echo $id;?>" required>
-                                    <input type="hidden" class="form-control" id="ac_id" name="ac_id" value="<?php echo $data['ac_id'] ;?>" required>
-                                    <input type="hidden" class="form-control" id="year" name="year" value="<?php echo $data['year'] ;?>" required>
-                                    <label for="school" class="col-form-label">1. ชื่อสถาบันการศึกษา <font color="red">*</font> ตัวอย่างการกรอก 'โรงเรียน.......'</b>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
-                                    <input type="text" class="form-control" id="school" name="school" value="<?php echo $data['school'];?>" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="le_id" class="col-form-label">2. ประเภท<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
-                                    <br>
-                                    <?php
-                                    $levels = $adminObj->getLevelByActivity($data['ac_id']);
-                                    foreach ($levels as $level) {
-                                        $ck = ($data['le_id']== $level['le_id'] ? "checked":"");
-                                        echo "
-                                            <div class='form-check form-check-inline'>
-                                                <input class='form-check-input' type='radio' name='le_id' id='{$level['le_id']}' value='{$level['le_id']}' required {$ck}>
-                                                <label class='form-check-label' for='{$level['le_id']}'>{$level['name']}</label>
-                                            </div>
-                                        ";
-                                    }
-                                    ?>
-
-                                </div>
-                                <div class="mb-3">
-                                    <label for="stu_id" class="col-form-label">3. ผู้เข้าประกวด<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
-                                    <input type="hidden" class="form-control" id="stu_id" name="stu_id" value="<?php echo $data['stu_id']; ?>">
-                                    <?php
-                                        $students = $adminObj->getStudentById("data",$data['stu_id']);
-                                        // echo "<pre>";
-                                        // print_r($students);
-                                        // echo "</pre>";
-                                        foreach($students as $st){
-                                            ?>
-                                            <div class="d-flex flex-row bd-highlight mb-1">
-                                                <div class="">
-                                                    <select class="form-select" aria-label="Default select example" name="sti_id[]">
-                                                        <?php
-                                                        // $stSelect="";
-                                                        $titles = $adminObj->getTitleByGroup(1);
-                                                        foreach ($titles as $title) {
-                                                            $stSelect = ($title['ti_id']==$st['ti_id'] ? "selected":"");
-                                                            echo "
-                                                                <option value='{$title['ti_id']}' {$stSelect}>{$title['name']}</option>
-                                                            ";
-                                                        }
-                                                        ?>
-
-                                                    </select>
-                                                </div>
-                                                <div class="">
-                                                    <input type="hidden" class="form-control" id="" placeholder="ชื่อ" name="sid[]" value="<?php echo $st['id'];?>">
-                                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="sname[]" value="<?php echo $st['stu_name'];?>">
-                                                </div>
-                                                <div class="">
-                                                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="นามสกุล" name="ssurname[]" value="<?php echo $st['stu_surname'];?>">
-                                                </div>
-                                                <div class="">
-                                                    <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="email" name="semail[]" value="<?php echo $st['stu_email'];?>">
-                                                </div>
-                                            </div>
-                                            <?php
-                                        }
-                                    ?>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="tea_id" class="col-form-label">4. อาจารย์ที่ปรึกษา<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
-                                    <input type="hidden" class="form-control" id="tea_id" name="tea_id" value="<?php echo $data['tea_id']; ?>">
-                                    <?php
-                                        $teachers = $adminObj->getTeacherById("data",$data['tea_id']);
-                                        // echo "<pre>";
-                                        // print_r($teachers);
-                                        // echo "</pre>";
-                                        foreach($teachers as $te){
-                                            ?>
-                                            <div class="d-flex flex-row bd-highlight mb-1">
-                                                <div class="">
-                                                    <select class="form-select" aria-label="Default select example" name="tti_id[]">
-                                                        <option selected>คำนำหน้าชื่อ</option>
-                                                        <?php
-                                                        $titles = $adminObj->getTitleByGroup(2);
-                                                        foreach ($titles as $title) {
-                                                            $teSelect = ($title['ti_id']==$te['ti_id'] ? "selected":"");
-                                                            echo "
-                                                            <option value='{$title['ti_id']}' {$teSelect}>{$title['name']}</option>
-                                                        ";
-                                                        }
-                                                        ?>
-
-                                                    </select>
-                                                </div>
-                                                <div class="">
-                                                    <input type="hidden" class="form-control" id="" placeholder="ชื่อ" name="tid[]" value="<?php echo $te['id'];?>">
-                                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="tname[]" value="<?php echo $te['tea_name'];?>">
-                                                </div>
-                                                <div class="">
-                                                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="นามสกุล" name="tsurname[]" value="<?php echo $te['tea_surname'];?>">
-                                                </div>
-                                                <div class="">
-                                                    <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="email" name="temail[]" value="<?php echo $te['tea_email'];?>">
-                                                </div>
-                                                
-                                            </div>
-                                            <?php
-                                        }
-                                    ?>
-                                        
-                                </div>
-                                <div class="mb-3">
-                                    <label for="tel" class="col-form-label">5. เบอร์โทรติดต่อผู้กรอกข้อมูล<font color="red">*</font>:</label>
-                                    <input type="text" class="form-control" id="tel" name="tel" required value="<?php echo $data['tel'];?>">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="file_register" class="col-form-label">6. Upload ไฟล์ใบสมัคร ความยาวไม่เกิน 5 หน้ากระดาษ A4 เป็นไฟล์ PDF เท่านั้น<font color="red">(ถ้าต้องการเปลี่ยนไฟล์ใหม่ให้ทำการ Upload file ใหม่)</font>:</label>
-                                    <input type="hidden" class="form-control" id="file" name="file_name" required value="<?php echo $data['file_register'];?>">
-                                    <input class="form-control" type="file" id="file_register" name="file_register" accept=".pdf" >
-                                </div>
-                                <?php
-                            }else{
+            <?php
+                 $id=base64_decode($_GET['id']);
+                 $data = $adminObj->getProjectByProjectUserId("data",$id,$_SESSION['user_id']);
+                 $setting = $adminObj->getSettingByActivity($data['ac_id']);
+                 $bt_edit = $setting['bt_edit'];
+                 if($bt_edit){
+                    ?>
+                    <h5 class="card-header bg-173">แก้ไขข้อมูล</h5>
+                    <form action="" method="post" enctype="multipart/form-data" id="from-post">
+                        <div class="card-body">
+                    
+                            <?php
+                            
+                                // echo $_GET['ac_id'];
+                                // echo $_SESSION['user_id'];
                                 // print_r($data);
-                                ?>
-                            <!--  -->                       
-                           
-                            <div class="mb-3">
-                                <input type="hidden" class="form-control" id="pro_id" name="pro_id" value="<?php echo $id;?>" required>
-                                <input type="hidden" class="form-control" id="ac_id" name="ac_id" value="<?php echo $data['ac_id'] ;?>" required>
-                                <input type="hidden" class="form-control" id="year" name="year" value="<?php echo $data['year'] ;?>" required>
-                                <label for="p_name" class="col-form-label">1. ชื่อผลงาน <font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
-                                <input type="text" class="form-control" id="p_name" name="p_name" required value="<?php echo $data['p_name'];?>">
-                            </div>
-                            <div class="mb-3">
-                                <label for="le_id" class="col-form-label">2. ระดับ<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
-                                <br>
-                                <?php
-                                $levels = $adminObj->getLevelByActivity($data['ac_id']);
-                                foreach ($levels as $level) {
-                                    $ck = ($data['le_id']== $level['le_id'] ? "checked":"");
-                                    echo "
-                                        <div class='form-check form-check-inline'>
-                                            <input class='form-check-input' type='radio' name='le_id' id='{$level['le_id']}' value='{$level['le_id']}' required {$ck}>
-                                            <label class='form-check-label' for='{$level['le_id']}'>{$level['name']}</label>
+                                if(count($data)>0){
+                                    if($data['ac_id'] == 4){
+                                        ?>
+                                        <div class="mb-3">
+                                            <input type="hidden" class="form-control" id="pro_id" name="pro_id" value="<?php echo $id;?>" required>
+                                            <input type="hidden" class="form-control" id="ac_id" name="ac_id" value="<?php echo $data['ac_id'] ;?>" required>
+                                            <input type="hidden" class="form-control" id="year" name="year" value="<?php echo $data['year'] ;?>" required>
+                                            <label for="school" class="col-form-label">1. ชื่อสถาบันการศึกษา <font color="red">*</font> ตัวอย่างการกรอก 'โรงเรียน.......'</b>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
+                                            <input type="text" class="form-control" id="school" name="school" value="<?php echo $data['school'];?>" required>
                                         </div>
-                                    ";
-                                }
-                                ?>
-
-                            </div>
-                            <div class="mb-3">
-                                <label for="school" class="col-form-label">3. ชื่อสถาบันการศึกษา <font color="red">*</font> ตัวอย่างการกรอก 'โรงเรียน.......' </b>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
-                                <input type="text" class="form-control" id="school" name="school" value="<?php echo $data['school'];?>" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="stu_id" class="col-form-label">4. ผู้เข้าประกวด<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
-                                <input type="hidden" class="form-control" id="stu_id" name="stu_id" value="<?php echo "s-" . uniqid(); ?>">
-                                <?php
-                                        $students = $adminObj->getStudentById("data",$data['stu_id']);
-                                        // echo "<pre>";
-                                        // print_r($students);
-                                        // echo "</pre>";
-                                        foreach($students as $st){
-                                            ?>
-                                            <div class="d-flex flex-row bd-highlight mb-1">
-                                                <div class="">
-                                                    <select class="form-select" aria-label="Default select example" name="sti_id[]">
-                                                        <?php
-                                                        // $stSelect="";
-                                                        $titles = $adminObj->getTitleByGroup(1);
-                                                        foreach ($titles as $title) {
-                                                            $stSelect = ($title['ti_id']==$st['ti_id'] ? "selected":"");
-                                                            echo "
-                                                                <option value='{$title['ti_id']}' {$stSelect}>{$title['name']}</option>
-                                                            ";
-                                                        }
-                                                        ?>
-
-                                                    </select>
-                                                </div>
-                                                <div class="">
-                                                    <input type="hidden" class="form-control" id="" placeholder="ชื่อ" name="sid[]" value="<?php echo $st['id'];?>">
-                                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="sname[]" value="<?php echo $st['stu_name'];?>">
-                                                </div>
-                                                <div class="">
-                                                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="นามสกุล" name="ssurname[]" value="<?php echo $st['stu_surname'];?>">
-                                                </div>
-                                                <div class="">
-                                                    <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="email" name="semail[]" value="<?php echo $st['stu_email'];?>">
-                                                </div>
-                                            </div>
+                                        <div class="mb-3">
+                                            <label for="le_id" class="col-form-label">2. ประเภท<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
+                                            <br>
                                             <?php
-                                        }
-                                    ?>
-                            </div>
-                            <div class="mb-3">
-                                <label for="tea_id" class="col-form-label">5. อาจารย์ที่ปรึกษา<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
-                                <input type="hidden" class="form-control" id="tea_id" name="tea_id" value="<?php echo "t-" . uniqid(); ?>">
-                                <?php
-                                        $teachers = $adminObj->getTeacherById("data",$data['tea_id']);
-                                        // echo "<pre>";
-                                        // print_r($teachers);
-                                        // echo "</pre>";
-                                        foreach($teachers as $te){
+                                            $levels = $adminObj->getLevelByActivity($data['ac_id']);
+                                            foreach ($levels as $level) {
+                                                $ck = ($data['le_id']== $level['le_id'] ? "checked":"");
+                                                echo "
+                                                    <div class='form-check form-check-inline'>
+                                                        <input class='form-check-input' type='radio' name='le_id' id='{$level['le_id']}' value='{$level['le_id']}' required {$ck}>
+                                                        <label class='form-check-label' for='{$level['le_id']}'>{$level['name']}</label>
+                                                    </div>
+                                                ";
+                                            }
                                             ?>
-                                            <div class="d-flex flex-row bd-highlight mb-1">
-                                                <div class="">
-                                                    <select class="form-select" aria-label="Default select example" name="tti_id[]">
-                                                        <option selected>คำนำหน้าชื่อ</option>
-                                                        <?php
-                                                        $titles = $adminObj->getTitleByGroup(2);
-                                                        foreach ($titles as $title) {
-                                                            $teSelect = ($title['ti_id']==$te['ti_id'] ? "selected":"");
-                                                            echo "
-                                                            <option value='{$title['ti_id']}' {$teSelect}>{$title['name']}</option>
-                                                        ";
-                                                        }
-                                                        ?>
 
-                                                    </select>
-                                                </div>
-                                                <div class="">
-                                                <input type="hidden" class="form-control" id="" placeholder="ชื่อ" name="tid[]" value="<?php echo $te['id'];?>">
-                                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="tname[]" value="<?php echo $te['tea_name'];?>">
-                                                </div>
-                                                <div class="">
-                                                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="นามสกุล" name="tsurname[]" value="<?php echo $te['tea_surname'];?>">
-                                                </div>
-                                                <div class="">
-                                                    <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="email" name="temail[]" value="<?php echo $te['tea_email'];?>">
-                                                </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="stu_id" class="col-form-label">3. ผู้เข้าประกวด<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
+                                            <input type="hidden" class="form-control" id="stu_id" name="stu_id" value="<?php echo $data['stu_id']; ?>">
+                                            <?php
+                                                $students = $adminObj->getStudentById("data",$data['stu_id']);
+                                                // echo "<pre>";
+                                                // print_r($students);
+                                                // echo "</pre>";
+                                                foreach($students as $st){
+                                                    ?>
+                                                    <div class="d-flex flex-row bd-highlight mb-1">
+                                                        <div class="">
+                                                            <select class="form-select" aria-label="Default select example" name="sti_id[]">
+                                                                <?php
+                                                                // $stSelect="";
+                                                                $titles = $adminObj->getTitleByGroup(1);
+                                                                foreach ($titles as $title) {
+                                                                    $stSelect = ($title['ti_id']==$st['ti_id'] ? "selected":"");
+                                                                    echo "
+                                                                        <option value='{$title['ti_id']}' {$stSelect}>{$title['name']}</option>
+                                                                    ";
+                                                                }
+                                                                ?>
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="">
+                                                            <input type="hidden" class="form-control" id="" placeholder="ชื่อ" name="sid[]" value="<?php echo $st['id'];?>">
+                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="sname[]" value="<?php echo $st['stu_name'];?>">
+                                                        </div>
+                                                        <div class="">
+                                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="นามสกุล" name="ssurname[]" value="<?php echo $st['stu_surname'];?>">
+                                                        </div>
+                                                        <div class="">
+                                                            <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="email" name="semail[]" value="<?php echo $st['stu_email'];?>">
+                                                        </div>
+                                                    </div>
+                                                    <?php
+                                                }
+                                            ?>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="tea_id" class="col-form-label">4. อาจารย์ที่ปรึกษา<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
+                                            <input type="hidden" class="form-control" id="tea_id" name="tea_id" value="<?php echo $data['tea_id']; ?>">
+                                            <?php
+                                                $teachers = $adminObj->getTeacherById("data",$data['tea_id']);
+                                                // echo "<pre>";
+                                                // print_r($teachers);
+                                                // echo "</pre>";
+                                                foreach($teachers as $te){
+                                                    ?>
+                                                    <div class="d-flex flex-row bd-highlight mb-1">
+                                                        <div class="">
+                                                            <select class="form-select" aria-label="Default select example" name="tti_id[]">
+                                                                <option selected>คำนำหน้าชื่อ</option>
+                                                                <?php
+                                                                $titles = $adminObj->getTitleByGroup(2);
+                                                                foreach ($titles as $title) {
+                                                                    $teSelect = ($title['ti_id']==$te['ti_id'] ? "selected":"");
+                                                                    echo "
+                                                                    <option value='{$title['ti_id']}' {$teSelect}>{$title['name']}</option>
+                                                                ";
+                                                                }
+                                                                ?>
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="">
+                                                            <input type="hidden" class="form-control" id="" placeholder="ชื่อ" name="tid[]" value="<?php echo $te['id'];?>">
+                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="tname[]" value="<?php echo $te['tea_name'];?>">
+                                                        </div>
+                                                        <div class="">
+                                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="นามสกุล" name="tsurname[]" value="<?php echo $te['tea_surname'];?>">
+                                                        </div>
+                                                        <div class="">
+                                                            <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="email" name="temail[]" value="<?php echo $te['tea_email'];?>">
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <?php
+                                                }
+                                            ?>
                                                 
-                                            </div>
-                                            <?php
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="tel" class="col-form-label">5. เบอร์โทรติดต่อผู้กรอกข้อมูล<font color="red">*</font>:</label>
+                                            <input type="text" class="form-control" id="tel" name="tel" required value="<?php echo $data['tel'];?>">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="file_register" class="col-form-label">6. Upload ไฟล์ใบสมัคร ความยาวไม่เกิน 5 หน้ากระดาษ A4 เป็นไฟล์ PDF เท่านั้น<font color="red">(ถ้าต้องการเปลี่ยนไฟล์ใหม่ให้ทำการ Upload file ใหม่)</font>:</label>
+                                            <input type="hidden" class="form-control" id="file" name="file_name" required value="<?php echo $data['file_register'];?>">
+                                            <input class="form-control" type="file" id="file_register" name="file_register" accept=".pdf" >
+                                        </div>
+                                        <?php
+                                    }else{
+                                        // print_r($data);
+                                        ?>
+                                    <!--  -->                       
+                                
+                                    <div class="mb-3">
+                                        <input type="hidden" class="form-control" id="pro_id" name="pro_id" value="<?php echo $id;?>" required>
+                                        <input type="hidden" class="form-control" id="ac_id" name="ac_id" value="<?php echo $data['ac_id'] ;?>" required>
+                                        <input type="hidden" class="form-control" id="year" name="year" value="<?php echo $data['year'] ;?>" required>
+                                        <label for="p_name" class="col-form-label">1. ชื่อผลงาน <font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
+                                        <input type="text" class="form-control" id="p_name" name="p_name" required value="<?php echo $data['p_name'];?>">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="le_id" class="col-form-label">2. ระดับ<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
+                                        <br>
+                                        <?php
+                                        $levels = $adminObj->getLevelByActivity($data['ac_id']);
+                                        foreach ($levels as $level) {
+                                            $ck = ($data['le_id']== $level['le_id'] ? "checked":"");
+                                            echo "
+                                                <div class='form-check form-check-inline'>
+                                                    <input class='form-check-input' type='radio' name='le_id' id='{$level['le_id']}' value='{$level['le_id']}' required {$ck}>
+                                                    <label class='form-check-label' for='{$level['le_id']}'>{$level['name']}</label>
+                                                </div>
+                                            ";
                                         }
-                                    ?>
-                            </div>
-                            <div class="mb-3">
-                                <label for="tel" class="col-form-label">6. เบอร์โทรติดต่อผู้กรอกข้อมูล<font color="red">*</font>:</label>
-                                <input type="text" class="form-control" id="tel" name="tel" required value="<?php echo $data['tel'];?>">
-                            </div>
-                            <div class="mb-3">
-                                <label for="file_register" class="col-form-label">7. Upload ไฟล์ใบสมัคร ความยาวไม่เกิน 5 หน้ากระดาษ A4 เป็นไฟล์ PDF เท่านั้น<font color="red">*</font>:</label>
-                                <input type="hidden" class="form-control" id="file" name="file_name" required value="<?php echo $data['file_register'];?>">
-                                <input class="form-control" type="file" id="file_register" name="file_register" accept=".pdf" >
-                            </div>
-                            <div class="mb-3">
-                                <label for="link_video" class="col-form-label">8. Link ดู video ผลงานบน Youtube <font color="red">*</font></b>:</label>
-                                <input class="form-control" type="text" id="link_video" name="link_video" required value="<?php echo $data['link_video'];?>">
-                            </div>
-                            <div class="mb-3">
-                                <label for="img_id" class="col-form-label"> 9. Upload ไฟล์รูปภาพ รูปชิ้นงาน หรือรูปแสดงการสร้างชิ้นงาน<font color="red">( *.png หรือ *.jpg )</font> เท่านั้นไม่เกิน 5 รูป</b>:</label>
-                                <input type="hidden" class="form-control" id="img_id" name="img_id" value="<?php echo $data['img_id']; ?>" required>
-                                <div class="container">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="dropzone" id="drop"></div>
+                                        ?>
+
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="school" class="col-form-label">3. ชื่อสถาบันการศึกษา <font color="red">*</font> ตัวอย่างการกรอก 'โรงเรียน.......' </b>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
+                                        <input type="text" class="form-control" id="school" name="school" value="<?php echo $data['school'];?>" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="stu_id" class="col-form-label">4. ผู้เข้าประกวด<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
+                                        <input type="hidden" class="form-control" id="stu_id" name="stu_id" value="<?php echo "s-" . uniqid(); ?>">
+                                        <?php
+                                                $students = $adminObj->getStudentById("data",$data['stu_id']);
+                                                // echo "<pre>";
+                                                // print_r($students);
+                                                // echo "</pre>";
+                                                foreach($students as $st){
+                                                    ?>
+                                                    <div class="d-flex flex-row bd-highlight mb-1">
+                                                        <div class="">
+                                                            <select class="form-select" aria-label="Default select example" name="sti_id[]">
+                                                                <?php
+                                                                // $stSelect="";
+                                                                $titles = $adminObj->getTitleByGroup(1);
+                                                                foreach ($titles as $title) {
+                                                                    $stSelect = ($title['ti_id']==$st['ti_id'] ? "selected":"");
+                                                                    echo "
+                                                                        <option value='{$title['ti_id']}' {$stSelect}>{$title['name']}</option>
+                                                                    ";
+                                                                }
+                                                                ?>
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="">
+                                                            <input type="hidden" class="form-control" id="" placeholder="ชื่อ" name="sid[]" value="<?php echo $st['id'];?>">
+                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="sname[]" value="<?php echo $st['stu_name'];?>">
+                                                        </div>
+                                                        <div class="">
+                                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="นามสกุล" name="ssurname[]" value="<?php echo $st['stu_surname'];?>">
+                                                        </div>
+                                                        <div class="">
+                                                            <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="email" name="semail[]" value="<?php echo $st['stu_email'];?>">
+                                                        </div>
+                                                    </div>
+                                                    <?php
+                                                }
+                                            ?>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="tea_id" class="col-form-label">5. อาจารย์ที่ปรึกษา<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
+                                        <input type="hidden" class="form-control" id="tea_id" name="tea_id" value="<?php echo "t-" . uniqid(); ?>">
+                                        <?php
+                                                $teachers = $adminObj->getTeacherById("data",$data['tea_id']);
+                                                // echo "<pre>";
+                                                // print_r($teachers);
+                                                // echo "</pre>";
+                                                foreach($teachers as $te){
+                                                    ?>
+                                                    <div class="d-flex flex-row bd-highlight mb-1">
+                                                        <div class="">
+                                                            <select class="form-select" aria-label="Default select example" name="tti_id[]">
+                                                                <option selected>คำนำหน้าชื่อ</option>
+                                                                <?php
+                                                                $titles = $adminObj->getTitleByGroup(2);
+                                                                foreach ($titles as $title) {
+                                                                    $teSelect = ($title['ti_id']==$te['ti_id'] ? "selected":"");
+                                                                    echo "
+                                                                    <option value='{$title['ti_id']}' {$teSelect}>{$title['name']}</option>
+                                                                ";
+                                                                }
+                                                                ?>
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="">
+                                                        <input type="hidden" class="form-control" id="" placeholder="ชื่อ" name="tid[]" value="<?php echo $te['id'];?>">
+                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ" name="tname[]" value="<?php echo $te['tea_name'];?>">
+                                                        </div>
+                                                        <div class="">
+                                                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="นามสกุล" name="tsurname[]" value="<?php echo $te['tea_surname'];?>">
+                                                        </div>
+                                                        <div class="">
+                                                            <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="email" name="temail[]" value="<?php echo $te['tea_email'];?>">
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <?php
+                                                }
+                                            ?>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="tel" class="col-form-label">6. เบอร์โทรติดต่อผู้กรอกข้อมูล<font color="red">*</font>:</label>
+                                        <input type="text" class="form-control" id="tel" name="tel" required value="<?php echo $data['tel'];?>">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="file_register" class="col-form-label">7. Upload ไฟล์ใบสมัคร ความยาวไม่เกิน 5 หน้ากระดาษ A4 เป็นไฟล์ PDF เท่านั้น<font color="red">*</font>:</label>
+                                        <input type="hidden" class="form-control" id="file" name="file_name" required value="<?php echo $data['file_register'];?>">
+                                        <input class="form-control" type="file" id="file_register" name="file_register" accept=".pdf" >
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="link_video" class="col-form-label">8. Link ดู video ผลงานบน Youtube <font color="red">*</font></b>:</label>
+                                        <input class="form-control" type="text" id="link_video" name="link_video" required value="<?php echo $data['link_video'];?>">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="img_id" class="col-form-label"> 9. Upload ไฟล์รูปภาพ รูปชิ้นงาน หรือรูปแสดงการสร้างชิ้นงาน<font color="red">( *.png หรือ *.jpg )</font> เท่านั้นไม่เกิน 5 รูป</b>:</label>
+                                        <input type="hidden" class="form-control" id="img_id" name="img_id" value="<?php echo $data['img_id']; ?>" required>
+                                        <div class="container">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="dropzone" id="drop"></div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                                <?php
+                                        <?php
 
-                            }
-                        }
-                    ?>
-                    
-                </div>
-                <div class="modal-footer">
-                    <a href="/science/sciday/2023/pages/member" class="btn btn-danger text-white">ย้อนกลับ</a>
-                    <button type="submit" class="btn btn-primary" name="edit">แก้ไข</button>
-                </div>
-            </form>
+                                    }
+                                }
+                                
+                            ?>
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <a href="/science/sciday/2023/pages/member" class="btn btn-danger text-white">ย้อนกลับ</a>
+                            <button type="submit" class="btn btn-primary" name="edit">แก้ไข</button>
+                        </div>
+                    </form>
+                    <?php 
+                }
+            ?>
         </div>
 
 
