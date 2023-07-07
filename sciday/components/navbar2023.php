@@ -58,6 +58,7 @@ if(isset($_SESSION['user_id'])){
                             <?php
                                 if($_SESSION['role']=="superadmin"){
                                     echo "
+                                    <li><a class='dropdown-item' href='/science/sciday/2023/pages/admin/count.php'>สรุปยอด</a></li>
                                     <li><a class='dropdown-item' href='/science/sciday/2023/backend'>จัดการระบบ</a></li>
                                     <li><a class='dropdown-item' href='/science/sciday/2023/pages/com'>ข้อมูลทีมสมัคร</a></li>
                                     <li><a class='dropdown-item' href='/science/sciday/2023/pages/admin'>กรอกคะแนนและคัดเลือกทีม</a></li>

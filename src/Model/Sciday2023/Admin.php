@@ -3,6 +3,34 @@ namespace App\Model\Sciday2023;
 use App\Database\DbSciDay2023;
 
  class Admin extends DbSciDay2023 {
+    // SQL SELECT count(school) FROM `tb_project` GROUP BY school ORDER BY school
+    public function getSql($action,$sql){
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        if($action=="count"){
+            $count = count($data);
+            return $count;
+        }else{
+            return $data;
+        }
+    }
+    public function getSchoolByActivity($action,$data){
+        $sql ="
+            SELECT * 
+            FROM tb_project 
+            WHERE school = :school AND ac_id =:ac_id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+        $data = $stmt->fetchAll();
+        if($action=="count"){
+            $count = count($data);
+            return $count;
+        }else{
+            return $data;
+        }
+    }
+
     // News
     public function getNewsAll($action){
         $sql = "
@@ -407,6 +435,21 @@ use App\Database\DbSciDay2023;
             return $data;
         }
     }
+    public function getStudentByActivity($action,$ac_id){
+        $sql = "
+            SELECT stu.* , ti.name as title
+            FROM tb_student as stu
+            LEFT JOIN tb_title as ti ON ti.ti_id = stu.ti_id
+            WHERE stu.ac_id = '{$ac_id}'
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        if($action=="count"){
+            return count($data);
+        }else{
+            return $data;
+        }
+    }
     public function updateStudent($data){
         $sql="
             UPDATE tb_student SET
@@ -466,6 +509,21 @@ use App\Database\DbSciDay2023;
             FROM tb_teacher as tea
             LEFT JOIN tb_title as ti ON ti.ti_id = tea.ti_id
             WHERE tea.tea_id = '{$tea_id}'
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        if($action=="count"){
+            return count($data);
+        }else{
+            return $data;
+        }
+    }
+    public function getTeacherByActivity($action,$ac_id){
+        $sql = "
+            SELECT tea.* , ti.name as title
+            FROM tb_teacher as tea
+            LEFT JOIN tb_title as ti ON ti.ti_id = tea.ti_id
+            WHERE tea.ac_id = '{$ac_id}'
         ";
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();
