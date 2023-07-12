@@ -23,7 +23,7 @@
         // echo "<pre>";
         // print_r($_FILES);
         // echo "</pre>";
-        if($_POST['ac_id']==4){
+        if($_POST['ac_id']==4 OR $_POST['ac_id']==5){
             // echo "answer";
             $data['pro_id']=$_POST['pro_id'];
             $data['le_id']=$_POST['le_id'];
