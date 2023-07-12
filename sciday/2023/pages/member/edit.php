@@ -174,7 +174,7 @@
                                 // echo $_SESSION['user_id'];
                                 // print_r($data);
                                 if(count($data)>0){
-                                    if($data['ac_id'] == 4){
+                                    if($data['ac_id'] == 4 OR $data['ac_id'] == 5){
                                         ?>
                                         <div class="mb-3">
                                             <input type="hidden" class="form-control" id="pro_id" name="pro_id" value="<?php echo $id;?>" required>

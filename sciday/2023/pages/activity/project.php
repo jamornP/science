@@ -459,6 +459,7 @@
                                     <th scope="col">ระดับ</th>
                                     <th scope="col">นักเรียน</th>
                                     <th scope="col">อาจารย์ที่ปรึกษา</th>
+                                    <th scope="col" class='text-center'>ยืนยัน</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -502,8 +503,18 @@
                                             echo "<br>";
                                         }
                                     }    
+                                    echo "</td>";    
+                                    $ckConfirm = $adminObj->getConfirmByProject("count",$pro['pro_id']);
+                                    if($ckConfirm > 0){
+                                        echo "
+                                            <td class='text-center'><i class='bx bx-check' style='color:#43cb05' ></i></td>
+                                        ";
+                                    }else{
+                                        echo "
+                                            <td class='text-center'></td>
+                                        ";
+                                    }
                                     echo "
-                                            </td>
                                         </tr>
                                     ";
                                 }
@@ -528,6 +539,7 @@
                                     <th scope="col">ประเภท</th>
                                     <th scope="col">นักเรียน</th>
                                     <th scope="col">อาจารย์ที่ปรึกษา</th>
+                                    <th scope="col" class='text-center'>ยืนยัน</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -569,9 +581,19 @@
                                         if($j<$tj){
                                             echo "<br>";
                                         }
-                                    }    
+                                    }
+                                    echo "</td>";  
+                                    $ckConfirm = $adminObj->getConfirmByProject("count",$pro['pro_id']);
+                                    if($ckConfirm > 0){
+                                        echo "
+                                            <td class='text-center fs-18'><i class='bx bx-check' style='color:#43cb05' ></i></td>
+                                        ";
+                                    }else{
+                                        echo "
+                                            <td class='text-center'></td>
+                                        ";
+                                    }  
                                     echo "
-                                            </td>
                                         </tr>
                                     ";
                                 }
