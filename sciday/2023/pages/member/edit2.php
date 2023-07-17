@@ -177,7 +177,7 @@
                                     ?>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="tea_id" class="col-form-label">4. อาจารย์ที่ปรึกษา<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
+                                    <label for="tea_id" class="col-form-label">4. อาจารย์ที่ปรึกษา<font color="red">*</font>: <font color="red"></font></label>
                                     <input type="hidden" class="form-control" id="tea_id" name="tea_id" value="<?php echo $data['tea_id']; ?>">
                                     <?php
                                         $teachers = $adminObj->getTeacherById("data",$data['tea_id']);

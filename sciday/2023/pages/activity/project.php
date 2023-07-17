@@ -275,11 +275,10 @@
                                                             <thead>
                                                                 <tr class="bg-246">
                                                                     <th scope="col">ที่</th>
-                                                                    <th scope="col" style="width:30%">ชื่อผลงาน</th>
-                                                                    <th scope="col">โรงเรียน</th>
-                                                                    <th scope="col">ระดับ</th>
-                                                                    <th scope="col">นักเรียน</th>
-                                                                    <th scope="col">อาจารย์ที่ปรึกษา</th>
+                                                                    <th scope="col" width="50%">โรงเรียน</th>
+                                                                    <th scope="col" width="15%">ประเภท</th>
+                                                                    <th scope="col" width="15%">นักเรียน</th>
+                                                                    <th scope="col" width="15%">อาจารย์ที่ปรึกษา</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -290,10 +289,9 @@
                                                                     echo "
                                                                         <tr class='fs-14'>
                                                                             <th scope='row'>$i</th>
-                                                                            <td>{$pro['p_name']}</td>
                                                                             <td>{$pro['school']}</td>
                                                                             <td>{$pro['level']}</td>
-                                                                            <td>
+                                                                            <td class='fs-12'>
                                                                     ";
                                                                     $students = $adminObj->getStudentById("data",$pro['stu_id']);
                                                                     $sj=count($students);
@@ -308,7 +306,7 @@
                                                                     }
                                                                     echo "
                                                                             </td>
-                                                                            <td>
+                                                                            <td class='fs-12'>
                                                                         ";
                                                                     $teachers = $adminObj->getTeacherById("data",$pro['tea_id']);
                                                                     $tj=count($teachers);
@@ -351,10 +349,10 @@
                                                                 <tr class="bg-246">
                                                                     <th scope="col">ที่</th>
                                                                     <th scope="col" style="width:30%">ชื่อผลงาน</th>
-                                                                    <th scope="col">โรงเรียน</th>
-                                                                    <th scope="col">ระดับ</th>
-                                                                    <th scope="col">นักเรียน</th>
-                                                                    <th scope="col">อาจารย์ที่ปรึกษา</th>
+                                                                    <th scope="col" width="20%">โรงเรียน</th>
+                                                                    <th scope="col" width="15%">ระดับ</th>
+                                                                    <th scope="col" width="15%">นักเรียน</th>
+                                                                    <th scope="col" width="15%">อาจารย์ที่ปรึกษา</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -368,7 +366,7 @@
                                                                             <td>{$pro['p_name']}</td>
                                                                             <td>{$pro['school']}</td>
                                                                             <td>{$pro['level']}</td>
-                                                                            <td>
+                                                                            <td class='fs-12'>
                                                                     ";
                                                                     $students = $adminObj->getStudentById("data",$pro['stu_id']);
                                                                     $sj=count($students);
@@ -383,7 +381,7 @@
                                                                     }
                                                                     echo "
                                                                             </td>
-                                                                            <td>
+                                                                            <td class='fs-12'>
                                                                         ";
                                                                     $teachers = $adminObj->getTeacherById("data",$pro['tea_id']);
                                                                     $tj=count($teachers);
@@ -455,10 +453,10 @@
                                 <tr class="bg-246">
                                     <th scope="col">ที่</th>
                                     <th scope="col" style="width:30%">ชื่อผลงาน</th>
-                                    <th scope="col">โรงเรียน</th>
-                                    <th scope="col">ระดับ</th>
-                                    <th scope="col">นักเรียน</th>
-                                    <th scope="col">อาจารย์ที่ปรึกษา</th>
+                                    <th scope="col" width="20%">โรงเรียน</th>
+                                    <th scope="col" width="15%">ระดับ</th>
+                                    <th scope="col" width="15%">นักเรียน</th>
+                                    <th scope="col" width="15%">อาจารย์ที่ปรึกษา</th>
                                     <th scope="col" class='text-center'>ยืนยัน</th>
                                 </tr>
                             </thead>
@@ -475,7 +473,7 @@
                                             <td>{$pro['p_name']}</td>
                                             <td>{$pro['school']}</td>
                                             <td>{$pro['level']}</td>
-                                            <td>
+                                            <td class='fs-12'>
                                     ";
                                     $students = $adminObj->getStudentById("data",$pro['stu_id']);
                                     $sj=count($students);
@@ -490,7 +488,7 @@
                                     }
                                     echo "
                                             </td>
-                                            <td>
+                                            <td class='fs-12'>
                                         ";
                                     $teachers = $adminObj->getTeacherById("data",$pro['tea_id']);
                                     $tj=count($teachers);
@@ -535,10 +533,10 @@
                             <thead>
                                 <tr>
                                     <th scope="col">ที่</th>
-                                    <th scope="col">โรงเรียน</th>
-                                    <th scope="col">ประเภท</th>
-                                    <th scope="col">นักเรียน</th>
-                                    <th scope="col">อาจารย์ที่ปรึกษา</th>
+                                    <th scope="col" width="50%">โรงเรียน</th>
+                                    <th scope="col" width="15%">ประเภท</th>
+                                    <th scope="col" width="15%">นักเรียน</th>
+                                    <th scope="col" width="15%">อาจารย์ที่ปรึกษา</th>
                                     <th scope="col" class='text-center'>ยืนยัน</th>
                                 </tr>
                             </thead>
@@ -554,7 +552,7 @@
                                             <th scope='row'>$i</th>
                                             <td>{$pro['school']}</td>
                                             <td>{$pro['level']}</td>
-                                            <td>
+                                            <td class='fs-12'>
                                     ";
                                     $students = $adminObj->getStudentById("data",$pro['stu_id']);
                                     $sj=count($students);
@@ -569,7 +567,7 @@
                                     }
                                     echo "
                                             </td>
-                                            <td>
+                                            <td class='fs-12'>
                                         ";
                                     $teachers = $adminObj->getTeacherById("data",$pro['tea_id']);
                                     $tj=count($teachers);
@@ -815,7 +813,7 @@
                                 </ol>
                             </div>
                             <div class="mb-3">
-                                <label for="tea_id" class="col-form-label">4. อาจารย์ที่ปรึกษา (ไม่เกิน 2 คน)<font color="red">*</font>: <font color="red"> (มีผลต่อการออกใบประกาศนียบัตร)</font></label>
+                                <label for="tea_id" class="col-form-label">4. อาจารย์ที่ปรึกษา (ไม่เกิน 2 คน)<font color="red">*</font>: <font color="red"> </font></label>
                                 <input type="hidden" class="form-control" id="tea_id" name="tea_id" value="<?php echo "t-" . uniqid(); ?>">
                                 <ol>
                                     <li>
