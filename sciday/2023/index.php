@@ -323,7 +323,10 @@ session_start();
                         </p>
                         <div class="d-grid gap-2 col-6 mx-auto">
                             <a class="btn btn-primary" href="/science/upload/sciday/file2023/project-649015d5d12c1.pdf">ดาวน์โหลดเอกสารเชิญชวน</a>
+                            <br>
+                            <a class="btn btn-primary" href="/science/upload/sciday/file2023/project-64b9ee201964d.pdf">ดาวน์โหลดเอกสารเชิญชวน รอบตัดสิน</a>
                         </div>
+                        
                     </div>
                 </div>
             </div>
