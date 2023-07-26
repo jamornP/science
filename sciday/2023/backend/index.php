@@ -118,6 +118,11 @@
                                             }else{
                                                 $ck10 = "";
                                             }
+                                            if($ac['bt_atten']){
+                                                $ck11 = "checked value='1'";
+                                            }else{
+                                                $ck11 = "";
+                                            }
                                             echo "
                                                 <p>กิจกรรม{$ac['name']}</p>
                                                 <div class='form-check form-switch'>
@@ -159,6 +164,10 @@
                                                 <div class='form-check form-switch'>
                                                     <input class='form-check-input' type='checkbox' id='{$ac['ac_id']}-10' {$ck10} name='{$ac['ac_id']}[bt_editcer]'>
                                                     <label class='form-check-label' for='{$ac['ac_id']}-10'>ปุ่ม แก้ไขข้อมูลเฉพาะ Certificate</label>
+                                                </div>
+                                                <div class='form-check form-switch'>
+                                                    <input class='form-check-input' type='checkbox' id='{$ac['ac_id']}-11' {$ck11} name='{$ac['ac_id']}[bt_atten]'>
+                                                    <label class='form-check-label' for='{$ac['ac_id']}-11'>ปุ่ม ยืนยันมาเข้าร่วมรอบตัดสิน</label>
                                                 </div>
                                                 <hr>
                                             ";

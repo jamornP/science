@@ -75,6 +75,7 @@
                         $bt_del = $setting['bt_del'];
                         $bt_con = $setting['bt_con'];
                         $bt_editcer = $setting['bt_editcer'];
+                        $bt_atten = $setting['bt_atten'];
                         if (count($data) > 0) {
                             if ($ac['ac_id'] == 4 OR $ac['ac_id'] == 5 ) {
                                 echo "
@@ -167,6 +168,17 @@
                                                         <a href='/science/sciday/2023/pages/member/confirm.php?con=ok&id={$pro_id}' class='btn btn-sm btn-primary shadow text-white mt-1' >คลิก เพื่อยืนยัน<br> ว่าตรวจสอบข้อมูล<br> ถูกต้องแล้ว</a>
                                                     ";
                                                 }
+                                            }
+                                            if($bt_atten){
+                                                $ckfinal = $adminObj->getGroupByProRound("count",$pro['pro_id'],"final");
+                                                if($ckfinal > 0){
+                                                    $pro_i = base64_encode($pro['pro_id']);
+                                                    echo "<br>";
+                                                    echo "
+                                                        <a href='/science/sciday/2023/pages/member/atten.php?pro_id={$pro_i}' class='btn btn-sm btn-danger shadow text-white mt-1'>แจ้งความประสงค์เข้าร่วมรอบตัดสิน</a>
+                                                    ";
+                                                }
+                                                
                                             }
                                             echo "
                                             </td>
@@ -286,7 +298,17 @@
                                                     ";
                                                 }
                                             }
-
+                                            if($bt_atten){
+                                                $ckfinal = $adminObj->getGroupByProRound("count",$pro['pro_id'],"final");
+                                                if($ckfinal > 0){
+                                                    $pro_i = base64_encode($pro['pro_id']);
+                                                    echo "<br>";
+                                                    echo "
+                                                        <a href='/science/sciday/2023/pages/member/atten.php?pro_id={$pro_i}' class='btn btn-sm btn-danger shadow text-white mt-1'>แจ้งความประสงค์เข้าร่วมรอบตัดสิน</a>
+                                                    ";
+                                                }
+                                                
+                                            }
                                             echo "
                                             </td>
                                                  </tr>

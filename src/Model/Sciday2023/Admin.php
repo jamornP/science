@@ -3,6 +3,59 @@ namespace App\Model\Sciday2023;
 use App\Database\DbSciDay2023;
 
  class Admin extends DbSciDay2023 {
+    // atten
+    public function addAtten($data){
+        $ck=$this->getGroupByProRound("count",$data['pro_id'],"final");
+        if($ck > 0){
+            $sql ="
+                INSERT INTO tb_atten (
+                    pro_id,
+                    date_at,
+                    atten
+                )VALUES(
+                    :pro_id,
+                    :date_at,
+                    :atten
+                )
+            ";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute($data);
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+    public function getAttenByProject($action,$pro_id){
+        $sql ="
+            SELECT * 
+            FROM tb_atten
+            WHERE pro_id={$pro_id}
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        if($action=="count"){
+            $count = count($data);
+            return $count;
+        }else{
+            return $data[0];
+        }
+    }
+    public function updateAtten($data){
+        $sql = "
+            UPDATE tb_atten
+            SET date_at = :date_at, atten = :atten
+            WHERE pro_id=:pro_id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+        if($stmt){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     // confirm
     public function addConfirm($data){
         $sql ="
@@ -35,15 +88,15 @@ use App\Database\DbSciDay2023;
     }
     public function delConfirm($pro_id){
         $sql = "
-        DELETE FROM tb_confirm
-        WHERE pro_id={$pro_id}
-    ";
-    $stmt = $this->pdo->query($sql);
-    if($stmt){
-        return true;
-    }else{
-        return false;
-    }
+            DELETE FROM tb_confirm
+            WHERE pro_id={$pro_id}
+        ";
+        $stmt = $this->pdo->query($sql);
+        if($stmt){
+            return true;
+        }else{
+            return false;
+        }
     }
     // SQL SELECT count(school) FROM `tb_project` GROUP BY school ORDER BY school
     public function getSql($action,$sql){
@@ -734,7 +787,8 @@ use App\Database\DbSciDay2023;
                 bt_edit = :bt_edit,
                 bt_del = :bt_del,
                 bt_con = :bt_con,
-                bt_editcer = :bt_editcer
+                bt_editcer = :bt_editcer,
+                bt_atten = :bt_atten
             WHERE ac_id = :ac_id
         ";
         $stmt = $this->pdo->prepare($sql);
@@ -889,6 +943,7 @@ use App\Database\DbSciDay2023;
         $stmt->execute($data);
         return true;
     }
+
     // carousel
     public function getCarouselAll(){
         $sql ="

@@ -73,6 +73,11 @@
             }else{
                 $data['bt_editcer']=0;
             }
+            if(isset($_POST[$i]['bt_atten'])){
+                $data['bt_atten']=1;
+            }else{
+                $data['bt_atten']=0;
+            }
         }else{
             $data['ac_id'] = $i;
             $data['register'] = 0;
@@ -85,6 +90,7 @@
             $data['bt_del'] = 0;
             $data['bt_con'] = 0;
             $data['bt_editcer'] = 0;
+            $data['atten'] = 0;
         }
         $ckUpdate = $adminObj->updateSetting($data);
         // echo "<pre>";

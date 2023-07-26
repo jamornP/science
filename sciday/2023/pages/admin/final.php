@@ -330,8 +330,8 @@
                                                 <th scope="col">email</th>
                                                 <th scope="col">อาจารย์ที่ปรึกษา</th>
                                                 <th scope="col">เบอร์ติดต่อ</th>
-                                                <th scope="col">online</th>
-                                                <th scope="col">คะแนน</th>
+                                                <th scope="col">Final</th>
+                                                <th scope="col">ยืนยันรอบตัดสิน</th>
                                                 <th scope="col">ลบ</th>
                                             </tr>
                                         </thead>
@@ -408,15 +408,25 @@
                                                                 <div class='form-check'>
                                                                     <input class='form-check-input' type='checkbox' value='{$pro['pro_id']}' id='flex{$pro['pro_id']}' name='pro_id[]' {$checked} disabled>
                                                                     <label class='form-check-label' for='flex{$pro['pro_id']}'>
-                                                                    แข่ง
+                                                                    ผ่าน
                                                                     </label>
                                                                 </div>
                                                             </td>
+                                                ";
+                                                $atten = $adminObj->getAttenByProject("data",$pro['pro_id']);
+                                                if($atten['atten']=="Yes"){
+                                                    $at = "เข้าร่วมรอบตัดสิน";
+                                                }elseif($atten['atten']=="No"){
+                                                    $at = "ไม่เข้าร่วมรอบตัดสิน";
+                                                }else{
+                                                    $at = "";
+                                                }
+                                                echo "
                                                             <td>
-                                                                <div class='input-group input-group-sm mb-3'>
-                                                                    <input type='text' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' name='score[$id]' value='{$score}' size='5' readonly>
-                                                                </div>
+                                                                {$at}
                                                             </td>
+                                                ";
+                                                echo "
                                                             <td>
                                                                 <a href='/science/sciday/2023/pages/admin/save.php?del=del&pro_id={$pro['pro_id']}&round=final'>ลบ</a>
                                                             </td>
