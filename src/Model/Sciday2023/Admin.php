@@ -989,4 +989,10 @@ use App\Database\DbSciDay2023;
         $this->pdo->query($sql);
         return true;
     }
+    public function getSqlData($sql){
+
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
 }

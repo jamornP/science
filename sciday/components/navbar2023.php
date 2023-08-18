@@ -62,6 +62,7 @@ if(isset($_SESSION['user_id'])){
                                     <li><a class='dropdown-item' href='/science/sciday/2023/backend'>จัดการระบบ</a></li>
                                     <li><a class='dropdown-item' href='/science/sciday/2023/pages/com'>ข้อมูลทีมสมัคร</a></li>
                                     <li><a class='dropdown-item' href='/science/sciday/2023/pages/admin'>กรอกคะแนนและคัดเลือกทีม</a></li>
+                                    <li><a class='dropdown-item' href='/science/sciday/2023/backend/gen-excel.php'>File Excel</a></li>
                                     <li><hr class='dropdown-divider'></li>
                                     ";
                                 }
