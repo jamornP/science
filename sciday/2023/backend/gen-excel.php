@@ -43,8 +43,8 @@
                     <hr>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                        <button type="submit" class="btn btn-primary" name="answer">cer-003</button>
-                        <button type="submit" class="btn btn-primary" name="project">cer-001</button>
+                        <button type="submit" class="btn btn-danger text-white" name="answer">Auto Answer</button>
+                        <button type="submit" class="btn btn-primary" name="project">Run SQL</button>
                     </div>
                     
                 </form>
