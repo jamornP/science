@@ -34,12 +34,13 @@ header("Expires: 0");
                     <th>รางวัล</th>
                     <th>งาน</th>
                     <th>วันที่จัดงาน</th>
+                    <th>pro_id</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 $sql = "
-                    select ti.name as title,stu.stu_name,stu.stu_surname,stu.school,ac.name as activity ,le.name as level,g.round
+                    select ti.name as title,stu.stu_name,stu.stu_surname,stu.school,ac.name as activity ,le.name as level,g.round,p.pro_id
                     from tb_group as g
                     left join tb_project as p on p.pro_id = g.pro_id
                     left join tb_student as stu on stu.stu_id = p.stu_id
@@ -64,6 +65,7 @@ header("Expires: 0");
                             <td>เข้าร่วมการแข่งขัน</td>
                             <td>นิทรรศการวันวิทยาศาสตร์ ประจำปี 2566 ในหัวข้อ “Science Today is Technology Tomorrow”</td>
                             <td>ระหว่างวันที่ 4-5 สิงหาคม พ.ศ.2566</td>
+                            <td>{$st['pro_id']}</td>
                         </tr>
                     ";
                 }
@@ -92,6 +94,7 @@ header("Expires: 0");
                     <th>รางวัล</th>
                     <th>งาน</th>
                     <th>วันที่จัดงาน</th>
+                    <th>pro_id</th>
                 </tr>
             </thead>
             <tbody>
@@ -135,6 +138,7 @@ header("Expires: 0");
                             <td>เข้าร่วมการแข่งขัน</td>
                             <td>นิทรรศการวันวิทยาศาสตร์ ประจำปี 2566 ในหัวข้อ “Science Today is Technology Tomorrow”</td>
                             <td>ระหว่างวันที่ 4-5 สิงหาคม พ.ศ.2566</td>
+                            <td>{$st['pro_id']}</td>
                         </tr>
                     ";
                 }

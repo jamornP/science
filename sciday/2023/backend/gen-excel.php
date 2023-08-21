@@ -25,7 +25,7 @@
                         <br>
                         <?php 
                             $sql = "
-                                select ti.name as title,stu.stu_name,stu.stu_surname,stu.school,p.p_name,p.tea_id,ac.name as activity ,le.name as level,g.round
+                                select ti.name as title,stu.stu_name,stu.stu_surname,stu.school,p.p_name,p.tea_id,ac.name as activity ,le.name as level,g.round,p.pro_id
                                 from tb_group as g
                                 left join tb_project as p on p.pro_id = g.pro_id
                                 left join tb_student as stu on stu.stu_id = p.stu_id
