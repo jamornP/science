@@ -25,7 +25,7 @@
                         <br>
                         <?php 
                             $sql = "
-                                select ti.name as title,stu.stu_name,stu.stu_surname,stu.school,p.p_name,p.tea_id,ac.name as activity ,le.name as level,g.round,p.pro_id
+                                select ti.name as title,stu.stu_name,stu.stu_surname,stu.school,p.p_name,p.tea_id,ac.name as activity ,le.name as level,g.round,g.score,p.pro_id
                                 from tb_group as g
                                 left join tb_project as p on p.pro_id = g.pro_id
                                 left join tb_student as stu on stu.stu_id = p.stu_id
@@ -37,6 +37,18 @@
                             ";
                         ?>
                         <textarea rows="10" class="form-control" id="sql" name="sql" ><?php echo $sql;?></textarea>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="round" id="round1" value="online">
+                            <label class="form-check-label" for="round1">
+                                online
+                            </label>
+                            </div>
+                            <div class="form-check">
+                            <input class="form-check-input" type="radio" name="round" id="round2" value="final">
+                            <label class="form-check-label" for="round2">
+                                final
+                            </label>
+                        </div>
                     </div>
                     
                     

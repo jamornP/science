@@ -21,67 +21,72 @@ header("Expires: 0");
 <body>
     <div class="container-fluid mt-5">
         <?php 
+            
             if(isset($_POST['answer'])){
                 ?>
                 <table class="table">
-            <thead>
-                <tr>
-                    <th>ที่</th>
-                    <th>ชื่อ - นามสกุล</th>
-                    <th>โรงเรียน</th>
-                    <th>กิจกรรม</th>
-                    <th>ระดับ</th>
-                    <th>รางวัล</th>
-                    <th>งาน</th>
-                    <th>วันที่จัดงาน</th>
-                    <th>pro_id</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $sql = "
-                    select ti.name as title,stu.stu_name,stu.stu_surname,stu.school,ac.name as activity ,le.name as level,g.round,p.pro_id
-                    from tb_group as g
-                    left join tb_project as p on p.pro_id = g.pro_id
-                    left join tb_student as stu on stu.stu_id = p.stu_id
-                    left join tb_title as ti on ti.ti_id = stu.ti_id
-                    left join tb_activity as ac on ac.ac_id = g.ac_id
-                    left join tb_level as le on le.le_id = g.le_id
-                    where g.round = 'online' 
-                    ORDER BY ac.name,le.name
-                ";
-                $data = $adminObj->getSqlData($sql);
-                $i=0;
-                foreach($data as $st){
-                    $i++;
-                    $stu = $st['title'].$st['stu_name']." ".$st['stu_surname'];
-                    echo "
+                    <thead>
                         <tr>
-                            <td>{$i}</td>
-                            <td>{$stu}</td>
-                            <td>{$st['school']}</td>
-                            <td>{$st['activity']}</td>
-                            <td></td>
-                            <td>เข้าร่วมการแข่งขัน</td>
-                            <td>นิทรรศการวันวิทยาศาสตร์ ประจำปี 2566 ในหัวข้อ “Science Today is Technology Tomorrow”</td>
-                            <td>ระหว่างวันที่ 4-5 สิงหาคม พ.ศ.2566</td>
-                            <td>{$st['pro_id']}</td>
+                            <th>ที่</th>
+                            <th>ชื่อ - นามสกุล</th>
+                            <th>โรงเรียน</th>
+                            <th>กิจกรรม</th>
+                            <th>รางวัล</th>
+                            <th>งาน</th>
+                            <th>วันที่จัดงาน</th>
+                            <th>pro_id</th>
                         </tr>
-                    ";
-                }
-                // echo "<pre>";
-                // print_r($data);
-                // echo"</pre>";
-                ?>
-                
-            </tbody>
-        </table>
+                    </thead>
+                    <tbody>
+                        <?php
+                        if(isset($_POST['round'])){
+                            // echo "<br>".$_POST['round']."<br>";
+                            $sql = "
+                                select ti.name as title,stu.stu_name,stu.stu_surname,stu.school,ac.name as activity ,g.round,p.pro_id
+                                from tb_group as g
+                                left join tb_project as p on p.pro_id = g.pro_id
+                                left join tb_student as stu on stu.stu_id = p.stu_id
+                                left join tb_title as ti on ti.ti_id = stu.ti_id
+                                left join tb_activity as ac on ac.ac_id = g.ac_id
+                                left join tb_level as le on le.le_id = g.le_id
+                                where g.round = '{$_POST['round']}' AND (ac.ac_id = 4 OR ac.ac_id = 5)
+                                ORDER BY p.pro_id
+                            ";
+                        }
+                        // echo $sql;
+                        $data = $adminObj->getSqlData($sql);
+                        $i=0;
+                        foreach($data as $st){
+                            $i++;
+                            $stu = $st['title'].$st['stu_name']." ".$st['stu_surname'];
+
+                           
+                            echo "
+                                <tr>
+                                    <td>{$i}</td>
+                                    <td>{$stu}</td>
+                                    <td>{$st['school']}</td>
+                                    <td>{$st['activity']}</td>
+                                    <td>{$_POST['round']}</td>
+                                    <td>{$coin}</td>
+                                    <td></td>
+                                    <td>{$st['pro_id']}</td>
+                                </tr>
+                            ";
+                        }
+                        // echo "<pre>";
+                        // print_r($data);
+                        // echo"</pre>";
+                        ?>
+                        
+                    </tbody>
+                </table>
 
                 <?php
 
             }else{
                     ?>
-<table class="table">
+        <table class="table">
             <thead>
                 <tr>
                     <th>ที่</th>
@@ -102,6 +107,9 @@ header("Expires: 0");
                 $sql = $_POST['sql'];
                 $data = $adminObj->getSqlData($sql);
                 $i=0;
+                // echo "<pre>";
+                // print_r($data);
+                // echo "</pre>";
                 foreach($data as $st){
                     $i++;
                     $stu = $st['title'].$st['stu_name']." ".$st['stu_surname'];
@@ -126,6 +134,21 @@ header("Expires: 0");
                         }
                         $ta .= $and.$tea['title'].$tea['tea_name']." ".$tea['tea_surname'];
                     }
+
+                    $score = $st['score'];
+                    if($score>=41){
+                        $coin = "ได้รับรางวัล ระดับเหรียญทอง";
+                    }elseif($score>=31){
+                        $coin = "ได้รับรางวัล ระดับเหรียญเงิน";
+                    }elseif($score>=21){
+                        $coin = "ได้รับรางวัล ระดับเหรียญทองแดง";
+                    }else{
+                        if($st['round']=='award'){
+                            $coin = "ได้ผ่านเข้ารอบตัดสิน";
+                        }else{
+                            $coin = "เข้าร่วมการแข่งขัน";
+                        }
+                    }
                     echo "
                         <tr>
                             <td>{$i}</td>
@@ -135,9 +158,9 @@ header("Expires: 0");
                             <td>{$ta}</td>
                             <td>{$st['activity']}</td>
                             <td>{$st['level']}</td>
-                            <td>เข้าร่วมการแข่งขัน</td>
-                            <td>นิทรรศการวันวิทยาศาสตร์ ประจำปี 2566 ในหัวข้อ “Science Today is Technology Tomorrow”</td>
-                            <td>ระหว่างวันที่ 4-5 สิงหาคม พ.ศ.2566</td>
+                            <td>{$coin}</td>
+                            <td></td>
+                            <td></td>
                             <td>{$st['pro_id']}</td>
                         </tr>
                     ";
