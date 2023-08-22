@@ -104,7 +104,7 @@ header("Expires: 0");
             </thead>
             <tbody>
                 <?php
-                $sql = $_POST['sql'];
+                $sql = $_POST['sql']." ".$_POST['round']." ORDER BY p.pro_id";
                 $data = $adminObj->getSqlData($sql);
                 $i=0;
                 // echo "<pre>";
@@ -134,21 +134,23 @@ header("Expires: 0");
                         }
                         $ta .= $and.$tea['title'].$tea['tea_name']." ".$tea['tea_surname'];
                     }
-
-                    $score = $st['score'];
-                    if($score>=41){
-                        $coin = "ได้รับรางวัล ระดับเหรียญทอง";
-                    }elseif($score>=31){
-                        $coin = "ได้รับรางวัล ระดับเหรียญเงิน";
-                    }elseif($score>=21){
-                        $coin = "ได้รับรางวัล ระดับเหรียญทองแดง";
-                    }else{
-                        if($st['round']=='award'){
-                            $coin = "ได้ผ่านเข้ารอบตัดสิน";
+                    if($_POST['round']=="AND g.round ='award'"){
+                        $score = $st['score'];
+                        if($score>=41){
+                            $coin = "ได้รับรางวัล ระดับเหรียญทอง";
+                        }elseif($score>=31){
+                            $coin = "ได้รับรางวัล ระดับเหรียญเงิน";
+                        }elseif($score>=21){
+                            $coin = "ได้รับรางวัล ระดับเหรียญทองแดง";
                         }else{
-                            $coin = "เข้าร่วมการแข่งขัน";
+                            $coin = "ได้ผ่านเข้ารอบชิงชนะเลิศ";
                         }
+                    }elseif($_POST['round']=="AND g.round ='final'"){
+                        $coin = "";
+                    }else{
+                        $coin = "ได้เข้าร่วม";
                     }
+                    
                     echo "
                         <tr>
                             <td>{$i}</td>

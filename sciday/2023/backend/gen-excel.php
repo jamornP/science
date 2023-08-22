@@ -32,21 +32,32 @@
                                 left join tb_title as ti on ti.ti_id = stu.ti_id
                                 left join tb_activity as ac on ac.ac_id = g.ac_id
                                 left join tb_level as le on le.le_id = g.le_id
-                                where g.round = 'doc' AND ac.ac_id = 1
-                                ORDER BY ac.name
+                                where ac.ac_id = 1
                             ";
                         ?>
                         <textarea rows="10" class="form-control" id="sql" name="sql" ><?php echo $sql;?></textarea>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="round" id="round1" value="online">
+                            <input class="form-check-input" type="radio" name="round" id="round1" value="AND g.round ='online'">
                             <label class="form-check-label" for="round1">
-                                online
+                                ได้เข้าร่วม ตอบปัญหา (online) Auto Answer
                             </label>
-                            </div>
-                            <div class="form-check">
-                            <input class="form-check-input" type="radio" name="round" id="round2" value="final">
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="round" id="round4" value="AND g.round ='doc'">
+                            <label class="form-check-label" for="round4">
+                                ได้เข้าร่วม (doc) Run SQL
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="round" id="round2" value="AND g.round ='final'">
                             <label class="form-check-label" for="round2">
-                                final
+                                ทีมที่ผ่านเข้ารอบสุดท้าย (final) ไม่มีรางวัล Auto Answer,Run SQL
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="round" id="round3" value="AND g.round ='award'">
+                            <label class="form-check-label" for="round3">
+                                ได้รับรางวัล ตามเงื่อนไข (ระดับเหรียญ) Run SQL
                             </label>
                         </div>
                     </div>
