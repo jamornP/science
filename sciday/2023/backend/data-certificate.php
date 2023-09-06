@@ -1,8 +1,8 @@
 <?php
-header("Content-Type: application/xls;  charset=utf-8");
-header("Content-Disposition: attachment; filename=scidat2023.xls; worksheet1=เข้าร่วมการแข่งขัน;");
-header("Pragma: no-cache");
-header("Expires: 0");
+// header("Content-Type: application/xls;  charset=utf-8");
+// header("Content-Disposition: attachment; filename=scidat2023.xls; worksheet1=เข้าร่วมการแข่งขัน;");
+// header("Pragma: no-cache");
+// header("Expires: 0");
 ?>
 <?php require $_SERVER['DOCUMENT_ROOT'] . "/science/vendor/autoload.php"; ?>
 <?php

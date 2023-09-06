@@ -37,9 +37,15 @@
                         ?>
                         <textarea rows="10" class="form-control" id="sql" name="sql" ><?php echo $sql;?></textarea>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="round" id="round1" value="AND g.round ='online'">
+                            <input class="form-check-input" type="radio" name="round" id="round1" value="online">
                             <label class="form-check-label" for="round1">
                                 ได้เข้าร่วม ตอบปัญหา (online) Auto Answer
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="round" id="round5" value="final">
+                            <label class="form-check-label" for="round5">
+                            ทีมที่ผ่านเข้ารอบสุดท้าย (final) ไม่มีรางวัล Auto Answer
                             </label>
                         </div>
                         <div class="form-check">
@@ -51,7 +57,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="round" id="round2" value="AND g.round ='final'">
                             <label class="form-check-label" for="round2">
-                                ทีมที่ผ่านเข้ารอบสุดท้าย (final) ไม่มีรางวัล Auto Answer,Run SQL
+                                ทีมที่ผ่านเข้ารอบสุดท้าย (final) ไม่มีรางวัล Run SQL
                             </label>
                         </div>
                         <div class="form-check">

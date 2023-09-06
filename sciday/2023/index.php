@@ -393,6 +393,21 @@ session_start();
         <br>
         </div>
     </section>
+    <section class="min-vh-100">
+        <div class="container">
+        <?php
+        // if($award){
+            ?>
+                <!-- <div class="card">
+                    <span class="badge rounded-pill bg-primary mt-3 shadow text-truncate">
+                        <h5 class=""><b>&nbsp;&nbsp;&nbspประกาศผลรางวัลย์&nbsp;&nbsp;</b></h5>
+                    </span>
+                </div> -->
+            <?php
+        // }
+        ?>
+        </div>
+    </section>
 
     <script type="text/javascript">
         function countDown() {
