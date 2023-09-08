@@ -395,8 +395,37 @@ session_start();
     </section>
     <section class="min-vh-100">
         <div class="container">
+        <div class="card  shadow">
+            <div class="card-header bg-primary">
+                <h2 class="card-title text-center text-white"><b>ประกาศผลรางวัล</b></h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-lg-12 text-center">
+                        <?php
+                        for($i=1;$i<=4;$i++){
+                            echo "
+                                <a href='/science/sciday/images/award/04_00{$i}.png' target='_blank'> <img src='/science/sciday/images/award/04_00{$i}.png' class='img-fluid rounded shadow mt-1' alt='...'></a><br>
+                            ";
+                        }
+                        for($i=1;$i<=4;$i++){
+                            echo "
+                                <a href='/science/sciday/images/award/05_00{$i}.png' target='_blank'> <img src='/science/sciday/images/award/05_00{$i}.png' class='img-fluid rounded shadow mt-1' alt='...'></a><br>
+                            ";
+                        }
+                        ?>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                
+            </div>
+        </div>
         <?php
-        // if($award){
+            $j = 8;
+            
             ?>
                 <!-- <div class="card">
                     <span class="badge rounded-pill bg-primary mt-3 shadow text-truncate">

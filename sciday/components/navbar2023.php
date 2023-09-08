@@ -37,6 +37,11 @@ if(isset($_SESSION['user_id'])){
                         กิจกรรมWorkshop
                     </a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link active" href="http://sciserv01.sci.kmitl.ac.th/app-certificate/" aria-current="page">
+                        ดาวน์โหลด Certificate
+                    </a>
+                </li>
                 <!-- <li class="nav-item">
                     <a class="nav-link active" href="#">ดาวน์โหลด</a>
                 </li>
